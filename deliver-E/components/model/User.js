@@ -26,5 +26,4 @@ class Runner extends React.Component {
   }
 }
 
-export default Eater;
-export default Runner;
+export default { Eater, Runner };

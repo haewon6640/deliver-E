@@ -12,8 +12,7 @@ import {
 } from "native-base";
 import * as firebase from "firebase";
 import "@firebase/firestore";
-import Eater from "./components/model/User";
-import Runner from "./components/model/User";
+import { Eater, Runner } from "./components/model/User";
 
 const dbh = firebase.firestore();
 class SignUp extends React.Component {
