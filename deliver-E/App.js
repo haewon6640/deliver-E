@@ -11,39 +11,94 @@ import {
   Label
 } from "native-base";
 import * as firebase from "firebase";
+import "@firebase/firestore";
+import Eater from "./components/model/Eater";
 
 //Initialize firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAIT-4TMNo1699fH8Qsbx4-bhHLDp04Thk",
-  authDomain: "deliver-e-937e4.firebaseapp.com",
-  databaseURL: "https://deliver-e-937e4.firebaseio.com",
-  projectId: "deliver-e-937e4",
-  storageBucket: "",
-  messagingSenderId: "814726497670",
-  appId: "1:814726497670:web:e605fc2dd6f5e662b39807",
-  measurementId: "G-P1JFMHT6SF"
+  apiKey: "AIzaSyD95ZlnAl58mSDsv16KSNJ0VKr4CYpJG2w",
+  authDomain: "deliver-e-e34da.firebaseapp.com",
+  databaseURL: "https://deliver-e-e34da.firebaseio.com",
+  projectId: "deliver-e-e34da",
+  storageBucket: "deliver-e-e34da.appspot.com",
+  messagingSenderId: "874425813575",
+  appId: "1:874425813575:web:3dea7471636414ff09bf62",
+  measurementId: "G-MR8W3SLHYT"
 };
 
 firebase.initializeApp(firebaseConfig);
 
+const dbh = firebase.firestore();
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      firstName: "",
+      lastName: ""
     };
   }
 
-  signUpUser = (email, password) => {
+  signUpUser = (email, password, firstName, lastName) => {
     try {
-      if (this.state.password.length < 6) {
+      if (password.length < 6) {
         alert("Please enter at least 6 characters");
         return;
       }
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .catch(function(error) {
+          // Handle Errors here.
+          console.log(error.code);
+          console.log(error.message);
+          // ...
+        });
+      // firebase
+      //   .auth()
+      //   .signInWithEmailAndPassword(email, password)
+      //   .catch(function(error) {
+      //     // Handle Errors here.
+      //     console.log(error.code);
+      //     console.log(error.message);
+      //     // ...
+      //   });
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+          var curUser = {
+            uid: user.uid,
+            email: user.email,
+            firstName: firstName,
+            lastName: lastName
+          };
+          console.log(curUser);
+          dbh
+            .collection("User")
+            .doc(user.uid)
+            .set(curUser);
+          // ...
+        } else {
+          // User is signed out.
+          // ...
+        }
+      });
 
-      firebase.auth().createUserWithEmailAndPassword(email, password);
+      // firebase.auth().onAuthStateChanged(function(user) {
+      //   if (user) {
+      //     var curUser = new Eater(user.uid, user.email, firstName, lastName);
+      //     console.log(user);
+      //     dbh
+      //       .collection("Eater")
+      //       .doc(user.uid)
+      //       .set(curUser);
+      //   } else {
+      //     console.log("No user is signed in");
+      //     // No user is signed in.
+      //   }
+      // });
     } catch (error) {
       console.log(error.toString());
     }
@@ -85,6 +140,26 @@ export default class App extends React.Component {
             />
           </Item>
 
+          <Item floatingLabel>
+            <Label>First Name</Label>
+            <Input
+              secureTextEntry={true}
+              autoCorrect={false}
+              autoCapitalize="none"
+              onChangeText={firstName => this.setState({ firstName })}
+            />
+          </Item>
+
+          <Item floatingLabel>
+            <Label>Last Name</Label>
+            <Input
+              secureTextEntry={true}
+              autoCorrect={false}
+              autoCapitalize="none"
+              onChangeText={lastName => this.setState({ lastName })}
+            />
+          </Item>
+
           <Button
             style={{ marginTop: 10 }}
             full
@@ -103,7 +178,12 @@ export default class App extends React.Component {
             rounded
             primary
             onPress={() =>
-              this.signUpUser(this.state.email, this.state.password)
+              this.signUpUser(
+                this.state.email,
+                this.state.password,
+                this.state.firstName,
+                this.state.lastName
+              )
             }
           >
             <Text style={{ color: "white" }}> Sign Up</Text>
