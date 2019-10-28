@@ -12,8 +12,11 @@ import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
 
 const { width, height } = Dimensions.get("screen");
+
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+
+const dbh = firebase.firestore();
 
 class Sign extends React.Component {
   constructor(props) {
@@ -30,11 +33,14 @@ class Sign extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(function(error) {
+        // if (!error.code) {
+        // }
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        alert(error.code);
+        alert(error.message);
         // ...
       });
+    this.props.navigation.navigate("Home");
   };
 
   render() {
@@ -45,79 +51,75 @@ class Sign extends React.Component {
           source={Images.RegisterBackground}
           style={{ width, height, zIndex: 1 }}
         >
-          <Form>
-            <Block flex middle>
-              <Block style={styles.registerContainer}>
-                <Block flex>
-                  <Block flex={0.17} middle>
-                    <Text color="#8898AA" size={12}>
-                      Sign in with your Emory email
-                    </Text>
-                  </Block>
-                  <Block flex center>
-                    <KeyboardAvoidingView
-                      style={{ flex: 1 }}
-                      behavior="padding"
-                      enabled
-                    >
-                      <Block
-                        width={width * 0.8}
-                        style={{ marginBottom: 15 }}
-                      ></Block>
-                      <Block width={width * 0.8} style={{ marginBottom: 15 }}>
-                        <Input
-                          borderless
-                          placeholder="Email"
-                          onChangeText={email => this.setState({ email })}
-                          iconContent={
-                            <Icon
-                              size={16}
-                              color={argonTheme.COLORS.ICON}
-                              name="ic_mail_24px"
-                              family="ArgonExtra"
-                              style={styles.inputIcons}
-                            />
-                          }
-                        />
-                      </Block>
-                      <Block width={width * 0.8}>
-                        <Input
-                          password
-                          borderless
-                          placeholder="Password"
-                          onChangeText={password => this.setState({ password })}
-                          iconContent={
-                            <Icon
-                              size={16}
-                              color={argonTheme.COLORS.ICON}
-                              name="padlock-unlocked"
-                              family="ArgonExtra"
-                              style={styles.inputIcons}
-                            />
-                          }
-                        />
-                      </Block>
-                      <Block middle>
-                        <Button
-                          color="primary"
-                          style={styles.createButton}
-                          onPress={
-                            (() =>
-                              this.login(this.state.email, this.state.password),
-                            () => this.props.navigation.navigate("Home"))
-                          }
-                        >
-                          <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                            Sign In
-                          </Text>
-                        </Button>
-                      </Block>
-                    </KeyboardAvoidingView>
-                  </Block>
+          <Block flex middle>
+            <Block style={styles.registerContainer}>
+              <Block flex>
+                <Block flex={0.17} middle>
+                  <Text color="#8898AA" size={12}>
+                    Sign in with your Emory email
+                  </Text>
+                </Block>
+                <Block flex center>
+                  <KeyboardAvoidingView
+                    style={{ flex: 1 }}
+                    behavior="padding"
+                    enabled
+                  >
+                    <Block
+                      width={width * 0.8}
+                      style={{ marginBottom: 15 }}
+                    ></Block>
+                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                      <Input
+                        borderless
+                        placeholder="Email"
+                        onChangeText={email => this.setState({ email })}
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="ic_mail_24px"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                      />
+                    </Block>
+                    <Block width={width * 0.8}>
+                      <Input
+                        password
+                        borderless
+                        placeholder="Password"
+                        onChangeText={password => this.setState({ password })}
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="padlock-unlocked"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                      />
+                    </Block>
+                    <Block middle>
+                      <Button
+                        color="primary"
+                        style={styles.createButton}
+                        onPress={() =>
+                          this.login(this.state.email, this.state.password)
+                        }
+                      >
+                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
+                          Sign In
+                        </Text>
+                      </Button>
+                    </Block>
+                  </KeyboardAvoidingView>
                 </Block>
               </Block>
             </Block>
-          </Form>
+          </Block>
         </ImageBackground>
       </Block>
     );

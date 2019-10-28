@@ -8,17 +8,19 @@ import {
   StatusBar,
   KeyboardAvoidingView
 } from "react-native";
-import { Block, Checkbox, Text, theme } from "galio-framework";
+import { Toast, Block, Checkbox, Text, theme } from "galio-framework";
 
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
 
 import firebase from "../components/firebase";
-import * as firestore from "@firebase/firestore";
-const dbh = firestore;
+import "@firebase/firestore";
+import { ToastAndroid } from "react-native";
 
 const { width, height } = Dimensions.get("screen");
 
+const isShow = true;
+const dbh = firebase.firestore();
 class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -31,24 +33,29 @@ class Register extends React.Component {
       curUser: null
     };
   }
-  
+
   signUpUser = (email, password, name, phoneNumber) => {
     try {
-      if (password.length < 6) {
-        alert("Please enter at least 6 characters");
-        return;
-      }
-      firebase.auth().createUserWithEmailAndPassword(email, password);
+      // if (password.length < 6) {
+      //   alert("Please enter at least 6 characters");
+      //   return;
+      // }
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .catch(function(error) {
+          alert(error.toString());
+        });
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-          var curUser = new Eater(
-            (uid = user.uid),
-            (email = user.email),
-            (name = name),
-            (phoneNumber = phoneNumber)
-          );
+          const curUser = {
+            uid: user.uid,
+            email: user.email,
+            name: name,
+            phoneNumber: phoneNumber
+          };
           dbh
-            .collection("Eater")
+            .collection("User")
             .doc(user.uid)
             .set(curUser);
         } else {
@@ -56,8 +63,9 @@ class Register extends React.Component {
         }
       });
     } catch (error) {
-      console.log(error.toString());
+      alert(error.toString());
     }
+    this.props.navigation.navigate("Home");
   };
 
   render() {
@@ -152,32 +160,30 @@ class Register extends React.Component {
                     </Block>
                     <Block middle>
                       <Button
-                        color="primary"
-                        style={styles.createButton}
-                        onPress={
-                          (() =>
-                            this.signUpUser(
-                              this.state.email,
-                              this.state.password,
-                              this.state.name,
-                              this.state.phoneNumber
-                            ),
-                          () => this.props.navigation.navigate("Home"))
-                        }
-                      >
-                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                          CREATE ACCOUNT
-                        </Text>
-                      </Button>
-                    </Block>
-                    <Block middle>
-                      <Button
                         title="Sign In"
                         onPress={() => this.props.navigation.navigate("Sign")}
                         style={styles.createButton}
                       >
                         <Text size={12} color={argonTheme.COLORS.WHITE}>
                           Already have an account? Sign in!
+                        </Text>
+                      </Button>
+                    </Block>
+                    <Block middle>
+                      <Button
+                        color="primary"
+                        style={styles.createButton}
+                        onPress={() =>
+                          this.signUpUser(
+                            this.state.email,
+                            this.state.password,
+                            this.state.name,
+                            this.state.phoneNumber
+                          )
+                        }
+                      >
+                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
+                          CREATE ACCOUNT
                         </Text>
                       </Button>
                     </Block>
