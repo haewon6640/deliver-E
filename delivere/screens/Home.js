@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, View, StyleSheet, Text, Dimensions, TouchableOpacity} from 'react-native';
 import { Block, Icon } from 'galio-framework';
 import Restaurant from '../components/Restaurant';
-import SafeAreaView from 'react-native-safe-area-view'
+import normalize from 'react-native-normalize';
 const { width } = Dimensions.get('window');
 
 class Header extends React.Component{
@@ -51,7 +51,9 @@ export default class Home extends React.Component {
               <Icon name="home" family="AntDesign" size={35} color='#5E72E4' />
               <Icon name="search1" family="AntDesign" size={35} color='#5E72E4' />
               <Icon name="profile" family="AntDesign" size={35} color='#5E72E4' />
-              <Icon name="user" family="AntDesign" size={35} color='#5E72E4' />
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile')}>
+                <Icon name="user" family="AntDesign" size={35} color='#5E72E4' />
+              </TouchableOpacity>
           </Block>
         </View>
     );
@@ -68,15 +70,15 @@ const styles = StyleSheet.create({
   content:{
     backgroundColor:'#F8F9FE',
     flex: 1,
-    paddingTop: 85
+    paddingTop: normalize(85)
   },
   location:{
     fontSize: 25,
     color: '#5E72E4'
   },
   header:{
-    height: 115,
-    paddingTop: 40,
+    height: normalize(115),
+    paddingTop: normalize(40),
     borderBottomWidth: 1,
     borderColor: '#d6d7da',
     width: width,
@@ -84,14 +86,14 @@ const styles = StyleSheet.create({
   },
   footer: {
     width: width,
-    height: 100,
-    paddingTop: 15,
+    height: normalize(100),
+    paddingTop: normalize(15),
     borderTopWidth: 1,
     borderColor: '#d6d7da'
   },
   text:{
     textAlign: 'center',
-    fontSize: 17,
+    fontSize: normalize(17),
     color: '#1f396e'
   }
 });

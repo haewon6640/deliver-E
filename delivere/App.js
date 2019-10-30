@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./screens/Home";
+import Profile from "./screens/Profile";
 import Menu from "./screens/Menu";
 import Customize from "./screens/Customize";
 import Register from "./screens/Register";
@@ -17,6 +18,7 @@ const AppNavigator = createStackNavigator(
     Register: Register,
     Sign: Sign,
     Home: Home,
+    Profile: Profile,
     Menu: Menu,
     Customize: Customize
   },
