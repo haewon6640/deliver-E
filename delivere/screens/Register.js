@@ -50,7 +50,6 @@ class Register extends React.Component {
         .catch(function(error) {
           alert(error.toString());
         }.bind(this));
-      const navigation = this.props.navigation;
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           const curUser = {
