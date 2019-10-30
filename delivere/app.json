@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Deliver-E",
-    "slug": "deliver-e",
+    "name": "Argon FREE React Native",
+    "slug": "argon-free-react-native",
     "privacy": "public",
     "sdkVersion": "34.0.0",
     "platforms": [
@@ -24,7 +24,6 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "description": ""
+    }
   }
 }

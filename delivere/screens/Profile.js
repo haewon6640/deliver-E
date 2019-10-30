@@ -1,104 +1,347 @@
 import React from "react";
 import {
-  ScrollView,
-  View,
   StyleSheet,
-  Text,
   Dimensions,
-  TouchableOpacity
+  ScrollView,
+  Image,
+  ImageBackground,
+  Platform
 } from "react-native";
-import { Block, Icon } from "galio-framework";
-const { width } = Dimensions.get("window");
-const { height } = Dimensions.get("window");
+import { Block, Text, theme } from "galio-framework";
 
-import firebase from "../components/firebase";
+import { Button } from "../components";
+import { Images, argonTheme } from "../constants";
+import { HeaderHeight } from "../constants/utils";
 
-signOut = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(
-      function() {
-        // Sign-out successful.
-        this.props.navigation.navigate("Home");
-      }.bind(this)
-    )
-    .catch(
-      function(error) {
-        // An error happened.
-        alert(error.code);
-        alert(error.message);
-      }.bind(this)
-    );
-};
+const { width, height } = Dimensions.get("screen");
 
-export default class Profile extends React.Component {
+const thumbMeasure = (width - 48 - 32) / 3;
+
+class Profile extends React.Component {
   render() {
-    const { navigation } = this.props;
-    const user = navigation.getParam("user");
-    if (user.email.length > 8) {
-      user.email = user.email.substring(0, 6) + "...";
-    }
-    if (user.name.length > 8) {
-      user.name = user.name.substring(0, 6) + "...";
-    }
     return (
-      <Block style={styles.container}>
-        <Block style={styles.subCont}>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Name</Text>
-            <Text style={styles.right}>{user.name}</Text>
-          </Block>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Phone Number</Text>
-            <Text style={styles.right}>{user.phoneNumber}</Text>
-          </Block>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Email</Text>
-            <Text style={styles.right}>{user.email}</Text>
-          </Block>
+      <Block flex style={styles.profile}>
+        <Block flex>
+          <ImageBackground
+            source={Images.ProfileBackground}
+            style={styles.profileContainer}
+            imageStyle={styles.profileBackground}
+          >
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              style={{ width, marginTop: '25%' }}
+            >
+              <Block flex style={styles.profileCard}>
+                <Block middle style={styles.avatarContainer}>
+                  <Image
+                    source={{ uri: Images.ProfilePicture }}
+                    style={styles.avatar}
+                  />
+                </Block>
+                <Block style={styles.info}>
+                  <Block
+                    middle
+                    row
+                    space="evenly"
+                    style={{ marginTop: 20, paddingBottom: 24 }}
+                  >
+                    <Button
+                      small
+                      style={{ backgroundColor: argonTheme.COLORS.INFO }}
+                    >
+                      CONNECT
+                    </Button>
+                    <Button
+                      small
+                      style={{ backgroundColor: argonTheme.COLORS.DEFAULT }}
+                    >
+                      MESSAGE
+                    </Button>
+                  </Block>
+                  <Block row space="between">
+                    <Block middle>
+                      <Text
+                        bold
+                        size={12}
+                        color="#525F7F"
+                        style={{ marginBottom: 4 }}
+                      >
+                        2K
+                      </Text>
+                      <Text size={12}>Orders</Text>
+                    </Block>
+                    <Block middle>
+                      <Text
+                        bold
+                        color="#525F7F"
+                        size={12}
+                        style={{ marginBottom: 4 }}
+                      >
+                        10
+                      </Text>
+                      <Text size={12}>Photos</Text>
+                    </Block>
+                    <Block middle>
+                      <Text
+                        bold
+                        color="#525F7F"
+                        size={12}
+                        style={{ marginBottom: 4 }}
+                      >
+                        89
+                      </Text>
+                      <Text size={12}>Comments</Text>
+                    </Block>
+                  </Block>
+                </Block>
+                <Block flex>
+                  <Block middle style={styles.nameInfo}>
+                    <Text bold size={28} color="#32325D">
+                      Jessica Jones, 27
+                    </Text>
+                    <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
+                      San Francisco, USA
+                    </Text>
+                  </Block>
+                  <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
+                    <Block style={styles.divider} />
+                  </Block>
+                  <Block middle>
+                    <Text
+                      size={16}
+                      color="#525F7F"
+                      style={{ textAlign: "center" }}
+                    >
+                      An artist of considerable range, Jessica name taken by
+                      Melbourne …
+                    </Text>
+                    <Button
+                      color="transparent"
+                      textStyle={{
+                        color: "#233DD2",
+                        fontWeight: "500",
+                        fontSize: 16
+                      }}
+                    >
+                      Show more
+                    </Button>
+                  </Block>
+                  <Block
+                    row
+                    style={{ paddingVertical: 14, alignItems: "baseline" }}
+                  >
+                    <Text bold size={16} color="#525F7F">
+                      Album
+                    </Text>
+                  </Block>
+                  <Block
+                    row
+                    style={{ paddingBottom: 20, justifyContent: "flex-end" }}
+                  >
+                    <Button
+                      small
+                      color="transparent"
+                      textStyle={{ color: "#5E72E4", fontSize: 12 }}
+                    >
+                      View all
+                    </Button>
+                  </Block>
+                  <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
+                    <Block row space="between" style={{ flexWrap: "wrap" }}>
+                      {Images.Viewed.map((img, imgIndex) => (
+                        <Image
+                          source={{ uri: img }}
+                          key={`viewed-${img}`}
+                          resizeMode="cover"
+                          style={styles.thumb}
+                        />
+                      ))}
+                    </Block>
+                  </Block>
+                </Block>
+              </Block>
+            </ScrollView>
+          </ImageBackground>
         </Block>
-        <Block style={styles.subCont}>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Change password</Text>
+        {/* <ScrollView showsVerticalScrollIndicator={false} 
+                    contentContainerStyle={{ flex: 1, width, height, zIndex: 9000, backgroundColor: 'red' }}>
+        <Block flex style={styles.profileCard}>
+          <Block middle style={styles.avatarContainer}>
+            <Image
+              source={{ uri: Images.ProfilePicture }}
+              style={styles.avatar}
+            />
           </Block>
-        </Block>
-        <TouchableOpacity onPress={() => signOut()}>
-          <Block style={styles.subCont}>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Sign Out</Text>
+          <Block style={styles.info}>
+            <Block
+              middle
+              row
+              space="evenly"
+              style={{ marginTop: 20, paddingBottom: 24 }}
+            >
+              <Button small style={{ backgroundColor: argonTheme.COLORS.INFO }}>
+                CONNECT
+              </Button>
+              <Button
+                small
+                style={{ backgroundColor: argonTheme.COLORS.DEFAULT }}
+              >
+                MESSAGE
+              </Button>
+            </Block>
+
+            <Block row space="between">
+              <Block middle>
+                <Text
+                  bold
+                  size={12}
+                  color="#525F7F"
+                  style={{ marginBottom: 4 }}
+                >
+                  2K
+                </Text>
+                <Text size={12}>Orders</Text>
+              </Block>
+              <Block middle>
+                <Text bold size={12} style={{ marginBottom: 4 }}>
+                  10
+                </Text>
+                <Text size={12}>Photos</Text>
+              </Block>
+              <Block middle>
+                <Text bold size={12} style={{ marginBottom: 4 }}>
+                  89
+                </Text>
+                <Text size={12}>Comments</Text>
+              </Block>
             </Block>
           </Block>
-        </TouchableOpacity>
+          <Block flex>
+              <Block middle style={styles.nameInfo}>
+                <Text bold size={28} color="#32325D">
+                  Jessica Jones, 27
+                </Text>
+                <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
+                  San Francisco, USA
+                </Text>
+              </Block>
+              <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
+                <Block style={styles.divider} />
+              </Block>
+              <Block middle>
+                <Text size={16} color="#525F7F" style={{ textAlign: "center" }}>
+                  An artist of considerable range, Jessica name taken by
+                  Melbourne …
+                </Text>
+                <Button
+                  color="transparent"
+                  textStyle={{
+                    color: "#233DD2",
+                    fontWeight: "500",
+                    fontSize: 16
+                  }}
+                >
+                  Show more
+                </Button>
+              </Block>
+              <Block
+                row
+                style={{ paddingVertical: 14, alignItems: "baseline" }}
+              >
+                <Text bold size={16} color="#525F7F">
+                  Album
+                </Text>
+              </Block>
+              <Block
+                row
+                style={{ paddingBottom: 20, justifyContent: "flex-end" }}
+              >
+                <Button
+                  small
+                  color="transparent"
+                  textStyle={{ color: "#5E72E4", fontSize: 12 }}
+                >
+                  View all
+                </Button>
+              </Block>
+              <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
+                <Block row space="between" style={{ flexWrap: "wrap" }}>
+                  {Images.Viewed.map((img, imgIndex) => (
+                    <Image
+                      source={{ uri: img }}
+                      key={`viewed-${img}`}
+                      resizeMode="cover"
+                      style={styles.thumb}
+                    />
+                  ))}
+                </Block>
+              </Block>
+          </Block>
+        </Block>
+                  </ScrollView>*/}
       </Block>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#F8F9FE",
-    height: height
+  profile: {
+    marginTop: Platform.OS === "android" ? -HeaderHeight : 0,
+    // marginBottom: -HeaderHeight * 2,
+    flex: 1
   },
-  subCont: {
-    marginTop: 30
+  profileContainer: {
+    width: width,
+    height: height,
+    padding: 0,
+    zIndex: 1
   },
-  entry: {
-    height: 60,
-    paddingLeft: 30,
-    alignItems: "center",
-    backgroundColor: "#fff",
+  profileBackground: {
+    width: width,
+    height: height / 2
+  },
+  profileCard: {
+    // position: "relative",
+    padding: theme.SIZES.BASE,
+    marginHorizontal: theme.SIZES.BASE,
+    marginTop: 65,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    backgroundColor: theme.COLORS.WHITE,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 0 },
+    shadowRadius: 8,
+    shadowOpacity: 0.2,
+    zIndex: 2
+  },
+  info: {
+    paddingHorizontal: 40
+  },
+  avatarContainer: {
+    position: "relative",
+    marginTop: -80
+  },
+  avatar: {
+    width: 124,
+    height: 124,
+    borderRadius: 62,
+    borderWidth: 0
+  },
+  nameInfo: {
+    marginTop: 35
+  },
+  divider: {
+    width: "90%",
     borderWidth: 1,
-    borderColor: "#F8F9FE"
+    borderColor: "#E9ECEF"
   },
-  right: {
-    position: "absolute",
-    left: 200,
-    fontSize: 17,
-    color: "#1f396e"
-  },
-  text: {
-    fontSize: 17,
-    color: "#1f396e"
+  thumb: {
+    borderRadius: 4,
+    marginVertical: 4,
+    alignSelf: "center",
+    width: thumbMeasure,
+    height: thumbMeasure
   }
 });
+
+export default Profile;

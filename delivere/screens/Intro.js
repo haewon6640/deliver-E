@@ -1,4 +1,6 @@
 import React from "react";
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import {
   StyleSheet,
   ImageBackground,
@@ -13,7 +15,7 @@ import { Images, argonTheme } from "../constants";
 
 const { width, height } = Dimensions.get("screen");
 
-class Sign extends React.Component {
+class Intro extends React.Component {
   render() {
     return (
       <Block flex middle>
@@ -26,8 +28,11 @@ class Sign extends React.Component {
             <Block style={styles.registerContainer}>
               <Block flex>
                 <Block flex={0.17} middle>
-                  <Text color="#8898AA" size={12}>
-                    Sign in with your Emory email
+                  <Text color="#8898AA" size={30}>
+                    Welcome to Deliver-E!
+                  </Text>
+                <Text color="#8898AA" size={18}>
+                  Would you like you:
                   </Text>
                 </Block>
                 <Block flex center>
@@ -36,45 +41,26 @@ class Sign extends React.Component {
                     behavior="padding"
                     enabled
                   >
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
-                    </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
-                      <Input
-                        borderless
-                        placeholder="Email"
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="ic_mail_24px"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block width={width * 0.8}>
-                      <Input
-                        password
-                        borderless
-                        placeholder="Password"
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="padlock-unlocked"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
                     <Block middle>
-                      <Button color="primary" style={styles.createButton} onPress={() => this.props.navigation.navigate('Home')}>
-                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                          Sign In
+                      <Button color="primary"
+                      style={styles.createButton}
+                      onPress={() => this.props.navigation.navigate('Register')}>
+                        <Text bold size={16} color={argonTheme.COLORS.WHITE}>
+                          Order Food
                         </Text>
                       </Button>
+                    </Block>
+                <Block middle>
+                    <Button
+                    color = "primary"
+                      title = "Runner"
+                      onPress={() => this.props.navigation.navigate('Runner')}
+                      style ={styles.createButton}>
+                        <Text bold size = {16} color={argonTheme.COLORS.WHITE}>
+                            Deliver Food
+                        </Text>
+                    </Button>
+
                     </Block>
                   </KeyboardAvoidingView>
                 </Block>
@@ -140,4 +126,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Sign;
+export default Intro;

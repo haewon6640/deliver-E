@@ -16,6 +16,8 @@ import Profile from "../screens/Profile";
 import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
+import Intro from "../screens/Intro";
+import Runner from "../screens/Runner";
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -141,6 +143,11 @@ const AppStack = createDrawerNavigator(
     //     drawerLabel: () => {}
     //   }
     // },
+
+            Intro: {
+      screen: Intro,
+
+      },
             Elements: {
       screen: ElementsStack,
       // navigationOptions: navOpt => ({
@@ -173,6 +180,9 @@ const AppStack = createDrawerNavigator(
       //   )
       // })
     },
+    Runner: {
+      screen: Runner,
+    }
     Articles: {
       screen: ArticlesStack,
       // navigationOptions: navOpt => ({
