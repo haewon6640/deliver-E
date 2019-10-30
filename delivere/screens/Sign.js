@@ -32,15 +32,19 @@ class Sign extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .catch(function(error) {
-        // if (!error.code) {
-        // }
-        // Handle Errors here.
-        alert(error.code);
-        alert(error.message);
-        // ...
-      });
-    this.props.navigation.navigate("Home");
+      .then(
+        function() {
+          this.props.navigation.navigate("Home");
+          // Sign-out successful.
+        }.bind(this)
+      )
+      .catch(
+        function(error) {
+          alert(error.code);
+          alert(error.message);
+          // ...
+        }.bind(this)
+      );
   };
 
   render() {

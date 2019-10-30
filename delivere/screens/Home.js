@@ -120,7 +120,7 @@ export default class Home extends React.Component {
               }.bind(this)
             );
         } else {
-          alert("OOPS. There was trouble fetching data from the server.");
+          alert("OOPS. There was an issue fetching data from the server.");
           // not working
         }
       }.bind(this)
@@ -128,6 +128,39 @@ export default class Home extends React.Component {
     // this.props.navigation.navigate("Menu");
   };
 
+  queryProfileInfo = () => {
+    const loggedIn = firebase.auth().onAuthStateChanged(
+      function(user) {
+        if (user) {
+          const name = "";
+          db.collection("User")
+            .doc(user.uid)
+            .get()
+            .then(
+              function(doc) {
+                if (doc.exists) {
+                  const curUser = {
+                    uid: doc.data().uid,
+                    email: doc.data().email,
+                    name: doc.data().name,
+                    phoneNumber: doc.data().phoneNumber
+                  };
+                  this.props.navigation.navigate("Profile", {
+                    user: curUser
+                  });
+                } else {
+                  alert("There was an issue fetching data from the server.");
+                }
+              }.bind(this)
+            );
+        } else {
+          alert("You are not signed in.");
+          // No user is signed in.
+          return;
+        }
+      }.bind(this)
+    );
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -142,14 +175,9 @@ export default class Home extends React.Component {
               <Restaurant name="Maru" />
             </TouchableOpacity>
           </Block>
+
           <Block row space="evenly" width={width}>
-            <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate("Menu", {
-                  restaurant: "Blue Donkey"
-                })
-              }
-            >
+            <TouchableOpacity onPress={() => this.queryProfileInfo()}>
               <Restaurant name="Blue Donkey" />
             </TouchableOpacity>
             <TouchableOpacity
