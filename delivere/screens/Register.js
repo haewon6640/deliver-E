@@ -1,6 +1,6 @@
 import React from "react";
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 import {
   StyleSheet,
   ImageBackground,
@@ -8,14 +8,64 @@ import {
   StatusBar,
   KeyboardAvoidingView
 } from "react-native";
-import { Block, Checkbox, Text, theme } from "galio-framework";
+import { Toast, Block, Checkbox, Text, theme } from "galio-framework";
 
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
 
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+
 const { width, height } = Dimensions.get("screen");
 
+const dbh = firebase.firestore();
 class Register extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: "",
+      password: "",
+      name: "",
+      phoneNumber: "",
+      curUser: null
+    };
+  }
+
+  signUpUser = (email, password, name, phoneNumber) => {
+    try {
+      // if (password.length < 6) {
+      //   alert("Please enter at least 6 characters");
+      //   return;
+      // }
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .catch(function(error) {
+          alert(error.toString());
+        });
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          const curUser = {
+            uid: user.uid,
+            email: user.email,
+            name: name,
+            phoneNumber: phoneNumber
+          };
+          dbh
+            .collection("User")
+            .doc(user.uid)
+            .set(curUser);
+          this.props.navigation.navigate("Home");
+        } else {
+          // No user is signed in.
+        }
+      });
+    } catch (error) {
+      alert(error.toString());
+    }
+  };
+
   render() {
     return (
       <Block flex middle>
@@ -42,6 +92,7 @@ class Register extends React.Component {
                       <Input
                         borderless
                         placeholder="Name"
+                        onChangeText={name => this.setState({ name })}
                         iconContent={
                           <Icon
                             size={16}
@@ -57,10 +108,13 @@ class Register extends React.Component {
                       <Input
                         borderless
                         placeholder="Phone Number"
+                        onChangeText={phoneNumber =>
+                          this.setState({ phoneNumber })
+                        }
                         iconContent={
                           <Icon
                             size={16}
-                            theme='filled'
+                            theme="filled"
                             color={argonTheme.COLORS.ICON}
                             name="phone"
                             family="AntDesign"
@@ -73,6 +127,7 @@ class Register extends React.Component {
                       <Input
                         borderless
                         placeholder="Email"
+                        onChangeText={email => this.setState({ email })}
                         iconContent={
                           <Icon
                             size={16}
@@ -89,6 +144,7 @@ class Register extends React.Component {
                         password
                         borderless
                         placeholder="Password"
+                        onChangeText={password => this.setState({ password })}
                         iconContent={
                           <Icon
                             size={16}
@@ -101,22 +157,33 @@ class Register extends React.Component {
                       />
                     </Block>
                     <Block middle>
-                      <Button color="primary" style={styles.createButton} onPress={() => this.props.navigation.navigate('Home')}>
+                      <Button
+                        title="Sign In"
+                        onPress={() => this.props.navigation.navigate("Sign")}
+                        style={styles.createButton}
+                      >
+                        <Text size={12} color={argonTheme.COLORS.WHITE}>
+                          Already have an account? Sign in!
+                        </Text>
+                      </Button>
+                    </Block>
+                    <Block middle>
+                      <Button
+                        color="primary"
+                        style={styles.createButton}
+                        onPress={() =>
+                          this.signUpUser(
+                            this.state.email,
+                            this.state.password,
+                            this.state.name,
+                            this.state.phoneNumber
+                          )
+                        }
+                      >
                         <Text bold size={14} color={argonTheme.COLORS.WHITE}>
                           CREATE ACCOUNT
                         </Text>
                       </Button>
-                    </Block>
-                <Block middle>
-                    <Button
-                      title = "Sign In"
-                      onPress={() => this.props.navigation.navigate('Sign')}
-                      style ={styles.createButton}>
-                        <Text size = {12} color={argonTheme.COLORS.WHITE}>
-                            Already have an account? Sign in!
-                        </Text>
-                    </Button>
-
                     </Block>
                   </KeyboardAvoidingView>
                 </Block>

@@ -13,7 +13,40 @@ import { Images, argonTheme } from "../constants";
 
 const { width, height } = Dimensions.get("screen");
 
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+
+const dbh = firebase.firestore();
+
 class Sign extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
+
+  login = (email, password) => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(
+        function() {
+          this.props.navigation.navigate("Home");
+          // Sign-out successful.
+        }.bind(this)
+      )
+      .catch(
+        function(error) {
+          alert(error.code);
+          alert(error.message);
+          // ...
+        }.bind(this)
+      );
+  };
+
   render() {
     return (
       <Block flex middle>
@@ -36,12 +69,15 @@ class Sign extends React.Component {
                     behavior="padding"
                     enabled
                   >
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
-                    </Block>
+                    <Block
+                      width={width * 0.8}
+                      style={{ marginBottom: 15 }}
+                    ></Block>
                     <Block width={width * 0.8} style={{ marginBottom: 15 }}>
                       <Input
                         borderless
                         placeholder="Email"
+                        onChangeText={email => this.setState({ email })}
                         iconContent={
                           <Icon
                             size={16}
@@ -58,6 +94,7 @@ class Sign extends React.Component {
                         password
                         borderless
                         placeholder="Password"
+                        onChangeText={password => this.setState({ password })}
                         iconContent={
                           <Icon
                             size={16}
@@ -70,7 +107,13 @@ class Sign extends React.Component {
                       />
                     </Block>
                     <Block middle>
-                      <Button color="primary" style={styles.createButton} onPress={() => this.props.navigation.navigate('Home')}>
+                      <Button
+                        color="primary"
+                        style={styles.createButton}
+                        onPress={() =>
+                          this.login(this.state.email, this.state.password)
+                        }
+                      >
                         <Text bold size={14} color={argonTheme.COLORS.WHITE}>
                           Sign In
                         </Text>

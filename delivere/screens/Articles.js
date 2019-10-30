@@ -183,9 +183,7 @@ class Articles extends React.Component {
   render() {
     return (
       <Block flex center>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-        >
+        <ScrollView showsVerticalScrollIndicator={false}>
           {this.renderCards()}
           {this.renderAlbum()}
         </ScrollView>
