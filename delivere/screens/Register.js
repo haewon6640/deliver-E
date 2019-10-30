@@ -15,11 +15,9 @@ import { Images, argonTheme } from "../constants";
 
 import firebase from "../components/firebase";
 import "@firebase/firestore";
-import { ToastAndroid } from "react-native";
 
 const { width, height } = Dimensions.get("screen");
 
-const isShow = true;
 const dbh = firebase.firestore();
 class Register extends React.Component {
   constructor(props) {
@@ -58,6 +56,7 @@ class Register extends React.Component {
             .collection("User")
             .doc(user.uid)
             .set(curUser);
+          this.props.navigation.navigate("Home");
         } else {
           // No user is signed in.
         }
@@ -65,7 +64,6 @@ class Register extends React.Component {
     } catch (error) {
       alert(error.toString());
     }
-    this.props.navigation.navigate("Home");
   };
 
   render() {
