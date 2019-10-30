@@ -198,10 +198,8 @@ export default class Home extends React.Component {
           <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="search1" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="profile" family="AntDesign" size={35} color="#5E72E4" />
-          <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("Profile")}
-            >
-          <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
+          <TouchableOpacity onPress={() => this.queryProfileInfo()}>
+            <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
         </Block>
       </View>
