@@ -1,70 +1,73 @@
-export default class Profile extends React.Component {
+import React from "react";
+import {
+  ScrollView,
+  View,
+  StyleSheet,
+  Text,
+  Dimensions,
+  Image,
+  TouchableOpacity
+} from "react-native";
+import { Button, Block, Icon } from "galio-framework";
+import MenuItem from "../components/MenuItem";
+import SafeAreaView from "react-native-safe-area-view";
+const { width } = Dimensions.get("window");
+
+export default class Cart extends React.Component {
   render() {
-    const { navigation } = this.props;
-    const user = navigation.getParam("user");
-    if (user.email.length > 8) {
-      user.email = user.email.substring(0, 6) + "...";
-    }
-    if (user.name.length > 8) {
-      user.name = user.name.substring(0, 6) + "...";
-    }
     return (
       <Block style={styles.container}>
-        <Block style={styles.subCont}>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Name</Text>
-            <Text style={styles.right}>{user.name}</Text>
-          </Block>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Phone Number</Text>
-            <Text style={styles.right}>{user.phoneNumber}</Text>
-          </Block>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Email</Text>
-            <Text style={styles.right}>{user.email}</Text>
-          </Block>
+        <Text style={styles.name}>Twisted Taco</Text>
+        <Text style={styles.category}>Items</Text>
+        <Block row>
+          <Text style={styles.text}>1</Text>
+          <Text style={{marginLeft: 50, fontSize: 17}}>Taco Combo</Text>
+          <Text style={{marginLeft: 150, fontSize: 17}}>$7.49</Text>
         </Block>
-        <Block style={styles.subCont}>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Change password</Text>
-          </Block>
+        <Text style={{marginLeft: 89, marginTop: 20, fontSize: 17}}>Buffalo Bill, Tombstone</Text>
+        <Text style={{marginLeft: 89, fontSize: 17}}>Chicken, Rice and Beans</Text>
+        <Text style={{
+    paddingLeft: 25,
+    marginTop: 50,
+    paddingBottom: 20,
+    fontSize: 20,
+    color: "#1f396e",
+  }}>Total</Text>
+        <Block row>
+          <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Subtotal</Text>
+          <Text style={{position: 'absolute', right:33, fontSize: 17}}>$7.49</Text>
         </Block>
-        <TouchableOpacity onPress={() => signOut()}>
-          <Block style={styles.subCont}>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Sign Out</Text>
-            </Block>
-          </Block>
-        </TouchableOpacity>
+        <Block row>
+          <Text style={{marginLeft: 30, marginBottom:20, fontSize: 17}}>Tax</Text>
+          <Text style={{position: 'absolute', right:33,  fontSize: 17}}>$0.30</Text>
+        </Block>
+        <Block row>
+          <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Delivery</Text>
+          <Text style={{position: 'absolute', right:33,  fontSize: 17}}>$1.99</Text>
+        </Block>
+        <Button color="#5E72E4" shadowless style={{alignSelf: 'center', marginTop: 100}}>Checkout</Button>
       </Block>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#F8F9FE",
-    height: height
-  },
-  subCont: {
-    marginTop: 30
-  },
-  entry: {
-    height: 60,
-    paddingLeft: 30,
-    alignItems: "center",
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    borderColor: "#F8F9FE"
-  },
-  right: {
-    position: "absolute",
-    left: 200,
-    fontSize: 17,
+  name: {
+    alignSelf: 'center',
+    paddingBottom: 15,
+    fontSize: 30,
     color: "#1f396e"
   },
   text: {
     fontSize: 17,
+    color: "#466199",
+    paddingLeft: 30
+  },
+  category: {
+    paddingLeft: 30,
+    paddingTop: 15,
+    paddingBottom: 8,
+    fontSize: 20,
     color: "#1f396e"
   }
 });

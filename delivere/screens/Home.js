@@ -193,22 +193,16 @@ export default class Home extends React.Component {
             <Restaurant name="Highland Bakery" />
             <Restaurant name="Kaldi's: Depot" />
           </Block>
-          <Block row space="around" style={styles.footer}>
-            <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
-            <Icon name="search1" family="AntDesign" size={35} color="#5E72E4" />
-            <Icon name="profile" family="AntDesign" size={35} color="#5E72E4" />
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("Profile")}
-            >
-              <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
-            </TouchableOpacity>
-          </Block>
         </ScrollView>
         <Block row space="around" style={styles.footer}>
           <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="search1" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="profile" family="AntDesign" size={35} color="#5E72E4" />
+          <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("Profile")}
+            >
           <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
+          </TouchableOpacity>
         </Block>
       </View>
     );
