@@ -41,9 +41,16 @@ class Register extends React.Component {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
+        .then(
+          function() {
+            this.props.navigation.navigate("Home");
+            // Sign-out successful.
+          }.bind(this)
+        )
         .catch(function(error) {
           alert(error.toString());
-        });
+        }.bind(this));
+      const navigation = this.props.navigation;
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           const curUser = {
@@ -56,7 +63,6 @@ class Register extends React.Component {
             .collection("User")
             .doc(user.uid)
             .set(curUser);
-          this.props.navigation.navigate("Home");
         } else {
           // No user is signed in.
         }
