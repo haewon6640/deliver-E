@@ -43,13 +43,15 @@ export default class Menu extends React.Component {
     const List = Object.keys(foodMap).map(data => {
       return (
         <Block>
-          <Text style={styles.category}>{data}</Text>
+          <Text style={styles.category} >{data}</Text>
           {foodMap[data].map(item => {
             return (
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Cart")}>
               <MenuItem
                 name={item.name}
                 pricecal={"$" + item.price + " - " + item.cal + " cal"}
               />
+              </TouchableOpacity>
             );
           })}
         </Block>
