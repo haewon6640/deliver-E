@@ -45,7 +45,7 @@ export default class Cart extends React.Component {
           <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Delivery</Text>
           <Text style={{position: 'absolute', right:33,  fontSize: 17}}>$1.99</Text>
         </Block>
-        <Button color="#5E72E4" shadowless style={{alignSelf: 'center', marginTop: 100}}>Checkout</Button>
+        <Button onPress={() => this.props.navigation.navigate("Checkout")} color="#5E72E4" shadowless style={{alignSelf: 'center', marginTop: 100}}>Checkout</Button>
       </Block>
     );
   }

@@ -8,6 +8,7 @@ import Sign from "./screens/Sign";
 import Intro from "./screens/Intro";
 import Runner from "./screens/Runner";
 import Cart from "./screens/Cart";
+import Checkout from "./screens/Checkout";
 import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
 import { Block, GalioProvider } from "galio-framework";
@@ -26,10 +27,11 @@ const AppNavigator = createStackNavigator(
     Profile: Profile,
     Menu: Menu,
     Customize: Customize,
-    Cart: Cart
+    Cart: Cart,
+    Checkout: Checkout
   },
   {
-    initialRouteName: "Cart",
+    initialRouteName: "Intro",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,
