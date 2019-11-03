@@ -4,13 +4,12 @@ import {
   ImageBackground,
   Dimensions,
   StatusBar,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Text
 } from "react-native";
-import { Block, Checkbox, Text, theme } from "galio-framework";
-
+import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
-
 const { width, height } = Dimensions.get("screen");
 
 import firebase from "../components/firebase";
@@ -40,7 +39,7 @@ class Sign extends React.Component {
       )
       .catch(
         function(error) {
-          alert(error.code);
+          // alert(error.code);
           alert(error.message);
           // ...
         }.bind(this)
@@ -50,16 +49,15 @@ class Sign extends React.Component {
   render() {
     return (
       <Block flex middle>
-        <StatusBar hidden />
+        <StatusBar barStyle='dark-content'/>
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}
-        >
+          style={{ width, height, zIndex: 1 }}>
           <Block flex middle>
             <Block style={styles.registerContainer}>
               <Block flex>
                 <Block flex={0.17} middle>
-                  <Text color="#8898AA" size={12}>
+                  <Text style={{fontSize: 16, color: "#8898AA"}}>
                     Sign in with your Emory email
                   </Text>
                 </Block>
@@ -67,12 +65,10 @@ class Sign extends React.Component {
                   <KeyboardAvoidingView
                     style={{ flex: 1 }}
                     behavior="padding"
-                    enabled
-                  >
+                    enabled>
                     <Block
                       width={width * 0.8}
-                      style={{ marginBottom: 15 }}
-                    ></Block>
+                      style={{ marginBottom: 15 }}></Block>
                     <Block width={width * 0.8} style={{ marginBottom: 15 }}>
                       <Input
                         borderless
@@ -114,8 +110,19 @@ class Sign extends React.Component {
                           this.login(this.state.email, this.state.password)
                         }
                       >
-                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
+                        <Text style={{fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
                           Sign In
+                        </Text>
+                      </Button>
+                    </Block>
+                    <Block middle>
+                      <Button
+                        title="Sign In"
+                        onPress={() => this.props.navigation.navigate("Register")}
+                        style={styles.createButton}
+                      >
+                        <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
+                          Need to sign up?
                         </Text>
                       </Button>
                     </Block>

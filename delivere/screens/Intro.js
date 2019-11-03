@@ -1,67 +1,65 @@
 import React from "react";
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
 import {
   StyleSheet,
   ImageBackground,
   Dimensions,
   StatusBar,
   KeyboardAvoidingView,
-  Image
+  Text
 } from "react-native";
-import { Block, Checkbox, Text, theme } from "galio-framework";
-
-import { Button, Icon, Input } from "../components";
+import { Block, theme } from "galio-framework";
+import { Button} from "../components";
 import { Images, argonTheme } from "../constants";
-
 const { width, height } = Dimensions.get("screen");
 
 class Intro extends React.Component {
+  static navigationOptions = {
+    header: null
+  };
   render() {
     return (
       <Block flex middle>
-        <StatusBar hidden />
+        <StatusBar barStyle='light-content'/>
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}
-        >
+          style={{ width, height, zIndex: 1 }}>
           <Block flex middle>
             <Block style={styles.registerContainer}>
               <Block flex>
-                <Block flex={0.17} middle>
-                  <Text color="#8898AA" size={30}>
+                <Block flex={0.17} middle style={{padding: 20, marginTop: height*0.03, marginBottom: height*0.13}}>
+                  <Text style={{color:"#8898AA", fontSize: width * 0.075}}>
                     Welcome to Deliver-E!
-                  </Text>
-                <Text color="#8898AA" size={18}>
-                  Would you like to:
                   </Text>
                 </Block>
                 <Block flex center>
                   <KeyboardAvoidingView
                     style={{ flex: 1 }}
                     behavior="padding"
-                    enabled
-                  >
+                    enabled>
+                    <Block middle>
+                      <Text style={{color:"#8898AA", fontSize: 18}}>
+                      Would you like to:
+                      </Text>
+                    </Block>                      
                     <Block middle>
                       <Button color="primary"
                       style={styles.createButton}
-                      onPress={() => this.props.navigation.navigate('Register')}>
-                        <Text bold size={16} color={argonTheme.COLORS.WHITE}>
+                      onPress={() => this.props.navigation.navigate('Sign')}>
+                        <Text style={{fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
                           Order Food
                         </Text>
                       </Button>
                     </Block>
-                <Block middle>
-                    <Button
-                    color = "primary"
-                      title = "Runner"
-                      onPress={() => this.props.navigation.navigate('Runner')}
-                      style ={styles.createButton}>
-                        <Text bold size = {16} color={argonTheme.COLORS.WHITE}>
-                            Deliver Food
-                        </Text>
-                    </Button>
-
+                    <Block middle>
+                      <Button
+                        color = "primary"
+                        title = "Runner"
+                        onPress={() => this.props.navigation.navigate('RunSign')}
+                        style ={styles.createButton}>
+                          <Text style={{fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
+                              Deliver Food
+                          </Text>
+                      </Button>
                     </Block>
                   </KeyboardAvoidingView>
                 </Block>

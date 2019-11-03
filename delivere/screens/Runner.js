@@ -1,34 +1,86 @@
 import React from "react";
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
 import {
   StyleSheet,
   ImageBackground,
   Dimensions,
   StatusBar,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  ScrollView,
+  Text
 } from "react-native";
-import { Block, Checkbox, Text, theme } from "galio-framework";
-
+import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
-
 const { width, height } = Dimensions.get("screen");
 
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+const dbh = firebase.firestore();
+
 class Runner extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: "",
+      password: "",
+      name: "",
+      phoneNumber: "",
+      curUser: null
+    };
+  }
+
+  signUpUser = (email, password, name, phoneNumber) => {
+    try {
+      // if (password.length < 6) {
+      //   alert("Please enter at least 6 characters");
+      //   return;
+      // }
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(
+          function() {
+            this.props.navigation.navigate("Home");
+            // Sign-out successful.
+          }.bind(this)
+        )
+        .catch(function(error) {
+          alert(error.toString());
+        }.bind(this));
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          const curUser = {
+            uid: user.uid,
+            email: user.email,
+            name: name,
+            phoneNumber: phoneNumber
+          };
+          dbh
+            .collection("User")
+            .doc(user.uid)
+            .set(curUser);
+        } else {
+          // No user is signed in.
+        }
+      });
+    } catch (error) {
+      alert(error.toString());
+    }
+  };
+
   render() {
     return (
       <Block flex middle>
-        <StatusBar hidden />
+        <StatusBar />
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}
-        >
+          style={{ width, height, zIndex: 1 }}>
           <Block flex middle>
             <Block style={styles.registerContainer}>
-              <Block flex>
-                <Block flex={0.17} middle>
-                  <Text color="#8898AA" size={12}>
+              <ScrollView>
+                <Block height={height * 0.1} middle>
+                  <Text style={{color: "#8898AA", fontSize: 14, textAlign: 'center'}}>
                     Sign up to be a Runner with your Emory email
                   </Text>
                 </Block>
@@ -38,10 +90,11 @@ class Runner extends React.Component {
                     behavior="padding"
                     enabled
                   >
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
                       <Input
                         borderless
                         placeholder="Name"
+                        onChangeText={name => this.setState({ name })}
                         iconContent={
                           <Icon
                             size={16}
@@ -53,14 +106,17 @@ class Runner extends React.Component {
                         }
                       />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
                       <Input
                         borderless
                         placeholder="Phone Number"
+                        onChangeText={phoneNumber =>
+                          this.setState({ phoneNumber })
+                        }
                         iconContent={
                           <Icon
                             size={16}
-                            theme='filled'
+                            theme="filled"
                             color={argonTheme.COLORS.ICON}
                             name="phone"
                             family="AntDesign"
@@ -69,10 +125,11 @@ class Runner extends React.Component {
                         }
                       />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
                       <Input
                         borderless
                         placeholder="Email"
+                        onChangeText={email => this.setState({ email })}
                         iconContent={
                           <Icon
                             size={16}
@@ -89,6 +146,7 @@ class Runner extends React.Component {
                         password
                         borderless
                         placeholder="Password"
+                        onChangeText={password => this.setState({ password })}
                         iconContent={
                           <Icon
                             size={16}
@@ -101,26 +159,26 @@ class Runner extends React.Component {
                       />
                     </Block>
                     <Block middle>
-                      <Button color="primary" style={styles.createButton} onPress={() => this.props.navigation.navigate('Home')}>
-                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                          CREATE RUNNER ACCOUNT
+                      <Button
+                        color="primary"
+                        style={styles.createButton}
+                        onPress={() =>
+                          this.signUpUser(
+                            this.state.email,
+                            this.state.password,
+                            this.state.name,
+                            this.state.phoneNumber
+                          )
+                        }
+                      >
+                        <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 14, color: argonTheme.COLORS.WHITE}}>
+                          Create Runner Account
                         </Text>
                       </Button>
                     </Block>
-                <Block middle>
-                    <Button
-                      title = "Sign In"
-                      onPress={() => this.props.navigation.navigate('Sign')}
-                      style ={styles.createButton}>
-                        <Text size = {12} color={argonTheme.COLORS.WHITE}>
-                            Already have a Runner account? Sign in!
-                        </Text>
-                    </Button>
-
-                    </Block>
                   </KeyboardAvoidingView>
                 </Block>
-              </Block>
+              </ScrollView>
             </Block>
           </Block>
         </ImageBackground>
@@ -178,8 +236,10 @@ const styles = StyleSheet.create({
   },
   createButton: {
     width: width * 0.5,
-    marginTop: 25
+    marginTop: height * 0.02,
+    marginBottom: height * 0.02
   }
+  
 });
 
 export default Runner;

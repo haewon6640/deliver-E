@@ -1,24 +1,22 @@
 import React from "react";
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
 import {
   StyleSheet,
   ImageBackground,
   Dimensions,
   StatusBar,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  ScrollView,
+  Text
 } from "react-native";
-import { Toast, Block, Checkbox, Text, theme } from "galio-framework";
-
+import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
+const { width, height } = Dimensions.get("screen");
 
 import firebase from "../components/firebase";
 import "@firebase/firestore";
-
-const { width, height } = Dimensions.get("screen");
-
 const dbh = firebase.firestore();
+
 class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -74,16 +72,15 @@ class Register extends React.Component {
   render() {
     return (
       <Block flex middle>
-        <StatusBar hidden />
+        {/* <StatusBar /> */}
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}
-        >
+          style={{ width, height, zIndex: 1 }}>
           <Block flex middle>
             <Block style={styles.registerContainer}>
-              <Block flex>
-                <Block flex={0.17} middle>
-                  <Text color="#8898AA" size={12}>
+              <ScrollView>
+                <Block height={height * 0.1} middle>
+                  <Text style={{color: "#8898AA", fontSize: 16}}>
                     Sign up with your Emory email
                   </Text>
                 </Block>
@@ -93,7 +90,7 @@ class Register extends React.Component {
                     behavior="padding"
                     enabled
                   >
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
                       <Input
                         borderless
                         placeholder="Name"
@@ -109,7 +106,7 @@ class Register extends React.Component {
                         }
                       />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
                       <Input
                         borderless
                         placeholder="Phone Number"
@@ -128,7 +125,7 @@ class Register extends React.Component {
                         }
                       />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
                       <Input
                         borderless
                         placeholder="Email"
@@ -163,17 +160,6 @@ class Register extends React.Component {
                     </Block>
                     <Block middle>
                       <Button
-                        title="Sign In"
-                        onPress={() => this.props.navigation.navigate("Sign")}
-                        style={styles.createButton}
-                      >
-                        <Text size={12} color={argonTheme.COLORS.WHITE}>
-                          Already have an account? Sign in!
-                        </Text>
-                      </Button>
-                    </Block>
-                    <Block middle>
-                      <Button
                         color="primary"
                         style={styles.createButton}
                         onPress={() =>
@@ -185,14 +171,14 @@ class Register extends React.Component {
                           )
                         }
                       >
-                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                          CREATE ACCOUNT
+                        <Text style={{fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
+                          Create Account
                         </Text>
                       </Button>
                     </Block>
                   </KeyboardAvoidingView>
                 </Block>
-              </Block>
+              </ScrollView>
             </Block>
           </Block>
         </ImageBackground>
@@ -250,8 +236,10 @@ const styles = StyleSheet.create({
   },
   createButton: {
     width: width * 0.5,
-    marginTop: 25
+    marginTop: height * 0.02,
+    marginBottom: height * 0.02
   }
+  
 });
 
 export default Register;

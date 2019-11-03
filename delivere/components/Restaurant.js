@@ -1,6 +1,8 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, Dimensions } from "react-native";
 import { Block } from "galio-framework";
+const { width, height } = Dimensions.get("window");
+import normalize from "react-native-normalize";
 
 export default class Restaurant extends React.Component {
   render() {
@@ -14,22 +16,22 @@ export default class Restaurant extends React.Component {
 
 const styles = StyleSheet.create({
     square: {
-        height: 150,
+        height: normalize(150),
         aspectRatio: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 50,
+        marginBottom: height*0.04,
         borderRadius: 10,
         backgroundColor: 'white',
-          shadowColor: 'black',
-          shadowOffset: { width: 0, height: 2 },
-          shadowRadius: 4,
-          shadowOpacity: 0.1,
-          elevation: 2
-      },
-      text:{
-        textAlign: 'center',
-        fontSize: 17,
-        color: '#1f396e'
-      },
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 4,
+        shadowOpacity: 0.1,
+        elevation: 2
+    },
+    text: {
+      textAlign: 'center',
+      fontSize: normalize(17),
+      color: '#1f396e'
+    }
 });

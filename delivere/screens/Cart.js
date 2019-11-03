@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { Button, Block, Icon } from "galio-framework";
 import MenuItem from "../components/MenuItem";
-import SafeAreaView from "react-native-safe-area-view";
 const { width } = Dimensions.get("window");
 
 export default class Cart extends React.Component {

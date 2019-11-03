@@ -5,12 +5,12 @@ import {
   StyleSheet,
   Text,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar
 } from "react-native";
 import { Block, Icon } from "galio-framework";
 import Restaurant from "../components/Restaurant";
-import SafeAreaView from "react-native-safe-area-view";
-const { width } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
 
 import firebase from "../components/firebase";
@@ -21,6 +21,7 @@ class Header extends React.Component {
   render() {
     return (
       <Block style={styles.header}>
+        <StatusBar/>
         <Text style={styles.text}>Delivering to</Text>
         <Block row middle width={width}>
           <Text style={styles.location}>White Hall</Text>
@@ -164,7 +165,8 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.content}>
+        <ScrollView>
+          <View style={styles.content}>
           <Block row space="evenly" width={width}>
             <TouchableOpacity
               onPress={() => this.queryRestaurantInfo("Twisted Taco")}
@@ -177,23 +179,16 @@ export default class Home extends React.Component {
           </Block>
 
           <Block row space="evenly" width={width}>
-            <TouchableOpacity onPress={() => this.queryProfileInfo()}>
-              <Restaurant name="Blue Donkey" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate("Menu", {
-                  restaurant: "Kaldi's: ESC"
-                })
-              }
-            ></TouchableOpacity>
+            <Restaurant name="Blue Donkey" />
             <Restaurant name="Kaldi's: ESC" />
           </Block>
           <Block row space="evenly" width={width}>
             <Restaurant name="Highland Bakery" />
             <Restaurant name="Kaldi's: Depot" />
           </Block>
+          </View>
         </ScrollView>
+
         <Block row space="around" style={styles.footer}>
           <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="search1" family="AntDesign" size={35} color="#5E72E4" />
@@ -210,17 +205,15 @@ export default class Home extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "#fff"
   },
   content: {
     backgroundColor: "#F8F9FE",
     flex: 1,
-    paddingTop: normalize(85)
+    paddingTop: height*0.08
   },
   location: {
-    fontSize: 25,
+    fontSize: normalize(25),
     color: "#5E72E4"
   },
   header: {
@@ -233,8 +226,8 @@ const styles = StyleSheet.create({
   },
   footer: {
     width: width,
-    height: normalize(100),
-    paddingTop: normalize(15),
+    paddingTop: normalize(13),
+    height: normalize(77),
     borderTopWidth: 1,
     borderColor: "#d6d7da"
   },

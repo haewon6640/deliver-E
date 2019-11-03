@@ -5,23 +5,22 @@ import Menu from "./screens/Menu";
 import Customize from "./screens/Customize";
 import Register from "./screens/Register";
 import Sign from "./screens/Sign";
+import RunSign from "./screens/RunSign";
 import Intro from "./screens/Intro";
 import Runner from "./screens/Runner";
 import Cart from "./screens/Cart";
 import Checkout from "./screens/Checkout";
-import { AppLoading } from "expo";
-import { Asset } from "expo-asset";
-import { Block, GalioProvider } from "galio-framework";
-import { Images, articles, argonTheme } from "./constants";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { GalioProvider } from "galio-framework";
+import { argonTheme } from "./constants";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 const AppNavigator = createStackNavigator(
   {
     Intro: Intro,
-    Register: Register,
     Sign: Sign,
+    RunSign: RunSign,
+    Register: Register,
     Runner: Runner,
     Home: Home,
     Profile: Profile,

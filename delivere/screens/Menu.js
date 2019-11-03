@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import { Block, Icon } from "galio-framework";
 import MenuItem from "../components/MenuItem";
-import SafeAreaView from "react-native-safe-area-view";
 const { width } = Dimensions.get("window");
+import normalize from "react-native-normalize";
 
 import firebase from "../components/firebase";
 import "@firebase/firestore";
@@ -69,7 +69,7 @@ export default class Menu extends React.Component {
       <ScrollView>
         <Image
           source={require("../assets/twistedtaco.jpg")}
-          style={{ width: width, height: 180 }}
+          style={{ width: width, height: normalize(190) }}
         />
         <Block style={styles.header}>
           <Text style={styles.name}>{rName}</Text>
