@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
-import { Block, Radio } from "galio-framework";
+import { StyleSheet } from "react-native";
+import { Radio } from "galio-framework";
 
 export default class MenuItem extends React.Component {
   render() {
     return (
-      // Use onChange={()=>} for when selected
-      <Radio onChange={()=>this.props.addCart()} color='#466199' label={this.props.name+'   '+this.props.pricecal} labelStyle={styles.text} containerStyle={styles.item}/>
+      // Use onChange={} for when selected
+      <Radio onChange={() => this.props.addCart} color='#466199' label={this.props.name+'   '+this.props.pricecal} labelStyle={styles.text} containerStyle={styles.item}/>
     );
   }
 }

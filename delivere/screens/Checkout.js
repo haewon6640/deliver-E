@@ -26,17 +26,17 @@ export default class Checkout extends React.Component {
           />
           <Block row>
             <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Location</Text>
-            <Text style={{position: 'absolute', right:33, fontSize: 17}}>White Hall</Text>
-            <Icon name="right" family="AntDesign" size={20} color="#5E72E4" />
+            <Text style={{position: 'absolute', right:50, fontSize: 17}}>White Hall</Text>
+            <Icon style={{position: 'absolute', right:30}} name="right" family="AntDesign" size={20} color="#5E72E4" />
           </Block>
           <Block row>
             <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Delivery Instructions</Text>
-            <Icon name="right" family="AntDesign" size={20} color="#5E72E4" />
+            <Icon style={{position: 'absolute', right:30}} name="right" family="AntDesign" size={20} color="#5E72E4" />
           </Block>
           <Block row>
             <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>ETA</Text>
-            <Text style={{position: 'absolute', right:33, fontSize: 17}}>5-10 Min</Text>
-            <Icon name="right" family="AntDesign" size={20} color="#5E72E4" />
+            <Text style={{position: 'absolute', right:50, fontSize: 17}}>5-10 Min</Text>
+            <Icon style={{position: 'absolute', right:30}} name="right" family="AntDesign" size={20} color="#5E72E4" />
           </Block>
           <Text style={{
             paddingLeft: 25,

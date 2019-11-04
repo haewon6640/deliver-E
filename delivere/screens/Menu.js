@@ -12,24 +12,32 @@ import { Block, Icon } from "galio-framework";
 import MenuItem from "../components/MenuItem";
 const { width } = Dimensions.get("window");
 import normalize from "react-native-normalize";
+import { HeaderBackButton } from 'react-navigation';
 
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import { reset } from "expo/build/AR";
 const db = firebase.firestore();
+// const setParamsAction = NavigationActions.setParams({
+//   params: { cartAdded: 'true' },
+//   key: 'Home'
+// });
 
 export default class Menu extends React.Component {
   constructor(props){
     super(props);
-    this.state={
-      displayAddCart: false
-    };
-    this.addCart=this.addCart.bind(this);
+    this.state={showAddCart: false};
+    this.addCartButton=this.addCartButton.bind(this);
+    // this.props.navigation.setParams({cartAdded: 'false'});
   }
 
-  addCart = () => {
-    this.setState({
-      displayAddCart: true
-    });
+  // static navigationOptions = {
+  //   headerLeft: <HeaderBackButton onPress={() => this.props.navigation.goBack('Home',{cartAdded: 'true'})} /> 
+  // };
+
+  addCartButton = () => {
+    this.setState({ showAddCart: true});
+    // this.props.navigation.dispatch(setParamsAction);
   }
 
   render() {
@@ -54,27 +62,17 @@ export default class Menu extends React.Component {
     //   fCategories.push(key);
     // });
 
-    // if (this.state.displayAddCart){
-    //   return(
-    //     <Block middle>
-    //       <Block row middle style={[styles.button,{position: 'absolute', bottom: 20}]}>
-    //         <Text style={{fontSize: 20, color:"white"}}>Add to Cart</Text>
-    //       </Block>
-    //     </Block>
-    //   );
-    // }
-
     const List = Object.keys(foodMap).map(data => {
       return (
         <Block>
           <Text style={styles.category}>{data}</Text>
-          {foodMap[data].map((item, i) => {
+          {foodMap[data].map((item) => {
             return (
-              <MenuItem
-                addCart={this.addCart}
-                name={item.name}
-                pricecal={"$" + item.price + " - " + item.cal + " cal"}
-              />
+                <MenuItem
+                  addCart = {this.addCartButton}
+                  name={item.name}
+                  pricecal={"$" + item.price + " - " + item.cal + " cal"}
+                />
             );
           })}
         </Block>
@@ -89,14 +87,17 @@ export default class Menu extends React.Component {
       );
     });
 
-    let addCartButton = (
-      <Block row middle style={styles.button1}>
-        <Text style={{fontSize: 20, color:"white"}}>Add to Cart</Text>
-      </Block>
-    );
+    aCart = (
+    <Block style={{position: 'absolute', bottom: 0, left: '25%', right: '25%'}}>
+    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Cart')}>
+    <Block row middle style={styles.button1}>
+      <Text style={{fontSize: 20, color:"white"}}>Add to Cart</Text>
+    </Block>
+    </TouchableOpacity>
+  </Block>);
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, width: width}}>
       <ScrollView>
         <Image
           source={require("../assets/twistedtaco.jpg")}
@@ -140,9 +141,7 @@ export default class Menu extends React.Component {
           </Block>
         </Block>
       </ScrollView>
-      <Block style={{position: 'absolute', bottom: 0, left: 0, right: 0, alignItems: 'center'}}>
-        {this.state.displayAddCart ? addCartButton : null}
-      </Block>
+        {this.state.showAddCart ? aCart:null}
       </View>      
     );
   }
@@ -191,7 +190,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#5E72E4",
     borderRadius: 80,
     height: 50,
-    width: 200,
+    width: width*0.5,
     marginTop: 20,
     marginBottom: 80
   },
@@ -199,7 +198,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#5E72E4",
     borderRadius: 80,
     height: 50,
-    width: 200,
+    width: width*0.5,
     marginTop: 20,
     marginBottom: 20
   }

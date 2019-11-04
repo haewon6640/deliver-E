@@ -41,6 +41,11 @@ class Header extends React.Component {
 }
 
 export default class Home extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={showViewCart: false};
+  }
+
   static navigationOptions = {
     headerTitle: () => <Header />,
     headerStyle: {
@@ -49,6 +54,7 @@ export default class Home extends React.Component {
       borderBottomWidth: 0
     }
   };
+
 
   // createMenu(name, category, rating, ratecount) {
   //   alert("adfsafd");
@@ -165,9 +171,19 @@ export default class Home extends React.Component {
     );
   };
   render() {
+    // if (JSON.stringify(this.props.navigation.getParam('cartAdded')) == 'true'){
+    //   this.setState({showViewCart: true});
+    // }
+    // vCart = (
+    //   <Block style={{position: 'absolute', bottom: 0, left: '25%', right: '25%'}}>
+    //     <Block row middle style={styles.button}>
+    //       <Text style={{fontSize: 20, color:"white"}}>View Cart</Text>
+    //     </Block>
+    //   </Block>
+    // );
     return (
       <View style={styles.container}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'space-between'}}>
           <View style={styles.content}>
           <Block row space="evenly" width={width}>
             <TouchableOpacity
@@ -190,7 +206,7 @@ export default class Home extends React.Component {
           </Block>
           </View>
         </ScrollView>
-
+        {/* {this.state.showViewCart ? vCart : null} */}
         <Block row space="around" style={styles.footer}>
           <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="search1" family="AntDesign" size={35} color="#5E72E4" />
@@ -237,5 +253,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: normalize(17),
     color: "#1f396e"
+  },
+  button:{
+    backgroundColor: "#5E72E4",
+    borderRadius: 80,
+    height: 50,
+    width: width*0.5,
+    marginTop: 20,
+    marginBottom: 95
   }
 });
