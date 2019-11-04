@@ -1,14 +1,12 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { Block } from "galio-framework";
+import { Block, Radio } from "galio-framework";
 
 export default class MenuItem extends React.Component {
   render() {
     return (
-      <Block style={styles.item}>
-        <Text style={styles.text1}>{this.props.name}</Text>
-        <Text style={styles.text}>{this.props.pricecal}</Text>
-      </Block>
+      // Use onChange={()=>} for when selected
+      <Radio onChange={()=>this.props.addCart()} color='#466199' label={this.props.name+'   '+this.props.pricecal} labelStyle={styles.text} containerStyle={styles.item}/>
     );
   }
 }
@@ -17,19 +15,19 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
     height: 80,
-    justifyContent: "center",
+    paddingLeft: 30,
     borderBottomWidth: 1,
     borderColor: "#d6d7da"
   },
-  text1: {
-    fontSize: 17,
-    color: "#466199",
-    paddingLeft: 30,
-    paddingBottom: 8
-  },
   text: {
     fontSize: 17,
-    color: "#466199",
-    paddingLeft: 30
+    color: "#466199"
+  },
+  button:{
+    backgroundColor: "#5E72E4",
+    borderRadius: 80,
+    height: 50,
+    width: 200,
+    margin: 20
   }
 });

@@ -30,7 +30,7 @@ const AppNavigator = createStackNavigator(
     Checkout: Checkout
   },
   {
-    initialRouteName: "Intro",
+    initialRouteName: "Home",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,
