@@ -9,7 +9,6 @@ import {
   TouchableOpacity
 } from "react-native";
 import { Button, Block, Icon } from "galio-framework";
-import MenuItem from "../components/MenuItem";
 const { width } = Dimensions.get("window");
 
 export default class Cart extends React.Component {
