@@ -39,7 +39,9 @@
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "babel-preset-expo": "^5.0.0"
+    "babel-preset-expo": "^5.0.0",
+    "react-native-credit-card-input": "^0.4.1",
+    "react-native-keyboard-spacer": "^0.4.1"
   },
   "keywords": [
     "argon react native",

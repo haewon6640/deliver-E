@@ -10,6 +10,7 @@ import Intro from "./screens/Intro";
 import Runner from "./screens/Runner";
 import Cart from "./screens/Cart";
 import Checkout from "./screens/Checkout";
+import AddSubscription from "./screens/AddSubscription";
 import { GalioProvider } from "galio-framework";
 import { argonTheme } from "./constants";
 import { createAppContainer } from "react-navigation";
@@ -27,7 +28,8 @@ const AppNavigator = createStackNavigator(
     Menu: Menu,
     Customize: Customize,
     Cart: Cart,
-    Checkout: Checkout
+    Checkout: Checkout,
+    AddSubscription: AddSubscription
   },
   {
     initialRouteName: "Intro",

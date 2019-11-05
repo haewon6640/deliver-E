@@ -15,6 +15,7 @@ const { width, height } = Dimensions.get("screen");
 
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import { UserInterfaceIdiom } from "expo-constants";
 const dbh = firebase.firestore();
 
 class Register extends React.Component {
@@ -30,26 +31,26 @@ class Register extends React.Component {
     };
   }
 
-  signUpUser = (email, password, name, phoneNumber) => {
+  signUpUser = async (email, password, name, phoneNumber) => {
     try {
       // if (password.length < 6) {
       //   alert("Please enter at least 6 characters");
       //   return;
       // }
-      firebase
+      await firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
-        .then(
-          function() {
-            this.props.navigation.navigate("Home");
-            // Sign-out successful.
+        .then(userData => {
+          userData.user.sendEmailVerification();
+        })
+        .catch(
+          function(error) {
+            alert(error.toString());
           }.bind(this)
-        )
-        .catch(function(error) {
-          alert(error.toString());
-        }.bind(this));
+        );
       firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user.emailVerified) {
+          alert("You've verified your email!");
           const curUser = {
             uid: user.uid,
             email: user.email,
@@ -75,12 +76,13 @@ class Register extends React.Component {
         {/* <StatusBar /> */}
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}>
+          style={{ width, height, zIndex: 1 }}
+        >
           <Block flex middle>
             <Block style={styles.registerContainer}>
               <ScrollView>
                 <Block height={height * 0.1} middle>
-                  <Text style={{color: "#8898AA", fontSize: 16}}>
+                  <Text style={{ color: "#8898AA", fontSize: 16 }}>
                     Sign up with your Emory email
                   </Text>
                 </Block>
@@ -90,7 +92,10 @@ class Register extends React.Component {
                     behavior="padding"
                     enabled
                   >
-                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
+                    <Block
+                      width={width * 0.8}
+                      style={{ marginBottom: height * 0.01 }}
+                    >
                       <Input
                         borderless
                         placeholder="Name"
@@ -106,7 +111,10 @@ class Register extends React.Component {
                         }
                       />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
+                    <Block
+                      width={width * 0.8}
+                      style={{ marginBottom: height * 0.01 }}
+                    >
                       <Input
                         borderless
                         placeholder="Phone Number"
@@ -125,7 +133,10 @@ class Register extends React.Component {
                         }
                       />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
+                    <Block
+                      width={width * 0.8}
+                      style={{ marginBottom: height * 0.01 }}
+                    >
                       <Input
                         borderless
                         placeholder="Email"
@@ -171,7 +182,13 @@ class Register extends React.Component {
                           )
                         }
                       >
-                        <Text style={{fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
+                        <Text
+                          style={{
+                            fontWeight: "bold",
+                            fontSize: 16,
+                            color: argonTheme.COLORS.WHITE
+                          }}
+                        >
                           Create Account
                         </Text>
                       </Button>
@@ -239,7 +256,6 @@ const styles = StyleSheet.create({
     marginTop: height * 0.02,
     marginBottom: height * 0.02
   }
-  
 });
 
 export default Register;
