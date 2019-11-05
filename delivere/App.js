@@ -37,8 +37,7 @@ const AppNavigator = createStackNavigator(
     Cart: Cart,
     Checkout: Checkout,
 
-    AddSubscription: AddSubscription
-
+    AddSubscription: AddSubscription,
     ProgTrack: ProgTrack,
     RunHome: RunHome,
     AcceptOrders: AcceptOrders,
@@ -46,7 +45,7 @@ const AppNavigator = createStackNavigator(
 
   },
   {
-    initialRouteName: "RunHome",
+    initialRouteName: "Home",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,

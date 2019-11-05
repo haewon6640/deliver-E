@@ -71,6 +71,8 @@ export default class Menu extends React.Component {
                 <MenuItem
                   addCart = {this.addCartButton}
                   name={item.name}
+                  price={item.price}
+                  cal={item.cal}
                   pricecal={"$" + item.price + " - " + item.cal + " cal"}
                 />
             );
