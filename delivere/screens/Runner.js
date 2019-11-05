@@ -41,7 +41,7 @@ class Runner extends React.Component {
         .createUserWithEmailAndPassword(email, password)
         .then(
           function() {
-            this.props.navigation.navigate("Home");
+            this.props.navigation.navigate("RunHome");
             // Sign-out successful.
           }.bind(this)
         )

@@ -33,7 +33,7 @@ class RunSign extends React.Component {
       .signInWithEmailAndPassword(email, password)
       .then(
         function() {
-          this.props.navigation.navigate("Home");
+          this.props.navigation.navigate("RunHome");
           // Sign-out successful.
         }.bind(this)
       )

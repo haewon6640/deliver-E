@@ -54,7 +54,7 @@ export default class Checkout extends React.Component {
             <Text style={{position: 'absolute', right:33,  fontSize: 17}}>Visa ... 1234</Text>
           </Block>
 
-          <Button color="#5E72E4" shadowless style={{alignSelf: 'center', marginTop: 20}}>Place Order</Button>
+          <Button onPress={()=>this.props.navigation.navigate('ProgTrack')}color="#5E72E4" shadowless style={{alignSelf: 'center', marginTop: 20}}>Place Order</Button>
         </Block>
       </ScrollView>
     );

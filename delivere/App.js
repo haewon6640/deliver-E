@@ -10,7 +10,14 @@ import Intro from "./screens/Intro";
 import Runner from "./screens/Runner";
 import Cart from "./screens/Cart";
 import Checkout from "./screens/Checkout";
+
 import AddSubscription from "./screens/AddSubscription";
+
+import ProgTrack from "./screens/ProgTrack";
+import RunHome from "./screens/RunHome";
+import AcceptOrders from "./screens/AcceptOrders";
+import OrderList from "./screens/OrderList";
+
 import { GalioProvider } from "galio-framework";
 import { argonTheme } from "./constants";
 import { createAppContainer } from "react-navigation";
@@ -29,10 +36,17 @@ const AppNavigator = createStackNavigator(
     Customize: Customize,
     Cart: Cart,
     Checkout: Checkout,
+
     AddSubscription: AddSubscription
+
+    ProgTrack: ProgTrack,
+    RunHome: RunHome,
+    AcceptOrders: AcceptOrders,
+    OrderList: OrderList
+
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "RunHome",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,
