@@ -138,7 +138,7 @@ export default class Menu extends React.Component {
           <Block row>
             <Text style={styles.text}>{rCategory}</Text>
             <Text style={styles.rating}>{rRating}</Text>
-            <Icon name="star" family="AntDesign" size={20} color="#5E72E4" />
+            <Icon name="star" family="Entypo" size={20} color="#5E72E4" />
             <Text style={{ fontSize: 17, color: "#466199", paddingLeft: 5 }}>
               ({rRateCount} ratings)
             </Text>

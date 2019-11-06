@@ -45,7 +45,7 @@ const AppNavigator = createStackNavigator(
     Delivering: Delivering
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "RunHome",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,

@@ -11,17 +11,12 @@ import {
   FlatList
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import { Button, Block, Icon } from "galio-framework";
+import { Button, Block, Icon, Checkbox } from "galio-framework";
 const { width, height} = Dimensions.get("window");
-const DATA =[{text1: "Pickup By", text2: "3:22PM", key: '1'}, {text1: "Customer", text2: "John J.", key: '2'}];
+const DATA =[{text1: "Pickup By", text2: "3:22PM", text3: "", key: '1'}, {text1: "Customer", text2: "John J.", text3: "", key: '2'},
+  {text1:"Order Details", text2:"Order 2 items", text3: "$8.01", key: '3'}];
 
-export default class AfterArrival extends React.Component {
-  static defaultProps = {
-    draggableRange: { top: height - 60, bottom: 250 }
-  };
-
-  _draggedValue = new Animated.Value(180);
-
+export default class AfterArrival extends React.Component { 
   render() {
     return (
         <View style={styles.container}>
@@ -31,12 +26,15 @@ export default class AfterArrival extends React.Component {
             <FlatList
               data={DATA}
               renderItem={({item}) => (
-              <View style={{width: width, borderBottomWidth: 1, borderBottomColor: 'light grey'}}>
-                <Text>{item.text1}</Text>
-                <Text>{item.text2}</Text>
-              </View>) 
-    }
+              <View style={{width: width, borderBottomWidth: 1, borderBottomColor: '#c9bfbf', paddingBottom: 20}}>
+                <Text style={styles.category}>{item.text1}</Text>
+                <Text style={styles.text}>{item.text2}</Text>
+                <Text style={styles.text}>{item.text3}</Text>
+              </View>)}
             />
+            <Text style={[styles.category, {marginTop: 30}]}>Checklist</Text>
+            <Checkbox style={{height: 70, alignItems: 'center', borderBottomWidth: 1, borderBottomColor: '#c9bfbf'}} color="#466199" labelStyle={styles.text} label='1 Buffalo Bill Taco'/>
+            <Checkbox style={{height: 70, alignItems: 'center'}} color="#466199" labelStyle={styles.text} label='1 Tombstone Chicken Taco'/>
           </ScrollView>
           <TouchableOpacity onPress={()=>this.props.navigation.navigate('Delivering')} style={styles.button}>
           {/* <Block row> */}
@@ -54,22 +52,17 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20
   },
-  panel: {
-    flex: 1,
-    backgroundColor: "white",
-    position: "relative",
+  text: {
+    fontSize: 20,
+    color: "#466199",
+    paddingLeft: 15
   },
-  panelHeader: {
-    height: 180,
-    backgroundColor: "white",
-    padding: 24,
-  },
-  textHeader: {
-    fontSize: 28,
-    color: "#466199"
-  },
-  progBar:{
-    marginTop: 20
+  category: {
+    paddingLeft: 15,
+    paddingTop: 15,
+    paddingBottom: 8,
+    fontSize: 25,
+    color: "#1f396e"
   },
   button:{
     position: 'absolute',
@@ -78,6 +71,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#5E72E4",
     width: width,
     alignItems: 'center',
-    paddingTop: 20
+    paddingTop: 20,
   }
 });

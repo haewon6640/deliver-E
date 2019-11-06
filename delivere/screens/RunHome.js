@@ -11,12 +11,46 @@ import {
 } from "react-native";
 import { Button, Block, Icon } from "galio-framework";
 const { width, height } = Dimensions.get("window");
+import normalize from "react-native-normalize";
 
 export default class RunHome extends React.Component {
   render() {
     return (
-      <ImageBackground source={require("../assets/emorymap.png")} style={styles.container}>
-        <Button onPress={()=>this.props.navigation.navigate('AcceptOrders')}>Go Online</Button>
+        <ImageBackground source={require("../assets/emorymap.png")} style={styles.container}>
+          <Button style={styles.button} onPress={()=>this.props.navigation.navigate('PickingUp')}>
+            <Text style={styles.text}>Start Delivering</Text>
+          </Button>
+          <Block style={styles.footer}>
+            <Block row space='around'>
+              <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
+              <Icon name="star-outlined" family="Entypo" size={35} color="#5E72E4" />
+              <Icon name="dollar-sign" family="Feather" size={35} color="#5E72E4" />
+              <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
+            </Block>
+            <Block row space='around'>
+              <Text style={{color: '#5E72E4', marginLeft: 15}}>Run</Text>
+              <Text style={{color: '#5E72E4', marginLeft: 20}}>Ratings</Text>
+              <Text style={{color: '#5E72E4', marginLeft: 5}}>Earnings</Text>
+              <Text style={{color: '#5E72E4'}}>Account</Text>
+            </Block>
+          </Block>
+            {/* <View style={{alignItems: 'center'}}>
+              <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
+              <Text style={{color: '#5E72E4'}>Run</Text>
+            </View>
+            <View style={{alignItems: 'center'}}>
+              <Icon name="star-outlined" family="Entypo" size={35} color="#5E72E4" />
+              <Text style={{color: '#5E72E4'}>Ratings</Text>
+            </View>
+            <View style={{alignItems: 'center'}}>
+              <Icon name="profile" family="AntDesign" size={35} color="#5E72E4" />
+              <Text style={{color: '#5E72E4'}>Earnings</Text>
+            </View>
+            <View style={{alignItems: 'center'}}>
+              <Icon name="dollar-sign" family="Feather" size={35} color="#5E72E4" />
+              <Text style={{color: '#5E72E4'}>Account</Text>
+            </View>
+          </Block> */}
       </ImageBackground>
     );
   }
@@ -29,21 +63,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  name: {
-    alignSelf: 'center',
-    paddingBottom: 15,
+  button:{
+    height: 80,
+    width: 300
+  },
+  text:{
     fontSize: 30,
-    color: "#1f396e"
+    color: 'white'
   },
-  text: {
-    fontSize: 17,
-    color: "#466199",
-    paddingLeft: 30
+  footer: {
+    backgroundColor: 'white',
+    position: 'absolute',
+    bottom: 0,
+    width: width,
+    paddingTop: normalize(13),
+    height: normalize(95),
+    borderTopWidth: 1,
+    borderColor: "#d6d7da"
   },
-  category: {
-    paddingLeft: 30,
-    paddingTop: 15,
-    fontSize: 20,
-    color: "#1f396e"
-  }
 });
