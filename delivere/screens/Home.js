@@ -185,25 +185,25 @@ export default class Home extends React.Component {
       <View style={styles.container}>
         <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'space-between'}}>
           <View style={styles.content}>
-          <Block row space="evenly" width={width}>
-            <TouchableOpacity
-              onPress={() => this.queryRestaurantInfo("Twisted Taco")}
-            >
-              <Restaurant name="Twisted Taco" />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.queryRestaurantInfo("Maru")}>
-              <Restaurant name="Maru" />
-            </TouchableOpacity>
-          </Block>
+            <Block row space="evenly" width={width}>
+              <TouchableOpacity
+                onPress={() => this.queryRestaurantInfo("Twisted Taco")}
+              >
+                <Restaurant name="Twisted Taco" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.queryRestaurantInfo("Maru")}>
+                <Restaurant name="Maru" />
+              </TouchableOpacity>
+            </Block>
 
-          <Block row space="evenly" width={width}>
-            <Restaurant name="Blue Donkey" />
-            <Restaurant name="Kaldi's: ESC" />
-          </Block>
-          <Block row space="evenly" width={width}>
-            <Restaurant name="Highland Bakery" />
-            <Restaurant name="Kaldi's: Depot" />
-          </Block>
+            <Block row space="evenly" width={width}>
+              <Restaurant name="Blue Donkey" />
+              <Restaurant name="Kaldi's: ESC" />
+            </Block>
+            <Block row space="evenly" width={width}>
+              <Restaurant name="Highland Bakery" />
+              <Restaurant name="Kaldi's: Depot" />
+            </Block>
           </View>
         </ScrollView>
         {/* {this.state.showViewCart ? vCart : null} */}

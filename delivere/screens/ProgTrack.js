@@ -15,7 +15,7 @@ export default class ProgTrack extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require("../assets/emorymap.png")} style={{
+        <Image source={require("../assets/emorymap.png")} style={{height: 0.8*height,
             alignSelf: 'center'}}
           />
         <BottomSheet />

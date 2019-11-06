@@ -26,8 +26,10 @@ const db = firebase.firestore();
 export default class Menu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showAddCart: false, chosenItems: new Map() };
+    this.state = { showAddCart: false, chosenItems: new Map(), count: 1 };
     this.addCartButton = this.addCartButton.bind(this);
+    this.plus = this.plus.bind(this);
+    this.minus = this.minus.bind(this);
     this.addList = this.addList.bind(this);
     // this.props.navigation.setParams({cartAdded: 'false'});
   }
@@ -35,6 +37,14 @@ export default class Menu extends React.Component {
   // static navigationOptions = {
   //   headerLeft: <HeaderBackButton onPress={() => this.props.navigation.goBack('Home',{cartAdded: 'true'})} />
   // };
+
+  plus = prev => {
+    this.setState({ count: prev + 1 });
+  };
+
+  minus = prev => {
+    if (prev > 1) this.setState({ count: prev - 1 });
+  };
 
   addCartButton = () => {
     this.setState({ showAddCart: true });
@@ -67,17 +77,18 @@ export default class Menu extends React.Component {
     //   fCategories.push(key);
     // });
 
-    const List = Object.keys(foodMap).map(data => {
+    const List = Object.keys(foodMap).map((data, i) => {
       return (
-        <Block key={item.name}>
+        <Block key={i}>
           <Text style={styles.category}>{data}</Text>
-          {foodMap[data].map(item => {
+          {foodMap[data].map((item, j) => {
             return (
               <MenuItem
-                key={item.name}
+                key={j}
                 addCart={this.addCartButton}
-                addList={this.addList}
                 name={item.name}
+                price={item.price}
+                cal={item.cal}
                 pricecal={"$" + item.price + " - " + item.cal + " cal"}
               />
             );
@@ -104,19 +115,34 @@ export default class Menu extends React.Component {
       </Block>
     );
 
+    let pic;
+
+    if (rName == "Twisted Taco") {
+      pic = (
+        <Image
+          source={require("../assets/twistedtaco.jpg")}
+          style={{ width: width, height: normalize(190) }}
+        />
+      );
+    } else if (rName == "Maru") {
+      pic = (
+        <Image
+          source={require("../assets/ricebowl.jpg")}
+          style={{ width: width, height: normalize(190) }}
+        />
+      );
+    }
+
     return (
       <View style={{ flex: 1, width: width }}>
         <ScrollView>
-          <Image
-            source={require("../assets/twistedtaco.jpg")}
-            style={{ width: width, height: normalize(190) }}
-          />
+          {pic}
           <Block style={styles.header}>
             <Text style={styles.name}>{rName}</Text>
             <Block row>
               <Text style={styles.text}>{rCategory}</Text>
               <Text style={styles.rating}>{rRating}</Text>
-              <Icon name="star" family="AntDesign" size={20} color="#5E72E4" />
+              <Icon name="star" family="Entypo" size={20} color="#5E72E4" />
               <Text style={{ fontSize: 17, color: "#466199", paddingLeft: 5 }}>
                 ({rRateCount} ratings)
               </Text>
@@ -130,7 +156,7 @@ export default class Menu extends React.Component {
           {/* <MenuItem name="Taco Combo" pricecal="$7.49" />
         </TouchableOpacity>
         <MenuItem name="Chips and Salsa" pricecal="$2.19 - 450 cal" /> */}
-          <Block>{List}</Block>
+          {List}
           <TouchableOpacity>
             <Block row style={styles.instrc}>
               <Text style={styles.text}>Special Instructions</Text>
@@ -145,11 +171,13 @@ export default class Menu extends React.Component {
           </TouchableOpacity>
           <Block middle>
             <Block row middle space="around" style={styles.button}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => this.minus(this.state.count)}>
                 <Icon name="minus" family="AntDesign" size={20} color="white" />
               </TouchableOpacity>
-              <Text style={{ fontSize: 20, color: "white" }}>1</Text>
-              <TouchableOpacity>
+              <Text style={{ fontSize: 20, color: "white" }}>
+                {this.state.count}
+              </Text>
+              <TouchableOpacity onPress={() => this.plus(this.state.count)}>
                 <Icon name="plus" family="AntDesign" size={20} color="white" />
               </TouchableOpacity>
             </Block>
