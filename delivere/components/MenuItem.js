@@ -5,8 +5,8 @@ import { Radio } from "galio-framework";
 export default class MenuItem extends React.Component {
   change = () => {
     this.props.addCart();
-    // this.props.addList();
-  }
+    this.props.addList();
+  };
   render() {
     return (
       // Use onChange={} for when selected
