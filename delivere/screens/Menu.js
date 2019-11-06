@@ -12,7 +12,7 @@ import { Block, Icon } from "galio-framework";
 import MenuItem from "../components/MenuItem";
 const { width } = Dimensions.get("window");
 import normalize from "react-native-normalize";
-import { HeaderBackButton } from 'react-navigation';
+import { HeaderBackButton } from "react-navigation";
 
 import firebase from "../components/firebase";
 import "@firebase/firestore";
@@ -24,21 +24,26 @@ const db = firebase.firestore();
 // });
 
 export default class Menu extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={showAddCart: false};
-    this.addCartButton=this.addCartButton.bind(this);
+    this.state = { showAddCart: false, chosenItems: new Map() };
+    this.addCartButton = this.addCartButton.bind(this);
+    this.addList = this.addList.bind(this);
     // this.props.navigation.setParams({cartAdded: 'false'});
   }
 
   // static navigationOptions = {
-  //   headerLeft: <HeaderBackButton onPress={() => this.props.navigation.goBack('Home',{cartAdded: 'true'})} /> 
+  //   headerLeft: <HeaderBackButton onPress={() => this.props.navigation.goBack('Home',{cartAdded: 'true'})} />
   // };
 
   addCartButton = () => {
-    this.setState({ showAddCart: true});
+    this.setState({ showAddCart: true });
     // this.props.navigation.dispatch(setParamsAction);
-  }
+  };
+
+  addList = (name, price) => {
+    map[name] = price;
+  };
 
   render() {
     const { navigation } = this.props;
@@ -82,22 +87,19 @@ export default class Menu extends React.Component {
       );
     });
 
-    // const categoriesArray = fCategories.map(data => {
-    //   return (
-    //     <Block>
-    //       <Text style={styles.category}>{data}</Text>
-    //     </Block>
-    //   );
-    // });
-
     aCart = (
-    <Block style={{position: 'absolute', bottom: 0, left: '25%', right: '25%'}}>
-    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Cart')}>
-    <Block row middle style={styles.button1}>
-      <Text style={{fontSize: 20, color:"white"}}>Add to Cart</Text>
-    </Block>
-    </TouchableOpacity>
-  </Block>);
+      <Block
+        style={{ position: "absolute", bottom: 0, left: "25%", right: "25%" }}
+      >
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("Cart")}
+        >
+          <Block row middle style={styles.button1}>
+            <Text style={{ fontSize: 20, color: "white" }}>Add to Cart</Text>
+          </Block>
+        </TouchableOpacity>
+      </Block>
+    );
 
     let pic;
 
@@ -127,37 +129,43 @@ export default class Menu extends React.Component {
             <Text style={{ fontSize: 17, color: "#466199", paddingLeft: 5 }}>
               ({rRateCount} ratings)
             </Text>
+            <Text style={styles.text}>5-10 Min</Text>
           </Block>
-          <Text style={styles.text}>5-10 Min</Text>
         </Block>
-        {/* <Text style={styles.category}>Featured Items</Text>
+          {/* <Text style={styles.category}>Featured Items</Text>
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate("Customize")}
         > */}
-        {/* <MenuItem name="Taco Combo" pricecal="$7.49" />
+          {/* <MenuItem name="Taco Combo" pricecal="$7.49" />
         </TouchableOpacity>
         <MenuItem name="Chips and Salsa" pricecal="$2.19 - 450 cal" /> */}
-        {List}
-        <TouchableOpacity>
-          <Block row style={styles.instrc}>
-            <Text style={styles.text}>Special Instructions</Text>
-            <Icon style={{position: 'absolute', right: 20, marginTop: 25 }} name="right" family="AntDesign" size={20} color="#5E72E4" />
+          {List}
+          <TouchableOpacity>
+            <Block row style={styles.instrc}>
+              <Text style={styles.text}>Special Instructions</Text>
+              <Icon
+                style={{ position: "absolute", right: 20, marginTop: 25 }}
+                name="right"
+                family="AntDesign"
+                size={20}
+                color="#5E72E4"
+              />
+            </Block>
+          </TouchableOpacity>
+          <Block middle>
+            <Block row middle space="around" style={styles.button}>
+              <TouchableOpacity>
+                <Icon name="minus" family="AntDesign" size={20} color="white" />
+              </TouchableOpacity>
+              <Text style={{ fontSize: 20, color: "white" }}>1</Text>
+              <TouchableOpacity>
+                <Icon name="plus" family="AntDesign" size={20} color="white" />
+              </TouchableOpacity>
+            </Block>
           </Block>
-        </TouchableOpacity>
-        <Block middle>
-          <Block row middle space='around' style={styles.button}>
-            <TouchableOpacity>
-              <Icon name="minus" family="AntDesign" size={20} color="white" />
-            </TouchableOpacity>
-            <Text style={{fontSize: 20, color:"white"}}>1</Text>
-            <TouchableOpacity>
-              <Icon name="plus" family="AntDesign" size={20} color="white" />
-            </TouchableOpacity>
-          </Block>
-        </Block>
-      </ScrollView>
-        {this.state.showAddCart ? aCart:null}
-      </View>      
+        </ScrollView>
+        {this.state.showAddCart ? aCart : null}
+      </View>
     );
   }
 }
@@ -199,21 +207,21 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 60,
     paddingTop: 25,
-    paddingLeft: 10,
+    paddingLeft: 10
   },
-  button:{
+  button: {
     backgroundColor: "#5E72E4",
     borderRadius: 80,
     height: 50,
-    width: width*0.5,
+    width: width * 0.5,
     marginTop: 20,
     marginBottom: 80
   },
-  button1:{
+  button1: {
     backgroundColor: "#5E72E4",
     borderRadius: 80,
     height: 50,
-    width: width*0.5,
+    width: width * 0.5,
     marginTop: 20,
     marginBottom: 20
   }

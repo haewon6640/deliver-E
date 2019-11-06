@@ -4,15 +4,17 @@ import { Radio } from "galio-framework";
 
 export default class MenuItem extends React.Component {
   render() {
-    // const List
-
-    // addtoList = (name, price) => {
-    //   add name to list
-    //   add price to list
-    // }
     return (
       // Use onChange={} for when selected
-      <Radio onChange={() => this.props.addCart} color='#466199' label={this.props.name+'   '+this.props.pricecal} labelStyle={styles.text} containerStyle={styles.item}/>
+      <Radio
+        onChange={() => {
+          this.props.addCart, this.props.addList;
+        }}
+        color="#466199"
+        label={this.props.name + "   " + this.props.pricecal}
+        labelStyle={styles.text}
+        containerStyle={styles.item}
+      />
     );
   }
 }
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#466199"
   },
-  button:{
+  button: {
     backgroundColor: "#5E72E4",
     borderRadius: 80,
     height: 50,
