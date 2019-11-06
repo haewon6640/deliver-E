@@ -20,16 +20,14 @@ export default class Cart extends React.Component {
   }
   addOrder = () => {
     const dbh = firebase.firestore();
+    this.props.navigation.navigate("Checkout");
     dbh
       .collection("Order")
-      .doc()
-      .set(items)
-      .then(
-        function() {
-          this.props.navigation.navigate("Checkout");
-          // Sign-out successful.
-        }.bind(this)
-      )
+      .add({
+        rName: this.state.rName,
+        items: this.state.items
+      })
+      .then(function(docRef) {})
       .catch(
         function(error) {
           alert(error.toString());
@@ -104,7 +102,7 @@ export default class Cart extends React.Component {
             </Text>
           </Block>
           <Button
-            onPress={() => this.addOrder}
+            onPress={() => this.addOrder()}
             color="#5E72E4"
             shadowless
             style={{ alignSelf: "center", marginTop: 100 }}
