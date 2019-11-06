@@ -24,12 +24,17 @@ export default class Cart extends React.Component {
       .collection("Order")
       .doc()
       .set(items)
+      .then(
+        function() {
+          this.props.navigation.navigate("Checkout");
+          // Sign-out successful.
+        }.bind(this)
+      )
       .catch(
         function(error) {
           alert(error.toString());
         }.bind(this)
       );
-    this.props.navigation.navigate("Checkout");
   };
   render() {
     const { navigation } = this.props;
@@ -41,12 +46,14 @@ export default class Cart extends React.Component {
     const List = items.map(function(element, i) {
       return (
         <Block key={i}>
-          <Text style={styles.text}>1</Text>
-          <Text style={styles.text}>{"$" + element.price}</Text>
+          <Block row>
+            <Text style={styles.text}>1</Text>
+            <Text style={styles.text}>{"$" + element.name}</Text>
           <Block>
             <Text style={{ marginLeft: 89, marginTop: 20, fontSize: 17 }}>
               {element.name}
             </Text>
+            </Block>
           </Block>
         </Block>
       );
