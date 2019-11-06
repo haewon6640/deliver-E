@@ -26,7 +26,7 @@ const db = firebase.firestore();
 export default class Menu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showAddCart: false, chosenItems: new Map(), count: 1 };
+    this.state = { showAddCart: false, chosenItems: [], count: 1 };
     this.addCartButton = this.addCartButton.bind(this);
     this.plus = this.plus.bind(this);
     this.minus = this.minus.bind(this);
@@ -52,7 +52,11 @@ export default class Menu extends React.Component {
   };
 
   addList = (name, price) => {
-    this.state.chosenItems[name] = price;
+    this.state.chosenItems.push({
+      name: name,
+      price: price,
+      count: this.state.count
+    });
   };
 
   render() {
@@ -85,6 +89,7 @@ export default class Menu extends React.Component {
             return (
               <MenuItem
                 key={j}
+                addList={this.addList}
                 addCart={this.addCartButton}
                 name={item.name}
                 price={item.price}
@@ -104,7 +109,8 @@ export default class Menu extends React.Component {
         <TouchableOpacity
           onPress={() =>
             this.props.navigation.navigate("Cart", {
-              items: this.state.chosenItems
+              items: this.state.chosenItems,
+              rName: rName
             })
           }
         >

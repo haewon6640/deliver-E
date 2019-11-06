@@ -10,71 +10,101 @@ import {
 } from "react-native";
 import { Button, Block, Icon } from "galio-framework";
 const { width } = Dimensions.get("window");
+import firebase from "../components/firebase";
+import "@firebase/firestore";
 
 export default class Cart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { rName: "", items: null };
+  }
+  addOrder = () => {
+    const dbh = firebase.firestore();
+    dbh
+      .collection("Order")
+      .doc()
+      .set(items)
+      .catch(
+        function(error) {
+          alert(error.toString());
+        }.bind(this)
+      );
+    this.props.navigation.navigate("Checkout");
+  };
   render() {
+    const { navigation } = this.props;
+    var rName = navigation.getParam("rName");
     var items = navigation.getParam("items");
-    for (item in items) {
-      alert(item.name);
-    }
+    this.state.rName = rName;
+    this.state.items = items;
+    // this.setState((items = items));
+    const List = items.map(function(element, i) {
+      return (
+        <Block key={i}>
+          <Text style={styles.text}>1</Text>
+          <Text style={styles.text}>{"$" + element.price}</Text>
+          <Block>
+            <Text style={{ marginLeft: 89, marginTop: 20, fontSize: 17 }}>
+              {element.name}
+            </Text>
+          </Block>
+        </Block>
+      );
+    });
+    var price = 0;
+    items.forEach(element => {
+      price = price + element.price;
+    });
     return (
       <Block style={styles.container}>
-        <Text style={styles.name}>Twisted Taco</Text>
-        <Text style={styles.category}>Items</Text>
-        <Block row>
-          <Text style={styles.text}>1</Text>
-          <Text style={{ marginLeft: 50, fontSize: 17 }}>Taco Combo</Text>
-          <Text style={{ marginLeft: 150, fontSize: 17 }}>$7.49</Text>
-        </Block>
-        <Text style={{ marginLeft: 89, marginTop: 20, fontSize: 17 }}>
-          Buffalo Bill, Tombstone
-        </Text>
-        <Text style={{ marginLeft: 89, fontSize: 17 }}>
-          Chicken, Rice and Beans
-        </Text>
-        <Text
-          style={{
-            paddingLeft: 25,
-            marginTop: 50,
-            paddingBottom: 20,
-            fontSize: 20,
-            color: "#1f396e"
-          }}
-        >
-          Total
-        </Text>
-        <Block row>
-          <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
-            Subtotal
+        <ScrollView>
+          <Text style={styles.name}>{rName}</Text>
+          <Text style={styles.category}>Items</Text>
+          {List}
+          <Text
+            style={{
+              paddingLeft: 25,
+              marginTop: 50,
+              paddingBottom: 20,
+              fontSize: 20,
+              color: "#1f396e"
+            }}
+          >
+            Total
           </Text>
-          <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-            $7.49
-          </Text>
-        </Block>
-        <Block row>
-          <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
-            Tax
-          </Text>
-          <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-            $0.30
-          </Text>
-        </Block>
-        <Block row>
-          <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
-            Delivery
-          </Text>
-          <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-            $1.99
-          </Text>
-        </Block>
-        <Button
-          onPress={() => this.props.navigation.navigate("Checkout")}
-          color="#5E72E4"
-          shadowless
-          style={{ alignSelf: "center", marginTop: 100 }}
-        >
-          Checkout
-        </Button>
+          <Block row>
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Subtotal
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+              {"$" + price}
+            </Text>
+          </Block>
+          <Block row>
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Tax
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+              {"$" + (price * 0.04).toFixed(2)}
+            </Text>
+          </Block>
+          <Block row>
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Delivery
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+              $1.99
+            </Text>
+          </Block>
+          <Button
+            onPress={() => this.addOrder}
+            color="#5E72E4"
+            shadowless
+            style={{ alignSelf: "center", marginTop: 100 }}
+          >
+            Checkout
+          </Button>
+        </ScrollView>
       </Block>
     );
   }
