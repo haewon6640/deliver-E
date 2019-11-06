@@ -12,10 +12,9 @@ import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
 const { width, height } = Dimensions.get("screen");
-
+import { UserInterfaceIdiom } from "expo-constants";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
-import { UserInterfaceIdiom } from "expo-constants";
 const dbh = firebase.firestore();
 
 class Register extends React.Component {
@@ -48,24 +47,25 @@ class Register extends React.Component {
             alert(error.toString());
           }.bind(this)
         );
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user.emailVerified) {
-          alert("You've verified your email!");
-          const curUser = {
-            uid: user.uid,
-            email: user.email,
-            name: name,
-            phoneNumber: phoneNumber,
-            type: "Eater"
-          };
-          dbh
-            .collection("User")
-            .doc(user.uid)
-            .set(curUser);
-        } else {
-          // No user is signed in.
-        }
-      });
+      firebase.auth().onAuthStateChanged(
+        function(user) {
+          if (user) {
+            const curUser = {
+              uid: user.uid,
+              email: user.email,
+              name: name,
+              phoneNumber: phoneNumber
+            };
+            dbh
+              .collection("Eater")
+              .doc(user.uid)
+              .set(curUser);
+            this.props.navigation.navigate("Home");
+          } else {
+            // No user is signed in.
+          }
+        }.bind(this)
+      );
     } catch (error) {
       alert(error.toString());
     }
