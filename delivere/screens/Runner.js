@@ -45,16 +45,19 @@ class Runner extends React.Component {
             // Sign-out successful.
           }.bind(this)
         )
-        .catch(function(error) {
-          alert(error.toString());
-        }.bind(this));
+        .catch(
+          function(error) {
+            alert(error.toString());
+          }.bind(this)
+        );
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           const curUser = {
             uid: user.uid,
             email: user.email,
             name: name,
-            phoneNumber: phoneNumber
+            phoneNumber: phoneNumber,
+            type: "Runner"
           };
           dbh
             .collection("User")
@@ -75,12 +78,19 @@ class Runner extends React.Component {
         <StatusBar />
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}>
+          style={{ width, height, zIndex: 1 }}
+        >
           <Block flex middle>
             <Block style={styles.registerContainer}>
               <ScrollView>
                 <Block height={height * 0.1} middle>
-                  <Text style={{color: "#8898AA", fontSize: 14, textAlign: 'center'}}>
+                  <Text
+                    style={{
+                      color: "#8898AA",
+                      fontSize: 14,
+                      textAlign: "center"
+                    }}
+                  >
                     Sign up to be a Runner with your Emory email
                   </Text>
                 </Block>
@@ -90,7 +100,10 @@ class Runner extends React.Component {
                     behavior="padding"
                     enabled
                   >
-                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
+                    <Block
+                      width={width * 0.8}
+                      style={{ marginBottom: height * 0.01 }}
+                    >
                       <Input
                         borderless
                         placeholder="Name"
@@ -106,7 +119,10 @@ class Runner extends React.Component {
                         }
                       />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
+                    <Block
+                      width={width * 0.8}
+                      style={{ marginBottom: height * 0.01 }}
+                    >
                       <Input
                         borderless
                         placeholder="Phone Number"
@@ -125,7 +141,10 @@ class Runner extends React.Component {
                         }
                       />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: height * 0.01 }}>
+                    <Block
+                      width={width * 0.8}
+                      style={{ marginBottom: height * 0.01 }}
+                    >
                       <Input
                         borderless
                         placeholder="Email"
@@ -171,7 +190,14 @@ class Runner extends React.Component {
                           )
                         }
                       >
-                        <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 14, color: argonTheme.COLORS.WHITE}}>
+                        <Text
+                          style={{
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            fontSize: 14,
+                            color: argonTheme.COLORS.WHITE
+                          }}
+                        >
                           Create Runner Account
                         </Text>
                       </Button>
@@ -239,7 +265,6 @@ const styles = StyleSheet.create({
     marginTop: height * 0.02,
     marginBottom: height * 0.02
   }
-  
 });
 
 export default Runner;

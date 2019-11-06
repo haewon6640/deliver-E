@@ -42,7 +42,7 @@ export default class Menu extends React.Component {
   };
 
   addList = (name, price) => {
-    map[name] = price;
+    this.state.chosenItems[name] = price;
   };
 
   render() {
@@ -69,11 +69,12 @@ export default class Menu extends React.Component {
 
     const List = Object.keys(foodMap).map(data => {
       return (
-        <Block>
+        <Block key={item.name}>
           <Text style={styles.category}>{data}</Text>
           {foodMap[data].map(item => {
             return (
               <MenuItem
+                key={item.name}
                 addCart={this.addCartButton}
                 addList={this.addList}
                 name={item.name}
@@ -90,7 +91,11 @@ export default class Menu extends React.Component {
         style={{ position: "absolute", bottom: 0, left: "25%", right: "25%" }}
       >
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("Cart")}
+          onPress={() =>
+            this.props.navigation.navigate("Cart", {
+              items: this.state.chosenItems
+            })
+          }
         >
           <Block row middle style={styles.button1}>
             <Text style={{ fontSize: 20, color: "white" }}>Add to Cart</Text>

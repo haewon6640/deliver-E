@@ -55,7 +55,8 @@ class Register extends React.Component {
             uid: user.uid,
             email: user.email,
             name: name,
-            phoneNumber: phoneNumber
+            phoneNumber: phoneNumber,
+            type: "Eater"
           };
           dbh
             .collection("User")
