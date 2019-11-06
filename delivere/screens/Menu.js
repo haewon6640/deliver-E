@@ -62,13 +62,14 @@ export default class Menu extends React.Component {
     //   fCategories.push(key);
     // });
 
-    const List = Object.keys(foodMap).map(data => {
-      return (
-        <Block>
+    const List = Object.keys(foodMap).map((data,i) => {
+       return (
+        <Block key = {i}>
           <Text style={styles.category}>{data}</Text>
-          {foodMap[data].map((item) => {
-            return (
+          {foodMap[data].map((item,j) => {
+             return (
                 <MenuItem
+                  key = {j}
                   addCart = {this.addCartButton}
                   name={item.name}
                   price={item.price}
@@ -81,13 +82,13 @@ export default class Menu extends React.Component {
       );
     });
 
-    const categoriesArray = fCategories.map(data => {
-      return (
-        <Block>
-          <Text style={styles.category}>{data}</Text>
-        </Block>
-      );
-    });
+    // const categoriesArray = fCategories.map(data => {
+    //   return (
+    //     <Block>
+    //       <Text style={styles.category}>{data}</Text>
+    //     </Block>
+    //   );
+    // });
 
     aCart = (
     <Block style={{position: 'absolute', bottom: 0, left: '25%', right: '25%'}}>
@@ -98,13 +99,25 @@ export default class Menu extends React.Component {
     </TouchableOpacity>
   </Block>);
 
+    let pic;
+
+    if (rName == "Twisted Taco"){
+      pic = (<Image
+      source={require("../assets/twistedtaco.jpg")}
+      style={{ width: width, height: normalize(190) }}
+    />);
+    }
+    else if (rName == "Maru"){
+      pic = (<Image
+        source={require("../assets/ricebowl.jpg")}
+        style={{ width: width, height: normalize(190) }}
+      />);
+    }
+
     return (
       <View style={{flex: 1, width: width}}>
       <ScrollView>
-        <Image
-          source={require("../assets/twistedtaco.jpg")}
-          style={{ width: width, height: normalize(190) }}
-        />
+        {pic}
         <Block style={styles.header}>
           <Text style={styles.name}>{rName}</Text>
           <Block row>
@@ -124,7 +137,7 @@ export default class Menu extends React.Component {
         {/* <MenuItem name="Taco Combo" pricecal="$7.49" />
         </TouchableOpacity>
         <MenuItem name="Chips and Salsa" pricecal="$2.19 - 450 cal" /> */}
-        <Block>{List}</Block>
+        {List}
         <TouchableOpacity>
           <Block row style={styles.instrc}>
             <Text style={styles.text}>Special Instructions</Text>
