@@ -26,9 +26,13 @@ const db = firebase.firestore();
 export default class Menu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showAddCart: false, chosenItems: new Map() };
+    this.state = { showAddCart: false,
+      // chosenItems: new Map(), 
+      count: 1 };
     this.addCartButton = this.addCartButton.bind(this);
-    this.addList = this.addList.bind(this);
+    this.plus = this.plus.bind(this);
+    this.minus = this.minus.bind(this);
+    // this.addList = this.addList.bind(this);
     // this.props.navigation.setParams({cartAdded: 'false'});
   }
 
@@ -36,14 +40,23 @@ export default class Menu extends React.Component {
   //   headerLeft: <HeaderBackButton onPress={() => this.props.navigation.goBack('Home',{cartAdded: 'true'})} />
   // };
 
+  plus = (prev) => {
+    this.setState({ count: prev+1});
+  };
+
+  minus = (prev) => {
+    if (prev > 1)
+      this.setState({ count: prev-1});
+  };
+
   addCartButton = () => {
     this.setState({ showAddCart: true });
     // this.props.navigation.dispatch(setParamsAction);
   };
 
-  addList = (name, price) => {
-    map[name] = price;
-  };
+  // addList = (name, price) => {
+  //   map[name] = price;
+  // };
 
   render() {
     const { navigation } = this.props;
@@ -129,8 +142,8 @@ export default class Menu extends React.Component {
             <Text style={{ fontSize: 17, color: "#466199", paddingLeft: 5 }}>
               ({rRateCount} ratings)
             </Text>
-            <Text style={styles.text}>5-10 Min</Text>
           </Block>
+          <Text style={styles.text}>5-10 Min</Text>
         </Block>
           {/* <Text style={styles.category}>Featured Items</Text>
         <TouchableOpacity
@@ -154,11 +167,11 @@ export default class Menu extends React.Component {
           </TouchableOpacity>
           <Block middle>
             <Block row middle space="around" style={styles.button}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>this.minus(this.state.count)}>
                 <Icon name="minus" family="AntDesign" size={20} color="white" />
               </TouchableOpacity>
-              <Text style={{ fontSize: 20, color: "white" }}>1</Text>
-              <TouchableOpacity>
+              <Text style={{ fontSize: 20, color: "white" }}>{this.state.count}</Text>
+              <TouchableOpacity onPress={()=>this.plus(this.state.count)}>
                 <Icon name="plus" family="AntDesign" size={20} color="white" />
               </TouchableOpacity>
             </Block>

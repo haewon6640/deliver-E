@@ -3,13 +3,15 @@ import { StyleSheet } from "react-native";
 import { Radio } from "galio-framework";
 
 export default class MenuItem extends React.Component {
+  change = () => {
+    this.props.addCart();
+    // this.props.addList();
+  }
   render() {
     return (
       // Use onChange={} for when selected
       <Radio
-        onChange={() => {
-          this.props.addCart, this.props.addList;
-        }}
+        onChange={() => this.change}
         color="#466199"
         label={this.props.name + "   " + this.props.pricecal}
         labelStyle={styles.text}
