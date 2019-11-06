@@ -42,10 +42,11 @@ const AppNavigator = createStackNavigator(
     AcceptOrders: AcceptOrders,
     PickingUp: PickingUp,
     AfterArrival: AfterArrival,
-    Delivering: Delivering
+    Delivering: Delivering,
+    AddSubscription: AddSubscription
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Intro",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,

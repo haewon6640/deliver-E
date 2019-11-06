@@ -49,10 +49,12 @@ export default class Checkout extends React.Component {
             <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Tip</Text>
             <Text style={{position: 'absolute', right:33, fontSize: 17}}>$1.00</Text>
           </Block>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddSubscription')}>
           <Block row>
             <Text style={{marginLeft: 30, marginBottom:20, fontSize: 17}}>Payment</Text>
             <Text style={{position: 'absolute', right:33,  fontSize: 17}}>Visa ... 1234</Text>
           </Block>
+          </TouchableOpacity>
 
           <Button onPress={()=>this.props.navigation.navigate('ProgTrack')}color="#5E72E4" shadowless style={{alignSelf: 'center', marginTop: 20}}>Place Order</Button>
         </Block>

@@ -57,7 +57,7 @@ const subscribeUser = creditCardToken => {
  */
 export default class AddSubscription extends React.Component {
   static navigationOptions = {
-    title: "Subscription page"
+    title: "Payment"
   };
   constructor(props) {
     super(props);
