@@ -50,7 +50,7 @@ export default class PickingUp extends React.Component {
     var order = navigation.getParam("order");
     const itemList = order["items"].map((item, j) => {
       return (
-        <Text style={styles.text}>
+        <Text key={j} style={styles.text}>
           {item.name + " " + item.type + " $ " + item.price}
         </Text>
       );
