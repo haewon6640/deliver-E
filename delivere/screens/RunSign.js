@@ -57,7 +57,7 @@ class RunSign extends React.Component {
             <Block style={styles.registerContainer}>
               <Block flex>
                 <Block flex={0.17} middle>
-                  <Text style={{fontSize: 16, color: "#8898AA"}}>
+                  <Text style={{fontSize: 16, color: "#8898AA", textAlign:'center'}}>
                     Sign in as a Runner with your Emory email
                   </Text>
                 </Block>

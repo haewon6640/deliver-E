@@ -1,3 +1,6 @@
+ // THIS CODE IS OUR OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING
+ //    A TUTOR OR CODE WRITTEN BY OTHER STUDENTS OUTSIDE OF OUR TEAM.
+ //    - Gene Lee, Lynda Hu, Jerry Park, Seo Choe, Jonathan To
 import React from "react";
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";

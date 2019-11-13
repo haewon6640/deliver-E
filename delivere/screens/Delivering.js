@@ -7,18 +7,43 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
-  Animated
+  Animated,
+  PanResponder
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Button, Block, Icon } from "galio-framework";
+import normalize from "react-native-normalize";
 const { width, height} = Dimensions.get("window");
 
 export default class Delivering extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state= {dragPanel: true}
+  
+    this._onGrant = this._onGrant.bind(this);
+    this._onRelease = this._onRelease.bind(this);
+  
+    this._panResponder = PanResponder.create({
+      onMoveShouldSetPanResponder: this._onGrant,
+      onPanResponderRelease: this._onRelease,
+      onPanResponderTerminate: this._onRelease,
+    });
+  }
+
   static defaultProps = {
-    draggableRange: { top: height - 100, bottom: 380 }
+    draggableRange: { top: 0.7*height + normalize(80), bottom: 380 }
   };
 
   _draggedValue = new Animated.Value(180);
+
+  _onGrant() {
+    this.setState({ dragPanel: false });
+    return true;
+  }
+  
+  _onRelease() {
+    this.setState({ dragPanel: true });
+  }
 
   render() {
     return (
@@ -26,31 +51,32 @@ export default class Delivering extends React.Component {
       <Image source={require("../assets/emorymap.png")} style={{
             alignSelf: 'center'}}
           />
-      <SlidingUpPanel
+      <SlidingUpPanel allowDragging={this.state.dragPanel}
         ref={c => (this._panel = c)}
         draggableRange={this.props.draggableRange}
         animatedValue={this._draggedValue}
         height={height + 180}
         friction={0.5}>
         <View style={styles.panel}>
+        <Block style={{alignSelf:'center', backgroundColor: '#d3d1d1', height: 8, width: 50, marginTop: 15, marginBottom: 2, borderRadius: 100}}/>
+            <ScrollView {...this._panResponder.panHandlers}>
           <View style={styles.panelHeader}>
-            <Block style={{alignSelf:'center', backgroundColor: '#d3d1d1', height: 8, width: 50, marginBottom: 13, borderRadius: 100}}/>
             <View style={{borderBottomWidth: 1, borderBottomColor:'#c9bfbf', paddingBottom: 30, marginBottom: 15}}>
               <Text style={styles.textHeader}>John J.</Text>
               <Text style={[styles.textHeader, {marginTop: 5, marginBottom: 20, fontSize: 17}]}>White Hall: 301 Dowman Dr, Atlanta, GA 30307</Text>
               <Block row>
                 <TouchableOpacity>
-                  <Block style={{width: 180, height: 50, backgroundColor: '#5E72E4', borderRadius: 100}} row middle>
+                  <Block style={{width: 0.4*width, height: 50, backgroundColor: '#5E72E4', borderRadius: 100}} row middle>
                     <Icon name="directions" family="FontAwesome5" size={30} color="white" />
-                    <Text style={{fontSize: 20, color:'white', marginLeft: 10}}>Directions</Text>
+                    <Text style={{fontSize: 15, color:'white', marginLeft: 10}}>Directions</Text>
                   </Block>
                 </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:25}}>
+                <TouchableOpacity style={{marginLeft:20}}>
                   <Block style={{width: 60, height: 50, borderRadius: 100, borderWidth: 1, borderColor: '#c9bfbf'}} row middle>
                     <Icon name="phone" family="Entypo" size={30} color='#5E72E4' />
                   </Block>
                 </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:25}}>
+                <TouchableOpacity style={{marginLeft:20}}>
                   <Block style={{width: 60, height: 50, borderRadius: 100, borderWidth: 1, borderColor: '#c9bfbf'}} row middle>
                     <Icon name="chat" family="Entypo" size={30} color='#5E72E4'/>
                   </Block>
@@ -71,6 +97,7 @@ export default class Delivering extends React.Component {
               <Text style={styles.text}> 1 Tombstone Chicken</Text>
             </View>
           </View>
+          </ScrollView>
         </View>
       </SlidingUpPanel>
       <TouchableOpacity
@@ -93,18 +120,16 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   panel: {
-    borderRadius: 20,
-    flex: 1,
-    backgroundColor: "white",
-    position: "relative",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    height: 0.7*height,
+    backgroundColor: "white"
   },
   panelHeader: {
     borderRadius: 20,
-    height: 180,
     backgroundColor: "white",
-    paddingLeft: 20,
-    padding: 10,
-    marginBottom: 15
+    paddingLeft: normalize(20),
+    padding: 10
   },
   textHeader: {
     fontSize: 28,
@@ -116,7 +141,7 @@ const styles = StyleSheet.create({
   button:{
     position: 'absolute',
     bottom: 0,
-    height: 80,
+    height: normalize(80),
     backgroundColor: "#5E72E4",
     width: width,
     alignItems: 'center',

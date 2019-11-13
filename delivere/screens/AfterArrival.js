@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Button, Block, Icon, Checkbox } from "galio-framework";
+import normalize from "react-native-normalize";
 const { width, height} = Dimensions.get("window");
 const DATA =[{text1: "Pickup By", text2: "3:22PM", text3: "", key: '1'}, {text1: "Customer", text2: "John J.", text3: "", key: '2'},
   {text1:"Order Details", text2:"Order 2 items", text3: "$8.01", key: '3'}];
@@ -20,6 +21,7 @@ export default class AfterArrival extends React.Component {
   render() {
     return (
         <View style={styles.container}>
+          <View style={{height: 0.7*height}}>
           <ScrollView
           // contentContainerStylecontentContainerStyle={{flexGrow: 1, justifyContent: 'space-between'}}
           >
@@ -36,6 +38,7 @@ export default class AfterArrival extends React.Component {
             <Checkbox style={{height: 70, alignItems: 'center', borderBottomWidth: 1, borderBottomColor: '#c9bfbf'}} color="#466199" labelStyle={styles.text} label='1 Buffalo Bill Taco'/>
             <Checkbox style={{height: 70, alignItems: 'center'}} color="#466199" labelStyle={styles.text} label='1 Tombstone Chicken Taco'/>
           </ScrollView>
+          </View>
           <TouchableOpacity onPress={()=>this.props.navigation.navigate('Delivering')} style={styles.button}>
           {/* <Block row> */}
             {/* <Icon name="right" family="AntDesign" size={20} color="white" /> */}
@@ -49,8 +52,8 @@ export default class AfterArrival extends React.Component {
 
 const styles = StyleSheet.create({
   container:{
-    flex: 1,
-    padding: 20
+    padding: 20,
+    flex: 1
   },
   text: {
     fontSize: 20,
@@ -67,7 +70,7 @@ const styles = StyleSheet.create({
   button:{
     position: 'absolute',
     bottom: 0,
-    height: 80,
+    height: normalize(80),
     backgroundColor: "#5E72E4",
     width: width,
     alignItems: 'center',

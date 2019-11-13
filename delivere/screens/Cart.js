@@ -11,6 +11,7 @@ import {
 import { Button, Block, Icon } from "galio-framework";
 const { width } = Dimensions.get("window");
 import firebase from "../components/firebase";
+import normalize from "react-native-normalize";
 import "@firebase/firestore";
 
 export default class Cart extends React.Component {
@@ -59,9 +60,9 @@ export default class Cart extends React.Component {
       return (
         <Block key={i}>
           <Block row>
-            <Text style={styles.text}>1</Text>
-            <Text style={styles.text}>{element.name + " " + element.type}</Text>
-            <Text style={{ marginRight: 30, fontSize: 17 }}>
+            <Text style={styles.text}>{element.count}</Text>
+            <Text style={styles.text}>{element.name}</Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
               {"$" + element.price}
             </Text>
           </Block>
@@ -112,13 +113,36 @@ export default class Cart extends React.Component {
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
               {"$" + this.state.deliveryFee}
+              $3.00
+            </Text>
+          </Block>
+          <Block row>
+            <Text
+              style={{
+                marginLeft: 30,
+                marginBottom: 20,
+                fontSize: 17,
+                fontWeight: "bold"
+              }}
+            >
+              Total
+            </Text>
+            <Text
+              style={{
+                position: "absolute",
+                right: 33,
+                fontSize: 17,
+                fontWeight: "bold"
+              }}
+            >
+              {"$" + total}
             </Text>
           </Block>
           <Button
             onPress={() => this.addOrder()}
             color="#5E72E4"
             shadowless
-            style={{ alignSelf: "center", marginTop: 100 }}
+            style={{ alignSelf: "center", marginTop: normalize(80) }}
           >
             Checkout
           </Button>

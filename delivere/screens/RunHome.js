@@ -16,32 +16,23 @@ import normalize from "react-native-normalize";
 export default class RunHome extends React.Component {
   render() {
     return (
-      <ImageBackground
-        source={require("../assets/emorymap.png")}
-        style={styles.container}
-      >
-        <Button
-          style={styles.button}
-          onPress={() => this.props.navigation.navigate("PickingUp")}
-        >
-          <Text style={styles.text}>Start Delivering</Text>
-        </Button>
-        <Block style={styles.footer}>
-          <Block row space="around">
-            <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
-            <Icon
-              name="star-outlined"
-              family="Entypo"
-              size={35}
-              color="#5E72E4"
-            />
-            <Icon
-              name="dollar-sign"
-              family="Feather"
-              size={35}
-              color="#5E72E4"
-            />
-            <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
+        <ImageBackground source={require("../assets/emorymap.png")} style={styles.container}>
+          <Button style={styles.button} onPress={()=>this.props.navigation.navigate('AcceptOrders')}>
+            <Text style={styles.text}>Start Delivering</Text>
+          </Button>
+          <Block style={styles.footer}>
+            <Block row space='around'>
+              <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
+              <Icon name="star-outlined" family="Entypo" size={35} color="#5E72E4" />
+              <Icon name="dollar-sign" family="Feather" size={35} color="#5E72E4" />
+              <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
+            </Block>
+            <Block row space='around'>
+              <Text style={{color: '#5E72E4', marginLeft: 15}}>Run</Text>
+              <Text style={{color: '#5E72E4', marginLeft: 20}}>Ratings</Text>
+              <Text style={{color: '#5E72E4', marginLeft: 5}}>Earnings</Text>
+              <Text style={{color: '#5E72E4'}}>Account</Text>
+            </Block>
           </Block>
           <Block row space="around">
             <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
@@ -83,13 +74,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  button: {
-    height: 80,
-    width: 300
+  button:{
+    height: normalize(80),
+    width: normalize(300)
   },
-  text: {
-    fontSize: 30,
-    color: "white"
+  text:{
+    fontSize: normalize(30),
+    color: 'white'
   },
   footer: {
     backgroundColor: "white",
