@@ -10,6 +10,7 @@ import {
 import { Button, Block, Icon } from "galio-framework";
 import BottomSheet from "../components/BottomSheet";
 const { width, height } = Dimensions.get("window");
+import normalize from "react-native-normalize";
 
 export default class ProgTrack extends React.Component {
   render() {

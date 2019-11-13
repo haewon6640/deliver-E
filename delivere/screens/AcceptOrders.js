@@ -15,6 +15,7 @@ import {
 import { Button, Block, Icon } from "galio-framework";
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 const { width, height } = Dimensions.get("window");
+import normalize from "react-native-normalize";
 let time;
 
 export default class AcceptOrders extends React.Component {
@@ -34,9 +35,9 @@ export default class AcceptOrders extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <Image source={require("../assets/emorymap.png")} style={{
+        <Image source={require("../assets/emorymap.png")}style={{
             alignSelf: 'center'}}/>
-        <Block style={{position: 'absolute', bottom: 100, backgroundColor: 'white', width: width}}>
+        <Block style={{position: 'absolute', bottom: 0, paddingBottom: 70, backgroundColor: 'white', width: width}}>
           <Block row style={{paddingLeft: 30, paddingBottom: 25, paddingTop: 25, marginBottom: 15}}>
           <View>
             <Text style={styles.text}>Deliver by 3:27 PM</Text>
@@ -46,7 +47,7 @@ export default class AcceptOrders extends React.Component {
               <Text style={styles.text}>0.5 miles</Text>
             </Block>
           </View>
-          <View style={{position:'absolute', top: 30, right: 50}}>
+          <View style={{position:'absolute', top: 30, right: normalize(40)}}>
             <AnimatedCircularProgress
               size={80}
               width={10}
@@ -66,13 +67,14 @@ export default class AcceptOrders extends React.Component {
           <View style={{paddingLeft: 30}}>
             <Block row>
               <Block style={{paddingTop: 10}}>
-                <Text style={styles.category}>$3.00</Text>
-                <Text style={styles.text}>Guaranteed Earnings</Text>
+                <Text style={styles.category}>  $3.00</Text>
+                <Text style={styles.text}>Guaranteed</Text>
+                <Text style={styles.text}>  Earnings</Text>
               </Block>
               <TouchableOpacity onPress={()=>this.props.navigation.navigate('PickingUp')} style={{height: 100, position:'absolute', right: 30,
                 justifyContent: 'center', alignItems: 'center', marginTop:20,
-                aspectRatio: 1.2, backgroundColor:"#5E72E4", borderRadius: 15}}>
-                <Text style={{fontSize: 23, color: 'white'}}>Accept</Text>
+                aspectRatio: 1.2, backgroundColor:"#5E72E4", borderRadius: normalize(15)}}>
+                <Text style={{fontSize: normalize(23), color: 'white'}}>Accept</Text>
               </TouchableOpacity>
             </Block>
           </View>
@@ -84,15 +86,15 @@ export default class AcceptOrders extends React.Component {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 20,
+    fontSize: normalize(20),
     color: "#466199",
-    paddingLeft: 10
+    paddingLeft: normalize(10)
   },
   category: {
     fontWeight: 'bold',
-    paddingLeft: 10,
-    paddingTop: 15,
-    fontSize: 23,
+    paddingLeft: normalize(10),
+    paddingTop: normalize(15),
+    fontSize: normalize(23),
     color: "#1f396e"
   },
 });

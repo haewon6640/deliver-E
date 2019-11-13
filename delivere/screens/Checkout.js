@@ -9,21 +9,59 @@ import {
   TouchableOpacity
 } from "react-native";
 import { Button, Block, Icon } from "galio-framework";
-const { width } = Dimensions.get("window");
+import normalize from "react-native-normalize";
+import MapView from 'react-native-maps';
+import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
+const { width, height } = Dimensions.get("window");
+let map;
 
 export default class Checkout extends React.Component {
+  state = {
+    location: null,
+    errorMessage: null
+  };
+
+  componentWillMount(){
+    this._getLocationAsync();
+  }
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permission to access location was denied',
+      });
+    }
+    let loc = await Location.getCurrentPositionAsync({});
+    this.setState({ location: loc });
+  };
+
+  
   render() {
+    if (this.state.location != null){
+      map = (
+        <MapView style={{height: height*0.25, width: 0.8*width, marginBottom: 5, alignSelf: 'center'}}
+            initialRegion={{
+              latitude: this.state.location.coords.latitude,
+              longitude: this.state.location.coords.longitude,
+              latitudeDelta: 0.002,
+              longitudeDelta: 0.002,
+            }} />
+      )
+    }
     return (
       <ScrollView>
         <Block style={styles.container}>
           <Text style={styles.name}>Checkout</Text>
           <Text style={styles.category}>Delivery Details</Text>
-          <Image source={require("../assets/map.png")} style={{
+          {/* <Image source={require("../assets/map.png")} style={{
             alignSelf: 'center',
             flex: 1,
             aspectRatio: 1.2, 
             resizeMode: 'contain'}}
-          />
+          /> */}
+          {map}
           <Block row>
             <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Location</Text>
             <Text style={{position: 'absolute', right:50, fontSize: 17}}>White Hall</Text>
@@ -70,8 +108,8 @@ const styles = StyleSheet.create({
   },
   name: {
     alignSelf: 'center',
-    paddingBottom: 15,
-    fontSize: 30,
+    paddingBottom: normalize(15),
+    fontSize: normalize(30),
     color: "#1f396e"
   },
   text: {
@@ -80,8 +118,8 @@ const styles = StyleSheet.create({
     paddingLeft: 30
   },
   category: {
-    paddingLeft: 30,
-    paddingTop: 15,
+    paddingLeft: normalize(30),
+    paddingTop: normalize(15),
     fontSize: 20,
     color: "#1f396e"
   }

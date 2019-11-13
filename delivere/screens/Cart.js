@@ -11,6 +11,7 @@ import {
 import { Button, Block, Icon } from "galio-framework";
 const { width } = Dimensions.get("window");
 import firebase from "../components/firebase";
+import normalize from "react-native-normalize";
 import "@firebase/firestore";
 
 export default class Cart extends React.Component {
@@ -112,7 +113,7 @@ export default class Cart extends React.Component {
             onPress={() => this.addOrder()}
             color="#5E72E4"
             shadowless
-            style={{ alignSelf: "center", marginTop: 100 }}
+            style={{ alignSelf: "center", marginTop: normalize(80) }}
           >
             Checkout
           </Button>

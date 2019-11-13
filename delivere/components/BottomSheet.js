@@ -1,14 +1,14 @@
 import React from "react";
-import { Text, View, Dimensions, Animated, ProgressViewIOS } from "react-native";
+import { PanResponder, ScrollView, Text, View, Dimensions, Animated, ProgressViewIOS } from "react-native";
 import { Block, Icon } from "galio-framework";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import normalize from "react-native-normalize";
 
 const { height, width } = Dimensions.get("window");
 
 const styles = {
   container:{
-    flex: 1,
     padding: 10
   },
   text: {
@@ -24,14 +24,14 @@ const styles = {
     color: "#1f396e"
   },
   panel: {
-    borderRadius: 20,
-    flex: 1,
+    height: 0.7*height,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     backgroundColor: "white",
     position: "relative",
   },
   panelHeader: {
     borderRadius: 20,
-    height: 180,
     backgroundColor: "white",
     paddingLeft: 13,
     padding: 10,
@@ -59,6 +59,16 @@ class BottomSheet extends React.Component {
     this.state={status: 0.25, message: 'Heading to store', time: '10-15 min'};
     this.changeStatus=this.changeStatus.bind(this);
     this.manualChange=this.manualChange.bind(this);
+    this.state= {dragPanel: true}
+  
+    this._onGrant = this._onGrant.bind(this);
+    this._onRelease = this._onRelease.bind(this);
+  
+    this._panResponder = PanResponder.create({
+      onMoveShouldSetPanResponder: this._onGrant,
+      onPanResponderRelease: this._onRelease,
+      onPanResponderTerminate: this._onRelease,
+    });
   }
 
   manualChange = (n) => {
@@ -79,10 +89,19 @@ class BottomSheet extends React.Component {
   }
 
   static defaultProps = {
-    draggableRange: { top: height - 95, bottom: 180 }
+    draggableRange: { top: 0.7*height, bottom: 180 }
   };
 
   _draggedValue = new Animated.Value(180);
+
+  _onGrant() {
+    this.setState({ dragPanel: false });
+    return true;
+  }
+  
+  _onRelease() {
+    this.setState({ dragPanel: true });
+  }
 
   componentDidMount(){
     this.changeStatus();
@@ -95,47 +114,48 @@ class BottomSheet extends React.Component {
   }  
   render() {
     return (
-      <SlidingUpPanel
+      <SlidingUpPanel allowDragging={this.state.dragPanel}
         ref={c => (this._panel = c)}
         draggableRange={this.props.draggableRange}
         animatedValue={this._draggedValue}
         height={height + 180}
         friction={0.5}>
         <View style={styles.panel}>
+        <Block style={{alignSelf:'center', backgroundColor: '#d3d1d1', height: 8, width: 50, marginTop: 15, marginBottom: 2, borderRadius: 100}}/>
+        <ScrollView {...this._panResponder.panHandlers}>
           <View style={styles.panelHeader}>
-            <Block style={{alignSelf:'center', backgroundColor: '#d3d1d1', height: 8, width: 50, marginBottom: 13, borderRadius: 100}}/>
             <Text style={styles.textHeader}>{this.state.message}</Text>
             <Text style={[styles.textHeader, {fontSize: 20}]}>{this.state.time}</Text>
             <ProgressViewIOS style={styles.progBar} progress={this.state.status} progressTintColor={"#5E72E4"}/>
             <Block row space='around' style={{marginTop: 5}}>
             <TouchableOpacity onPress={()=>this.manualChange(1)}>
-              <Icon name="directions-run" family="MaterialIcons" size={35} color="#5E72E4" />
+              <Icon name="directions-run" family="MaterialIcons" size={normalize(35)} color="#5E72E4" />
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>this.manualChange(2)}>
-              <Icon name="store-mall-directory" family="MaterialIcons" size={35} color="#5E72E4" />
+              <Icon name="store-mall-directory" family="MaterialIcons" size={normalize(35)} color="#5E72E4" />
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>this.manualChange(3)}>  
-              <Icon name="doubleright" family="AntDesign" size={35} color="#5E72E4" />
+              <Icon name="doubleright" family="AntDesign" size={normalize(35)} color="#5E72E4" />
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>this.manualChange(4)}>
-              <Icon name="home" family="Entypo" size={35} color="#5E72E4" />
+              <Icon name="home" family="Entypo" size={normalize(35)} color="#5E72E4" />
             </TouchableOpacity>
             </Block>
           </View>
           <View style={styles.container}>
-            <View style={{borderBottomWidth: 1, borderBottomColor:'#c9bfbf', paddingBottom: 20, marginBottom: 30}}>
+            <View style={{borderBottomWidth: 1, borderBottomColor:'#c9bfbf', paddingBottom: normalize(20), marginBottom: normalize(30)}}>
               <Block row>
                 <View>
                   <Text style={styles.category}>Sally S.</Text>
                   <Text style={styles.text}>Your Runner</Text>
                 </View>
-                <Block style={{position:'absolute', right: 20, paddingTop: 16}}row middle>
+                <Block style={{position:'absolute', right: normalize(20), paddingTop: normalize(16)}}row middle>
                   <Icon name="phone" family="Entypo" size={35} color="#5E72E4" />
-                  <Icon style={{marginLeft:40, marginRight: 20}}name="chat" family="Entypo" size={35} color="#5E72E4" />
+                  <Icon style={{marginLeft:normalize(40), marginRight: normalize(20)}}name="chat" family="Entypo" size={35} color="#5E72E4" />
                 </Block>
               </Block>
             </View>
-            <View style={{borderBottomWidth: 1, borderBottomColor:'#c9bfbf', paddingBottom: 20, marginBottom: 30}}>
+            <View style={{borderBottomWidth: 1, borderBottomColor:'#c9bfbf', paddingBottom: normalize(20), marginBottom: normalize(20)}}>
               <Text style={styles.category}>Order Details</Text>
               <Text style={styles.text}>1 Item:</Text>
               <Text style={styles.text}>1x Taco Combo</Text>
@@ -148,6 +168,7 @@ class BottomSheet extends React.Component {
               <Text style={styles.text}>White Hall 208</Text>
             </View>
           </View>
+          </ScrollView>
         </View>
       </SlidingUpPanel>
     );

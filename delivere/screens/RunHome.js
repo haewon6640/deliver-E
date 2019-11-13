@@ -64,11 +64,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   button:{
-    height: 80,
-    width: 300
+    height: normalize(80),
+    width: normalize(300)
   },
   text:{
-    fontSize: 30,
+    fontSize: normalize(30),
     color: 'white'
   },
   footer: {
