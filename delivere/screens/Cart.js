@@ -45,9 +45,9 @@ export default class Cart extends React.Component {
       return (
         <Block key={i}>
           <Block row>
-            <Text style={styles.text}>1</Text>
+            <Text style={styles.text}>{element.count}</Text>
             <Text style={styles.text}>{element.name}</Text>
-            <Text style={{ marginLeft: 180, fontSize: 17 }}>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
               {"$" + element.price}
             </Text>
           </Block>
@@ -58,6 +58,7 @@ export default class Cart extends React.Component {
     items.forEach(element => {
       price = price + element.price;
     });
+    totalPrice = (price + (price * 0.04) + 1.99).toFixed(2);
     return (
       <Block style={styles.container}>
         <ScrollView>
@@ -80,7 +81,7 @@ export default class Cart extends React.Component {
               Subtotal
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              {"$" + price}
+              {"$" + price.toFixed(2)}
             </Text>
           </Block>
           <Block row>
@@ -96,7 +97,15 @@ export default class Cart extends React.Component {
               Delivery
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              $1.99
+              $3.00
+            </Text>
+          </Block>
+          <Block row>
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17, fontWeight: 'bold'}}>
+              Total
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17, fontWeight: 'bold'}}>
+              {"$" + totalPrice}
             </Text>
           </Block>
           <Button

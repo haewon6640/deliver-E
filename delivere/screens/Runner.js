@@ -39,32 +39,34 @@ class Runner extends React.Component {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
-        .then(function() {}.bind(this))
+        .then(
+          function() {
+            this.props.navigation.navigate("RunHome");
+            // Sign-out successful.
+          }.bind(this)
+        )
         .catch(
           function(error) {
             alert(error.toString());
           }.bind(this)
         );
-      firebase.auth().onAuthStateChanged(
-        function(user) {
-          if (user) {
-            const curUser = {
-              uid: user.uid,
-              email: user.email,
-              name: name,
-              phoneNumber: phoneNumber
-            };
-            dbh
-              .collection("Runner")
-              .doc(user.uid)
-              .set(curUser);
-
-            this.props.navigation.navigate("RunHome");
-          } else {
-            // No user is signed in.
-          }
-        }.bind(this)
-      );
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          const curUser = {
+            uid: user.uid,
+            email: user.email,
+            name: name,
+            phoneNumber: phoneNumber,
+            type: "Runner"
+          };
+          dbh
+            .collection("User")
+            .doc(user.uid)
+            .set(curUser);
+        } else {
+          // No user is signed in.
+        }
+      });
     } catch (error) {
       alert(error.toString());
     }

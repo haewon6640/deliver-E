@@ -21,7 +21,7 @@ class Header extends React.Component {
   render() {
     return (
       <Block style={styles.header}>
-        <StatusBar />
+        <StatusBar/>
         <Text style={styles.text}>Delivering to</Text>
         <TouchableOpacity>
           <Block row middle width={width}>
@@ -41,9 +41,9 @@ class Header extends React.Component {
 }
 
 export default class Home extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = { showViewCart: false };
+    this.state={showViewCart: false};
   }
 
   static navigationOptions = {
@@ -54,6 +54,7 @@ export default class Home extends React.Component {
       borderBottomWidth: 0
     }
   };
+
 
   // createMenu(name, category, rating, ratecount) {
   //   alert("adfsafd");
@@ -141,7 +142,7 @@ export default class Home extends React.Component {
       function(user) {
         if (user) {
           const name = "";
-          db.collection("Eater")
+          db.collection("User")
             .doc(user.uid)
             .get()
             .then(
@@ -182,12 +183,7 @@ export default class Home extends React.Component {
     // );
     return (
       <View style={styles.container}>
-        <ScrollView
-          contentContainerStyle={{
-            flexGrow: 1,
-            justifyContent: "space-between"
-          }}
-        >
+        <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'space-between'}}>
           <View style={styles.content}>
             <Block row space="evenly" width={width}>
               <TouchableOpacity
@@ -195,9 +191,7 @@ export default class Home extends React.Component {
               >
                 <Restaurant name="Twisted Taco" />
               </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => this.queryRestaurantInfo("Maru")}
-              >
+              <TouchableOpacity onPress={() => this.queryRestaurantInfo("Maru")}>
                 <Restaurant name="Maru" />
               </TouchableOpacity>
             </Block>
@@ -234,7 +228,7 @@ const styles = StyleSheet.create({
   content: {
     backgroundColor: "#F8F9FE",
     flex: 1,
-    paddingTop: height * 0.08
+    paddingTop: height*0.08
   },
   location: {
     fontSize: normalize(25),
@@ -260,11 +254,11 @@ const styles = StyleSheet.create({
     fontSize: normalize(17),
     color: "#1f396e"
   },
-  button: {
+  button:{
     backgroundColor: "#5E72E4",
     borderRadius: 80,
     height: 50,
-    width: width * 0.5,
+    width: width*0.5,
     marginTop: 20,
     marginBottom: 95
   }

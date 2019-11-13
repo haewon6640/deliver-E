@@ -86,8 +86,13 @@ class BottomSheet extends React.Component {
 
   componentDidMount(){
     this.changeStatus();
-  } 
+  }
   
+  componentWillUnmount(){
+    clearTimeout(t1);
+    clearTimeout(t2);
+    clearTimeout(t3);
+  }  
   render() {
     return (
       <SlidingUpPanel

@@ -51,9 +51,9 @@ export default class Menu extends React.Component {
     // this.props.navigation.dispatch(setParamsAction);
   };
 
-  addList = (name, price) => {
+  addList = (category, name, price) => {
     this.state.chosenItems.push({
-      name: name,
+      name: category + ": " + name,
       price: price,
       count: this.state.count
     });
@@ -91,6 +91,7 @@ export default class Menu extends React.Component {
                 key={j}
                 addList={this.addList}
                 addCart={this.addCartButton}
+                category={data}
                 name={item.name}
                 price={item.price}
                 cal={item.cal}
@@ -114,7 +115,7 @@ export default class Menu extends React.Component {
             })
           }
         >
-          <Block row middle style={styles.button1}>
+          <Block row middle style={[styles.button,{marginBottom: 20}]}>
             <Text style={{ fontSize: 20, color: "white" }}>Add to Cart</Text>
           </Block>
         </TouchableOpacity>
@@ -164,7 +165,7 @@ export default class Menu extends React.Component {
         <MenuItem name="Chips and Salsa" pricecal="$2.19 - 450 cal" /> */}
           {List}
           <TouchableOpacity>
-            <Block row style={styles.instrc}>
+            <Block row style={[styles.instrc, {marginBottom: 20}]}>
               <Text style={styles.text}>Special Instructions</Text>
               <Icon
                 style={{ position: "absolute", right: 20, marginTop: 25 }}
@@ -241,13 +242,5 @@ const styles = StyleSheet.create({
     width: width * 0.5,
     marginTop: 20,
     marginBottom: 80
-  },
-  button1: {
-    backgroundColor: "#5E72E4",
-    borderRadius: 80,
-    height: 50,
-    width: width * 0.5,
-    marginTop: 20,
-    marginBottom: 20
   }
 });

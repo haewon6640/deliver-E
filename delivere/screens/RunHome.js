@@ -17,7 +17,7 @@ export default class RunHome extends React.Component {
   render() {
     return (
         <ImageBackground source={require("../assets/emorymap.png")} style={styles.container}>
-          <Button style={styles.button} onPress={()=>this.props.navigation.navigate('PickingUp')}>
+          <Button style={styles.button} onPress={()=>this.props.navigation.navigate('AcceptOrders')}>
             <Text style={styles.text}>Start Delivering</Text>
           </Button>
           <Block style={styles.footer}>
