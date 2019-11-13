@@ -30,13 +30,32 @@ class Register extends React.Component {
     };
   }
 
-  signUpUser = async (email, password, name, phoneNumber) => {
+  showAlert() {
+    Alert.alert(
+      "Verify your email.",
+      "Alert Msg",
+      [
+        {
+          text: "You will be able to proceed after verifying your email."
+        },
+        {
+          text: "",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+  }
+
+  signUpUser = (email, password, name, phoneNumber) => {
     try {
       // if (password.length < 6) {
       //   alert("Please enter at least 6 characters");
       //   return;
       // }
-      await firebase
+      firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(userData => {
@@ -51,14 +70,14 @@ class Register extends React.Component {
         function(user) {
           if (user) {
             const curUser = {
-              uid: user.uid,
               email: user.email,
               name: name,
-              phoneNumber: phoneNumber
+              phoneNumber: phoneNumber,
+              type: "Eater"
             };
             dbh
               .collection("Eater")
-              .doc(user.uid)
+              .doc(email)
               .set(curUser);
             this.props.navigation.navigate("Home");
           } else {

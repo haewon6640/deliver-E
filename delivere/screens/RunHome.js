@@ -16,25 +16,45 @@ import normalize from "react-native-normalize";
 export default class RunHome extends React.Component {
   render() {
     return (
-        <ImageBackground source={require("../assets/emorymap.png")} style={styles.container}>
-          <Button style={styles.button} onPress={()=>this.props.navigation.navigate('PickingUp')}>
-            <Text style={styles.text}>Start Delivering</Text>
-          </Button>
-          <Block style={styles.footer}>
-            <Block row space='around'>
-              <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
-              <Icon name="star-outlined" family="Entypo" size={35} color="#5E72E4" />
-              <Icon name="dollar-sign" family="Feather" size={35} color="#5E72E4" />
-              <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
-            </Block>
-            <Block row space='around'>
-              <Text style={{color: '#5E72E4', marginLeft: 15}}>Run</Text>
-              <Text style={{color: '#5E72E4', marginLeft: 20}}>Ratings</Text>
-              <Text style={{color: '#5E72E4', marginLeft: 5}}>Earnings</Text>
-              <Text style={{color: '#5E72E4'}}>Account</Text>
-            </Block>
+      <ImageBackground
+        source={require("../assets/emorymap.png")}
+        style={styles.container}
+      >
+        <Button
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate("PickingUp")}
+        >
+          <Text style={styles.text}>Start Delivering</Text>
+        </Button>
+        <Block style={styles.footer}>
+          <Block row space="around">
+            <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
+            <Icon
+              name="star-outlined"
+              family="Entypo"
+              size={35}
+              color="#5E72E4"
+            />
+            <Icon
+              name="dollar-sign"
+              family="Feather"
+              size={35}
+              color="#5E72E4"
+            />
+            <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </Block>
-            {/* <View style={{alignItems: 'center'}}>
+          <Block row space="around">
+            <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
+            <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
+            <Text style={{ color: "#5E72E4", marginLeft: 5 }}>Earnings</Text>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("RunProfile")}
+            >
+              <Text style={{ color: "#5E72E4" }}>Account</Text>
+            </TouchableOpacity>
+          </Block>
+        </Block>
+        {/* <View style={{alignItems: 'center'}}>
               <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
               <Text style={{color: '#5E72E4'}>Run</Text>
             </View>
@@ -60,25 +80,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center"
   },
-  button:{
+  button: {
     height: 80,
     width: 300
   },
-  text:{
+  text: {
     fontSize: 30,
-    color: 'white'
+    color: "white"
   },
   footer: {
-    backgroundColor: 'white',
-    position: 'absolute',
+    backgroundColor: "white",
+    position: "absolute",
     bottom: 0,
     width: width,
     paddingTop: normalize(13),
     height: normalize(95),
     borderTopWidth: 1,
     borderColor: "#d6d7da"
-  },
+  }
 });

@@ -46,8 +46,8 @@ export default class Cart extends React.Component {
         <Block key={i}>
           <Block row>
             <Text style={styles.text}>1</Text>
-            <Text style={styles.text}>{element.name}</Text>
-            <Text style={{ marginLeft: 180, fontSize: 17 }}>
+            <Text style={styles.text}>{element.name + " " + element.type}</Text>
+            <Text style={{ marginRight: 30, fontSize: 17 }}>
               {"$" + element.price}
             </Text>
           </Block>

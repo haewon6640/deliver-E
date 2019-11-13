@@ -51,11 +51,11 @@ export default class Menu extends React.Component {
     // this.props.navigation.dispatch(setParamsAction);
   };
 
-  addList = (name, price) => {
+  addList = (name, price, type) => {
     this.state.chosenItems.push({
       name: name,
       price: price,
-      count: this.state.count
+      type: type
     });
   };
 
@@ -94,6 +94,7 @@ export default class Menu extends React.Component {
                 name={item.name}
                 price={item.price}
                 cal={item.cal}
+                type={data}
                 pricecal={"$" + item.price + " - " + item.cal + " cal"}
               />
             );
