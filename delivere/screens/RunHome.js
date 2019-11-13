@@ -12,8 +12,31 @@ import {
 import { Button, Block, Icon } from "galio-framework";
 const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+const dbh = firebase.firestore();
 
 export default class RunHome extends React.Component {
+  querylatestOrder = async () => {
+    var order = {};
+    var success = "";
+    await dbh
+      .collection("Order")
+      .orderBy("date")
+      .limit(1)
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(documentSnapshot => {
+          var data = documentSnapshot.data();
+          order = data;
+          success = "success";
+        });
+      })
+      .catch(error => alert(error.toString()));
+    if (success != "") {
+      this.props.navigation.navigate("AcceptOrders", { order: order });
+    }
+  };
   render() {
     return (
       <ImageBackground
@@ -22,7 +45,9 @@ export default class RunHome extends React.Component {
       >
         <Button
           style={styles.button}
-          onPress={() => this.props.navigation.navigate("AcceptOrders")}
+          onPress={() => {
+            this.querylatestOrder();
+          }}
         >
           <Text style={styles.text}>Start Delivering</Text>
         </Button>

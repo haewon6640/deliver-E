@@ -47,7 +47,8 @@ export default class Cart extends React.Component {
         subtotal: this.state.subtotal,
         tax: this.state.tax,
         deliveryFee: this.state.deliveryFee,
-        eaterEmail: eaterEmail
+        eaterEmail: eaterEmail,
+        date: new Date()
       })
       .then(function(docRef) {})
       .catch(
