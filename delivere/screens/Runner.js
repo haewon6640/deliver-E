@@ -29,48 +29,43 @@ class Runner extends React.Component {
       curUser: null
     };
   }
-
-  signUpUser = (email, password, name, phoneNumber) => {
-    try {
-      // if (password.length < 6) {
-      //   alert("Please enter at least 6 characters");
-      //   return;
-      // }
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(
-          function() {
-            this.props.navigation.navigate("RunHome");
-            // Sign-out successful.
-          }.bind(this)
-        )
-        .catch(
-          function(error) {
-            alert(error.toString());
-          }.bind(this)
-        );
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          const curUser = {
-            uid: user.uid,
-            email: user.email,
-            name: name,
-            phoneNumber: phoneNumber,
-            type: "Runner"
-          };
-          dbh
-            .collection("User")
-            .doc(user.uid)
-            .set(curUser);
-        } else {
-          // No user is signed in.
-        }
+  async attemptAuthentication(email, password) {
+    var authenticated = "";
+    await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => (authenticated = "Success"))
+      .catch(function(error) {
+        alert(error.toString());
       });
-    } catch (error) {
-      alert(error.toString());
+    return authenticated;
+  }
+
+  async signUpUser(email, password, name, phoneNumber) {
+    const response = await this.attemptAuthentication(email, password);
+    if (response == "Success") {
+      alert("adff");
+      firebase.auth().onAuthStateChanged(
+        function(user) {
+          if (user) {
+            const curUser = {
+              uid: user.uid,
+              email: user.email,
+              name: name,
+              phoneNumber: phoneNumber
+            };
+            dbh
+              .collection("Runner")
+              .doc(email)
+              .set(curUser);
+            this.props.navigation.navigate("RunHome");
+          } else {
+            // No user is signed in.
+          }
+        }.bind(this)
+      );
     }
-  };
+  }
 
   render() {
     return (

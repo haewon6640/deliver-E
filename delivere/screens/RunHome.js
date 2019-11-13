@@ -34,7 +34,18 @@ export default class RunHome extends React.Component {
               <Text style={{color: '#5E72E4'}}>Account</Text>
             </Block>
           </Block>
-            {/* <View style={{alignItems: 'center'}}>
+          <Block row space="around">
+            <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
+            <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
+            <Text style={{ color: "#5E72E4", marginLeft: 5 }}>Earnings</Text>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("RunProfile")}
+            >
+              <Text style={{ color: "#5E72E4" }}>Account</Text>
+            </TouchableOpacity>
+          </Block>
+        </Block>
+        {/* <View style={{alignItems: 'center'}}>
               <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
               <Text style={{color: '#5E72E4'}>Run</Text>
             </View>
@@ -60,8 +71,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center"
   },
   button:{
     height: normalize(80),
@@ -72,13 +83,13 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   footer: {
-    backgroundColor: 'white',
-    position: 'absolute',
+    backgroundColor: "white",
+    position: "absolute",
     bottom: 0,
     width: width,
     paddingTop: normalize(13),
     height: normalize(95),
     borderTopWidth: 1,
     borderColor: "#d6d7da"
-  },
+  }
 });

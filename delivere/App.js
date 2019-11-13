@@ -16,6 +16,7 @@ import Checkout from "./screens/Checkout";
 import AddSubscription from "./screens/AddSubscription";
 import ProgTrack from "./screens/ProgTrack";
 import RunHome from "./screens/RunHome";
+import RunProfile from "./screens/RunProfile";
 import AcceptOrders from "./screens/AcceptOrders";
 import OrderList from "./screens/OrderList";
 import PickingUp from "./screens/PickingUp";
@@ -42,6 +43,7 @@ const AppNavigator = createStackNavigator(
     AddSubscription: AddSubscription,
     ProgTrack: ProgTrack,
     RunHome: RunHome,
+    RunProfile: RunProfile,
     AcceptOrders: AcceptOrders,
     PickingUp: PickingUp,
     AfterArrival: AfterArrival,

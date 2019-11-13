@@ -55,7 +55,7 @@ export default class Menu extends React.Component {
     this.state.chosenItems.push({
       name: category + ": " + name,
       price: price,
-      count: this.state.count
+      type: type
     });
   };
 
@@ -95,6 +95,7 @@ export default class Menu extends React.Component {
                 name={item.name}
                 price={item.price}
                 cal={item.cal}
+                type={data}
                 pricecal={"$" + item.price + " - " + item.cal + " cal"}
               />
             );

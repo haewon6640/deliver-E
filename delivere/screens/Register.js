@@ -30,23 +30,39 @@ class Register extends React.Component {
     };
   }
 
-  signUpUser = async (email, password, name, phoneNumber) => {
-    try {
-      // if (password.length < 6) {
-      //   alert("Please enter at least 6 characters");
-      //   return;
-      // }
-      await firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(userData => {
-          userData.user.sendEmailVerification();
-        })
-        .catch(
-          function(error) {
-            alert(error.toString());
-          }.bind(this)
-        );
+  showAlert() {
+    Alert.alert(
+      "Verify your email.",
+      "Alert Msg",
+      [
+        {
+          text: "You will be able to proceed after verifying your email."
+        },
+        {
+          text: "",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+  }
+  async attemptAuthentication(email, password) {
+    var authenticated = "";
+    await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => (authenticated = "Success"))
+      .catch(function(error) {
+        alert(error.toString());
+      });
+    return authenticated;
+  }
+
+  async signUpUser(email, password, name, phoneNumber) {
+    const response = await this.attemptAuthentication(email, password);
+    if (response == "Success") {
       firebase.auth().onAuthStateChanged(
         function(user) {
           if (user) {
@@ -58,7 +74,7 @@ class Register extends React.Component {
             };
             dbh
               .collection("Eater")
-              .doc(user.uid)
+              .doc(email)
               .set(curUser);
             this.props.navigation.navigate("Home");
           } else {
@@ -66,10 +82,8 @@ class Register extends React.Component {
           }
         }.bind(this)
       );
-    } catch (error) {
-      alert(error.toString());
     }
-  };
+  }
 
   render() {
     return (
