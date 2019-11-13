@@ -22,7 +22,7 @@ export default class RunHome extends React.Component {
     var success = "";
     await dbh
       .collection("Order")
-      .orderBy("date")
+      .orderBy("date", "desc")
       .limit(1)
       .get()
       .then(querySnapshot => {
