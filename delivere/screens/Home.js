@@ -137,12 +137,11 @@ export default class Home extends React.Component {
   };
 
   queryProfileInfo = () => {
-    const loggedIn = firebase.auth().onAuthStateChanged(
+    firebase.auth().onAuthStateChanged(
       function(user) {
         if (user) {
-          const name = "";
           db.collection("Eater")
-            .doc(user.uid)
+            .doc(user.email)
             .get()
             .then(
               function(doc) {

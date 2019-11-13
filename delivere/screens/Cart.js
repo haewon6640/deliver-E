@@ -16,16 +16,30 @@ import "@firebase/firestore";
 export default class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rName: "", items: null };
+    this.state = {
+      rName: "",
+      items: null,
+      subtotal: 0,
+      tax: 0,
+      deliveryFee: 0
+    };
   }
-  addOrder = () => {
+  async addOrder() {
     const dbh = firebase.firestore();
-    this.props.navigation.navigate("Checkout");
+    var total = (
+      this.state.subtotal +
+      this.state.tax +
+      this.state.deliveryFee
+    ).toFixed(2);
+    this.props.navigation.navigate("Checkout", { totalPrice: total });
     dbh
       .collection("Order")
       .add({
         rName: this.state.rName,
-        items: this.state.items
+        items: this.state.items,
+        subtotal: this.state.subtotal,
+        tax: this.state.tax,
+        deliveryFee: this.state.deliveryFee
       })
       .then(function(docRef) {})
       .catch(
@@ -33,7 +47,7 @@ export default class Cart extends React.Component {
           alert(error.toString());
         }.bind(this)
       );
-  };
+  }
   render() {
     const { navigation } = this.props;
     var rName = navigation.getParam("rName");
@@ -54,10 +68,11 @@ export default class Cart extends React.Component {
         </Block>
       );
     });
-    var price = 0;
     items.forEach(element => {
-      price = price + element.price;
+      this.state.subtotal = this.state.subtotal + element.price;
     });
+    this.state.tax = (this.state.subtotal * 0.04).toFixed(2);
+    this.state.deliveryFee = 1.99;
     return (
       <Block style={styles.container}>
         <ScrollView>
@@ -80,7 +95,7 @@ export default class Cart extends React.Component {
               Subtotal
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              {"$" + price}
+              {"$" + this.state.subtotal}
             </Text>
           </Block>
           <Block row>
@@ -88,7 +103,7 @@ export default class Cart extends React.Component {
               Tax
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              {"$" + (price * 0.04).toFixed(2)}
+              {"$" + this.state.tax}
             </Text>
           </Block>
           <Block row>
@@ -96,7 +111,7 @@ export default class Cart extends React.Component {
               Delivery
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              $1.99
+              {"$" + this.state.deliveryFee}
             </Text>
           </Block>
           <Button

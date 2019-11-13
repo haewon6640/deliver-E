@@ -44,7 +44,6 @@ class Runner extends React.Component {
   async signUpUser(email, password, name, phoneNumber) {
     const response = await this.attemptAuthentication(email, password);
     if (response == "Success") {
-      alert("adff");
       firebase.auth().onAuthStateChanged(
         function(user) {
           if (user) {
