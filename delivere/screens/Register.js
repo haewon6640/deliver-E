@@ -48,32 +48,29 @@ class Register extends React.Component {
       { cancelable: false }
     );
   }
+  async attemptAuthentication(email, password) {
+    var authenticated = "";
+    await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => (authenticated = "Success"))
+      .catch(function(error) {
+        alert(error.toString());
+      });
+    return authenticated;
+  }
 
-  signUpUser = (email, password, name, phoneNumber) => {
-    try {
-      // if (password.length < 6) {
-      //   alert("Please enter at least 6 characters");
-      //   return;
-      // }
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(userData => {
-          userData.user.sendEmailVerification();
-        })
-        .catch(
-          function(error) {
-            alert(error.toString());
-          }.bind(this)
-        );
+  async signUpUser(email, password, name, phoneNumber) {
+    const response = await this.attemptAuthentication(email, password);
+    if (response == "Success") {
       firebase.auth().onAuthStateChanged(
         function(user) {
           if (user) {
             const curUser = {
+              uid: user.uid,
               email: user.email,
               name: name,
-              phoneNumber: phoneNumber,
-              type: "Eater"
+              phoneNumber: phoneNumber
             };
             dbh
               .collection("Eater")
@@ -85,10 +82,8 @@ class Register extends React.Component {
           }
         }.bind(this)
       );
-    } catch (error) {
-      alert(error.toString());
     }
-  };
+  }
 
   render() {
     return (

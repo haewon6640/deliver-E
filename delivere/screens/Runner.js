@@ -29,22 +29,22 @@ class Runner extends React.Component {
       curUser: null
     };
   }
+  async attemptAuthentication(email, password) {
+    var authenticated = "";
+    await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => (authenticated = "Success"))
+      .catch(function(error) {
+        alert(error.toString());
+      });
+    return authenticated;
+  }
 
-  signUpUser = (email, password, name, phoneNumber) => {
-    try {
-      // if (password.length < 6) {
-      //   alert("Please enter at least 6 characters");
-      //   return;
-      // }
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(function() {}.bind(this))
-        .catch(
-          function(error) {
-            alert(error.toString());
-          }.bind(this)
-        );
+  async signUpUser(email, password, name, phoneNumber) {
+    const response = await this.attemptAuthentication(email, password);
+    if (response == "Success") {
+      alert("adff");
       firebase.auth().onAuthStateChanged(
         function(user) {
           if (user) {
@@ -56,19 +56,16 @@ class Runner extends React.Component {
             };
             dbh
               .collection("Runner")
-              .doc(user.uid)
+              .doc(email)
               .set(curUser);
-
             this.props.navigation.navigate("RunHome");
           } else {
             // No user is signed in.
           }
         }.bind(this)
       );
-    } catch (error) {
-      alert(error.toString());
     }
-  };
+  }
 
   render() {
     return (
