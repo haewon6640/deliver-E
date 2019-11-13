@@ -72,10 +72,12 @@ export default class RunHome extends React.Component {
             <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
             <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
             <Text style={{ color: "#5E72E4", marginLeft: 5 }}>Earnings</Text>
-            <Text style={{ color: "#5E72E4" }}>Account</Text>
+            <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("RunProfile")}
+          ><Text style={{ color: "#5E72E4" }}>Account</Text></TouchableOpacity>
           </Block>
         </Block>
-        <Block row space="around">
+        {/* <Block row space="around">
           <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
           <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
           <Text style={{ color: "#5E72E4", marginLeft: 5 }}>Earnings</Text>
@@ -84,7 +86,7 @@ export default class RunHome extends React.Component {
           >
             <Text style={{ color: "#5E72E4" }}>Account</Text>
           </TouchableOpacity>
-        </Block>
+        </Block> */}
       </ImageBackground>
       /* <View style={{alignItems: 'center'}}>
               <Icon name="compass" family="Feather" size={35} color="#5E72E4" />

@@ -17,7 +17,7 @@ class Eater {
 
   async getCurrentEater() {
     var currUser = "";
-    await this.postCallEater().then(email => {
+    await this.callEater().then(email => {
       currUser = email;
     });
     return currUser;
