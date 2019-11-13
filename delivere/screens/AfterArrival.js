@@ -33,6 +33,17 @@ export default class AfterArrival extends React.Component {
       }
     ];
 
+    goDelivering = (eater, restaurant, order) => {
+      dbh
+        .collection("Order")
+        .doc(order.oid)
+        .set(0.5);
+      this.props.navigation.navigate("Delivering", {
+        eater: eater,
+        restaurant: restaurant,
+        order: order
+      });
+    };
     return (
       <View style={styles.container}>
         <View style={{ height: 0.7 * height }}>
@@ -77,13 +88,9 @@ export default class AfterArrival extends React.Component {
           </ScrollView>
         </View>
         <TouchableOpacity
-          onPress={() =>
-            this.props.navigation.navigate("Delivering", {
-              eater: eater,
-              restaurant: restaurant,
-              order: order
-            })
-          }
+          onPress={() => {
+            goDelivering(eater, restaurant, order);
+          }}
           style={styles.button}
         >
           {/* <Block row> */}
