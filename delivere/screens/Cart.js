@@ -13,6 +13,7 @@ const { width } = Dimensions.get("window");
 import firebase from "../components/firebase";
 import normalize from "react-native-normalize";
 import "@firebase/firestore";
+import Eater from "../backend/Eater";
 
 export default class Cart extends React.Component {
   constructor(props) {
@@ -22,17 +23,22 @@ export default class Cart extends React.Component {
       items: null,
       subtotal: 0,
       tax: 0,
-      deliveryFee: 0
+      deliveryFee: 0,
+      curUserEmail: ""
     };
   }
+
   async addOrder() {
     const dbh = firebase.firestore();
+    var eater = new Eater();
+    var eaterEmail = await eater.getCurrentEater();
     var total = (
       this.state.subtotal +
       this.state.tax +
       this.state.deliveryFee
     ).toFixed(2);
     this.props.navigation.navigate("Checkout", { totalPrice: total });
+
     dbh
       .collection("Order")
       .add({
@@ -40,7 +46,8 @@ export default class Cart extends React.Component {
         items: this.state.items,
         subtotal: this.state.subtotal,
         tax: this.state.tax,
-        deliveryFee: this.state.deliveryFee
+        deliveryFee: this.state.deliveryFee,
+        eaterEmail: eaterEmail
       })
       .then(function(docRef) {})
       .catch(
@@ -49,6 +56,7 @@ export default class Cart extends React.Component {
         }.bind(this)
       );
   }
+
   render() {
     const { navigation } = this.props;
     var rName = navigation.getParam("rName");
@@ -61,7 +69,9 @@ export default class Cart extends React.Component {
         <Block key={i}>
           <Block row>
             <Text style={styles.text}>{element.count}</Text>
-            <Text style={styles.text}>{element.name}</Text>
+            <Text style={styles.text}>
+              {element.type + ": " + element.name}
+            </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
               {"$" + element.price}
             </Text>
@@ -72,8 +82,13 @@ export default class Cart extends React.Component {
     items.forEach(element => {
       this.state.subtotal = this.state.subtotal + element.price;
     });
-    this.state.tax = (this.state.subtotal * 0.04).toFixed(2);
-    this.state.deliveryFee = 1.99;
+    this.state.tax = parseFloat((this.state.subtotal * 0.04).toFixed(2));
+    this.state.deliveryFee = 3.0;
+    total = (
+      this.state.subtotal +
+      this.state.tax +
+      this.state.deliveryFee
+    ).toFixed(2);
     return (
       <Block style={styles.container}>
         <ScrollView>
@@ -112,8 +127,7 @@ export default class Cart extends React.Component {
               Delivery
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              {"$" + this.state.deliveryFee}
-              $3.00
+              {"$" + this.state.deliveryFee.toFixed(2)}
             </Text>
           </Block>
           <Block row>

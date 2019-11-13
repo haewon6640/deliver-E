@@ -129,7 +129,7 @@ export default class Checkout extends React.Component {
               Total
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              {totalPrice}
+              {"$ " + totalPrice}
             </Text>
           </Block>
           <TouchableOpacity

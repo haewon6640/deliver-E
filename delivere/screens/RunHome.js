@@ -16,36 +16,52 @@ import normalize from "react-native-normalize";
 export default class RunHome extends React.Component {
   render() {
     return (
-        <ImageBackground source={require("../assets/emorymap.png")} style={styles.container}>
-          <Button style={styles.button} onPress={()=>this.props.navigation.navigate('AcceptOrders')}>
-            <Text style={styles.text}>Start Delivering</Text>
-          </Button>
-          <Block style={styles.footer}>
-            <Block row space='around'>
-              <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
-              <Icon name="star-outlined" family="Entypo" size={35} color="#5E72E4" />
-              <Icon name="dollar-sign" family="Feather" size={35} color="#5E72E4" />
-              <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
-            </Block>
-            <Block row space='around'>
-              <Text style={{color: '#5E72E4', marginLeft: 15}}>Run</Text>
-              <Text style={{color: '#5E72E4', marginLeft: 20}}>Ratings</Text>
-              <Text style={{color: '#5E72E4', marginLeft: 5}}>Earnings</Text>
-              <Text style={{color: '#5E72E4'}}>Account</Text>
-            </Block>
+      <ImageBackground
+        source={require("../assets/emorymap.png")}
+        style={styles.container}
+      >
+        <Button
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate("AcceptOrders")}
+        >
+          <Text style={styles.text}>Start Delivering</Text>
+        </Button>
+        <Block style={styles.footer}>
+          <Block row space="around">
+            <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
+            <Icon
+              name="star-outlined"
+              family="Entypo"
+              size={35}
+              color="#5E72E4"
+            />
+            <Icon
+              name="dollar-sign"
+              family="Feather"
+              size={35}
+              color="#5E72E4"
+            />
+            <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </Block>
           <Block row space="around">
             <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
             <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
             <Text style={{ color: "#5E72E4", marginLeft: 5 }}>Earnings</Text>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("RunProfile")}
-            >
-              <Text style={{ color: "#5E72E4" }}>Account</Text>
-            </TouchableOpacity>
+            <Text style={{ color: "#5E72E4" }}>Account</Text>
           </Block>
         </Block>
-        {/* <View style={{alignItems: 'center'}}>
+        <Block row space="around">
+          <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
+          <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
+          <Text style={{ color: "#5E72E4", marginLeft: 5 }}>Earnings</Text>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("RunProfile")}
+          >
+            <Text style={{ color: "#5E72E4" }}>Account</Text>
+          </TouchableOpacity>
+        </Block>
+      </ImageBackground>
+      /* <View style={{alignItems: 'center'}}>
               <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
               <Text style={{color: '#5E72E4'}>Run</Text>
             </View>
@@ -61,8 +77,7 @@ export default class RunHome extends React.Component {
               <Icon name="dollar-sign" family="Feather" size={35} color="#5E72E4" />
               <Text style={{color: '#5E72E4'}>Account</Text>
             </View>
-          </Block> */}
-      </ImageBackground>
+          </Block> */
     );
   }
 }
@@ -74,13 +89,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  button:{
+  button: {
     height: normalize(80),
     width: normalize(300)
   },
-  text:{
+  text: {
     fontSize: normalize(30),
-    color: 'white'
+    color: "white"
   },
   footer: {
     backgroundColor: "white",

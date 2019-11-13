@@ -21,7 +21,7 @@
     "firebase": "^7.2.2",
     "galio-framework": "^0.6.3",
     "prop-types": "^15.7.2",
-    "react": "^16.8.3",
+    "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
     "react-native-circle-timer": "^1.0.1",

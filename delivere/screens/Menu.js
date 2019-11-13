@@ -51,9 +51,9 @@ export default class Menu extends React.Component {
     // this.props.navigation.dispatch(setParamsAction);
   };
 
-  addList = (category, name, price) => {
+  addList = (name, price, type) => {
     this.state.chosenItems.push({
-      name: category + ": " + name,
+      name: name,
       price: price,
       type: type
     });
@@ -66,7 +66,6 @@ export default class Menu extends React.Component {
     const rRating = navigation.getParam("rRating");
     const rRateCount = navigation.getParam("rRateCount");
     const foodMap = navigation.getParam("foodMap");
-    var fCategories = [];
 
     // Object.keys(foodMap).forEach(function(key) {
     //   foodMap[key].map(item => {
@@ -91,7 +90,6 @@ export default class Menu extends React.Component {
                 key={j}
                 addList={this.addList}
                 addCart={this.addCartButton}
-                category={data}
                 name={item.name}
                 price={item.price}
                 cal={item.cal}
@@ -116,7 +114,7 @@ export default class Menu extends React.Component {
             })
           }
         >
-          <Block row middle style={[styles.button,{marginBottom: 20}]}>
+          <Block row middle style={styles.button1}>
             <Text style={{ fontSize: 20, color: "white" }}>Add to Cart</Text>
           </Block>
         </TouchableOpacity>
@@ -166,7 +164,7 @@ export default class Menu extends React.Component {
         <MenuItem name="Chips and Salsa" pricecal="$2.19 - 450 cal" /> */}
           {List}
           <TouchableOpacity>
-            <Block row style={[styles.instrc, {marginBottom: 20}]}>
+            <Block row style={styles.instrc}>
               <Text style={styles.text}>Special Instructions</Text>
               <Icon
                 style={{ position: "absolute", right: 20, marginTop: 25 }}
@@ -243,5 +241,13 @@ const styles = StyleSheet.create({
     width: width * 0.5,
     marginTop: 20,
     marginBottom: 80
+  },
+  button1: {
+    backgroundColor: "#5E72E4",
+    borderRadius: 80,
+    height: 50,
+    width: width * 0.5,
+    marginTop: 20,
+    marginBottom: 20
   }
 });
