@@ -80,7 +80,7 @@ export default class AcceptOrders extends React.Component {
           >
             <View>
               <Text style={styles.text}>Deliver by 3:27 PM</Text>
-              <Text style={styles.category}>Twisted Taco</Text>
+              <Text style={styles.category}>{order.rName}</Text>
               <Block row>
                 <Text style={styles.text}>2 items •</Text>
                 <Text style={styles.text}>0.5 miles</Text>
