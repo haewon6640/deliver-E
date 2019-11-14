@@ -43,6 +43,21 @@ export default class PickingUp extends React.Component {
     this.setState({ dragPanel: true });
   }
 
+  updateOrder(order) {
+    var orderRef = dbh.collection("Order").doc(order.oid);
+    orderRef.update({
+      progress: 0.5
+    });
+  }
+
+  afterPickUp = (eater, restaurant, order) => {
+    this.updateOrder(order);
+    this.props.navigation.navigate("After Arrival", {
+      eater: eater,
+      restaurant: restaurant,
+      order: order
+    });
+  };
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
@@ -243,13 +258,7 @@ export default class PickingUp extends React.Component {
           </View>
         </SlidingUpPanel>
         <TouchableOpacity
-          onPress={() =>
-            this.props.navigation.navigate("AfterArrival", {
-              eater: eater,
-              restaurant: restaurant,
-              order: order
-            })
-          }
+          onPress={() => this.afterPickUp(eater, restaurant, order)}
           style={styles.button}
         >
           {/* <Block row> */}

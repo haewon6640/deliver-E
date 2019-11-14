@@ -17,6 +17,13 @@ import "@firebase/firestore";
 const dbh = firebase.firestore();
 
 export default class RunHome extends React.Component {
+  updateOrder(order) {
+    var orderRef = dbh.collection("Order").doc(order.oid);
+    orderRef.update({
+      progress: 0.25
+    });
+  }
+
   querylatestOrder = async () => {
     var order = {};
     var success = "";
@@ -34,6 +41,7 @@ export default class RunHome extends React.Component {
       })
       .catch(error => alert(error.toString()));
     if (success != "") {
+      this.updateOrder(order);
       this.props.navigation.navigate("AcceptOrders", { order: order });
     }
   };
@@ -73,8 +81,10 @@ export default class RunHome extends React.Component {
             <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
             <Text style={{ color: "#5E72E4", marginLeft: 5 }}>Earnings</Text>
             <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("RunProfile")}
-          ><Text style={{ color: "#5E72E4" }}>Account</Text></TouchableOpacity>
+              onPress={() => this.props.navigation.navigate("RunProfile")}
+            >
+              <Text style={{ color: "#5E72E4" }}>Account</Text>
+            </TouchableOpacity>
           </Block>
         </Block>
         {/* <Block row space="around">

@@ -1,9 +1,9 @@
-class Restaurant {
-  queryRestaurant = async rName => {
+class Order {
+  queryOrder = async oid => {
     var resta = "";
     await dbh
-      .collection("Restaurant")
-      .doc(rName)
+      .collection("Order")
+      .doc(oid)
       .get()
       .then(function(doc) {
         if (doc.exists) {

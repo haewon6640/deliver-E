@@ -14,12 +14,14 @@
     "url": "git+https://github.com/creativetimofficial/argon-react-native.git"
   },
   "dependencies": {
+    "braces": "^3.0.2",
     "expo": "^34.0.3",
     "expo-asset": "^6.0.0",
     "expo-font": "^6.0.1",
     "expo-location": "^7.0.0",
     "firebase": "^7.2.2",
     "galio-framework": "^0.6.3",
+    "mem": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -42,7 +44,8 @@
     "react-native-web": "^0.11.7",
     "react-navigation": "^3.13.0",
     "react-navigation-tabs": "^2.5.6",
-    "rn-sliding-up-panel": "^2.3.3"
+    "rn-sliding-up-panel": "^2.3.3",
+    "ws": "^7.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",

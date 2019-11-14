@@ -50,7 +50,11 @@ export default class Cart extends React.Component {
         eaterEmail: eaterEmail,
         date: new Date()
       })
-      .then(function(docRef) {})
+      .then(function(docRef) {
+        docRef.update({
+          oid: docRef.id
+        });
+      })
       .catch(
         function(error) {
           alert(error.toString());

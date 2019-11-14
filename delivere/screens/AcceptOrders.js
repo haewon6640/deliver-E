@@ -19,6 +19,9 @@ import normalize from "react-native-normalize";
 import Restaurant from "../backend/Restaurant";
 import Eater from "../backend/Eater";
 let time;
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+const dbh = firebase.firestore();
 
 export default class AcceptOrders extends React.Component {
   constructor(props) {
@@ -37,17 +40,24 @@ export default class AcceptOrders extends React.Component {
   componentWillUnmount() {
     clearTimeout(time);
   }
+  updateOrder(order) {
+    var orderRef = dbh.collection("Order").doc(order.oid);
+    orderRef.update({
+      progress: 0.25
+    });
+  }
   async queryPickupInfo(order) {
     var rName = order["rName"];
+
     let restaurant = await new Restaurant().queryRestaurant(rName);
     let eater = await new Eater().getEaterfromEmail(order["eaterEmail"]);
+    this.updateOrder(order);
     this.props.navigation.navigate("PickingUp", {
       eater: eater,
       restaurant: restaurant,
       order: order
     });
   }
-  async;
   render() {
     const { navigation } = this.props;
     var order = navigation.getParam("order");
