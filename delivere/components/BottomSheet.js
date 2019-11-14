@@ -84,13 +84,13 @@ class BottomSheet extends React.Component {
   }
 
   manualChange = n => {
-    if (n == 1)
+    if (n == 1 || n == 0.25)
       this.setState({
         status: 0.25,
         message: "Heading to store",
         time: "10-15 min"
       });
-    else if (n == 2)
+    else if (n == 2 || n == 0.5)
       this.setState({
         status: 0.5,
         message: "Ordering food",
@@ -151,6 +151,7 @@ class BottomSheet extends React.Component {
     clearTimeout(t3);
   }
   render() {
+    this.manualChange(this.props.progress);
     return (
       <SlidingUpPanel
         allowDragging={this.state.dragPanel}

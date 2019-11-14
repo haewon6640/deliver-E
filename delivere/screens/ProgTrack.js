@@ -18,19 +18,16 @@ const dbh = firebase.firestore();
 
 export default class ProgTrack extends React.Component {
   render() {
-    var orderId = navigation.getParam("orderId");
+    var orderId = this.props.navigation.getParam("orderId");
     progress = 0.25;
-    dbh
-      .collection("Order")
-      .doc(orderId)
-      .onSnapshot(function(doc) {
-        progress = doc.data().progress;
-      });
-    for (let index = 0; index < 20000000; index++) {
-      if (index > 10000000) {
-        progress = "1";
-      }
-    }
+    // dbh
+    //   .collection("Order")
+    //   .doc(orderId)
+    //   .onSnapshot(function(doc) {
+    //     progress = doc.data().progress;
+    //     // this.forceUpdate();
+    //   });
+
     return (
       <View style={styles.container}>
         <Image
