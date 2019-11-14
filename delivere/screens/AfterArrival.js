@@ -14,8 +14,28 @@ import SlidingUpPanel from "rn-sliding-up-panel";
 import { Button, Block, Icon, Checkbox } from "galio-framework";
 import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+
+const dbh = firebase.firestore();
 
 export default class AfterArrival extends React.Component {
+  updateOrder(order) {
+    var orderRef = dbh.collection("Order").doc(order.oid);
+    orderRef.update({
+      progress: 0.75
+    });
+  }
+
+  afterPickUp = (eater, restaurant, order) => {
+    this.updateOrder(order);
+    this.props.navigation.navigate("Delivering", {
+      eater: eater,
+      restaurant: restaurant,
+      order: order
+    });
+  };
+
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
@@ -77,13 +97,7 @@ export default class AfterArrival extends React.Component {
           </ScrollView>
         </View>
         <TouchableOpacity
-          onPress={() =>
-            this.props.navigation.navigate("Delivering", {
-              eater: eater,
-              restaurant: restaurant,
-              order: order
-            })
-          }
+          onPress={() => this.afterPickUp(eater, restaurant, order)}
           style={styles.button}
         >
           {/* <Block row> */}

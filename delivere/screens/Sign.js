@@ -49,15 +49,16 @@ class Sign extends React.Component {
   render() {
     return (
       <Block flex middle>
-        <StatusBar barStyle='dark-content'/>
+        <StatusBar barStyle="dark-content" />
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}>
+          style={{ width, height, zIndex: 1 }}
+        >
           <Block flex middle>
             <Block style={styles.registerContainer}>
               <Block flex>
                 <Block flex={0.17} middle>
-                  <Text style={{fontSize: 16, color: "#8898AA"}}>
+                  <Text style={{ fontSize: 16, color: "#8898AA" }}>
                     Sign in with your Emory email
                   </Text>
                 </Block>
@@ -65,10 +66,12 @@ class Sign extends React.Component {
                   <KeyboardAvoidingView
                     style={{ flex: 1 }}
                     behavior="padding"
-                    enabled>
+                    enabled
+                  >
                     <Block
                       width={width * 0.8}
-                      style={{ marginBottom: 15 }}></Block>
+                      style={{ marginBottom: 15 }}
+                    ></Block>
                     <Block width={width * 0.8} style={{ marginBottom: 15 }}>
                       <Input
                         borderless
@@ -110,7 +113,13 @@ class Sign extends React.Component {
                           this.login(this.state.email, this.state.password)
                         }
                       >
-                        <Text style={{fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
+                        <Text
+                          style={{
+                            fontWeight: "bold",
+                            fontSize: 16,
+                            color: argonTheme.COLORS.WHITE
+                          }}
+                        >
                           Sign In
                         </Text>
                       </Button>
@@ -118,10 +127,19 @@ class Sign extends React.Component {
                     <Block middle>
                       <Button
                         title="Sign In"
-                        onPress={() => this.props.navigation.navigate("Register")}
+                        onPress={() =>
+                          this.props.navigation.navigate("Register")
+                        }
                         style={styles.createButton}
                       >
-                        <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
+                        <Text
+                          style={{
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            fontSize: 16,
+                            color: argonTheme.COLORS.WHITE
+                          }}
+                        >
                           Need to sign up?
                         </Text>
                       </Button>

@@ -37,7 +37,6 @@ export default class Cart extends React.Component {
       this.state.tax +
       this.state.deliveryFee
     ).toFixed(2);
-    this.props.navigation.navigate("Checkout", { totalPrice: total });
 
     dbh
       .collection("Order")
@@ -50,11 +49,17 @@ export default class Cart extends React.Component {
         eaterEmail: eaterEmail,
         date: new Date()
       })
-      .then(function(docRef) {
-        docRef.update({
-          oid: docRef.id
-        });
-      })
+      .then(
+        function(docRef) {
+          docRef.update({
+            oid: docRef.id
+          });
+          this.props.navigation.navigate("Checkout", {
+            totalPrice: total,
+            orderId: docRef.id
+          });
+        }.bind(this)
+      )
       .catch(
         function(error) {
           alert(error.toString());

@@ -14,6 +14,10 @@ import SlidingUpPanel from "rn-sliding-up-panel";
 import { Button, Block, Icon } from "galio-framework";
 import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+
+const dbh = firebase.firestore();
 
 export default class Delivering extends React.Component {
   constructor(props) {
@@ -57,6 +61,7 @@ export default class Delivering extends React.Component {
         </Text>
       );
     });
+
     return (
       <View style={styles.container}>
         <Image

@@ -40,6 +40,7 @@ export default class Checkout extends React.Component {
   render() {
     const { navigation } = this.props;
     var totalPrice = navigation.getParam("totalPrice");
+    var orderId = navigation.getParam("orderId");
     if (this.state.location != null) {
       map = (
         <MapView
@@ -146,7 +147,9 @@ export default class Checkout extends React.Component {
           </TouchableOpacity>
 
           <Button
-            onPress={() => this.props.navigation.navigate("ProgTrack")}
+            onPress={() =>
+              this.props.navigation.navigate("ProgTrack", { orderId: orderId })
+            }
             color="#5E72E4"
             shadowless
             style={{ alignSelf: "center", marginTop: 20 }}
