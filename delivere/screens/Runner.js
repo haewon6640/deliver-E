@@ -6,7 +6,9 @@ import {
   StatusBar,
   KeyboardAvoidingView,
   ScrollView,
-  Text
+  Text,
+  Keyboard,
+  TouchableWithoutFeedback
 } from "react-native";
 import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
@@ -25,8 +27,7 @@ class Runner extends React.Component {
       email: "",
       password: "",
       name: "",
-      phoneNumber: "",
-      curUser: null
+      phoneNumber: ""
     };
   }
   async attemptAuthentication(email, password) {
@@ -68,141 +69,143 @@ class Runner extends React.Component {
 
   render() {
     return (
-      <Block flex middle>
-        <StatusBar />
-        <ImageBackground
-          source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}
-        >
-          <Block flex middle>
-            <Block style={styles.registerContainer}>
-              <ScrollView>
-                <Block height={height * 0.1} middle>
-                  <Text
-                    style={{
-                      color: "#8898AA",
-                      fontSize: 14,
-                      textAlign: "center"
-                    }}
-                  >
-                    Sign up to be a Runner with your Emory email
-                  </Text>
-                </Block>
-                <Block flex center>
-                  <KeyboardAvoidingView
-                    style={{ flex: 1 }}
-                    behavior="padding"
-                    enabled
-                  >
-                    <Block
-                      width={width * 0.8}
-                      style={{ marginBottom: height * 0.01 }}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <Block flex middle>
+          <StatusBar />
+          <ImageBackground
+            source={Images.RegisterBackground}
+            style={{ width, height, zIndex: 1 }}
+          >
+            <Block flex middle>
+              <Block style={styles.registerContainer}>
+                <ScrollView>
+                  <Block height={height * 0.1} middle>
+                    <Text
+                      style={{
+                        color: "#8898AA",
+                        fontSize: 14,
+                        textAlign: "center"
+                      }}
                     >
-                      <Input
-                        borderless
-                        placeholder="Name"
-                        onChangeText={name => this.setState({ name })}
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="hat-3"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block
-                      width={width * 0.8}
-                      style={{ marginBottom: height * 0.01 }}
+                      Sign up to be a Runner with your Emory email
+                    </Text>
+                  </Block>
+                  <Block flex center>
+                    <KeyboardAvoidingView
+                      style={{ flex: 1 }}
+                      behavior="padding"
+                      enabled
                     >
-                      <Input
-                        borderless
-                        placeholder="Phone Number"
-                        onChangeText={phoneNumber =>
-                          this.setState({ phoneNumber })
-                        }
-                        iconContent={
-                          <Icon
-                            size={16}
-                            theme="filled"
-                            color={argonTheme.COLORS.ICON}
-                            name="phone"
-                            family="AntDesign"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block
-                      width={width * 0.8}
-                      style={{ marginBottom: height * 0.01 }}
-                    >
-                      <Input
-                        borderless
-                        placeholder="Email"
-                        onChangeText={email => this.setState({ email })}
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="ic_mail_24px"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block width={width * 0.8}>
-                      <Input
-                        password
-                        borderless
-                        placeholder="Password"
-                        onChangeText={password => this.setState({ password })}
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="padlock-unlocked"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block middle>
-                      <Button
-                        color="primary"
-                        style={styles.createButton}
-                        onPress={() =>
-                          this.signUpUser(
-                            this.state.email,
-                            this.state.password,
-                            this.state.name,
-                            this.state.phoneNumber
-                          )
-                        }
+                      <Block
+                        width={width * 0.8}
+                        style={{ marginBottom: height * 0.01 }}
                       >
-                        <Text
-                          style={{
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            fontSize: 14,
-                            color: argonTheme.COLORS.WHITE
-                          }}
+                        <Input
+                          borderless
+                          placeholder="Name"
+                          onChangeText={name => this.setState({ name })}
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="hat-3"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block
+                        width={width * 0.8}
+                        style={{ marginBottom: height * 0.01 }}
+                      >
+                        <Input
+                          borderless
+                          placeholder="Phone Number"
+                          onChangeText={phoneNumber =>
+                            this.setState({ phoneNumber })
+                          }
+                          iconContent={
+                            <Icon
+                              size={16}
+                              theme="filled"
+                              color={argonTheme.COLORS.ICON}
+                              name="phone"
+                              family="AntDesign"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block
+                        width={width * 0.8}
+                        style={{ marginBottom: height * 0.01 }}
+                      >
+                        <Input
+                          borderless
+                          placeholder="Email"
+                          onChangeText={email => this.setState({ email })}
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="ic_mail_24px"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block width={width * 0.8}>
+                        <Input
+                          password
+                          borderless
+                          placeholder="Password"
+                          onChangeText={password => this.setState({ password })}
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="padlock-unlocked"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block middle>
+                        <Button
+                          color="primary"
+                          style={styles.createButton}
+                          onPress={() =>
+                            this.signUpUser(
+                              this.state.email,
+                              this.state.password,
+                              this.state.name,
+                              this.state.phoneNumber
+                            )
+                          }
                         >
-                          Create Runner Account
-                        </Text>
-                      </Button>
-                    </Block>
-                  </KeyboardAvoidingView>
-                </Block>
-              </ScrollView>
+                          <Text
+                            style={{
+                              textAlign: "center",
+                              fontWeight: "bold",
+                              fontSize: 14,
+                              color: argonTheme.COLORS.WHITE
+                            }}
+                          >
+                            Create Runner Account
+                          </Text>
+                        </Button>
+                      </Block>
+                    </KeyboardAvoidingView>
+                  </Block>
+                </ScrollView>
+              </Block>
             </Block>
-          </Block>
-        </ImageBackground>
-      </Block>
+          </ImageBackground>
+        </Block>
+      </TouchableWithoutFeedback>
     );
   }
 }

@@ -20,7 +20,7 @@ signOut = () => {
     .then(
       function() {
         // Sign-out successful.
-        this.props.navigation.navigate("Home");
+        this.props.navigation.navigate("Intro");
       }.bind(this)
     )
     .catch(

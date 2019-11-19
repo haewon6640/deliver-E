@@ -17,16 +17,47 @@ import "@firebase/firestore";
 const dbh = firebase.firestore();
 
 export default class ProgTrack extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      progress: 0.25,
+      message: "Heading to store",
+      time: "10-15 min"
+    };
+  }
+
   render() {
     var orderId = this.props.navigation.getParam("orderId");
-    progress = 0.25;
-    // dbh
-    //   .collection("Order")
-    //   .doc(orderId)
-    //   .onSnapshot(function(doc) {
-    //     progress = doc.data().progress;
-    //     // this.forceUpdate();
-    //   });
+    dbh
+      .collection("Order")
+      .doc(orderId)
+      .onSnapshot(
+        function(doc) {
+          prog = doc.data().progress;
+          if (prog == 0.75) {
+            this.setState({
+              progress: prog,
+              message: "Heading to you",
+              time: "4 min"
+            });
+          }
+          if (prog == 0.25) {
+            this.setState({
+              progress: prog,
+              message: "Heading to store",
+              time: "10-15 min"
+            });
+          }
+          if (prog == 0.5) {
+            this.setState({
+              progress: prog,
+              message: "Ordering food",
+              time: "5-10 min"
+            });
+          }
+        }.bind(this)
+      );
 
     return (
       <View style={styles.container}>
@@ -34,7 +65,11 @@ export default class ProgTrack extends React.Component {
           source={require("../assets/emorymap.png")}
           style={{ height: 0.8 * height, alignSelf: "center" }}
         />
-        <BottomSheet progress={progress} />
+        <BottomSheet
+          progress={this.state.progress}
+          message={this.state.message}
+          time={this.state.time}
+        />
       </View>
     );
   }

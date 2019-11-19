@@ -47,7 +47,8 @@ export default class Cart extends React.Component {
         tax: this.state.tax,
         deliveryFee: this.state.deliveryFee,
         eaterEmail: eaterEmail,
-        date: new Date()
+        date: new Date(),
+        progress: 0.25
       })
       .then(
         function(docRef) {

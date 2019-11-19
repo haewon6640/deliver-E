@@ -6,7 +6,10 @@ import {
   StatusBar,
   KeyboardAvoidingView,
   ScrollView,
-  Text
+  Text,
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
@@ -33,23 +36,37 @@ class Register extends React.Component {
   showAlert() {
     Alert.alert(
       "Verify your email.",
-      "Alert Msg",
+      "You will be able to proceed after verifying your email.",
       [
+        { text: "OK", onPress: () => alert("It has not been verified yet.") },
         {
-          text: "You will be able to proceed after verifying your email."
-        },
-        {
-          text: "",
-          onPress: () => console.log("Cancel Pressed"),
+          text: "Cancel",
           style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
+        }
       ],
       { cancelable: false }
     );
   }
+  validateEmail = email => {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(email)) {
+      alert("The email is invalid.");
+      return false;
+    }
+    var emory = /@emory.edu/i;
+    if (!emory.test(email)) {
+      alert("This app is only for emory users at the moment.");
+      return false;
+    }
+    // this.showAlert();
+    return true;
+  };
+
   async attemptAuthentication(email, password) {
     var authenticated = "";
+    if (!this.validateEmail(email)) {
+      return authenticated;
+    }
     await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -59,8 +76,9 @@ class Register extends React.Component {
       });
     return authenticated;
   }
-
+  // emailVerification;
   async signUpUser(email, password, name, phoneNumber) {
+    // if (email)
     const response = await this.attemptAuthentication(email, password);
     if (response == "Success") {
       firebase.auth().onAuthStateChanged(
@@ -87,134 +105,136 @@ class Register extends React.Component {
 
   render() {
     return (
-      <Block flex middle>
-        {/* <StatusBar /> */}
-        <ImageBackground
-          source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}
-        >
-          <Block flex middle>
-            <Block style={styles.registerContainer}>
-              <ScrollView>
-                <Block height={height * 0.1} middle>
-                  <Text style={{ color: "#8898AA", fontSize: 16 }}>
-                    Sign up with your Emory email
-                  </Text>
-                </Block>
-                <Block flex center>
-                  <KeyboardAvoidingView
-                    style={{ flex: 1 }}
-                    behavior="padding"
-                    enabled
-                  >
-                    <Block
-                      width={width * 0.8}
-                      style={{ marginBottom: height * 0.01 }}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <Block flex middle>
+          {/* <StatusBar /> */}
+          <ImageBackground
+            source={Images.RegisterBackground}
+            style={{ width, height, zIndex: 1 }}
+          >
+            <Block flex middle>
+              <Block style={styles.registerContainer}>
+                <ScrollView>
+                  <Block height={height * 0.1} middle>
+                    <Text style={{ color: "#8898AA", fontSize: 16 }}>
+                      Sign up with your Emory email
+                    </Text>
+                  </Block>
+                  <Block flex center>
+                    <KeyboardAvoidingView
+                      style={{ flex: 1 }}
+                      behavior="padding"
+                      enabled
                     >
-                      <Input
-                        borderless
-                        placeholder="Name"
-                        onChangeText={name => this.setState({ name })}
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="hat-3"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block
-                      width={width * 0.8}
-                      style={{ marginBottom: height * 0.01 }}
-                    >
-                      <Input
-                        borderless
-                        placeholder="Phone Number"
-                        onChangeText={phoneNumber =>
-                          this.setState({ phoneNumber })
-                        }
-                        iconContent={
-                          <Icon
-                            size={16}
-                            theme="filled"
-                            color={argonTheme.COLORS.ICON}
-                            name="phone"
-                            family="AntDesign"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block
-                      width={width * 0.8}
-                      style={{ marginBottom: height * 0.01 }}
-                    >
-                      <Input
-                        borderless
-                        placeholder="Email"
-                        onChangeText={email => this.setState({ email })}
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="ic_mail_24px"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block width={width * 0.8}>
-                      <Input
-                        password
-                        borderless
-                        placeholder="Password"
-                        onChangeText={password => this.setState({ password })}
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="padlock-unlocked"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block middle>
-                      <Button
-                        color="primary"
-                        style={styles.createButton}
-                        onPress={() =>
-                          this.signUpUser(
-                            this.state.email,
-                            this.state.password,
-                            this.state.name,
-                            this.state.phoneNumber
-                          )
-                        }
+                      <Block
+                        width={width * 0.8}
+                        style={{ marginBottom: height * 0.01 }}
                       >
-                        <Text
-                          style={{
-                            fontWeight: "bold",
-                            fontSize: 16,
-                            color: argonTheme.COLORS.WHITE
-                          }}
+                        <Input
+                          borderless
+                          placeholder="Name"
+                          onChangeText={name => this.setState({ name })}
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="hat-3"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block
+                        width={width * 0.8}
+                        style={{ marginBottom: height * 0.01 }}
+                      >
+                        <Input
+                          borderless
+                          placeholder="Phone Number"
+                          onChangeText={phoneNumber =>
+                            this.setState({ phoneNumber })
+                          }
+                          iconContent={
+                            <Icon
+                              size={16}
+                              theme="filled"
+                              color={argonTheme.COLORS.ICON}
+                              name="phone"
+                              family="AntDesign"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block
+                        width={width * 0.8}
+                        style={{ marginBottom: height * 0.01 }}
+                      >
+                        <Input
+                          borderless
+                          placeholder="Email"
+                          onChangeText={email => this.setState({ email })}
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="ic_mail_24px"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block width={width * 0.8}>
+                        <Input
+                          password
+                          borderless
+                          placeholder="Password"
+                          onChangeText={password => this.setState({ password })}
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="padlock-unlocked"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block middle>
+                        <Button
+                          color="primary"
+                          style={styles.createButton}
+                          onPress={() =>
+                            this.signUpUser(
+                              this.state.email,
+                              this.state.password,
+                              this.state.name,
+                              this.state.phoneNumber
+                            )
+                          }
                         >
-                          Create Account
-                        </Text>
-                      </Button>
-                    </Block>
-                  </KeyboardAvoidingView>
-                </Block>
-              </ScrollView>
+                          <Text
+                            style={{
+                              fontWeight: "bold",
+                              fontSize: 16,
+                              color: argonTheme.COLORS.WHITE
+                            }}
+                          >
+                            Create Account
+                          </Text>
+                        </Button>
+                      </Block>
+                    </KeyboardAvoidingView>
+                  </Block>
+                </ScrollView>
+              </Block>
             </Block>
-          </Block>
-        </ImageBackground>
-      </Block>
+          </ImageBackground>
+        </Block>
+      </TouchableWithoutFeedback>
     );
   }
 }

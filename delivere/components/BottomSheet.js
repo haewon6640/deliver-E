@@ -69,8 +69,8 @@ class BottomSheet extends React.Component {
       message: "Heading to store",
       time: "10-15 min"
     };
-    this.changeStatus = this.changeStatus.bind(this);
-    this.manualChange = this.manualChange.bind(this);
+    // this.changeStatus = this.changeStatus.bind(this);
+    // this.manualChange = this.manualChange.bind(this);
     this.state = { dragPanel: true };
 
     this._onGrant = this._onGrant.bind(this);
@@ -84,19 +84,19 @@ class BottomSheet extends React.Component {
   }
 
   manualChange = n => {
-    if (n == 1 || n == 0.25)
+    if (n == 0.25)
       this.setState({
         status: 0.25,
         message: "Heading to store",
         time: "10-15 min"
       });
-    else if (n == 2 || n == 0.5)
+    else if (n == 0.5)
       this.setState({
         status: 0.5,
         message: "Ordering food",
         time: "5-10 min"
       });
-    else if (n == 3)
+    else if (n == 0.75)
       this.setState({ status: 0.75, message: "Heading to you", time: "4 min" });
     else
       this.setState({
@@ -106,25 +106,25 @@ class BottomSheet extends React.Component {
       });
   };
 
-  changeStatus = () => {
-    t1 = setTimeout(() => {
-      this.setState({
-        status: 0.5,
-        message: "Ordering food",
-        time: "5-10 min"
-      });
-    }, 3200);
-    t2 = setTimeout(() => {
-      this.setState({ status: 0.75, message: "Heading to you", time: "4 min" });
-    }, 5700);
-    t3 = setTimeout(() => {
-      this.setState({
-        status: 1,
-        message: "Runner is nearby",
-        time: "Arriving Now"
-      });
-    }, 8200);
-  };
+  // changeStatus = () => {
+  //   t1 = setTimeout(() => {
+  //     this.setState({
+  //       status: 0.5,
+  //       message: "Ordering food",
+  //       time: "5-10 min"
+  //     });
+  //   }, 3200);
+  //   t2 = setTimeout(() => {
+  //     this.setState({ status: 0.75, message: "Heading to you", time: "4 min" });
+  //   }, 5700);
+  //   t3 = setTimeout(() => {
+  //     this.setState({
+  //       status: 1,
+  //       message: "Runner is nearby",
+  //       time: "Arriving Now"
+  //     });
+  //   }, 8200);
+  // };
 
   static defaultProps = {
     draggableRange: { top: 0.7 * height, bottom: 180 }
@@ -140,18 +140,19 @@ class BottomSheet extends React.Component {
   _onRelease() {
     this.setState({ dragPanel: true });
   }
-
   componentDidMount() {
-    this.changeStatus();
+    // this.changeStatus();
   }
-
   componentWillUnmount() {
+    // this.manualChange(this.props.progress);
     clearTimeout(t1);
     clearTimeout(t2);
     clearTimeout(t3);
   }
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.progress != nextProps.progress;
+  }
   render() {
-    this.manualChange(this.props.progress);
     return (
       <SlidingUpPanel
         allowDragging={this.state.dragPanel}
@@ -175,13 +176,13 @@ class BottomSheet extends React.Component {
           />
           <ScrollView {...this._panResponder.panHandlers}>
             <View style={styles.panelHeader}>
-              <Text style={styles.textHeader}>{this.state.message}</Text>
+              <Text style={styles.textHeader}>{this.props.message}</Text>
               <Text style={[styles.textHeader, { fontSize: 20 }]}>
-                {this.state.time}
+                {this.props.time}
               </Text>
               <ProgressViewIOS
                 style={styles.progBar}
-                progress={this.state.status}
+                progress={this.props.progress}
                 progressTintColor={"#5E72E4"}
               />
               <Block row space="around" style={{ marginTop: 5 }}>
@@ -230,7 +231,7 @@ class BottomSheet extends React.Component {
               >
                 <Block row>
                   <View>
-                    <Text style={styles.category}>Sally S.</Text>
+                    <Text style={styles.category}>{this.props.progress}</Text>
                     <Text style={styles.text}>Your Runner</Text>
                   </View>
                   <Block

@@ -48,10 +48,9 @@ export default class AcceptOrders extends React.Component {
   }
   async queryPickupInfo(order) {
     var rName = order["rName"];
-
+    this.updateOrder(order);
     let restaurant = await new Restaurant().queryRestaurant(rName);
     let eater = await new Eater().getEaterfromEmail(order["eaterEmail"]);
-    this.updateOrder(order);
     this.props.navigation.navigate("PickingUp", {
       eater: eater,
       restaurant: restaurant,

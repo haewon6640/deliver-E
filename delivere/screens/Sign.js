@@ -5,7 +5,9 @@ import {
   Dimensions,
   StatusBar,
   KeyboardAvoidingView,
-  Text
+  Text,
+  Keyboard,
+  TouchableWithoutFeedback
 } from "react-native";
 import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
@@ -48,109 +50,111 @@ class Sign extends React.Component {
 
   render() {
     return (
-      <Block flex middle>
-        <StatusBar barStyle="dark-content" />
-        <ImageBackground
-          source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}
-        >
-          <Block flex middle>
-            <Block style={styles.registerContainer}>
-              <Block flex>
-                <Block flex={0.17} middle>
-                  <Text style={{ fontSize: 16, color: "#8898AA" }}>
-                    Sign in with your Emory email
-                  </Text>
-                </Block>
-                <Block flex center>
-                  <KeyboardAvoidingView
-                    style={{ flex: 1 }}
-                    behavior="padding"
-                    enabled
-                  >
-                    <Block
-                      width={width * 0.8}
-                      style={{ marginBottom: 15 }}
-                    ></Block>
-                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
-                      <Input
-                        borderless
-                        placeholder="Email"
-                        onChangeText={email => this.setState({ email })}
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="ic_mail_24px"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block width={width * 0.8}>
-                      <Input
-                        password
-                        borderless
-                        placeholder="Password"
-                        onChangeText={password => this.setState({ password })}
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="padlock-unlocked"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
-                    <Block middle>
-                      <Button
-                        color="primary"
-                        style={styles.createButton}
-                        onPress={() =>
-                          this.login(this.state.email, this.state.password)
-                        }
-                      >
-                        <Text
-                          style={{
-                            fontWeight: "bold",
-                            fontSize: 16,
-                            color: argonTheme.COLORS.WHITE
-                          }}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <Block flex middle>
+          <StatusBar barStyle="dark-content" />
+          <ImageBackground
+            source={Images.RegisterBackground}
+            style={{ width, height, zIndex: 1 }}
+          >
+            <Block flex middle>
+              <Block style={styles.registerContainer}>
+                <Block flex>
+                  <Block flex={0.17} middle>
+                    <Text style={{ fontSize: 16, color: "#8898AA" }}>
+                      Sign in with your Emory email
+                    </Text>
+                  </Block>
+                  <Block flex center>
+                    <KeyboardAvoidingView
+                      style={{ flex: 1 }}
+                      behavior="padding"
+                      enabled
+                    >
+                      <Block
+                        width={width * 0.8}
+                        style={{ marginBottom: 15 }}
+                      ></Block>
+                      <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                        <Input
+                          borderless
+                          placeholder="Email"
+                          onChangeText={email => this.setState({ email })}
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="ic_mail_24px"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block width={width * 0.8}>
+                        <Input
+                          password
+                          borderless
+                          placeholder="Password"
+                          onChangeText={password => this.setState({ password })}
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="padlock-unlocked"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                        />
+                      </Block>
+                      <Block middle>
+                        <Button
+                          color="primary"
+                          style={styles.createButton}
+                          onPress={() =>
+                            this.login(this.state.email, this.state.password)
+                          }
                         >
-                          Sign In
-                        </Text>
-                      </Button>
-                    </Block>
-                    <Block middle>
-                      <Button
-                        title="Sign In"
-                        onPress={() =>
-                          this.props.navigation.navigate("Register")
-                        }
-                        style={styles.createButton}
-                      >
-                        <Text
-                          style={{
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            fontSize: 16,
-                            color: argonTheme.COLORS.WHITE
-                          }}
+                          <Text
+                            style={{
+                              fontWeight: "bold",
+                              fontSize: 16,
+                              color: argonTheme.COLORS.WHITE
+                            }}
+                          >
+                            Sign In
+                          </Text>
+                        </Button>
+                      </Block>
+                      <Block middle>
+                        <Button
+                          title="Sign In"
+                          onPress={() =>
+                            this.props.navigation.navigate("Register")
+                          }
+                          style={styles.createButton}
                         >
-                          Need to sign up?
-                        </Text>
-                      </Button>
-                    </Block>
-                  </KeyboardAvoidingView>
+                          <Text
+                            style={{
+                              textAlign: "center",
+                              fontWeight: "bold",
+                              fontSize: 16,
+                              color: argonTheme.COLORS.WHITE
+                            }}
+                          >
+                            Need to sign up?
+                          </Text>
+                        </Button>
+                      </Block>
+                    </KeyboardAvoidingView>
+                  </Block>
                 </Block>
               </Block>
             </Block>
-          </Block>
-        </ImageBackground>
-      </Block>
+          </ImageBackground>
+        </Block>
+      </TouchableWithoutFeedback>
     );
   }
 }
