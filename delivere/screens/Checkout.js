@@ -13,6 +13,9 @@ import normalize from "react-native-normalize";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+const dbh = firebase.firestore();
 const { width, height } = Dimensions.get("window");
 let map;
 
