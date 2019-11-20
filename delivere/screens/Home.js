@@ -12,18 +12,30 @@ import { Block, Icon } from "galio-framework";
 import Restaurant from "../components/Restaurant";
 const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
-
+import LocationPopup from "../components/LocationPopup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const db = firebase.firestore();
 
 class Header extends React.Component {
+  // constructor(props){
+  //   super(props);
+  //   this.state = {locationVisible: false};
+  //   this.seeLocation = this.seeLocation.bind(this);
+  // }
+
+  // seeLocation = () => {
+  //   this.setState({locationVisible: !this.state.locationVisible});
+  //   console.log("helo");
+  // }
+
   render() {
     return (
+    <View>
       <Block style={styles.header}>
         <StatusBar />
         <Text style={styles.text}>Delivering to</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>this.props.seeLocation}>
           <Block row middle width={width}>
             <Text style={styles.location}>White Hall</Text>
             <Icon
@@ -36,6 +48,8 @@ class Header extends React.Component {
           </Block>
         </TouchableOpacity>
       </Block>
+      {/* <LocationPopup locationVisible = {this.state.locationVisible} seeLocation = {this.seeLocation} /> */}
+    </View>
     );
   }
 }
@@ -43,15 +57,35 @@ class Header extends React.Component {
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showViewCart: false };
+    this.state = { showViewCart: false, locationVisible: true };
+    this.seeLocation = this.seeLocation.bind(this);
+    this.hideLocation = this.hideLocation.bind(this);
   }
 
-  static navigationOptions = {
-    headerTitle: () => <Header />,
-    headerStyle: {
-      elevation: 0,
-      shadowOpacity: 0,
-      borderBottomWidth: 0
+  seeLocation = () => {
+    this.setState({locationVisible: true});
+  }
+
+  hideLocation = () => {
+    console.log("hi");
+    this.setState({locationVisible: false});
+  }
+
+  componentDidMount(){
+    this.props.navigation.setParams({
+      seeLocation: this.seeLocation
+     })
+  }
+
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;
+    return{
+      headerTitle: <Header {...params} seeLocation = {navigation.getParam('seeLocation')}/>,
+      headerStyle: {
+        elevation: 0,
+        shadowOpacity: 0,
+        borderBottomWidth: 0
+      }  
     }
   };
 
@@ -220,6 +254,7 @@ export default class Home extends React.Component {
             <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
         </Block>
+        <LocationPopup locationVisible = {this.state.locationVisible} hideLocation = {this.hideLocation} />
       </View>
     );
   }
