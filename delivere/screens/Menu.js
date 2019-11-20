@@ -122,7 +122,7 @@ export default class Menu extends React.Component {
           );
         }}
       >
-        <Block middle style={[styles.button,{marginTop: 0}]}>
+        <Block middle style={[styles.button, { marginTop: 0 }]}>
           <Text style={{ fontSize: 20, color: "white" }}>Add to Cart</Text>
         </Block>
       </TouchableOpacity>
@@ -185,25 +185,33 @@ export default class Menu extends React.Component {
           <Block style={{ height: 100 }} />
         </ScrollView>
         <Popup visible={this.state.foodVisible} style="small">
-          <Block style={{
-            height: 0.7*height,
-            width: 0.8*width,
-            backgroundColor: "white",
-            borderWidth: 1
-            }}>
-            
-            <Block row>
-              <TouchableOpacity onPress={this.foodPopup}>
-                <Icon
-                  style={{ marginLeft: width*0.02, marginVertical: height*0.02}}
-                  name="close"
-                  family="AntDesign"
-                  size={30}
-                  color="#5E72E4"
-                />
-              </TouchableOpacity>
-              <View style={{flex:1}}/> 
-            </Block>
+          <TouchableWithoutFeedback
+            onPress={Keyboard.dismiss}
+            accessible={false}
+          >
+            <Block
+              style={{
+                height: 0.7 * height,
+                width: 0.8 * width,
+                backgroundColor: "white",
+                borderWidth: 1
+              }}
+            >
+              <Block row>
+                <TouchableOpacity onPress={this.foodPopup}>
+                  <Icon
+                    style={{
+                      marginLeft: width * 0.02,
+                      marginVertical: height * 0.02
+                    }}
+                    name="close"
+                    family="AntDesign"
+                    size={30}
+                    color="#5E72E4"
+                  />
+                </TouchableOpacity>
+                <View style={{ flex: 1 }} />
+              </Block>
 
               <TextInput
                 blurOnSubmit={true}
@@ -248,6 +256,7 @@ export default class Menu extends React.Component {
                 {addCart}
               </Block>
             </Block>
+          </TouchableWithoutFeedback>
         </Popup>
         {this.state.cartVisible ? viewCart : null}
       </View>
