@@ -24,7 +24,8 @@ export default class Cart extends React.Component {
       subtotal: 0,
       tax: 0,
       deliveryFee: 0,
-      curUserEmail: ""
+      curUserEmail: "",
+      tip: 0
     };
   }
 
@@ -35,7 +36,8 @@ export default class Cart extends React.Component {
     var total = (
       this.state.subtotal +
       this.state.tax +
-      this.state.deliveryFee
+      this.state.deliveryFee +
+      this.state.tip
     ).toFixed(2);
 
     dbh
@@ -48,7 +50,8 @@ export default class Cart extends React.Component {
         deliveryFee: this.state.deliveryFee,
         eaterEmail: eaterEmail,
         date: new Date(),
-        progress: 0.25
+        progress: 0.25,
+        tip: this.state.tip
       })
       .then(
         function(docRef) {
@@ -98,7 +101,8 @@ export default class Cart extends React.Component {
     total = (
       this.state.subtotal +
       this.state.tax +
-      this.state.deliveryFee
+      this.state.deliveryFee +
+      this.state.tip
     ).toFixed(2);
     return (
       <Block style={styles.container}>
