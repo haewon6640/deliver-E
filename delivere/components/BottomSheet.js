@@ -231,7 +231,7 @@ class BottomSheet extends React.Component {
               >
                 <Block row>
                   <View>
-                    <Text style={styles.category}>{this.props.progress}</Text>
+                    <Text style={styles.category}>Sally</Text>
                     <Text style={styles.text}>Your Runner</Text>
                   </View>
                   <Block
