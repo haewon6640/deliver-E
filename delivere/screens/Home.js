@@ -31,25 +31,25 @@ class Header extends React.Component {
 
   render() {
     return (
-    <View>
-      <Block style={styles.header}>
-        <StatusBar />
-        <Text style={styles.text}>Delivering to</Text>
-        <TouchableOpacity onPress={()=>this.props.seeLocation}>
-          <Block row middle width={width}>
-            <Text style={styles.location}>White Hall</Text>
-            <Icon
-              style={{ marginTop: 7 }}
-              name="down"
-              family="AntDesign"
-              size={30}
-              color="#5E72E4"
-            />
-          </Block>
-        </TouchableOpacity>
-      </Block>
-      {/* <LocationPopup locationVisible = {this.state.locationVisible} seeLocation = {this.seeLocation} /> */}
-    </View>
+      <View>
+        <Block style={styles.header}>
+          <StatusBar />
+          <Text style={styles.text}>Delivering to</Text>
+          <TouchableOpacity onPress={() => this.props.seeLocation}>
+            <Block row middle width={width}>
+              <Text style={styles.location}>White Hall</Text>
+              <Icon
+                style={{ marginTop: 7 }}
+                name="down"
+                family="AntDesign"
+                size={30}
+                color="#5E72E4"
+              />
+            </Block>
+          </TouchableOpacity>
+        </Block>
+        {/* <LocationPopup locationVisible = {this.state.locationVisible} seeLocation = {this.seeLocation} /> */}
+      </View>
     );
   }
 }
@@ -63,30 +63,31 @@ export default class Home extends React.Component {
   }
 
   seeLocation = () => {
-    this.setState({locationVisible: true});
-  }
+    this.setState({ locationVisible: true });
+  };
 
   hideLocation = () => {
     console.log("hi");
-    this.setState({locationVisible: false});
-  }
-
-  componentDidMount(){
+    this.setState({ locationVisible: false });
+  };
+  componentDidMount() {
     this.props.navigation.setParams({
       seeLocation: this.seeLocation
-     })
+    });
   }
 
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
-    return{
-      headerTitle: <Header {...params} seeLocation = {navigation.getParam('seeLocation')}/>,
+    return {
+      headerTitle: (
+        <Header {...params} seeLocation={navigation.getParam("seeLocation")} />
+      ),
       headerStyle: {
         elevation: 0,
         shadowOpacity: 0,
         borderBottomWidth: 0
-      }  
-    }
+      }
+    };
   };
 
   // createMenu(name, category, rating, ratecount) {
@@ -122,6 +123,25 @@ export default class Home extends React.Component {
   // funFcn() {
   //   alert("fund");
   // }
+
+  addAddress = address => {
+    firebase.auth().onAuthStateChanged(
+      function(user) {
+        if (user) {
+          db.collection("Eater")
+            .doc(user.email)
+            .update({
+              currentAddress: address
+            });
+        } else {
+          alert("You are not signed in.");
+          // No user is signed in.
+          return;
+        }
+      }.bind(this)
+    );
+  };
+
   queryRestaurantInfo = name => {
     const rRef = db.collection("Restaurant").doc(name);
     rRef.get().then(
@@ -254,7 +274,10 @@ export default class Home extends React.Component {
             <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
         </Block>
-        <LocationPopup locationVisible = {this.state.locationVisible} hideLocation = {this.hideLocation} />
+        <LocationPopup
+          locationVisible={this.state.locationVisible}
+          hideLocation={this.hideLocation}
+        />
       </View>
     );
   }
