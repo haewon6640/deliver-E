@@ -5,7 +5,7 @@ import {
   Dimensions,
   View,
   Text,
-  TextInput
+  TextInput,
 } from "react-native";
 import { Icon } from "galio-framework";
 import { TouchableOpacity } from "react-native-gesture-handler";

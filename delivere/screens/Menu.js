@@ -104,16 +104,6 @@ export default class Menu extends React.Component {
                   </Text>
                 </Block>
               </TouchableOpacity>
-              // <MenuItem
-              //   key={j}
-              //   addList={this.addList}
-              //   addCart={this.addCartButton}
-              //   name={item.name}
-              //   price={item.price}
-              //   cal={item.cal}
-              //   type={data}
-              //   pricecal={"$" + item.price + " - " + item.cal + " cal"}
-              // />
             );
           })}
         </Block>
@@ -132,7 +122,7 @@ export default class Menu extends React.Component {
           );
         }}
       >
-        <Block row middle style={styles.button}>
+        <Block middle style={[styles.button,{marginTop: 0}]}>
           <Text style={{ fontSize: 20, color: "white" }}>Add to Cart</Text>
         </Block>
       </TouchableOpacity>
@@ -195,28 +185,28 @@ export default class Menu extends React.Component {
           <Block style={{ height: 100 }} />
         </ScrollView>
         <Popup visible={this.state.foodVisible} style="small">
-          <TouchableWithoutFeedback
-            onPress={Keyboard.dismiss}
-            accessible={false}
-          >
-            <Block
-              style={{
-                height: 0.6 * height,
-                width: 0.8 * width,
-                backgroundColor: "white",
-                borderWidth: 1
-              }}
-            >
+          <Block style={{
+            height: 0.7*height,
+            width: 0.8*width,
+            backgroundColor: "white",
+            borderWidth: 1
+            }}>
+            
+            <Block row>
               <TouchableOpacity onPress={this.foodPopup}>
                 <Icon
-                  style={{ marginLeft: width * 0.02, marginTop: height * 0.02 }}
+                  style={{ marginLeft: width*0.02, marginVertical: height*0.02}}
                   name="close"
                   family="AntDesign"
                   size={30}
                   color="#5E72E4"
                 />
               </TouchableOpacity>
+              <View style={{flex:1}}/> 
+            </Block>
+
               <TextInput
+                blurOnSubmit={true}
                 multiline={true}
                 style={{
                   alignSelf: "center",
@@ -231,7 +221,7 @@ export default class Menu extends React.Component {
                   this.setState({ instruction: event.nativeEvent.text })
                 }
               />
-              <Block middle>
+              <Block flex={1} middle>
                 <Block row middle space="around" style={styles.button}>
                   <TouchableOpacity
                     onPress={() => this.minus(this.state.count)}
@@ -268,7 +258,7 @@ export default class Menu extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    height: 140,
+    height: normalize(140),
     width: width,
     borderBottomWidth: 1,
     borderBottomColor: "#8e8383"
@@ -276,16 +266,16 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
     justifyContent: "center",
-    height: 80,
-    paddingLeft: 30,
+    height: normalize(80),
+    paddingLeft: normalize(30),
     borderBottomWidth: 1,
     borderColor: "#d6d7da"
   },
   name: {
     paddingLeft: 25,
-    paddingTop: 20,
-    paddingBottom: 15,
-    fontSize: 30,
+    paddingTop: normalize(20),
+    paddingBottom: normalize(15),
+    fontSize: normalize(30),
     color: "#1f396e"
   },
   text: {
@@ -303,7 +293,7 @@ const styles = StyleSheet.create({
   category: {
     paddingLeft: 25,
     paddingTop: 15,
-    paddingBottom: 8,
+    paddingBottom: normalize(8),
     fontSize: 20,
     color: "#1f396e"
   },
@@ -316,9 +306,9 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#5E72E4",
     borderRadius: 80,
-    height: 50,
+    height: normalize(50),
     width: width * 0.5,
-    marginTop: 20,
-    marginBottom: 20
+    marginTop: normalize(20),
+    marginBottom: normalize(20)
   }
 });
