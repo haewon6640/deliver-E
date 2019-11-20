@@ -248,7 +248,6 @@ export default class Menu extends React.Component {
                 {addCart}
               </Block>
             </Block>
-          </TouchableWithoutFeedback>
         </Popup>
         {this.state.cartVisible ? viewCart : null}
       </View>
