@@ -20,17 +20,6 @@ import "@firebase/firestore";
 const db = firebase.firestore();
 
 class Header extends React.Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state = {locationVisible: false};
-  //   this.locationPopup = this.locationPopup.bind(this);
-  // }
-
-  // locationPopup = () => {
-  //   this.setState({locationVisible: !this.state.locationVisible});
-  //   console.log("helo");
-  // }
-
   render() {
     return (
     <View>
@@ -60,6 +49,7 @@ export default class Home extends React.Component {
     super(props);
     this.state = { showViewCart: false, locationVisible: false };
     this.locationPopup = this.locationPopup.bind(this);
+    this.addAddress = this.addAddress.bind(this);
   }
 
   locationPopup = () => {
@@ -80,8 +70,8 @@ export default class Home extends React.Component {
         elevation: 0,
         shadowOpacity: 0,
         borderBottomWidth: 0
-      }  
-    }
+      }
+    };
   };
 
   // createMenu(name, category, rating, ratecount) {
@@ -117,6 +107,25 @@ export default class Home extends React.Component {
   // funFcn() {
   //   alert("fund");
   // }
+
+  addAddress = address => {
+    firebase.auth().onAuthStateChanged(
+      function(user) {
+        if (user) {
+          db.collection("Eater")
+            .doc(user.email)
+            .update({
+              currentAddress: address
+            });
+        } else {
+          alert("You are not signed in.");
+          // No user is signed in.
+          return;
+        }
+      }.bind(this)
+    );
+  };
+
   queryRestaurantInfo = name => {
     const rRef = db.collection("Restaurant").doc(name);
     rRef.get().then(
@@ -198,16 +207,6 @@ export default class Home extends React.Component {
     );
   };
   render() {
-    // if (JSON.stringify(this.props.navigation.getParam('cartAdded')) == 'true'){
-    //   this.setState({showViewCart: true});
-    // }
-    // vCart = (
-    //   <Block style={{position: 'absolute', bottom: 0, left: '25%', right: '25%'}}>
-    //     <Block row middle style={styles.button}>
-    //       <Text style={{fontSize: 20, color:"white"}}>View Cart</Text>
-    //     </Block>
-    //   </Block>
-    // );
     return (
       <View style={styles.container}>
         <ScrollView
@@ -251,26 +250,10 @@ export default class Home extends React.Component {
             <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
         </Block>
-        {/* <Modal
-        animationType="slide"
-        transparent={false}
-        visible={this.state.locationVisible}>
-        <View style={{height: 0.7*height,width: width}}>
-          <TouchableOpacity onPress={this.hideLocation}>
-            <Icon
-              style={{ marginLeft: width*0.05, marginTop: height*0.05}}
-              name="close"
-              family="AntDesign"
-              size={30}
-              color="#5E72E4"
-            />
-          </TouchableOpacity>
-          <TextInput style={{ height: 40, paddingLeft: width*0.05, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="Search for address"
-          />
-        </View>    
-        </Modal> */}
-        <Popup visible = {this.state.locationVisible} style ="full">
+        <Popup
+        visible = {this.state.locationVisible}
+        addAddress={this.addAddress}
+        style ="full">
           <TouchableOpacity onPress={this.locationPopup}>
             <Icon
               style={{ marginLeft: width*0.05, marginTop: height*0.05}}
@@ -280,8 +263,12 @@ export default class Home extends React.Component {
               color="#5E72E4"
             />
           </TouchableOpacity>
-          <TextInput style={{ height: 40, paddingLeft: width*0.05, borderColor: 'gray', borderWidth: 1 }}
+          <TextInput style={{ 
+            height: 40, paddingLeft: width*0.05, borderColor: 'gray', borderWidth: 1 }}
             placeholder="Search for address"
+            onSubmitEditing={event =>
+              this.props.addAddress(event.nativeEvent.text)
+            }
           />
         </Popup>
       </View>
