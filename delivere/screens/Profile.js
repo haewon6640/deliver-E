@@ -11,11 +11,11 @@ import {
   Image
 } from "react-native";
 import { Block, Icon } from "galio-framework";
+import { ImagePicker, Permissions } from 'expo';
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
+
 import firebase from "../components/firebase";
-import * as ImagePicker from 'expo-image-picker';
-import * as Permissions from 'expo-permissions';
 
 signOut = () => {
   firebase
@@ -39,32 +39,24 @@ signOut = () => {
 
 export default class Profile extends React.Component {
   state = {
-    image: null,
-    uploading: false,
+    image: null
   };
 
   selectPicture = async () => {
-    await Permissions.getAsync(Permissions.CAMERA_ROLL);
+    await Permissions.askAsync(Permissions.CAMERA_ROLL);
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
       aspect: 1,
       allowsEditing: true,
     });
     if (!cancelled) this.setState({ image: uri }) //if image cancelled, won't set new image
-
-    this._handleImagePicked(pickerResult);
   };
 
   takePicture = async () => {
-    await Permissions.getAsync(Permissions.CAMERA);
+    await Permissions.askAsync(Permissions.CAMERA);
     const { cancelled, uri } = await ImagePicker.launchCameraAsync({
       alowsEditing: false,
     });
     if (!cancelled) this.setState({ image: uri });
-  };
-
-  async componentDidMount() {
-    await Permissions.askAsync(Permissions.CAMERA_ROLL);
-    await Permissions.askAsync(Permissions.CAMERA);
   };
 
 
@@ -77,7 +69,9 @@ export default class Profile extends React.Component {
     if (user.name.length > 8) {
       user.name = user.name.substring(0, 6) + "...";
     }
-    let { image } = this.state;  
+    let { image } = this.state;
+
+  
 
     return (
       <View style={styles.container}>
@@ -120,10 +114,8 @@ export default class Profile extends React.Component {
         </Block>
       </View>
 
-
     );
   }
-
 }
 
 
