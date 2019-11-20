@@ -59,20 +59,6 @@ export default class Profile extends React.Component {
     if (!cancelled) this.setState({ image: uri });
   };
 
-  componentDidMount() {
-    this.getPermissionAsync();
-  };
-
-  getPermissionAsync = async () => {
-    if (Constants.platform.ios) {
-      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-      if (status !== 'granted') {
-        alert('Sorry, we need camera roll permissions to make this work!');
-      }
-    }
-  };
-
- 
 
   render() {
     const { navigation } = this.props;
@@ -85,12 +71,7 @@ export default class Profile extends React.Component {
     }
     let { image } = this.state;
 
-    _pickImage = async () => {
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-      })};
+  
 
     return (
       <View style={styles.container}>
@@ -98,7 +79,7 @@ export default class Profile extends React.Component {
         <View style={styles.row}>
           <Button 
             title ="Gallery"
-            onPress={this._pickImage}
+            onPress={this.selectPicture}
           />
           <Button title="Camera" onPress={this.takePicture}></Button>
         </View>
