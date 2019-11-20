@@ -60,6 +60,7 @@ export default class Home extends React.Component {
     this.state = { showViewCart: false, locationVisible: true };
     this.seeLocation = this.seeLocation.bind(this);
     this.hideLocation = this.hideLocation.bind(this);
+    this.addAddress = this.addAddress.bind(this);
   }
 
   seeLocation = () => {
@@ -277,6 +278,7 @@ export default class Home extends React.Component {
         <LocationPopup
           locationVisible={this.state.locationVisible}
           hideLocation={this.hideLocation}
+          addAddress={this.addAddress}
         />
       </View>
     );
