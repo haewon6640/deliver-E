@@ -266,8 +266,9 @@ export default class Home extends React.Component {
           <TextInput style={{ 
             height: 40, paddingLeft: width*0.05, borderColor: 'gray', borderWidth: 1 }}
             placeholder="Search for address"
-            onSubmitEditing={event =>
-              this.props.addAddress(event.nativeEvent.text)
+            onSubmitEditing={event =>{
+              this.addAddress(event.nativeEvent.text);
+              }
             }
           />
         </Popup>

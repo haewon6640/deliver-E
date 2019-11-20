@@ -179,6 +179,7 @@ export default class Menu extends React.Component {
             </TouchableOpacity> 
             <TextInput multiline={true} style={{ alignSelf: "center", height: 0.3*height, width: 0.7*width, padding: width*0.05, borderColor: 'gray', borderWidth: 1 }}
               placeholder="Special instructions"
+              // onSubmitting={}
             />
             <Block middle>
               <Block row middle space="around" style={styles.button}>
