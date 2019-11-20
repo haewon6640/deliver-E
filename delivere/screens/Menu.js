@@ -7,7 +7,9 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import { Block, Icon } from "galio-framework";
 import MenuItem from "../components/MenuItem";
@@ -22,8 +24,16 @@ const db = firebase.firestore();
 export default class Menu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { chosenItems: [], cartVisible: false, foodVisible: false, count: 1 ,
-    name: "", price: "", type: ""};
+    this.state = {
+      chosenItems: [],
+      cartVisible: false,
+      foodVisible: false,
+      count: 1,
+      name: "",
+      price: "",
+      type: "",
+      instruction: ""
+    };
     this.plus = this.plus.bind(this);
     this.minus = this.minus.bind(this);
     this.addList = this.addList.bind(this);
@@ -33,29 +43,40 @@ export default class Menu extends React.Component {
 
   plus = prev => {
     this.setState({ count: prev + 1 });
-  }
+  };
 
   minus = prev => {
     if (prev > 1) this.setState({ count: prev - 1 });
-  }
+  };
 
   foodPopup = () => {
-    this.setState({foodVisible: !this.state.foodVisible})
-  }
+    this.setState({ foodVisible: !this.state.foodVisible });
+  };
 
   setInfoAndPopup = (name, price, type) => {
-    this.setState({name: name, price: price, type: type, foodVisible: !this.state.foodVisible})
-  }
+    this.setState({
+      name: name,
+      price: price,
+      type: type,
+      foodVisible: !this.state.foodVisible
+    });
+  };
 
-  addList = (name, price, type) => {
+  addList = (name, price, type, count, instruction) => {
     this.state.chosenItems.push({
       name: name,
       price: price,
       type: type,
-      // count: count
+      count: count,
+      instruction: instruction
     });
-    this.setState({cartVisible: true, foodVisible: !this.state.foodVisible})
-  }
+    this.setState({
+      cartVisible: true,
+      foodVisible: !this.state.foodVisible,
+      count: 1,
+      instruction: ""
+    });
+  };
 
   render() {
     const { navigation } = this.props;
@@ -71,11 +92,16 @@ export default class Menu extends React.Component {
           <Text style={styles.category}>{data}</Text>
           {foodMap[data].map((item, j) => {
             return (
-              <TouchableOpacity key={j}
-              onPress={() => this.setInfoAndPopup(item.name, item.price, data)}
+              <TouchableOpacity
+                key={j}
+                onPress={() =>
+                  this.setInfoAndPopup(item.name, item.price, data)
+                }
               >
                 <Block style={styles.item}>
-                  <Text style={{fontSize: 17, color: "#466199"}}>{item.name}  ${item.price} - {item.cal} cal</Text>
+                  <Text style={{ fontSize: 17, color: "#466199" }}>
+                    {item.name} ${item.price} - {item.cal} cal
+                  </Text>
                 </Block>
               </TouchableOpacity>
               // <MenuItem
@@ -96,8 +122,15 @@ export default class Menu extends React.Component {
 
     addCart = (
       <TouchableOpacity
-        onPress={() => this.addList(this.state.name,this.state.price,this.state.type)
-        }
+        onPress={() => {
+          this.addList(
+            this.state.name,
+            this.state.price,
+            this.state.type,
+            this.state.count,
+            this.state.instruction
+          );
+        }}
       >
         <Block row middle style={styles.button}>
           <Text style={{ fontSize: 20, color: "white" }}>Add to Cart</Text>
@@ -117,7 +150,7 @@ export default class Menu extends React.Component {
             })
           }
         >
-          <Block row middle style={[styles.button, {marginBottom: 40}]}>
+          <Block row middle style={[styles.button, { marginBottom: 40 }]}>
             <Text style={{ fontSize: 20, color: "white" }}>View Cart</Text>
           </Block>
         </TouchableOpacity>
@@ -159,42 +192,73 @@ export default class Menu extends React.Component {
             <Text style={styles.text}>5-10 Min</Text>
           </Block>
           {List}
-          <Block style={{height:100}}/>
+          <Block style={{ height: 100 }} />
         </ScrollView>
         <Popup visible={this.state.foodVisible} style="small">
-          <Block style={{
-            height: 0.6*height,
-            width: 0.8*width,
-            backgroundColor: "white",
-            borderWidth: 1
-            }}>
-            <TouchableOpacity onPress={this.foodPopup}>
-              <Icon
-                style={{ marginLeft: width*0.02, marginTop: height*0.02}}
-                name="close"
-                family="AntDesign"
-                size={30}
-                color="#5E72E4"
+          <TouchableWithoutFeedback
+            onPress={Keyboard.dismiss}
+            accessible={false}
+          >
+            <Block
+              style={{
+                height: 0.6 * height,
+                width: 0.8 * width,
+                backgroundColor: "white",
+                borderWidth: 1
+              }}
+            >
+              <TouchableOpacity onPress={this.foodPopup}>
+                <Icon
+                  style={{ marginLeft: width * 0.02, marginTop: height * 0.02 }}
+                  name="close"
+                  family="AntDesign"
+                  size={30}
+                  color="#5E72E4"
+                />
+              </TouchableOpacity>
+              <TextInput
+                multiline={true}
+                style={{
+                  alignSelf: "center",
+                  height: 0.3 * height,
+                  width: 0.7 * width,
+                  padding: width * 0.05,
+                  borderColor: "gray",
+                  borderWidth: 1
+                }}
+                placeholder="Special instructions"
+                onSubmitEditing={event =>
+                  this.setState({ instruction: event.nativeEvent.text })
+                }
               />
-            </TouchableOpacity> 
-            <TextInput multiline={true} style={{ alignSelf: "center", height: 0.3*height, width: 0.7*width, padding: width*0.05, borderColor: 'gray', borderWidth: 1 }}
-              placeholder="Special instructions"
-            />
-            <Block middle>
-              <Block row middle space="around" style={styles.button}>
-                <TouchableOpacity onPress={() => this.minus(this.state.count)}>
-                  <Icon name="minus" family="AntDesign" size={20} color="white" />
-                </TouchableOpacity>
-                <Text style={{ fontSize: 20, color: "white" }}>
-                  {this.state.count}
-                </Text>
-                <TouchableOpacity onPress={() => this.plus(this.state.count)}>
-                  <Icon name="plus" family="AntDesign" size={20} color="white" />
-                </TouchableOpacity>
+              <Block middle>
+                <Block row middle space="around" style={styles.button}>
+                  <TouchableOpacity
+                    onPress={() => this.minus(this.state.count)}
+                  >
+                    <Icon
+                      name="minus"
+                      family="AntDesign"
+                      size={20}
+                      color="white"
+                    />
+                  </TouchableOpacity>
+                  <Text style={{ fontSize: 20, color: "white" }}>
+                    {this.state.count}
+                  </Text>
+                  <TouchableOpacity onPress={() => this.plus(this.state.count)}>
+                    <Icon
+                      name="plus"
+                      family="AntDesign"
+                      size={20}
+                      color="white"
+                    />
+                  </TouchableOpacity>
+                </Block>
+                {addCart}
               </Block>
-              {addCart}
-            </Block>           
-          </Block>
+            </Block>
+          </TouchableWithoutFeedback>
         </Popup>
         {this.state.cartVisible ? viewCart : null}
       </View>
