@@ -92,7 +92,7 @@ class Register extends React.Component {
             };
             dbh
               .collection("Eater")
-              .doc(email)
+              .doc(user.email)
               .set(curUser);
             this.props.navigation.navigate("Home");
           } else {
