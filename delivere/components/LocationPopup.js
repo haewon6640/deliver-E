@@ -9,18 +9,14 @@ export default class LocationPopup extends React.Component {
     super(props);
   }
 
-  hideLocation = () => {
-    this.props.hideLocation();
-  }
- 
   render(){
     return(
       <Modal
         animationType="slide"
         transparent={false}
         visible={this.props.locationVisible}>
-        <View style={styles.container}>
-          <TouchableOpacity onPress={() => this.hideLocation}>
+        <View style={{height: height,width: width}}>
+          <TouchableOpacity onPress={this.props.seeLocation}>
             <Icon
               style={{ marginLeft: width*0.05, marginTop: height*0.05}}
               name="close"

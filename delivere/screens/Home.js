@@ -6,13 +6,15 @@ import {
   Text,
   Dimensions,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  Modal,
+  TextInput
 } from "react-native";
 import { Block, Icon } from "galio-framework";
 import Restaurant from "../components/Restaurant";
 const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
-import LocationPopup from "../components/LocationPopup";
+import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const db = firebase.firestore();
@@ -21,10 +23,10 @@ class Header extends React.Component {
   // constructor(props){
   //   super(props);
   //   this.state = {locationVisible: false};
-  //   this.seeLocation = this.seeLocation.bind(this);
+  //   this.locationPopup = this.locationPopup.bind(this);
   // }
 
-  // seeLocation = () => {
+  // locationPopup = () => {
   //   this.setState({locationVisible: !this.state.locationVisible});
   //   console.log("helo");
   // }
@@ -35,7 +37,7 @@ class Header extends React.Component {
       <Block style={styles.header}>
         <StatusBar />
         <Text style={styles.text}>Delivering to</Text>
-        <TouchableOpacity onPress={()=>this.props.seeLocation}>
+        <TouchableOpacity onPress={this.props.locationPopup}>
           <Block row middle width={width}>
             <Text style={styles.location}>White Hall</Text>
             <Icon
@@ -48,7 +50,6 @@ class Header extends React.Component {
           </Block>
         </TouchableOpacity>
       </Block>
-      {/* <LocationPopup locationVisible = {this.state.locationVisible} seeLocation = {this.seeLocation} /> */}
     </View>
     );
   }
@@ -57,30 +58,24 @@ class Header extends React.Component {
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showViewCart: false, locationVisible: true };
-    this.seeLocation = this.seeLocation.bind(this);
-    this.hideLocation = this.hideLocation.bind(this);
+    this.state = { showViewCart: false, locationVisible: false };
+    this.locationPopup = this.locationPopup.bind(this);
   }
 
-  seeLocation = () => {
-    this.setState({locationVisible: true});
-  }
-
-  hideLocation = () => {
-    console.log("hi");
-    this.setState({locationVisible: false});
+  locationPopup = () => {
+    this.setState({locationVisible: !this.state.locationVisible});
   }
 
   componentDidMount(){
     this.props.navigation.setParams({
-      seeLocation: this.seeLocation
+      locationPopup: this.locationPopup
      })
   }
 
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return{
-      headerTitle: <Header {...params} seeLocation = {navigation.getParam('seeLocation')}/>,
+      headerTitle: <Header {...params} locationPopup = {navigation.getParam('locationPopup')}/>,
       headerStyle: {
         elevation: 0,
         shadowOpacity: 0,
@@ -247,14 +242,48 @@ export default class Home extends React.Component {
         </ScrollView>
         {/* {this.state.showViewCart ? vCart : null} */}
         <Block row space="around" style={styles.footer}>
-          <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
+          <TouchableOpacity onPress={() => this.console()}>
+            <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
+          </TouchableOpacity>
           <Icon name="search1" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="profile" family="AntDesign" size={35} color="#5E72E4" />
           <TouchableOpacity onPress={() => this.queryProfileInfo()}>
             <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
         </Block>
-        <LocationPopup locationVisible = {this.state.locationVisible} hideLocation = {this.hideLocation} />
+        {/* <Modal
+        animationType="slide"
+        transparent={false}
+        visible={this.state.locationVisible}>
+        <View style={{height: 0.7*height,width: width}}>
+          <TouchableOpacity onPress={this.hideLocation}>
+            <Icon
+              style={{ marginLeft: width*0.05, marginTop: height*0.05}}
+              name="close"
+              family="AntDesign"
+              size={30}
+              color="#5E72E4"
+            />
+          </TouchableOpacity>
+          <TextInput style={{ height: 40, paddingLeft: width*0.05, borderColor: 'gray', borderWidth: 1 }}
+            placeholder="Search for address"
+          />
+        </View>    
+        </Modal> */}
+        <Popup visible = {this.state.locationVisible} style ="full">
+          <TouchableOpacity onPress={this.locationPopup}>
+            <Icon
+              style={{ marginLeft: width*0.05, marginTop: height*0.05}}
+              name="close"
+              family="AntDesign"
+              size={30}
+              color="#5E72E4"
+            />
+          </TouchableOpacity>
+          <TextInput style={{ height: 40, paddingLeft: width*0.05, borderColor: 'gray', borderWidth: 1 }}
+            placeholder="Search for address"
+          />
+        </Popup>
       </View>
     );
   }
