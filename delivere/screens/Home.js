@@ -254,23 +254,45 @@ export default class Home extends React.Component {
         visible = {this.state.locationVisible}
         addAddress={this.addAddress}
         style ="full">
-          <TouchableOpacity onPress={this.locationPopup}>
+            <TouchableOpacity onPress={this.locationPopup}>
+              <Icon
+                style={{ position: "absolute", left: width*0.05, marginTop: height*0.06}}
+                name="close"
+                family="AntDesign"
+                size={30}
+                color="#466199"
+              />
+            </TouchableOpacity>
+          <Block center style={{paddingTop: height*0.06, marginBottom: height*0.02}}>
+            <Text style={{fontSize: 20, color:"#466199"}}>Edit Address</Text>
+          </Block>
+          <Block style={{backgroundColor: '#ECECEC', height: 10}} />
+          <Block row style={{alignItems: "center"}}>
             <Icon
-              style={{ marginLeft: width*0.05, marginTop: height*0.05}}
-              name="close"
-              family="AntDesign"
-              size={30}
-              color="#5E72E4"
-            />
-          </TouchableOpacity>
-          <TextInput style={{ 
-            height: 40, paddingLeft: width*0.05, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="Search for address"
-            onSubmitEditing={event =>{
-              this.addAddress(event.nativeEvent.text);
+              style={{marginHorizontal: width*0.05}}
+             name="search1" family="AntDesign" size={30} color="#466199" />
+            <TextInput style={{ flex: 1,
+              fontSize: normalize(16), color: "#466199",
+              height: 65}}
+              placeholder="Enter your address"
+              onSubmitEditing={event =>{
+                this.addAddress(event.nativeEvent.text);
+                }
               }
-            }
-          />
+            />  
+          </Block>
+          <Block style={{backgroundColor: '#ECECEC', height: 10}} />
+          <Block row style={{marginTop: 20, alignItems: "center"}}>
+            <Icon
+              style={{marginHorizontal: width*0.05}}
+             name="map-pin" family="Feather" size={30} color="#5E72E4" />
+            <Block>
+              <Text style={{fontSize: normalize(16), color: "#5E72E4"}}>{"Current Location\n"+
+              "White Hall 208\n"+
+              "301 Dowman Dr, Atlanta, GA 30307"}
+              </Text>
+            </Block> 
+          </Block>
         </Popup>
       </View>
     );
