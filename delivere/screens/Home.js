@@ -22,24 +22,24 @@ const db = firebase.firestore();
 class Header extends React.Component {
   render() {
     return (
-    <View>
-      <Block style={styles.header}>
-        <StatusBar />
-        <Text style={styles.text}>Delivering to</Text>
-        <TouchableOpacity onPress={this.props.locationPopup}>
-          <Block row middle width={width}>
-            <Text style={styles.location}>White Hall</Text>
-            <Icon
-              style={{ marginTop: 7 }}
-              name="down"
-              family="AntDesign"
-              size={30}
-              color="#5E72E4"
-            />
-          </Block>
-        </TouchableOpacity>
-      </Block>
-    </View>
+      <View>
+        <Block style={styles.header}>
+          <StatusBar />
+          <Text style={styles.text}>Delivering to</Text>
+          <TouchableOpacity onPress={this.props.locationPopup}>
+            <Block row middle width={width}>
+              <Text style={styles.location}>White Hall</Text>
+              <Icon
+                style={{ marginTop: 7 }}
+                name="down"
+                family="AntDesign"
+                size={30}
+                color="#5E72E4"
+              />
+            </Block>
+          </TouchableOpacity>
+        </Block>
+      </View>
     );
   }
 }
@@ -53,19 +53,24 @@ export default class Home extends React.Component {
   }
 
   locationPopup = () => {
-    this.setState({locationVisible: !this.state.locationVisible});
-  }
+    this.setState({ locationVisible: !this.state.locationVisible });
+  };
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.navigation.setParams({
       locationPopup: this.locationPopup
-     })
+    });
   }
 
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
-    return{
-      headerTitle: <Header {...params} locationPopup = {navigation.getParam('locationPopup')}/>,
+    return {
+      headerTitle: (
+        <Header
+          {...params}
+          locationPopup={navigation.getParam("locationPopup")}
+        />
+      ),
       headerStyle: {
         elevation: 0,
         shadowOpacity: 0,
