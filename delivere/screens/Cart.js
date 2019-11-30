@@ -10,40 +10,172 @@ import {
 } from "react-native";
 import { Button, Block, Icon } from "galio-framework";
 const { width } = Dimensions.get("window");
+import firebase from "../components/firebase";
+import normalize from "react-native-normalize";
+import "@firebase/firestore";
+import Eater from "../backend/Eater";
 
 export default class Cart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rName: "",
+      items: null,
+      subtotal: 0,
+      tax: 0,
+      deliveryFee: 0,
+      curUserEmail: "",
+      tip: 0
+    };
+  }
+
+  async addOrder() {
+    const dbh = firebase.firestore();
+    var eater = new Eater();
+    var eaterEmail = await eater.getCurrentEater();
+    var total = (
+      this.state.subtotal +
+      this.state.tax +
+      this.state.deliveryFee +
+      this.state.tip
+    ).toFixed(2);
+
+    dbh
+      .collection("Order")
+      .add({
+        rName: this.state.rName,
+        items: this.state.items,
+        subtotal: this.state.subtotal,
+        tax: this.state.tax,
+        deliveryFee: this.state.deliveryFee,
+        eaterEmail: eaterEmail,
+        date: new Date(),
+        progress: 0.25,
+        tip: this.state.tip
+      })
+      .then(
+        function(docRef) {
+          docRef.update({
+            oid: docRef.id
+          });
+          this.props.navigation.navigate("Checkout", {
+            totalPrice: total,
+            orderId: docRef.id
+          });
+        }.bind(this)
+      )
+      .catch(
+        function(error) {
+          alert(error.toString());
+        }.bind(this)
+      );
+  }
+
   render() {
+    const { navigation } = this.props;
+    var rName = navigation.getParam("rName");
+    var items = navigation.getParam("items");
+    this.state.rName = rName;
+    this.state.items = items;
+    // this.setState((items = items));
+    const List = items.map(function(element, i) {
+      return (
+        <Block key={i}>
+          <Block row>
+            <Text style={styles.text}>{element.count}</Text>
+            <Text style={styles.text}>
+              {element.type + ": " + element.name}
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+              {"$" + element.price}
+            </Text>
+          </Block>
+        </Block>
+      );
+    });
+    items.forEach(element => {
+      this.state.subtotal = this.state.subtotal + element.price;
+    });
+    this.state.tax = parseFloat((this.state.subtotal * 0.04).toFixed(2));
+    this.state.deliveryFee = 3.0;
+    total = (
+      this.state.subtotal +
+      this.state.tax +
+      this.state.deliveryFee +
+      this.state.tip
+    ).toFixed(2);
     return (
       <Block style={styles.container}>
-        <Text style={styles.name}>Twisted Taco</Text>
-        <Text style={styles.category}>Items</Text>
-        <Block row>
-          <Text style={styles.text}>1</Text>
-          <Text style={{marginLeft: 50, fontSize: 17}}>Taco Combo</Text>
-          <Text style={{marginLeft: 150, fontSize: 17}}>$7.49</Text>
-        </Block>
-        <Text style={{marginLeft: 89, marginTop: 20, fontSize: 17}}>Buffalo Bill, Tombstone</Text>
-        <Text style={{marginLeft: 89, fontSize: 17}}>Chicken, Rice and Beans</Text>
-        <Text style={{
-    paddingLeft: 25,
-    marginTop: 50,
-    paddingBottom: 20,
-    fontSize: 20,
-    color: "#1f396e",
-  }}>Total</Text>
-        <Block row>
-          <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Subtotal</Text>
-          <Text style={{position: 'absolute', right:33, fontSize: 17}}>$7.49</Text>
-        </Block>
-        <Block row>
-          <Text style={{marginLeft: 30, marginBottom:20, fontSize: 17}}>Tax</Text>
-          <Text style={{position: 'absolute', right:33,  fontSize: 17}}>$0.30</Text>
-        </Block>
-        <Block row>
-          <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Delivery</Text>
-          <Text style={{position: 'absolute', right:33,  fontSize: 17}}>$1.99</Text>
-        </Block>
-        <Button onPress={() => this.props.navigation.navigate("Checkout")} color="#5E72E4" shadowless style={{alignSelf: 'center', marginTop: 100}}>Checkout</Button>
+        <ScrollView>
+          <Text style={styles.name}>{rName}</Text>
+          <Text style={styles.category}>Items</Text>
+          {List}
+          <Text
+            style={{
+              paddingLeft: 25,
+              marginTop: 50,
+              paddingBottom: 20,
+              fontSize: 20,
+              color: "#1f396e"
+            }}
+          >
+            Total
+          </Text>
+          <Block row>
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Subtotal
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+              {"$" + this.state.subtotal}
+            </Text>
+          </Block>
+          <Block row>
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Tax
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+              {"$" + this.state.tax}
+            </Text>
+          </Block>
+          <Block row>
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Delivery
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+              {"$" + this.state.deliveryFee.toFixed(2)}
+            </Text>
+          </Block>
+          <Block row>
+            <Text
+              style={{
+                marginLeft: 30,
+                marginBottom: 20,
+                fontSize: 17,
+                fontWeight: "bold"
+              }}
+            >
+              Total
+            </Text>
+            <Text
+              style={{
+                position: "absolute",
+                right: 33,
+                fontSize: 17,
+                fontWeight: "bold"
+              }}
+            >
+              {"$" + total}
+            </Text>
+          </Block>
+          <Button
+            onPress={() => this.addOrder()}
+            color="#5E72E4"
+            shadowless
+            style={{ alignSelf: "center", marginTop: normalize(80) }}
+          >
+            Checkout
+          </Button>
+        </ScrollView>
       </Block>
     );
   }
@@ -51,7 +183,7 @@ export default class Cart extends React.Component {
 
 const styles = StyleSheet.create({
   name: {
-    alignSelf: 'center',
+    alignSelf: "center",
     paddingBottom: 15,
     fontSize: 30,
     color: "#1f396e"

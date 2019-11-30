@@ -6,39 +6,77 @@ import {
   Text,
   Dimensions,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import { Block, Icon } from "galio-framework";
 import MenuItem from "../components/MenuItem";
-const { width } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
-import { HeaderBackButton } from 'react-navigation';
-
+import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 import { reset } from "expo/build/AR";
 const db = firebase.firestore();
-// const setParamsAction = NavigationActions.setParams({
-//   params: { cartAdded: 'true' },
-//   key: 'Home'
-// });
 
 export default class Menu extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={showAddCart: false};
-    this.addCartButton=this.addCartButton.bind(this);
-    // this.props.navigation.setParams({cartAdded: 'false'});
+    this.state = {
+      chosenItems: [],
+      cartVisible: false,
+      foodVisible: false,
+      count: 1,
+      name: "",
+      price: "",
+      type: "",
+      instruction: ""
+    };
+    this.plus = this.plus.bind(this);
+    this.minus = this.minus.bind(this);
+    this.addList = this.addList.bind(this);
+    this.foodPopup = this.foodPopup.bind(this);
+    this.setInfoAndPopup = this.setInfoAndPopup.bind(this);
   }
 
-  // static navigationOptions = {
-  //   headerLeft: <HeaderBackButton onPress={() => this.props.navigation.goBack('Home',{cartAdded: 'true'})} /> 
-  // };
+  plus = prev => {
+    this.setState({ count: prev + 1 });
+  };
 
-  addCartButton = () => {
-    this.setState({ showAddCart: true});
-    // this.props.navigation.dispatch(setParamsAction);
-  }
+  minus = prev => {
+    if (prev > 1) this.setState({ count: prev - 1 });
+  };
+
+  foodPopup = () => {
+    this.setState({ foodVisible: !this.state.foodVisible });
+  };
+
+  setInfoAndPopup = (name, price, type) => {
+    this.setState({
+      name: name,
+      price: price,
+      type: type,
+      foodVisible: !this.state.foodVisible
+    });
+  };
+
+  addList = (name, price, type, count, instruction) => {
+    this.state.chosenItems.push({
+      name: name,
+      price: price,
+      type: type,
+      count: count,
+      instruction: instruction
+    });
+    this.setState({
+      cartVisible: true,
+      foodVisible: !this.state.foodVisible,
+      count: 1,
+      instruction: ""
+    });
+  };
 
   render() {
     const { navigation } = this.props;
@@ -47,118 +85,205 @@ export default class Menu extends React.Component {
     const rRating = navigation.getParam("rRating");
     const rRateCount = navigation.getParam("rRateCount");
     const foodMap = navigation.getParam("foodMap");
-    var fCategories = [];
 
-    // Object.keys(foodMap).forEach(function(key) {
-    //   foodMap[key].map(item => {
-    //     alert(item.name);
-    //     return (
-    //       <MenuItem
-    //         name={item.name}
-    //         pricecal={"$" + item.price + " - " + item.cal}
-    //       />
-    //     );
-    //   });
-    //   fCategories.push(key);
-    // });
-
-    const List = Object.keys(foodMap).map(data => {
+    const List = Object.keys(foodMap).map((data, i) => {
       return (
-        <Block>
+        <Block key={i}>
           <Text style={styles.category}>{data}</Text>
-          {foodMap[data].map((item) => {
+          {foodMap[data].map((item, j) => {
             return (
-                <MenuItem
-                  addCart = {this.addCartButton}
-                  name={item.name}
-                  pricecal={"$" + item.price + " - " + item.cal + " cal"}
-                />
+              <TouchableOpacity
+                key={j}
+                onPress={() =>
+                  this.setInfoAndPopup(item.name, item.price, data)
+                }
+              >
+                <Block style={styles.item}>
+                  <Text style={{ fontSize: 17, color: "#466199" }}>
+                    {item.name} ${item.price} - {item.cal} cal
+                  </Text>
+                </Block>
+              </TouchableOpacity>
             );
           })}
         </Block>
       );
     });
 
-    const categoriesArray = fCategories.map(data => {
-      return (
-        <Block>
-          <Text style={styles.category}>{data}</Text>
+    addCart = (
+      <TouchableOpacity
+        onPress={() => {
+          this.addList(
+            this.state.name,
+            this.state.price,
+            this.state.type,
+            this.state.count,
+            this.state.instruction
+          );
+        }}
+      >
+        <Block middle style={[styles.button, { marginTop: 0 }]}>
+          <Text style={{ fontSize: 20, color: "white" }}>Add to Cart</Text>
         </Block>
-      );
-    });
+      </TouchableOpacity>
+    );
 
-    aCart = (
-    <Block style={{position: 'absolute', bottom: 0, left: '25%', right: '25%'}}>
-    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Cart')}>
-    <Block row middle style={styles.button1}>
-      <Text style={{fontSize: 20, color:"white"}}>Add to Cart</Text>
-    </Block>
-    </TouchableOpacity>
-  </Block>);
+    viewCart = (
+      <Block
+        style={{ position: "absolute", bottom: 0, left: "25%", right: "25%" }}
+      >
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate("Cart", {
+              items: this.state.chosenItems,
+              rName: rName
+            })
+          }
+        >
+          <Block row middle style={[styles.button, { marginBottom: 40 }]}>
+            <Text style={{ fontSize: 20, color: "white" }}>View Cart</Text>
+          </Block>
+        </TouchableOpacity>
+      </Block>
+    );
 
-    return (
-      <View style={{flex: 1, width: width}}>
-      <ScrollView>
+    let pic;
+
+    if (rName == "Twisted Taco") {
+      pic = (
         <Image
           source={require("../assets/twistedtaco.jpg")}
           style={{ width: width, height: normalize(190) }}
         />
-        <Block style={styles.header}>
-          <Text style={styles.name}>{rName}</Text>
-          <Block row>
-            <Text style={styles.text}>{rCategory}</Text>
-            <Text style={styles.rating}>{rRating}</Text>
-            <Icon name="star" family="AntDesign" size={20} color="#5E72E4" />
-            <Text style={{ fontSize: 17, color: "#466199", paddingLeft: 5 }}>
-              ({rRateCount} ratings)
-            </Text>
+      );
+    } else if (rName == "Maru") {
+      pic = (
+        <Image
+          source={require("../assets/ricebowl.jpg")}
+          style={{ width: width, height: normalize(190) }}
+        />
+      );
+    }
+
+    return (
+      <View style={{ flex: 1, width: width }}>
+        <ScrollView>
+          {pic}
+          <Block style={styles.header}>
+            <Text style={styles.name}>{rName}</Text>
+            <Block row>
+              <Text style={styles.text}>{rCategory}</Text>
+              <Text style={styles.rating}>{rRating}</Text>
+              <Icon name="star" family="Entypo" size={20} color="#5E72E4" />
+              <Text style={{ fontSize: 17, color: "#466199", paddingLeft: 5 }}>
+                ({rRateCount} ratings)
+              </Text>
+            </Block>
+            <Text style={styles.text}>5-10 Min</Text>
           </Block>
-          <Text style={styles.text}>5-10 Min</Text>
-        </Block>
-        {/* <Text style={styles.category}>Featured Items</Text>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("Customize")}
-        > */}
-        {/* <MenuItem name="Taco Combo" pricecal="$7.49" />
-        </TouchableOpacity>
-        <MenuItem name="Chips and Salsa" pricecal="$2.19 - 450 cal" /> */}
-        <Block>{List}</Block>
-        <TouchableOpacity>
-          <Block row style={styles.instrc}>
-            <Text style={styles.text}>Special Instructions</Text>
-            <Icon style={{position: 'absolute', right: 20, marginTop: 25 }} name="right" family="AntDesign" size={20} color="#5E72E4" />
-          </Block>
-        </TouchableOpacity>
-        <Block middle>
-          <Block row middle space='around' style={styles.button}>
-            <TouchableOpacity>
-              <Icon name="minus" family="AntDesign" size={20} color="white" />
-            </TouchableOpacity>
-            <Text style={{fontSize: 20, color:"white"}}>1</Text>
-            <TouchableOpacity>
-              <Icon name="plus" family="AntDesign" size={20} color="white" />
-            </TouchableOpacity>
-          </Block>
-        </Block>
-      </ScrollView>
-        {this.state.showAddCart ? aCart:null}
-      </View>      
+          {List}
+          <Block style={{ height: 100 }} />
+        </ScrollView>
+        <Popup visible={this.state.foodVisible} style="small">
+          <TouchableWithoutFeedback
+            onPress={Keyboard.dismiss}
+            accessible={false}
+          >
+            <Block
+              style={{
+                height: 0.7 * height,
+                width: 0.8 * width,
+                backgroundColor: "white",
+                borderWidth: 1
+              }}
+            >
+              <Block row>
+                <TouchableOpacity onPress={this.foodPopup}>
+                  <Icon
+                    style={{
+                      marginLeft: width * 0.02,
+                      marginVertical: height * 0.02
+                    }}
+                    name="close"
+                    family="AntDesign"
+                    size={30}
+                    color="#5E72E4"
+                  />
+                </TouchableOpacity>
+                <View style={{ flex: 1 }} />
+              </Block>
+
+              <TextInput
+                blurOnSubmit={true}
+                multiline={true}
+                style={{
+                  alignSelf: "center",
+                  height: 0.3 * height,
+                  width: 0.7 * width,
+                  padding: width * 0.05,
+                  borderColor: "gray",
+                  borderWidth: 1
+                }}
+                placeholder="Special instructions"
+                onSubmitEditing={event =>
+                  this.setState({ instruction: event.nativeEvent.text })
+                }
+              />
+              <Block flex={1} middle>
+                <Block row middle space="around" style={styles.button}>
+                  <TouchableOpacity
+                    onPress={() => this.minus(this.state.count)}
+                  >
+                    <Icon
+                      name="minus"
+                      family="AntDesign"
+                      size={20}
+                      color="white"
+                    />
+                  </TouchableOpacity>
+                  <Text style={{ fontSize: 20, color: "white" }}>
+                    {this.state.count}
+                  </Text>
+                  <TouchableOpacity onPress={() => this.plus(this.state.count)}>
+                    <Icon
+                      name="plus"
+                      family="AntDesign"
+                      size={20}
+                      color="white"
+                    />
+                  </TouchableOpacity>
+                </Block>
+                {addCart}
+              </Block>
+            </Block>
+          </TouchableWithoutFeedback>
+        </Popup>
+        {this.state.cartVisible ? viewCart : null}
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   header: {
-    height: 140,
+    height: normalize(140),
     width: width,
     borderBottomWidth: 1,
     borderBottomColor: "#8e8383"
   },
+  item: {
+    flex: 1,
+    justifyContent: "center",
+    height: normalize(80),
+    paddingLeft: normalize(30),
+    borderBottomWidth: 1,
+    borderColor: "#d6d7da"
+  },
   name: {
     paddingLeft: 25,
-    paddingTop: 20,
-    paddingBottom: 15,
-    fontSize: 30,
+    paddingTop: normalize(20),
+    paddingBottom: normalize(15),
+    fontSize: normalize(30),
     color: "#1f396e"
   },
   text: {
@@ -176,7 +301,7 @@ const styles = StyleSheet.create({
   category: {
     paddingLeft: 25,
     paddingTop: 15,
-    paddingBottom: 8,
+    paddingBottom: normalize(8),
     fontSize: 20,
     color: "#1f396e"
   },
@@ -184,22 +309,14 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 60,
     paddingTop: 25,
-    paddingLeft: 10,
+    paddingLeft: 10
   },
-  button:{
+  button: {
     backgroundColor: "#5E72E4",
     borderRadius: 80,
-    height: 50,
-    width: width*0.5,
-    marginTop: 20,
-    marginBottom: 80
-  },
-  button1:{
-    backgroundColor: "#5E72E4",
-    borderRadius: 80,
-    height: 50,
-    width: width*0.5,
-    marginTop: 20,
-    marginBottom: 20
+    height: normalize(50),
+    width: width * 0.5,
+    marginTop: normalize(20),
+    marginBottom: normalize(20)
   }
 });

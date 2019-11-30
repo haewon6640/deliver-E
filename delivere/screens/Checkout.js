@@ -9,52 +9,156 @@ import {
   TouchableOpacity
 } from "react-native";
 import { Button, Block, Icon } from "galio-framework";
-const { width } = Dimensions.get("window");
+import normalize from "react-native-normalize";
+import MapView from "react-native-maps";
+import * as Location from "expo-location";
+import * as Permissions from "expo-permissions";
+import firebase from "../components/firebase";
+import "@firebase/firestore";
+const dbh = firebase.firestore();
+const { width, height } = Dimensions.get("window");
+let map;
 
 export default class Checkout extends React.Component {
+  state = {
+    location: null,
+    errorMessage: null
+  };
+
+  componentWillMount() {
+    this._getLocationAsync();
+  }
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== "granted") {
+      this.setState({
+        errorMessage: "Permission to access location was denied"
+      });
+    }
+    let loc = await Location.getCurrentPositionAsync({});
+    this.setState({ location: loc });
+  };
+
   render() {
+    const { navigation } = this.props;
+    var totalPrice = navigation.getParam("totalPrice");
+    var orderId = navigation.getParam("orderId");
+    if (this.state.location != null) {
+      map = (
+        <MapView
+          style={{
+            height: height * 0.25,
+            width: 0.8 * width,
+            marginBottom: 5,
+            alignSelf: "center"
+          }}
+          initialRegion={{
+            latitude: this.state.location.coords.latitude,
+            longitude: this.state.location.coords.longitude,
+            latitudeDelta: 0.002,
+            longitudeDelta: 0.002
+          }}
+        />
+      );
+    }
     return (
       <ScrollView>
         <Block style={styles.container}>
           <Text style={styles.name}>Checkout</Text>
           <Text style={styles.category}>Delivery Details</Text>
-          <Image source={require("../assets/map.png")} style={{
+          {/* <Image source={require("../assets/map.png")} style={{
             alignSelf: 'center',
             flex: 1,
             aspectRatio: 1.2, 
             resizeMode: 'contain'}}
-          />
+          /> */}
+          {map}
           <Block row>
-            <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Location</Text>
-            <Text style={{position: 'absolute', right:50, fontSize: 17}}>White Hall</Text>
-            <Icon style={{position: 'absolute', right:30}} name="right" family="AntDesign" size={20} color="#5E72E4" />
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Location
+            </Text>
+            <Text style={{ position: "absolute", right: 50, fontSize: 17 }}>
+              White Hall
+            </Text>
+            <Icon
+              style={{ position: "absolute", right: 30 }}
+              name="right"
+              family="AntDesign"
+              size={20}
+              color="#5E72E4"
+            />
           </Block>
           <Block row>
-            <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Delivery Instructions</Text>
-            <Icon style={{position: 'absolute', right:30}} name="right" family="AntDesign" size={20} color="#5E72E4" />
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Delivery Instructions
+            </Text>
+            <Icon
+              style={{ position: "absolute", right: 30 }}
+              name="right"
+              family="AntDesign"
+              size={20}
+              color="#5E72E4"
+            />
           </Block>
           <Block row>
-            <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>ETA</Text>
-            <Text style={{position: 'absolute', right:50, fontSize: 17}}>5-10 Min</Text>
-            <Icon style={{position: 'absolute', right:30}} name="right" family="AntDesign" size={20} color="#5E72E4" />
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              ETA
+            </Text>
+            <Text style={{ position: "absolute", right: 50, fontSize: 17 }}>
+              5-10 Min
+            </Text>
+            <Icon
+              style={{ position: "absolute", right: 30 }}
+              name="right"
+              family="AntDesign"
+              size={20}
+              color="#5E72E4"
+            />
           </Block>
-          <Text style={{
-            paddingLeft: 25,
-            marginTop: 20,
-            paddingBottom: 20,
-            fontSize: 20,
-            color: "#1f396e",
-          }}>Payment</Text>
-          <Block row>
-            <Text style={{marginLeft: 30, marginBottom:20,fontSize: 17}}>Tip</Text>
-            <Text style={{position: 'absolute', right:33, fontSize: 17}}>$1.00</Text>
-          </Block>
-          <Block row>
-            <Text style={{marginLeft: 30, marginBottom:20, fontSize: 17}}>Payment</Text>
-            <Text style={{position: 'absolute', right:33,  fontSize: 17}}>Visa ... 1234</Text>
-          </Block>
+          <Text
+            style={{
+              paddingLeft: 25,
+              marginTop: 20,
+              paddingBottom: 20,
+              fontSize: 20,
+              color: "#1f396e"
+            }}
+          >
+            Payment
+          </Text>
 
-          <Button onPress={()=>this.props.navigation.navigate('ProgTrack')}color="#5E72E4" shadowless style={{alignSelf: 'center', marginTop: 20}}>Place Order</Button>
+          <Block row>
+            <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              Total
+            </Text>
+            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+              {"$ " + totalPrice}
+            </Text>
+          </Block>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("AddSubscription")}
+          >
+            <Block row>
+              <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+                Payment
+              </Text>
+              <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+                Visa ... 1234
+              </Text>
+            </Block>
+          </TouchableOpacity>
+
+          <Button
+            onPress={() =>
+              this.props.navigation.navigate("ProgTrack", { orderId: orderId })
+            }
+            color="#5E72E4"
+            shadowless
+            style={{ alignSelf: "center", marginTop: 20 }}
+          >
+            Place Order
+          </Button>
         </Block>
       </ScrollView>
     );
@@ -64,12 +168,12 @@ export default class Checkout extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#fff"
   },
   name: {
-    alignSelf: 'center',
-    paddingBottom: 15,
-    fontSize: 30,
+    alignSelf: "center",
+    paddingBottom: normalize(15),
+    fontSize: normalize(30),
     color: "#1f396e"
   },
   text: {
@@ -78,8 +182,8 @@ const styles = StyleSheet.create({
     paddingLeft: 30
   },
   category: {
-    paddingLeft: 30,
-    paddingTop: 15,
+    paddingLeft: normalize(30),
+    paddingTop: normalize(15),
     fontSize: 20,
     color: "#1f396e"
   }

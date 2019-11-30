@@ -6,13 +6,15 @@ import {
   Text,
   Dimensions,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  Modal,
+  TextInput
 } from "react-native";
 import { Block, Icon } from "galio-framework";
 import Restaurant from "../components/Restaurant";
 const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
-
+import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const db = firebase.firestore();
@@ -20,41 +22,62 @@ const db = firebase.firestore();
 class Header extends React.Component {
   render() {
     return (
-      <Block style={styles.header}>
-        <StatusBar/>
-        <Text style={styles.text}>Delivering to</Text>
-        <TouchableOpacity>
-          <Block row middle width={width}>
-            <Text style={styles.location}>White Hall</Text>
-            <Icon
-              style={{ marginTop: 7 }}
-              name="down"
-              family="AntDesign"
-              size={30}
-              color="#5E72E4"
-            />
-          </Block>
-        </TouchableOpacity>
-      </Block>
+      <View>
+        <Block style={styles.header}>
+          <StatusBar />
+          <Text style={styles.text}>Delivering to</Text>
+          <TouchableOpacity onPress={this.props.locationPopup}>
+            <Block row middle width={width}>
+              <Text style={styles.location}>White Hall</Text>
+              <Icon
+                style={{ marginTop: 7 }}
+                name="down"
+                family="AntDesign"
+                size={30}
+                color="#5E72E4"
+              />
+            </Block>
+          </TouchableOpacity>
+        </Block>
+      </View>
     );
   }
 }
 
 export default class Home extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={showViewCart: false};
+    this.state = { showViewCart: false, locationVisible: false };
+    this.locationPopup = this.locationPopup.bind(this);
+    this.addAddress = this.addAddress.bind(this);
   }
 
-  static navigationOptions = {
-    headerTitle: () => <Header />,
-    headerStyle: {
-      elevation: 0,
-      shadowOpacity: 0,
-      borderBottomWidth: 0
-    }
+  locationPopup = () => {
+    this.setState({ locationVisible: !this.state.locationVisible });
   };
 
+  componentDidMount() {
+    this.props.navigation.setParams({
+      locationPopup: this.locationPopup
+    });
+  }
+
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;
+    return {
+      headerTitle: (
+        <Header
+          {...params}
+          locationPopup={navigation.getParam("locationPopup")}
+        />
+      ),
+      headerStyle: {
+        elevation: 0,
+        shadowOpacity: 0,
+        borderBottomWidth: 0
+      }
+    };
+  };
 
   // createMenu(name, category, rating, ratecount) {
   //   alert("adfsafd");
@@ -89,6 +112,25 @@ export default class Home extends React.Component {
   // funFcn() {
   //   alert("fund");
   // }
+
+  addAddress = address => {
+    firebase.auth().onAuthStateChanged(
+      function(user) {
+        if (user) {
+          db.collection("Eater")
+            .doc(user.email)
+            .update({
+              currentAddress: address
+            });
+        } else {
+          alert("You are not signed in.");
+          // No user is signed in.
+          return;
+        }
+      }.bind(this)
+    );
+  };
+
   queryRestaurantInfo = name => {
     const rRef = db.collection("Restaurant").doc(name);
     rRef.get().then(
@@ -138,12 +180,11 @@ export default class Home extends React.Component {
   };
 
   queryProfileInfo = () => {
-    const loggedIn = firebase.auth().onAuthStateChanged(
+    firebase.auth().onAuthStateChanged(
       function(user) {
         if (user) {
-          const name = "";
-          db.collection("User")
-            .doc(user.uid)
+          db.collection("Eater")
+            .doc(user.email)
             .get()
             .then(
               function(doc) {
@@ -171,50 +212,93 @@ export default class Home extends React.Component {
     );
   };
   render() {
-    // if (JSON.stringify(this.props.navigation.getParam('cartAdded')) == 'true'){
-    //   this.setState({showViewCart: true});
-    // }
-    // vCart = (
-    //   <Block style={{position: 'absolute', bottom: 0, left: '25%', right: '25%'}}>
-    //     <Block row middle style={styles.button}>
-    //       <Text style={{fontSize: 20, color:"white"}}>View Cart</Text>
-    //     </Block>
-    //   </Block>
-    // );
     return (
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'space-between'}}>
+        <ScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: "space-between"
+          }}
+        >
           <View style={styles.content}>
-          <Block row space="evenly" width={width}>
-            <TouchableOpacity
-              onPress={() => this.queryRestaurantInfo("Twisted Taco")}
-            >
-              <Restaurant name="Twisted Taco" />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.queryRestaurantInfo("Maru")}>
-              <Restaurant name="Maru" />
-            </TouchableOpacity>
-          </Block>
+            <Block row space="evenly" width={width}>
+              <TouchableOpacity
+                onPress={() => this.queryRestaurantInfo("Twisted Taco")}
+              >
+                <Restaurant name="Twisted Taco" />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.queryRestaurantInfo("Maru")}
+              >
+                <Restaurant name="Maru" />
+              </TouchableOpacity>
+            </Block>
 
-          <Block row space="evenly" width={width}>
-            <Restaurant name="Blue Donkey" />
-            <Restaurant name="Kaldi's: ESC" />
-          </Block>
-          <Block row space="evenly" width={width}>
-            <Restaurant name="Highland Bakery" />
-            <Restaurant name="Kaldi's: Depot" />
-          </Block>
+            <Block row space="evenly" width={width}>
+              <Restaurant name="Blue Donkey" />
+              <Restaurant name="Kaldi's: ESC" />
+            </Block>
+            <Block row space="evenly" width={width}>
+              <Restaurant name="Highland Bakery" />
+              <Restaurant name="Kaldi's: Depot" />
+            </Block>
           </View>
         </ScrollView>
         {/* {this.state.showViewCart ? vCart : null} */}
         <Block row space="around" style={styles.footer}>
-          <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
+          <TouchableOpacity onPress={() => this.console()}>
+            <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
+          </TouchableOpacity>
           <Icon name="search1" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="profile" family="AntDesign" size={35} color="#5E72E4" />
           <TouchableOpacity onPress={() => this.queryProfileInfo()}>
             <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
         </Block>
+        <Popup
+        visible = {this.state.locationVisible}
+        addAddress={this.addAddress}
+        style ="full">
+            <TouchableOpacity onPress={this.locationPopup}>
+              <Icon
+                style={{ position: "absolute", left: width*0.05, marginTop: height*0.06}}
+                name="close"
+                family="AntDesign"
+                size={30}
+                color="#466199"
+              />
+            </TouchableOpacity>
+          <Block center style={{paddingTop: height*0.06, marginBottom: height*0.02}}>
+            <Text style={{fontSize: 20, color:"#466199"}}>Edit Address</Text>
+          </Block>
+          <Block style={{backgroundColor: '#ECECEC', height: 10}} />
+          <Block row style={{alignItems: "center"}}>
+            <Icon
+              style={{marginHorizontal: width*0.05}}
+             name="search1" family="AntDesign" size={30} color="#466199" />
+            <TextInput style={{ flex: 1,
+              fontSize: normalize(16), color: "#466199",
+              height: 65}}
+              placeholder="Enter your address"
+              onSubmitEditing={event =>{
+                this.addAddress(event.nativeEvent.text);
+                }
+              }
+            />  
+          </Block>
+          <Block style={{backgroundColor: '#ECECEC', height: 10}} />
+          <Block row style={{marginTop: 20, alignItems: "center"}}>
+            <Icon
+              style={{marginHorizontal: width*0.05}}
+             name="map-pin" family="Feather" size={30} color="#5E72E4" />
+            <Block>
+              <Text style={{fontSize: normalize(16), color: "#5E72E4"}}>{"Current Location\n"+
+              "White Hall 208\n"+
+              "301 Dowman Dr, Atlanta, GA 30307"}
+              </Text>
+            </Block> 
+          </Block>
+        </Popup>
       </View>
     );
   }
@@ -228,7 +312,7 @@ const styles = StyleSheet.create({
   content: {
     backgroundColor: "#F8F9FE",
     flex: 1,
-    paddingTop: height*0.08
+    paddingTop: height * 0.08
   },
   location: {
     fontSize: normalize(25),
@@ -254,11 +338,11 @@ const styles = StyleSheet.create({
     fontSize: normalize(17),
     color: "#1f396e"
   },
-  button:{
+  button: {
     backgroundColor: "#5E72E4",
     borderRadius: 80,
     height: 50,
-    width: width*0.5,
+    width: width * 0.5,
     marginTop: 20,
     marginBottom: 95
   }

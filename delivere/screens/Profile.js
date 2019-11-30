@@ -5,9 +5,13 @@ import {
   StyleSheet,
   Text,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert,
+  Button,
+  Image
 } from "react-native";
 import { Block, Icon } from "galio-framework";
+import { ImagePicker, Permissions } from 'expo';
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
 
@@ -18,13 +22,13 @@ signOut = () => {
     .auth()
     .signOut()
     .then(
-      function() {
+      function () {
         // Sign-out successful.
-        this.props.navigation.navigate("Home");
+        this.props.navigation.navigate("Intro");
       }.bind(this)
     )
     .catch(
-      function(error) {
+      function (error) {
         // An error happened.
         alert(error.code);
         alert(error.message);
@@ -32,7 +36,30 @@ signOut = () => {
     );
 };
 
+
 export default class Profile extends React.Component {
+  state = {
+    image: null
+  };
+
+  selectPicture = async () => {
+    await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
+      aspect: 1,
+      allowsEditing: true,
+    });
+    if (!cancelled) this.setState({ image: uri }) //if image cancelled, won't set new image
+  };
+
+  takePicture = async () => {
+    await Permissions.askAsync(Permissions.CAMERA);
+    const { cancelled, uri } = await ImagePicker.launchCameraAsync({
+      alowsEditing: false,
+    });
+    if (!cancelled) this.setState({ image: uri });
+  };
+
+
   render() {
     const { navigation } = this.props;
     const user = navigation.getParam("user");
@@ -42,38 +69,56 @@ export default class Profile extends React.Component {
     if (user.name.length > 8) {
       user.name = user.name.substring(0, 6) + "...";
     }
+    let { image } = this.state;
+
+  
+
     return (
-      <Block style={styles.container}>
-        <Block style={styles.subCont}>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Name</Text>
-            <Text style={styles.right}>{user.name}</Text>
-          </Block>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Phone Number</Text>
-            <Text style={styles.right}>{user.phoneNumber}</Text>
-          </Block>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Email</Text>
-            <Text style={styles.right}>{user.email}</Text>
-          </Block>
-        </Block>
-        <Block style={styles.subCont}>
-          <Block row style={styles.entry}>
-            <Text style={styles.text}>Change password</Text>
-          </Block>
-        </Block>
-        <TouchableOpacity onPress={() => signOut()}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={{ uri: this.state.image }} />
+        <View style={styles.row}>
+          <Button 
+            title ="Gallery"
+            onPress={this.selectPicture}
+          />
+          <Button title="Camera" onPress={this.takePicture}></Button>
+        </View>
+
+        <Block style={styles.container}>
           <Block style={styles.subCont}>
             <Block row style={styles.entry}>
-              <Text style={styles.text}>Sign Out</Text>
+              <Text style={styles.text}>Name</Text>
+              <Text style={styles.right}>{user.name}</Text>
+            </Block>
+            <Block row style={styles.entry}>
+              <Text style={styles.text}>Phone Number</Text>
+              <Text style={styles.right}>{user.phoneNumber}</Text>
+            </Block>
+            <Block row style={styles.entry}>
+              <Text style={styles.text}>Email</Text>
+              <Text style={styles.right}>{user.email}</Text>
             </Block>
           </Block>
-        </TouchableOpacity>
-      </Block>
+          <Block style={styles.subCont}>
+            <Block row style={styles.entry}>
+              <Text style={styles.text}>Change password</Text>
+            </Block>
+          </Block>
+          <TouchableOpacity onPress={() => signOut()}>
+            <Block style={styles.subCont}>
+              <Block row style={styles.entry}>
+                <Text style={styles.text}>Sign Out</Text>
+              </Block>
+            </Block>
+          </TouchableOpacity>
+        </Block>
+      </View>
+
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -100,5 +145,13 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 17,
     color: "#1f396e"
+  },
+  button: { 
+    padding: 10, 
+    borderWidth: 1, 
+    borderColor: "#333", 
+    textAlign: "center", 
+    maxWidth: 150 
   }
+
 });

@@ -16,6 +16,7 @@ import Profile from "../screens/Profile";
 import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
+import AddSubscription from "../screens/AddSubscription";
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -61,38 +62,44 @@ const transitionConfig = (transitionProps, prevTransitionProps) => ({
   }
 });
 
-const ElementsStack = createStackNavigator({
-  Elements: {
-    screen: Elements,
-    // navigationOptions: ({ navigation }) => ({
-    //   header: <Header title="Elements" navigation={navigation} />
-    // })
-  }
-},{
-  cardStyle: {
-    backgroundColor: "#F8F9FE"
+const ElementsStack = createStackNavigator(
+  {
+    Elements: {
+      screen: Elements
+      // navigationOptions: ({ navigation }) => ({
+      //   header: <Header title="Elements" navigation={navigation} />
+      // })
+    }
   },
-  transitionConfig
-});
+  {
+    cardStyle: {
+      backgroundColor: "#F8F9FE"
+    },
+    transitionConfig
+  }
+);
 
-const ArticlesStack = createStackNavigator({
-  Articles: {
-    screen: Articles,
-    // navigationOptions: ({ navigation }) => ({
-    //   header: <Header title="Articles" navigation={navigation} />
-    // })
-  }
-},{
-  cardStyle: {
-    backgroundColor: "#F8F9FE"
+const ArticlesStack = createStackNavigator(
+  {
+    Articles: {
+      screen: Articles
+      // navigationOptions: ({ navigation }) => ({
+      //   header: <Header title="Articles" navigation={navigation} />
+      // })
+    }
   },
-  // transitionConfig
-});
+  {
+    cardStyle: {
+      backgroundColor: "#F8F9FE"
+    }
+    // transitionConfig
+  }
+);
 
 const ProfileStack = createStackNavigator(
   {
     Profile: {
-      screen: Profile,
+      screen: Profile
       // navigationOptions: ({ navigation }) => ({
       //   header: (
       //     <Header white transparent title="Profile" iconColor={'#FFF'} navigation={navigation} />
@@ -102,7 +109,7 @@ const ProfileStack = createStackNavigator(
     }
   },
   {
-    cardStyle: { backgroundColor: "#FFFFFF" },
+    cardStyle: { backgroundColor: "#FFFFFF" }
     // transitionConfig
   }
 );
@@ -110,13 +117,13 @@ const ProfileStack = createStackNavigator(
 const HomeStack = createStackNavigator(
   {
     Home: {
-      screen: Home,
+      screen: Home
       // navigationOptions: ({ navigation }) => ({
       //   header: <Header search options title="Home" navigation={navigation} />
       // })
     },
     Pro: {
-      screen: Pro,
+      screen: Pro
       // navigationOptions: ({ navigation }) => ({
       //   header: (
       //     <Header left={<Block />} white transparent title="" navigation={navigation} />
@@ -124,7 +131,7 @@ const HomeStack = createStackNavigator(
       //   headerTransparent: true
       // })
     }
-  },
+  }
   // {
   //   // cardStyle: {
   //   //   backgroundColor: "#F8F9FE"
@@ -141,16 +148,16 @@ const AppStack = createDrawerNavigator(
     //     drawerLabel: () => {}
     //   }
     // },
-            Elements: {
-      screen: ElementsStack,
+    Elements: {
+      screen: ElementsStack
       // navigationOptions: navOpt => ({
       //   drawerLabel: ({ focused }) => (
       //     <DrawerItem focused={focused} screen="Elements" title="Elements" />
       //   )
       // })
     },
-        Profile: {
-      screen: ProfileStack,
+    Profile: {
+      screen: ProfileStack
       // navigationOptions: navOpt => ({
       //   drawerLabel: ({ focused }) => (
       //     <DrawerItem focused={focused} screen="Profile" title="Profile" />
@@ -158,7 +165,7 @@ const AppStack = createDrawerNavigator(
       // })
     },
     Home: {
-      screen: HomeStack,
+      screen: HomeStack
       // navigationOptions: navOpt => ({
       //   drawerLabel: ({ focused }) => (
       //     <DrawerItem focused={focused} title="Home" />
@@ -166,7 +173,7 @@ const AppStack = createDrawerNavigator(
       // })
     },
     Account: {
-      screen: Register,
+      screen: Register
       // navigationOptions: navOpt => ({
       //   drawerLabel: ({ focused }) => (
       //     <DrawerItem focused={focused} screen="Register" title="Account" />
@@ -174,7 +181,7 @@ const AppStack = createDrawerNavigator(
       // })
     },
     Articles: {
-      screen: ArticlesStack,
+      screen: ArticlesStack
       // navigationOptions: navOpt => ({
       //   drawerLabel: ({ focused }) => (
       //     <DrawerItem focused={focused} screen="Articles" title="Articles" />
