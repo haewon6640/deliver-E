@@ -8,7 +8,7 @@ import {
   Text
 } from "react-native";
 import { Block, theme } from "galio-framework";
-import { Button} from "../components";
+import { Button } from "../components";
 import { Images, argonTheme } from "../constants";
 const { width, height } = Dimensions.get("screen");
 
@@ -19,15 +19,24 @@ class Intro extends React.Component {
   render() {
     return (
       <Block flex middle>
-        <StatusBar barStyle='light-content'/>
+        <StatusBar barStyle="light-content" />
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1 }}>
+          style={{ width, height, zIndex: 1 }}
+        >
           <Block flex middle>
             <Block style={styles.registerContainer}>
               <Block flex>
-                <Block flex={0.17} middle style={{padding: 20, marginTop: height*0.03, marginBottom: height*0.13}}>
-                  <Text style={{color:"#8898AA", fontSize: width * 0.075}}>
+                <Block
+                  flex={0.17}
+                  middle
+                  style={{
+                    padding: 20,
+                    marginTop: height * 0.03,
+                    marginBottom: height * 0.13
+                  }}
+                >
+                  <Text style={{ color: "#8898AA", fontSize: width * 0.075 }}>
                     Welcome to Deliver-E!
                   </Text>
                 </Block>
@@ -35,30 +44,50 @@ class Intro extends React.Component {
                   <KeyboardAvoidingView
                     style={{ flex: 1 }}
                     behavior="padding"
-                    enabled>
+                    enabled
+                  >
                     <Block middle>
-                      <Text style={{color:"#8898AA", fontSize: 18}}>
-                      Would you like to:
+                      <Text style={{ color: "#8898AA", fontSize: 18 }}>
+                        Would you like to:
                       </Text>
-                    </Block>                      
+                    </Block>
                     <Block middle>
-                      <Button color="primary"
-                      style={styles.createButton}
-                      onPress={() => this.props.navigation.navigate('Sign')}>
-                        <Text style={{fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
+                      <Button
+                        color="primary"
+                        style={styles.createButton}
+                        onPress={() => {
+                          this.props.navigation.navigate("Sign");
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontWeight: "bold",
+                            fontSize: 16,
+                            color: argonTheme.COLORS.WHITE
+                          }}
+                        >
                           Order Food
                         </Text>
                       </Button>
                     </Block>
                     <Block middle>
                       <Button
-                        color = "primary"
-                        title = "Runner"
-                        onPress={() => this.props.navigation.navigate('RunSign')}
-                        style ={styles.createButton}>
-                          <Text style={{fontWeight: 'bold', fontSize: 16, color: argonTheme.COLORS.WHITE}}>
-                              Deliver Food
-                          </Text>
+                        color="primary"
+                        title="Runner"
+                        onPress={() =>
+                          this.props.navigation.navigate("RunSign")
+                        }
+                        style={styles.createButton}
+                      >
+                        <Text
+                          style={{
+                            fontWeight: "bold",
+                            fontSize: 16,
+                            color: argonTheme.COLORS.WHITE
+                          }}
+                        >
+                          Deliver Food
+                        </Text>
                       </Button>
                     </Block>
                   </KeyboardAvoidingView>
