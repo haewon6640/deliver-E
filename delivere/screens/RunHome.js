@@ -37,6 +37,40 @@ export default class RunHome extends React.Component {
       this.props.navigation.navigate("AcceptOrders", { order: order });
     }
   };
+  queryProfileInfo = () => {
+    firebase.auth().onAuthStateChanged(
+      function(user) {
+        if (user) {
+          dbh
+            .collection("Runner")
+            .doc(user.email)
+            .get()
+            .then(
+              function(doc) {
+                if (doc.exists) {
+                  const curUser = {
+                    uid: doc.data().uid,
+                    email: doc.data().email,
+                    name: doc.data().name,
+                    phoneNumber: doc.data().phoneNumber
+                  };
+                  this.props.navigation.navigate("RunProfile", {
+                    user: curUser
+                  });
+                } else {
+                  alert("There was an issue fetching data from the server.");
+                }
+              }.bind(this)
+            );
+        } else {
+          alert("You are not signed in.");
+          // No user is signed in.
+          return;
+        }
+      }.bind(this)
+    );
+  };
+
   render() {
     return (
       <ImageBackground
@@ -66,15 +100,15 @@ export default class RunHome extends React.Component {
               size={35}
               color="#5E72E4"
             />
-            <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
+            <TouchableOpacity onPress={() => this.queryProfileInfo()}>
+              <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
+            </TouchableOpacity>
           </Block>
           <Block row space="around">
             <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
             <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
             <Text style={{ color: "#5E72E4", marginLeft: 5 }}>Earnings</Text>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("RunProfile")}
-            >
+            <TouchableOpacity onPress={() => this.queryProfileInfo()}>
               <Text style={{ color: "#5E72E4" }}>Account</Text>
             </TouchableOpacity>
           </Block>

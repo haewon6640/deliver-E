@@ -11,54 +11,53 @@ import {
   Image
 } from "react-native";
 import { Block, Icon } from "galio-framework";
-import { ImagePicker, Permissions } from 'expo';
+import { ImagePicker, Permissions } from "expo";
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
 
 import firebase from "../components/firebase";
-
-signOut = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(
-      function () {
-        // Sign-out successful.
-        this.props.navigation.navigate("Intro");
-      }.bind(this)
-    )
-    .catch(
-      function (error) {
-        // An error happened.
-        alert(error.code);
-        alert(error.message);
-      }.bind(this)
-    );
-};
-
 
 export default class Profile extends React.Component {
   state = {
     image: null
   };
 
+  signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(
+        function() {
+          // Sign-out successful.
+          this.props.navigation.navigate("Intro");
+        }.bind(this)
+      )
+      .catch(
+        function(error) {
+          // An error happened.
+          alert(error.code);
+          alert(error.message);
+        }.bind(this)
+      );
+  };
+
   selectPicture = async () => {
-    await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    const x = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    alert(x);
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
       aspect: 1,
-      allowsEditing: true,
+      allowsEditing: true
     });
-    if (!cancelled) this.setState({ image: uri }) //if image cancelled, won't set new image
+    if (!cancelled) this.setState({ image: uri }); //if image cancelled, won't set new image
   };
 
   takePicture = async () => {
     await Permissions.askAsync(Permissions.CAMERA);
     const { cancelled, uri } = await ImagePicker.launchCameraAsync({
-      alowsEditing: false,
+      alowsEditing: falseo
     });
     if (!cancelled) this.setState({ image: uri });
   };
-
 
   render() {
     const { navigation } = this.props;
@@ -71,16 +70,11 @@ export default class Profile extends React.Component {
     }
     let { image } = this.state;
 
-  
-
     return (
       <View style={styles.container}>
         <Image style={styles.image} source={{ uri: this.state.image }} />
         <View style={styles.row}>
-          <Button 
-            title ="Gallery"
-            onPress={this.selectPicture}
-          />
+          <Button title="Gallery" onPress={this.selectPicture} />
           <Button title="Camera" onPress={this.takePicture}></Button>
         </View>
 
@@ -113,12 +107,9 @@ export default class Profile extends React.Component {
           </TouchableOpacity>
         </Block>
       </View>
-
     );
   }
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -146,12 +137,11 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#1f396e"
   },
-  button: { 
-    padding: 10, 
-    borderWidth: 1, 
-    borderColor: "#333", 
-    textAlign: "center", 
-    maxWidth: 150 
+  button: {
+    padding: 10,
+    borderWidth: 1,
+    borderColor: "#333",
+    textAlign: "center",
+    maxWidth: 150
   }
-
 });

@@ -11,8 +11,6 @@ import { Block, Icon } from "galio-framework";
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
 
-import firebase from "../components/firebase";
-
 export default class RunProfile extends React.Component {
   // queryProfileInfo = () => {
   //     const loggedIn = firebase.auth().onAuthStateChanged(
@@ -49,7 +47,7 @@ export default class RunProfile extends React.Component {
   //   };
   render() {
     const { navigation } = this.props;
-    // const user = navigation.getParam("user");
+    const user = navigation.getParam("user");
     if (user.email.length > 8) {
       user.email = user.email.substring(0, 6) + "...";
     }
