@@ -39,57 +39,88 @@ signOut = () => {
 
 export default class Profile extends React.Component {
   state = {
-    image: null,
-    uploading: false,
+    image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
   };
 
   selectPicture = async () => {
-    await Permissions.getAsync(Permissions.CAMERA_ROLL);
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
       aspect: 1,
       allowsEditing: true,
     });
-    if (!cancelled) this.setState({ image: uri }) //if image cancelled, won't set new image
-
-    this._handleImagePicked(pickerResult);
+    if (!cancelled){
+      this.setState({ image: uri }) //if image cancelled, won't set new image
+      this.uploadImage(uri, "Profile-Image")
+      .then(() => {
+  
+      })
+      .catch((error) => {
+        alert(error.message)
+      });
+    };
   };
 
   takePicture = async () => {
-    await Permissions.getAsync(Permissions.CAMERA);
     const { cancelled, uri } = await ImagePicker.launchCameraAsync({
       alowsEditing: false,
     });
-    if (!cancelled) this.setState({ image: uri });
+    if (!cancelled){
+      this.setState({ image: uri });
+      this.uploadImage(uri, "Profile-Image")
+      .then(() => {
+  
+      })
+      .catch((error) => {
+        alert(error.message)
+      });
+    };
   };
+  
+
+  uploadImage = async (uri, imageName) =>{
+    const response = await fetch(uri);
+    const blob = await response.blob();
+
+    var ref = firebase.storage().ref().child("images/" + imageName);
+    const imageRef = firebase.storage().ref('images').child(imageName);
+    imageRef.put(blob).then(function() {
+      imageRef.getDownloadURL().then(function(downloadURL) {
+        
+      });
+    });
+    return ref.put(blob);
+  }
+
+
 
   async componentDidMount() {
     await Permissions.askAsync(Permissions.CAMERA_ROLL);
     await Permissions.askAsync(Permissions.CAMERA);
   };
 
-
   render() {
     const { navigation } = this.props;
     const user = navigation.getParam("user");
+
     if (user.email.length > 8) {
       user.email = user.email.substring(0, 6) + "...";
     }
     if (user.name.length > 8) {
       user.name = user.name.substring(0, 6) + "...";
     }
-    let { image } = this.state;  
-
+    const { image } = this.state;  
+    
     return (
+      <ScrollView>
       <View style={styles.container}>
-        <Image style={styles.image} source={{ uri: this.state.image }} />
         <View style={styles.row}>
-          <Button 
-            title ="Gallery"
-            onPress={this.selectPicture}
-          />
+          <Image source={{ uri: image }} 
+            style={{ 
+            width: 150, 
+            height: 150, 
+            }} />  
+          <Button title="Gallery" onPress={this.selectPicture}></Button>
           <Button title="Camera" onPress={this.takePicture}></Button>
         </View>
-
         <Block style={styles.container}>
           <Block style={styles.subCont}>
             <Block row style={styles.entry}>
@@ -119,6 +150,7 @@ export default class Profile extends React.Component {
           </TouchableOpacity>
         </Block>
       </View>
+      </ScrollView>
 
 
     );
