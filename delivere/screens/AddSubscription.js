@@ -2,7 +2,7 @@ import React from "react";
 import AddSubscriptionView from "../components/AddSubscriptionView";
 const STRIPE_ERROR = "Payment service error. Try again later.";
 const SERVER_ERROR = "Server error. Try again later.";
-const STRIPE_PUBLISHABLE_KEY = "Your Key";
+const STRIPE_PUBLISHABLE_KEY = "pk_test_9EtgxmI85cmO82XDCYolGppU00PJd3REII";
 /**
  * The method sends HTTP requests to the Stripe API.
  * It's necessary to manually send the payment data
