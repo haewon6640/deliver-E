@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="gettipsi_currency_array">
+    <item>Currency (optional)</item>
+    <item>Unspecified</item>
+    <item>EUR</item>
+  </string-array>
     <string name="CreditCardFormCardNumberHint">1234 5678 9012 3456</string>
     <string name="CreditCardNumberHelp"/>
     <string name="ExpDateFieldHint">MM/AA</string>
@@ -138,6 +143,15 @@
     <string name="expiry_label_short">Expire</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Divers"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Divers"</string>
+    <string name="gettipsi_card_cvc">CVV</string>
+    <string name="gettipsi_card_enter_dialog_negative_button">Annuler</string>
+    <string name="gettipsi_card_enter_dialog_positive_button">Valider</string>
+    <string name="gettipsi_card_enter_dialog_title">Ajouter une nouvelle carte</string>
+    <string name="gettipsi_card_number">Numéro de carte</string>
+    <string name="gettipsi_card_number_label">Carte</string>
+    <string name="gettipsi_google_pay_unavaliable">Google Pay n\'est pas disponible sur votre appareil.</string>
+    <string name="gettipsi_save">Enregistrer</string>
+    <string name="gettipsi_user_cancel_dialog">L\'utilisateur a annulé l\'opération, pas de carte ajoutée.</string>
     <string name="invalid_card_number">Le numéro de carte n’est pas valide.</string>
     <string name="invalid_cvc">Le code de sécurité de votre carte n’est pas valide.</string>
     <string name="invalid_expiry_month">Le mois d’expiration de votre carte n’est pas valide.</string>

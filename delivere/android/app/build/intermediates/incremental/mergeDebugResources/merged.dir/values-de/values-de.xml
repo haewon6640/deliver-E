@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="gettipsi_currency_array">
+    <item>Currency (optional)</item>
+    <item>Unspecified</item>
+    <item>EUR</item>
+  </string-array>
+    <string name="CreditCardFormCardNumberHint">1234 5678 9012 3456</string>
+    <string name="CreditCardNumberHelp"/>
+    <string name="ExpDateFieldHint">MM/YY</string>
+    <string name="ExpirationDateHelp">Haltbarkeitsdatum (MM/YY)</string>
+    <string name="SecurityCodeFieldHint">CVV</string>
+    <string name="SecurityCodeHelp">Sicherheitscode (CVV)</string>
+    <string name="ZipCodeFieldHint">   Postleitzahl   </string>
+    <string name="ZipHelp">Postleitzahl der Rechnungsadresse</string>
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Zur Startseite"</string>
     <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Nach oben"</string>
     <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Weitere Optionen"</string>
@@ -130,6 +143,15 @@
     <string name="expiry_label_short">Gültig bis</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Sonstiges"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Sonstiges"</string>
+    <string name="gettipsi_card_cvc">CVV</string>
+    <string name="gettipsi_card_enter_dialog_negative_button">Abbrechen</string>
+    <string name="gettipsi_card_enter_dialog_positive_button">Geschehen</string>
+    <string name="gettipsi_card_enter_dialog_title">Geben Sie Ihre Karte ein</string>
+    <string name="gettipsi_card_number">Kartennummer</string>
+    <string name="gettipsi_card_number_label">Karte</string>
+    <string name="gettipsi_google_pay_unavaliable">Google Pay ist auf Ihrem Gerät nicht verfügbar.</string>
+    <string name="gettipsi_save">Speichern</string>
+    <string name="gettipsi_user_cancel_dialog">Ein Benutzer hat den Dialog abgebrochen. Keine Karte hinzugefügt!</string>
     <string name="invalid_card_number">Die Kartennummer ist ungültig.</string>
     <string name="invalid_cvc">Der Sicherheitscode Ihrer Karte ist ungültig.</string>
     <string name="invalid_expiry_month">Die Monatsangabe Ihrer Karte ist ungültig.</string>

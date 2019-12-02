@@ -8,6 +8,7 @@ buildscript {
     classpath 'io.fabric.tools:gradle:1.26.1'
   }
 }
+
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'devicefarm'
@@ -111,6 +112,7 @@ apply from: 'expo.gradle'
 apply from: "../../node_modules/react-native-unimodules/gradle.groovy"
 
 dependencies {
+  compile project(':tipsi-stripe')
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
   implementation 'com.android.support:multidex:1.0.1'

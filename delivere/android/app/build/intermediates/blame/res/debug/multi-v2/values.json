@@ -21,6 +21,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,47,54,55,56,57,58,59,60,61,62",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,1250,1624,1674,1752,1828,1905,1966,2026,2128,2175",
+                        "endLines": "6,47,54,55,56,57,58,59,60,61,62",
+                        "endColumns": "17,58,49,77,75,76,60,59,101,46,102",
+                        "endOffsets": "205,1304,1669,1747,1823,1900,1961,2021,2123,2170,2273"
+                    },
+                    "to": {
+                        "startLines": "7,232,792,793,794,795,796,797,798,799,800",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "302,13330,52818,52868,52946,53022,53099,53160,53220,53322,53369",
+                        "endLines": "11,232,792,793,794,795,796,797,798,799,800",
+                        "endColumns": "17,58,49,77,75,76,60,59,101,46,102",
+                        "endOffsets": "452,13384,52863,52941,53017,53094,53155,53215,53317,53364,53467"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.2.0.aar\\1f5a114d661d3c1d81a8ddf4bfae2e80\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,7",
@@ -127,7 +146,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\CreditCardEntry-1.5.0.aar\\28038d1f3136453b566dd27027826aa6\\res\\values\\values.xml",
+                    "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\CreditCardEntry-1.5.1.aar\\cb6b2aa0b29e3822445f167791bcd19b\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,4",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -420,25 +439,6 @@
                         "startOffsets": "42515,51218,51350,51461,51590,51694,51757,51844,56910,57118,57282,58482",
                         "endColumns": "46,70,58,128,103,62,86,61,136,89,83,57",
                         "endOffsets": "42557,51284,51404,51585,51689,51752,51839,51901,57042,57203,57361,58535"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\node_modules\\expo-payments-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,47,54,55,56,57,58,59,60,61,62",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,1250,1624,1674,1752,1828,1905,1966,2026,2128,2175",
-                        "endLines": "6,47,54,55,56,57,58,59,60,61,62",
-                        "endColumns": "17,58,49,77,75,76,60,59,101,46,102",
-                        "endOffsets": "205,1304,1669,1747,1823,1900,1961,2021,2123,2170,2273"
-                    },
-                    "to": {
-                        "startLines": "7,232,792,793,794,795,796,797,798,799,800",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "302,13330,52818,52868,52946,53022,53099,53160,53220,53322,53369",
-                        "endLines": "11,232,792,793,794,795,796,797,798,799,800",
-                        "endColumns": "17,58,49,77,75,76,60,59,101,46,102",
-                        "endOffsets": "452,13384,52863,52941,53017,53094,53155,53215,53317,53364,53467"
                     }
                 },
                 {

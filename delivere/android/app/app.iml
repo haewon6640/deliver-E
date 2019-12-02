@@ -312,7 +312,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:collections:28.0.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.maven.wagon:wagon-http-shared:1.0-beta-6@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.ow2.asm:asm-commons:5.0.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.tipsi:CreditCardEntry-1.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tipsi:CreditCardEntry-1.5.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:asynclayoutinflater-28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.leakcanary:leakcanary-android-no-op-1.4-beta1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.maven:maven-repository-metadata:2.2.1@jar" level="project" />
@@ -324,29 +324,30 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.plexus:plexus-interpolation:1.11@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-base-1.10.0" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.android:audience-network-sdk-5.1.1" level="project" />
-    <orderEntry type="module" module-name="unimodules-font-interface" />
-    <orderEntry type="module" module-name="expo-image-picker" />
     <orderEntry type="module" module-name="expo-file-system" />
     <orderEntry type="module" module-name="expo-location" />
-    <orderEntry type="module" module-name="expo-permissions" />
     <orderEntry type="module" module-name="expo-keep-awake" />
     <orderEntry type="module" module-name="unimodules-core" />
-    <orderEntry type="module" module-name="unimodules-barcode-scanner-interface" />
     <orderEntry type="module" module-name="expo-web-browser" />
     <orderEntry type="module" module-name="unimodules-face-detector-interface" />
-    <orderEntry type="module" module-name="expo-font" />
-    <orderEntry type="module" module-name="expo-constants" />
-    <orderEntry type="module" module-name="unimodules-file-system-interface" />
     <orderEntry type="module" module-name="expo-app-loader-provider" />
     <orderEntry type="module" module-name="expo-linear-gradient" />
     <orderEntry type="module" module-name="unimodules-camera-interface" />
     <orderEntry type="module" module-name="unimodules-image-loader-interface" />
     <orderEntry type="module" module-name="unimodules-constants-interface" />
     <orderEntry type="module" module-name="expo-sqlite" />
-    <orderEntry type="module" module-name="unimodules-react-native-adapter" />
     <orderEntry type="module" module-name="unimodules-sensors-interface" />
     <orderEntry type="module" module-name="unimodules-permissions-interface" />
     <orderEntry type="module" module-name="expo-payments-stripe" />
     <orderEntry type="module" module-name="unimodules-task-manager-interface" />
+    <orderEntry type="module" module-name="unimodules-font-interface" />
+    <orderEntry type="module" module-name="expo-image-picker" />
+    <orderEntry type="module" module-name="expo-permissions" />
+    <orderEntry type="module" module-name="tipsi-stripe" />
+    <orderEntry type="module" module-name="unimodules-barcode-scanner-interface" />
+    <orderEntry type="module" module-name="expo-font" />
+    <orderEntry type="module" module-name="expo-constants" />
+    <orderEntry type="module" module-name="unimodules-file-system-interface" />
+    <orderEntry type="module" module-name="unimodules-react-native-adapter" />
   </component>
 </module>

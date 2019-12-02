@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="gettipsi_currency_array">
+    <item>Currency (optional)</item>
+    <item>Unspecified</item>
+    <item>EUR</item>
+  </string-array>
+    <string name="CreditCardFormCardNumberHint">1234 5678 9012 3456</string>
+    <string name="CreditCardNumberHelp"/>
+    <string name="ExpDateFieldHint">MM/AA</string>
+    <string name="ExpirationDateHelp">Data di scadenza (MM/AA)</string>
+    <string name="SecurityCodeFieldHint">CVV</string>
+    <string name="SecurityCodeHelp">Codice di sicurezza (CVV)</string>
+    <string name="ZipCodeFieldHint">   CAP   </string>
+    <string name="ZipHelp">CAP indirizzo di fatturazione</string>
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Vai alla home page"</string>
     <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Vai in alto"</string>
     <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Altre opzioni"</string>
@@ -130,6 +143,15 @@
     <string name="expiry_label_short">Scad.</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Varie"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Varie"</string>
+    <string name="gettipsi_card_cvc">CVC</string>
+    <string name="gettipsi_card_enter_dialog_negative_button">Annulla</string>
+    <string name="gettipsi_card_enter_dialog_positive_button">Completato</string>
+    <string name="gettipsi_card_enter_dialog_title">Inserisci i dati della tua carta</string>
+    <string name="gettipsi_card_number">Numero carta</string>
+    <string name="gettipsi_card_number_label">Carta</string>
+    <string name="gettipsi_google_pay_unavaliable">Google Pay non è disponibile sul tuo dispositivo.</string>
+    <string name="gettipsi_save">Salva</string>
+    <string name="gettipsi_user_cancel_dialog">Un utente ha annullato l\'operazione. Nessun addebito è stato effettuato!</string>
     <string name="invalid_card_number">Il numero della carta non è valido.</string>
     <string name="invalid_cvc">Il codice di sicurezza della carta non è valido.</string>
     <string name="invalid_expiry_month">Il mese di scadenza della carta non è valido.</string>

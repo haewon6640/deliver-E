@@ -23,6 +23,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\CreditCardEntry-1.5.1.aar\\cb6b2aa0b29e3822445f167791bcd19b\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "191"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "354",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "490"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\3d3b32ac9cbdf5c2f349b26649fac4a6\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,10,18,26",
@@ -39,25 +58,6 @@
                         "endLines": "289,297,305,313",
                         "endColumns": "10,10,10,10",
                         "endOffsets": "20989,21415,21838,22273"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\CreditCardEntry-1.5.0.aar\\28038d1f3136453b566dd27027826aa6\\res\\values-v21\\values-v21.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "191"
-                    },
-                    "to": {
-                        "startLines": "6",
-                        "startColumns": "4",
-                        "startOffsets": "354",
-                        "endLines": "8",
-                        "endColumns": "12",
-                        "endOffsets": "490"
                     }
                 },
                 {

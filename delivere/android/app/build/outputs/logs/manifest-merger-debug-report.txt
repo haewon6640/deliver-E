@@ -6,6 +6,7 @@ INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\
 INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
 MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:2:1-100:12
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\3d2ab337270cdfa14244091c14ef9ea7\AndroidManifest.xml:2:1-11:12
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-33:12
 MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:2:1-13:12
 MERGED from [:unimodules-react-native-adapter] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-app-loader-provider] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
@@ -98,7 +99,7 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.5.0] C:\Us
 MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-17.0.1.aar\f1d6c679df6ce262816f71930963b84c\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.2.0.aar\1f5a114d661d3c1d81a8ddf4bfae2e80\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\bd9ceee8b23dce5d8d7d02518ba6ede7\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.tipsi:CreditCardEntry:1.5.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\CreditCardEntry-1.5.0.aar\28038d1f3136453b566dd27027826aa6\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.tipsi:CreditCardEntry:1.5.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\CreditCardEntry-1.5.1.aar\cb6b2aa0b29e3822445f167791bcd19b\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\d1f57a19487c481165a1ae28fc028b4b\AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.android:facebook-places:5.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\facebook-places-5.0.1.aar\32c543ffa60e6d48d607438c060d5c8b\AndroidManifest.xml:21:1-31:12
 MERGED from [com.facebook.android:facebook-applinks:5.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\facebook-applinks-5.0.1.aar\7a31ec7c678c429400ad17c1bf008aca\AndroidManifest.xml:21:1-31:12
@@ -414,6 +415,8 @@ application
 ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:48:3-367:17
 MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:71:5-98:19
 MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:71:5-98:19
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-31:19
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-31:19
 MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:11:5-20
 MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
@@ -968,6 +971,8 @@ MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\tr
 MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\3d2ab337270cdfa14244091c14ef9ea7\AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\3d2ab337270cdfa14244091c14ef9ea7\AndroidManifest.xml:7:5-9:41
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-react-native-adapter] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
@@ -1152,8 +1157,8 @@ MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\Jerr
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.2.0.aar\1f5a114d661d3c1d81a8ddf4bfae2e80\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\bd9ceee8b23dce5d8d7d02518ba6ede7\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\bd9ceee8b23dce5d8d7d02518ba6ede7\AndroidManifest.xml:20:5-44
-MERGED from [com.github.tipsi:CreditCardEntry:1.5.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\CreditCardEntry-1.5.0.aar\28038d1f3136453b566dd27027826aa6\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.tipsi:CreditCardEntry:1.5.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\CreditCardEntry-1.5.0.aar\28038d1f3136453b566dd27027826aa6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.tipsi:CreditCardEntry:1.5.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\CreditCardEntry-1.5.1.aar\cb6b2aa0b29e3822445f167791bcd19b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.tipsi:CreditCardEntry:1.5.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\CreditCardEntry-1.5.1.aar\cb6b2aa0b29e3822445f167791bcd19b\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\d1f57a19487c481165a1ae28fc028b4b\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\d1f57a19487c481165a1ae28fc028b4b\AndroidManifest.xml:20:5-44
 MERGED from [com.facebook.android:facebook-places:5.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\facebook-places-5.0.1.aar\32c543ffa60e6d48d607438c060d5c8b\AndroidManifest.xml:24:5-26:41
@@ -1360,6 +1365,28 @@ ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\tra
 		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:92:13-37
 	android:name
 		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:90:13-109
+activity#com.gettipsi.stripe.OpenBrowserActivity
+ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-16:75
+	android:launchMode
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-44
+	android:exported
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+	android:theme
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-72
+	android:name
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-67
+activity#com.gettipsi.stripe.RedirectUriReceiver
+ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-30:20
+	android:launchMode
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-44
+	android:exported
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-36
+	android:theme
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-83
+	android:name
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-67
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:example
+ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-29:29
 uses-permission#android.permission.STORAGE
 ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-66
 	android:name

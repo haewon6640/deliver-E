@@ -1,6 +1,7 @@
 package host.exp.exponent;
 
 import com.facebook.react.ReactPackage;
+import com.gettipsi.stripe.StripeReactPackage;
 
 import org.unimodules.core.interfaces.Package;
 
@@ -25,8 +26,7 @@ public class MainApplication extends ExpoApplication implements AppLoaderPackage
   public List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
         // Add your own packages here!
-        // TODO: add native modules!
-
+        new StripeReactPackage()
         // Needed for `react-native link`
         // new MainReactPackage()
     );

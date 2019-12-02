@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\CreditCardEntry-1.5.0.aar\\28038d1f3136453b566dd27027826aa6\\res\\values-v11\\values-v11.xml",
+                    "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\CreditCardEntry-1.5.1.aar\\cb6b2aa0b29e3822445f167791bcd19b\\res\\values-v11\\values-v11.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

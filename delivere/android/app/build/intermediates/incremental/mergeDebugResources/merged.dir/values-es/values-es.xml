@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="gettipsi_currency_array">
+    <item>Currency (optional)</item>
+    <item>Unspecified</item>
+    <item>USD</item>
+  </string-array>
+    <string name="CreditCardFormCardNumberHint">1234 5678 9012 3456</string>
+    <string name="CreditCardNumberHelp"/>
+    <string name="ExpDateFieldHint">MM/AA</string>
+    <string name="ExpirationDateHelp">Fecha de caducidad (MM/AA)</string>
+    <string name="SecurityCodeFieldHint">CVV</string>
+    <string name="SecurityCodeHelp">Código de Seguridad (CVV)</string>
+    <string name="ZipCodeFieldHint">   Código postal   </string>
+    <string name="ZipHelp">Código postal de la dirección de facturación</string>
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Ir a la pantalla de inicio"</string>
     <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Desplazarse hacia arriba"</string>
     <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Más opciones"</string>
@@ -122,6 +135,15 @@
     <string name="expiry_label_short">Venc.</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Varias"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Varias"</string>
+    <string name="gettipsi_card_cvc">CVV</string>
+    <string name="gettipsi_card_enter_dialog_negative_button">Cancelar</string>
+    <string name="gettipsi_card_enter_dialog_positive_button">Hecho</string>
+    <string name="gettipsi_card_enter_dialog_title">Introduce tu tarjeta</string>
+    <string name="gettipsi_card_number">Numero de Tarjeta</string>
+    <string name="gettipsi_card_number_label">Tarjeta</string>
+    <string name="gettipsi_google_pay_unavaliable">Google Pay no está disponible en tu dispositivo.</string>
+    <string name="gettipsi_save">Guardar</string>
+    <string name="gettipsi_user_cancel_dialog">El usuario ha cancelado el diálogo. Tarjeta no añadida / agregada!</string>
     <string name="invalid_card_number">El número de tarjeta no es válido.</string>
     <string name="invalid_cvc">El código de seguridad de la tarjeta no es válido.</string>
     <string name="invalid_expiry_month">El mes de vencimiento de la tarjeta no es válido.</string>
