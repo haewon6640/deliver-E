@@ -45,9 +45,6 @@ export default class RunProfile extends React.Component {
   //       }.bind(this)
   //     );
   //   };
-  changePassword = () => {
-    this.props.navigation.navigate("RunPayInfo");
-  };
   render() {
     const { navigation } = this.props;
     const user = navigation.getParam("user");
@@ -73,13 +70,11 @@ export default class RunProfile extends React.Component {
             <Text style={styles.right}>{user.email}</Text>
           </Block>
         </Block>
-        <TouchableOpacity onPress={() => this.changePassword()}>
-          <Block style={styles.subCont}>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Change password</Text>
-            </Block>
+        <Block style={styles.subCont}>
+          <Block row style={styles.entry}>
+            <Text style={styles.text}>Change password</Text>
           </Block>
-        </TouchableOpacity>
+        </Block>
         <TouchableOpacity onPress={() => signOut()}>
           <Block style={styles.subCont}>
             <Block row style={styles.entry}>

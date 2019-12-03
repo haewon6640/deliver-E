@@ -22,7 +22,6 @@ import OrderList from "./screens/OrderList";
 import PickingUp from "./screens/PickingUp";
 import AfterArrival from "./screens/AfterArrival";
 import Delivering from "./screens/Delivering";
-import RunPayInfo from "./screens/RunPayInfo";
 import { GalioProvider } from "galio-framework";
 import { argonTheme } from "./constants";
 import { createAppContainer } from "react-navigation";
@@ -49,7 +48,7 @@ const AppNavigator = createStackNavigator(
     PickingUp: PickingUp,
     AfterArrival: AfterArrival,
     Delivering: Delivering,
-    RunPayInfo: RunPayInfo
+    AddSubscription: AddSubscription
   },
   {
     initialRouteName: "Intro",
