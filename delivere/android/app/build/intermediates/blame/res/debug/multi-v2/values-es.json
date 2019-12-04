@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
+            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-ads-15.0.1.aar\\6ad753acd4a049fa16af69ddc5cfe746\\res\\values-es\\values.xml",
@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values-es\\values-es.xml",
+                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,12,13,14,15",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

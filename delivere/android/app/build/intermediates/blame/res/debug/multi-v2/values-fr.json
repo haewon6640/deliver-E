@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr\\values-fr.xml",
+            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr\\values-fr.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\12eb1d34519a2a240891fc78a04f28fe\\res\\values-fr\\values-fr.xml",
@@ -140,7 +140,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values-fr\\values-fr.xml",
+                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values-fr\\values-fr.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,12,13,14,15",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

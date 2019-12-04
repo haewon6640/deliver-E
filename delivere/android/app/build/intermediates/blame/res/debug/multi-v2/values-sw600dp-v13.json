@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\3d3b32ac9cbdf5c2f349b26649fac4a6\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",

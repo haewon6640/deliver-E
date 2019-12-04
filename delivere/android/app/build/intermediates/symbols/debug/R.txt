@@ -3790,10 +3790,11 @@ int styleable com_facebook_login_view_com_facebook_tooltip_mode 3
 int[] styleable com_facebook_profile_picture_view { 0x7f0400af, 0x7f0400b4 }
 int styleable com_facebook_profile_picture_view_com_facebook_is_cropped 0
 int styleable com_facebook_profile_picture_view_com_facebook_preset_size 1
-int xml file_system_provider_paths 0x7f130000
-int xml global_tracker 0x7f130001
-int xml image_picker_provider_paths 0x7f130002
-int xml provider_paths 0x7f130003
-int xml rn_dev_preferences 0x7f130004
-int xml stub_classic 0x7f130005
-int xml stub_material 0x7f130006
+int xml file_provider_paths 0x7f130000
+int xml file_system_provider_paths 0x7f130001
+int xml global_tracker 0x7f130002
+int xml image_picker_provider_paths 0x7f130003
+int xml provider_paths 0x7f130004
+int xml rn_dev_preferences 0x7f130005
+int xml stub_classic 0x7f130006
+int xml stub_material 0x7f130007

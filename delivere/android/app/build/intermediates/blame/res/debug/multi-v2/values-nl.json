@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
+            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\stripe-android-8.1.0.aar\\43915a69497f9b10846f5194704a479b\\res\\values-nl\\values-nl.xml",
@@ -106,25 +106,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values-nl\\values-nl.xml",
-                    "from": {
-                        "startLines": "2,7,8,9,10,11,12,13,14,15",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,210,260,341,418,499,560,621,728,778",
-                        "endLines": "6,7,8,9,10,11,12,13,14,15",
-                        "endColumns": "17,49,80,76,80,60,60,106,49,118",
-                        "endOffsets": "205,255,336,413,494,555,616,723,773,892"
-                    },
-                    "to": {
-                        "startLines": "2,145,146,147,148,149,150,151,152,153",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,13260,13310,13391,13468,13549,13610,13671,13778,13828",
-                        "endLines": "6,145,146,147,148,149,150,151,152,153",
-                        "endColumns": "17,49,80,76,80,60,60,106,49,118",
-                        "endOffsets": "255,13305,13386,13463,13544,13605,13666,13773,13823,13942"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\CreditCardEntry-1.5.1.aar\\cb6b2aa0b29e3822445f167791bcd19b\\res\\values-nl\\values-nl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
@@ -173,6 +154,25 @@
                         "startOffsets": "12302,12426,12473,12533,12592,12676,12756,12837,14585",
                         "endColumns": "123,46,59,58,83,79,80,64,75",
                         "endOffsets": "12421,12468,12528,12587,12671,12751,12832,12897,14656"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values-nl\\values-nl.xml",
+                    "from": {
+                        "startLines": "2,7,8,9,10,11,12,13,14,15",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,210,260,341,418,499,560,621,728,778",
+                        "endLines": "6,7,8,9,10,11,12,13,14,15",
+                        "endColumns": "17,49,80,76,80,60,60,106,49,118",
+                        "endOffsets": "205,255,336,413,494,555,616,723,773,892"
+                    },
+                    "to": {
+                        "startLines": "2,145,146,147,148,149,150,151,152,153",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,13260,13310,13391,13468,13549,13610,13671,13778,13828",
+                        "endLines": "6,145,146,147,148,149,150,151,152,153",
+                        "endColumns": "17,49,80,76,80,60,60,106,49,118",
+                        "endOffsets": "255,13305,13386,13463,13544,13605,13666,13773,13823,13942"
                     }
                 },
                 {

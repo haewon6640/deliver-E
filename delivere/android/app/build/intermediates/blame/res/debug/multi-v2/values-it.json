@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
+            "outputFile": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\12eb1d34519a2a240891fc78a04f28fe\\res\\values-it\\values-it.xml",
@@ -106,6 +106,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\deliver-E\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values-it\\values-it.xml",
+                    "from": {
+                        "startLines": "2,7,8,9,10,11,12,13,14,15",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,210,260,339,421,515,577,638,748,796",
+                        "endLines": "6,7,8,9,10,11,12,13,14,15",
+                        "endColumns": "17,49,78,81,93,61,60,109,47,129",
+                        "endOffsets": "205,255,334,416,510,572,633,743,791,921"
+                    },
+                    "to": {
+                        "startLines": "2,145,146,147,148,149,150,151,152,153",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,13482,13532,13611,13693,13787,13849,13910,14020,14068",
+                        "endLines": "6,145,146,147,148,149,150,151,152,153",
+                        "endColumns": "17,49,78,81,93,61,60,109,47,129",
+                        "endOffsets": "255,13527,13606,13688,13782,13844,13905,14015,14063,14193"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Jerry\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\b949d49b76217d854220507c6db52c3c\\res\\values-it\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -137,25 +156,6 @@
                         "startOffsets": "16118",
                         "endColumns": "107",
                         "endOffsets": "16221"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Jerry\\Documents\\GitHub\\delivere\\delivere\\node_modules\\tipsi-stripe\\android\\build\\intermediates\\packaged_res\\debug\\values-it\\values-it.xml",
-                    "from": {
-                        "startLines": "2,7,8,9,10,11,12,13,14,15",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,210,260,339,421,515,577,638,748,796",
-                        "endLines": "6,7,8,9,10,11,12,13,14,15",
-                        "endColumns": "17,49,78,81,93,61,60,109,47,129",
-                        "endOffsets": "205,255,334,416,510,572,633,743,791,921"
-                    },
-                    "to": {
-                        "startLines": "2,145,146,147,148,149,150,151,152,153",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,13482,13532,13611,13693,13787,13849,13910,14020,14068",
-                        "endLines": "6,145,146,147,148,149,150,151,152,153",
-                        "endColumns": "17,49,78,81,93,61,60,109,47,129",
-                        "endOffsets": "255,13527,13606,13688,13782,13844,13905,14015,14063,14193"
                     }
                 },
                 {

@@ -3328,7 +3328,7 @@ public final class R {
     public static final class xml {
         private xml() {}
 
-        public static final int provider_paths = 0x7f130003;
-        public static final int rn_dev_preferences = 0x7f130004;
+        public static final int provider_paths = 0x7f130004;
+        public static final int rn_dev_preferences = 0x7f130005;
     }
 }

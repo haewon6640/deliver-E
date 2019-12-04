@@ -3146,7 +3146,7 @@ public final class R {
     public static final class xml {
         private xml() {}
 
-        public static final int stub_classic = 0x7f130005;
-        public static final int stub_material = 0x7f130006;
+        public static final int stub_classic = 0x7f130006;
+        public static final int stub_material = 0x7f130007;
     }
 }

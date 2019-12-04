@@ -18,7 +18,7 @@ import ProgTrack from "./screens/ProgTrack";
 import RunHome from "./screens/RunHome";
 import RunProfile from "./screens/RunProfile";
 import AcceptOrders from "./screens/AcceptOrders";
-import OrderList from "./screens/OrderList";
+import RunPayInfo from "./screens/RunPayInfo";
 import PickingUp from "./screens/PickingUp";
 import AfterArrival from "./screens/AfterArrival";
 import Delivering from "./screens/Delivering";
@@ -48,7 +48,7 @@ const AppNavigator = createStackNavigator(
     PickingUp: PickingUp,
     AfterArrival: AfterArrival,
     Delivering: Delivering,
-    AddSubscription: AddSubscription
+    RunPayInfo: RunPayInfo
   },
   {
     initialRouteName: "Intro",

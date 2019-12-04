@@ -1,6 +1,7 @@
 package host.exp.exponent;
 
 import com.facebook.react.ReactPackage;
+import com.facebook.react.shell.MainReactPackage;
 import com.gettipsi.stripe.StripeReactPackage;
 
 import org.unimodules.core.interfaces.Package;
@@ -11,10 +12,10 @@ import java.util.List;
 import expo.loaders.provider.interfaces.AppLoaderPackagesProviderInterface;
 import host.exp.exponent.generated.BasePackageList;
 import okhttp3.OkHttpClient;
+import versioned.host.exp.exponent.modules.api.components.webview.RNCWebViewPackage;
 
 // Needed for `react-native link`
 // import com.facebook.react.ReactApplication;
-
 public class MainApplication extends ExpoApplication implements AppLoaderPackagesProviderInterface<ReactPackage> {
 
   @Override
@@ -27,8 +28,7 @@ public class MainApplication extends ExpoApplication implements AppLoaderPackage
     return Arrays.<ReactPackage>asList(
         // Add your own packages here!
         new StripeReactPackage()
-        // Needed for `react-native link`
-        // new MainReactPackage()
+        // Needed for `react-native link
     );
   }
 

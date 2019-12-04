@@ -1,37 +1,38 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:2:1-100:12
-MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\3d2ab337270cdfa14244091c14ef9ea7\AndroidManifest.xml:2:1-11:12
-MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-33:12
-MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:2:1-13:12
-MERGED from [:unimodules-react-native-adapter] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-app-loader-provider] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-constants] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-30:12
-MERGED from [:expo-font] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-25:12
-MERGED from [:expo-keep-awake] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-linear-gradient] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
-MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
-MERGED from [:expo-permissions] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-sqlite] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-web-browser] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-barcode-scanner-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-camera-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-constants-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-face-detector-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-file-system-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-font-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-permissions-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-task-manager-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-core] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-image-loader-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-sensors-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:2:1-100:12
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\c72f92aa4d95d5dfd04c0a73e5a7dcf5\AndroidManifest.xml:2:1-11:12
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-33:12
+MERGED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
+MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\ab21b7742f8c1701a5e2d2467e31d2f3\AndroidManifest.xml:2:1-13:12
+MERGED from [:unimodules-react-native-adapter] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-app-loader-provider] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-constants] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-30:12
+MERGED from [:expo-font] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-25:12
+MERGED from [:expo-keep-awake] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-linear-gradient] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
+MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:expo-permissions] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-sqlite] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-web-browser] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-camera-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-constants-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-face-detector-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-file-system-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-font-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-permissions-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-task-manager-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-core] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-image-loader-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-sensors-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\leakcanary-android-no-op-1.4-beta1.aar\1f4e8883734f35f3b631b81871d217bb\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:multidex:1.0.3] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\4ff6daf053d567bc2a0aff07c2d45ba8\AndroidManifest.xml:17:1-22:12
 MERGED from [com.theartofdev.edmodo:android-image-cropper:2.7.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-image-cropper-2.7.0.aar\a05d5c17c196906655670b557278c8f9\AndroidManifest.xml:2:1-11:12
@@ -146,37 +147,37 @@ MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.3.8] C:\Users\Jerry\
 MERGED from [com.crashlytics.sdk.android:answers:1.3.6] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\answers-1.3.6.aar\d2f5b6a7a50ff66f2780311bd5b5764e\AndroidManifest.xml:2:1-13:12
 MERGED from [io.fabric.sdk.android:fabric:1.3.10] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\fabric-1.3.10.aar\2646405adba5981e72f7723c6376d56c\AndroidManifest.xml:18:1-29:12
 MERGED from [com.crashlytics.sdk.android:beta:1.1.4] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\beta-1.1.4.aar\bb3e239e0720094ca61782edbd951c16\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
 	package
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:3:3-30
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:3:3-30
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:5:3-49
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:5:3-49
 	android:versionCode
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:2:1-369:12
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:4:3-61
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:4:3-61
 permission#delivere.E.permission.C2D_MESSAGE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:7:3-9:42
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:7:3-9:42
 	android:protectionLevel
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:9:5-40
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:9:5-40
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:8:5-53
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:8:5-53
 uses-permission#delivere.E.permission.C2D_MESSAGE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:12:3-71
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:12:3-71
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:12:20-68
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:12:20-68
 uses-permission#com.google.android.c2dm.permission.RECEIVE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:13:3-80
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:13:3-80
 MERGED from [com.google.android.gms:play-services-gcm:16.1.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.1.0.aar\69904bde10475ea0719eb193e90a4dbb\AndroidManifest.xml:23:5-82
 MERGED from [com.google.android.gms:play-services-gcm:16.1.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.1.0.aar\69904bde10475ea0719eb193e90a4dbb\AndroidManifest.xml:23:5-82
 MERGED from [com.google.android.gms:play-services-iid:16.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.1.aar\cee5a0656453a4fe4a53a08cfc6297ee\AndroidManifest.xml:23:5-82
@@ -184,11 +185,11 @@ MERGED from [com.google.android.gms:play-services-iid:16.0.1] C:\Users\Jerry\.gr
 MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\firebase-iid-18.0.0.aar\9a7b5ffd321b984d9c25056fb7ac044a\AndroidManifest.xml:26:5-82
 MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\firebase-iid-18.0.0.aar\9a7b5ffd321b984d9c25056fb7ac044a\AndroidManifest.xml:26:5-82
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:13:20-77
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:13:20-77
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:14:3-77
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:27:5-79
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:27:5-79
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:14:3-77
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:27:5-79
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:27:5-79
 MERGED from [com.facebook.android:audience-network-sdk:5.1.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\audience-network-sdk-5.1.1.aar\e71802029f640ac4953a11a58f621b51\AndroidManifest.xml:12:5-79
 MERGED from [com.facebook.android:audience-network-sdk:5.1.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\audience-network-sdk-5.1.1.aar\e71802029f640ac4953a11a58f621b51\AndroidManifest.xml:12:5-79
 MERGED from [com.google.android.gms:play-services-analytics:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-16.0.8.aar\a6dddfcac60d55d4e1f9af6277fd40d6\AndroidManifest.xml:24:5-79
@@ -214,13 +215,13 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.5.0] C:
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\exoplayer-core-2.9.2.aar\a039e73aafe9d3be2fe183038413cb72\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\exoplayer-core-2.9.2.aar\a039e73aafe9d3be2fe183038413cb72\AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:14:20-74
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:14:20-74
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:15:3-65
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:21:5-67
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:21:5-67
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:15:3-65
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:21:5-67
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:21:5-67
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
 MERGED from [com.facebook.android:audience-network-sdk:5.1.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\audience-network-sdk-5.1.1.aar\e71802029f640ac4953a11a58f621b51\AndroidManifest.xml:11:5-67
 MERGED from [com.facebook.android:audience-network-sdk:5.1.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\audience-network-sdk-5.1.1.aar\e71802029f640ac4953a11a58f621b51\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.gms:play-services-gcm:16.1.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.1.0.aar\69904bde10475ea0719eb193e90a4dbb\AndroidManifest.xml:24:5-67
@@ -258,17 +259,17 @@ MERGED from [io.fabric.sdk.android:fabric:1.3.10] C:\Users\Jerry\.gradle\caches\
 MERGED from [com.crashlytics.sdk.android:beta:1.1.4] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\beta-1.1.4.aar\bb3e239e0720094ca61782edbd951c16\AndroidManifest.xml:9:5-67
 MERGED from [com.crashlytics.sdk.android:beta:1.1.4] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\beta-1.1.4.aar\bb3e239e0720094ca61782edbd951c16\AndroidManifest.xml:9:5-67
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:15:20-62
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:15:20-62
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:16:3-76
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:23:5-78
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:23:5-78
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:16:3-76
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:23:5-78
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:23:5-78
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:16:20-73
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:16:20-73
 uses-permission#android.permission.WAKE_LOCK
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:17:3-66
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:24:5-68
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:24:5-68
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:17:3-66
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:24:5-68
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:24:5-68
 MERGED from [com.google.android.gms:play-services-analytics:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-16.0.8.aar\a6dddfcac60d55d4e1f9af6277fd40d6\AndroidManifest.xml:27:5-68
 MERGED from [com.google.android.gms:play-services-analytics:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-16.0.8.aar\a6dddfcac60d55d4e1f9af6277fd40d6\AndroidManifest.xml:27:5-68
 MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-16.0.8.aar\e7f825b30ebac2f91e223fd71d4ba566\AndroidManifest.xml:27:5-68
@@ -284,149 +285,151 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:16.5.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.5.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-16.5.0.aar\bcf5b9480b9900a5f67ebdbe29b022ca\AndroidManifest.xml:25:5-68
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.5.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-16.5.0.aar\bcf5b9480b9900a5f67ebdbe29b022ca\AndroidManifest.xml:25:5-68
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:17:20-63
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:17:20-63
 uses-permission#android.permission.MANAGE_DOCUMENTS
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:21:3-73
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:28:5-75
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:28:5-75
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:21:3-73
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:28:5-75
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:28:5-75
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:21:20-70
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:21:20-70
 uses-permission#android.permission.READ_INTERNAL_STORAGE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:22:3-78
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:26:5-80
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:26:5-80
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:22:3-78
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:26:5-80
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:26:5-80
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:22:20-75
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:22:20-75
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:23:3-73
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:23:3-73
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:23:20-70
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:23:20-70
 uses-permission#android.permission.USE_FINGERPRINT
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:24:3-72
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:29:5-74
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:29:5-74
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:24:3-72
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:29:5-74
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:29:5-74
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:24:20-69
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:24:20-69
 uses-permission#android.permission.VIBRATE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:25:3-64
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:25:3-64
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:25:20-61
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:25:20-61
 uses-permission#com.android.launcher.permission.INSTALL_SHORTCUT
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:26:3-86
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:22:5-88
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:22:5-88
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:26:3-86
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:22:5-88
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:22:5-88
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:26:20-83
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:26:20-83
 uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:27:3-78
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:30:5-80
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:30:5-80
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:27:3-78
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:30:5-80
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:30:5-80
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:27:20-75
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:27:20-75
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:30:3-79
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:40:5-81
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:40:5-81
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:30:3-79
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:40:5-81
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:40:5-81
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
 MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\library-3.2.11.aar\ccac48eee8bf89011be6d8b8eff22567\AndroidManifest.xml:12:5-81
 MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\library-3.2.11.aar\ccac48eee8bf89011be6d8b8eff22567\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:30:20-76
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:30:20-76
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:31:3-77
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:41:5-79
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:41:5-79
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-79
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-79
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:31:3-77
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:41:5-79
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:41:5-79
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-79
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-79
 MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\library-3.2.11.aar\ccac48eee8bf89011be6d8b8eff22567\AndroidManifest.xml:14:5-79
 MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\library-3.2.11.aar\ccac48eee8bf89011be6d8b8eff22567\AndroidManifest.xml:14:5-79
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:31:20-74
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:31:20-74
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:32:3-63
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:39:5-65
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:39:5-65
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:32:3-63
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:39:5-65
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:39:5-65
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:32:20-60
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:32:20-60
 uses-permission#android.permission.READ_CONTACTS
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:33:3-70
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:34:5-72
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:34:5-72
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:33:3-70
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:34:5-72
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:34:5-72
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:33:20-67
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:33:20-67
 uses-permission#android.permission.READ_CALENDAR
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:34:3-70
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:35:5-72
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:35:5-72
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:34:3-70
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:35:5-72
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:35:5-72
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:34:20-67
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:34:20-67
 uses-permission#android.permission.WRITE_CALENDAR
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:35:3-71
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:36:5-73
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:36:5-73
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:35:3-71
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:36:5-73
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:36:5-73
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:35:20-68
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:35:20-68
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:36:3-78
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:37:5-80
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:37:5-80
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:36:3-78
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:37:5-80
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:37:5-80
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:36:20-75
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:36:20-75
 uses-permission#android.permission.RECORD_AUDIO
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:37:3-69
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:37:3-69
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:37:20-66
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:37:20-66
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:38:3-79
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:38:5-81
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:38:5-81
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-81
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-81
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:38:3-79
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:38:5-81
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:38:5-81
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-81
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-81
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:38:20-76
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:38:20-76
 uses-permission#android.permission.WRITE_SETTINGS
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:39:3-71
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:39:3-71
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:39:20-68
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:39:20-68
 uses-feature#0x00020000
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:44:3-77
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:44:3-77
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\4860929e593da2540e672901740770c9\AndroidManifest.xml:26:5-28:35
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\4860929e593da2540e672901740770c9\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:44:17-49
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:44:17-49
 	android:required
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:44:50-74
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:44:50-74
 uses-feature#android.software.leanback
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:45:3-85
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:45:3-85
 	android:required
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:45:58-82
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:45:58-82
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:45:17-57
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:45:17-57
 uses-feature#android.hardware.touchscreen
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:46:3-88
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:46:3-88
 	android:required
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:46:61-85
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:46:61-85
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:46:17-60
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:46:17-60
 application
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:48:3-367:17
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:71:5-98:19
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:71:5-98:19
-MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-31:19
-MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-31:19
-MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:11:5-20
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
-MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-23:19
-MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-23:19
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
-MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
-MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:48:3-367:17
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:71:5-98:19
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:71:5-98:19
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-31:19
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-31:19
+MERGED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\ab21b7742f8c1701a5e2d2467e31d2f3\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\ab21b7742f8c1701a5e2d2467e31d2f3\AndroidManifest.xml:11:5-20
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
+MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-23:19
+MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-23:19
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
+MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
 MERGED from [com.airbnb.android:lottie:2.5.6] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\lottie-2.5.6.aar\efb2a125e6d1f8df6c49ee06782b1026\AndroidManifest.xml:11:5-20
 MERGED from [com.airbnb.android:lottie:2.5.6] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\lottie-2.5.6.aar\efb2a125e6d1f8df6c49ee06782b1026\AndroidManifest.xml:11:5-20
 MERGED from [com.stripe:stripe-android:8.1.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\stripe-android-8.1.0.aar\43915a69497f9b10846f5194704a479b\AndroidManifest.xml:11:5-25:19
@@ -548,481 +551,483 @@ MERGED from [com.crashlytics.sdk.android:beta:1.1.4] C:\Users\Jerry\.gradle\cach
 	android:supportsRtl
 		ADDED from [com.facebook.android:facebook-android-sdk:5.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-5.0.1.aar\e54ce5b45d0d7e2cf85fda8e17139d77\AndroidManifest.xml:28:18-44
 	android:label
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:52:5-37
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:52:5-37
 	android:largeHeap
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:53:5-29
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:53:5-29
 	android:icon
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:51:5-39
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:51:5-39
 	android:allowBackup
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:50:5-31
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:50:5-31
 	android:usesCleartextTraffic
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:54:5-40
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:54:5-40
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:49:5-36
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:49:5-36
 activity#host.exp.exponent.LauncherActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:56:5-61:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:56:5-61:16
 	android:launchMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:59:7-38
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:59:7-38
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:58:7-30
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:58:7-30
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:60:7-66
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:60:7-66
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:57:7-39
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:57:7-39
 activity#host.exp.exponent.experience.ExperienceActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:63:5-68:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:63:5-68:16
 	android:windowSoftInputMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:67:7-49
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:67:7-49
 	android:configChanges
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:65:7-77
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:65:7-77
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:66:7-50
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:66:7-50
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:64:7-52
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:64:7-52
 activity#host.exp.exponent.MainActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:70:5-90:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:70:5-90:16
 	android:launchMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:72:7-38
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:72:7-38
 	android:windowSoftInputMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:75:7-49
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:75:7-49
 	android:configChanges
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:73:7-77
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:73:7-77
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:74:7-51
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:74:7-51
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:71:7-35
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:71:7-35
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:exp40138edc1d3d433db097df16fe5c8641
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:76:7-83:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:76:7-83:23
 data
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:77:9-69
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:77:9-69
 	android:path
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:152:43-71
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:152:43-71
 	android:scheme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:77:15-67
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:77:15-67
 action#android.intent.action.VIEW
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:79:9-60
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:79:9-60
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:79:17-58
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:79:17-58
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:81:9-67
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:81:9-67
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:81:19-65
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:81:19-65
 category#android.intent.category.BROWSABLE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:82:9-69
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:82:9-69
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:82:19-67
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:82:19-67
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:84:7-88:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:84:7-88:23
 action#android.intent.action.MAIN
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:85:9-60
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:85:9-60
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:85:17-58
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:85:17-58
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:87:9-68
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:87:9-68
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:87:19-66
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:87:19-66
 activity#host.exp.exponent.experience.HomeActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:92:5-98:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:92:5-98:16
 	android:screenOrientation
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:96:7-43
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:96:7-43
 	android:label
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:94:7-39
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:94:7-39
 	android:launchMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:95:7-38
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:95:7-38
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:97:7-50
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:97:7-50
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:93:7-46
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:93:7-46
 activity#host.exp.exponent.experience.TvActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:100:5-109:15
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:100:5-109:15
 	android:screenOrientation
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:104:7-44
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:104:7-44
 	android:label
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:102:7-39
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:102:7-39
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:103:7-50
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:103:7-50
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:101:7-44
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:101:7-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LEANBACK_LAUNCHER
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:105:6-108:22
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:105:6-108:22
 category#android.intent.category.LEANBACK_LAUNCHER
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:107:8-77
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:107:8-77
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:107:18-74
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:107:18-74
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:113:5-81
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:113:5-81
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:113:15-79
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:113:15-79
 activity#abi34_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:117:5-91
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:117:5-91
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:117:15-89
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:117:15-89
 activity#abi33_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:120:5-91
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:120:5-91
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:120:15-89
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:120:15-89
 activity#abi32_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:123:5-91
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:123:5-91
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:123:15-89
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:123:15-89
 activity#abi31_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:126:5-91
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:126:5-91
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:126:15-89
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:126:15-89
 activity#host.exp.exponent.ExponentDevActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:130:5-137:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:130:5-137:16
 	android:screenOrientation
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:134:7-43
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:134:7-43
 	android:label
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:133:7-48
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:133:7-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:136:7-46
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:136:7-46
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:132:7-30
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:132:7-30
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:135:7-49
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:135:7-49
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:131:7-42
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:131:7-42
 activity#host.exp.exponent.oauth.OAuthWebViewActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:139:5-143:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:139:5-143:16
 	android:screenOrientation
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:141:7-43
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:141:7-43
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:142:7-50
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:142:7-50
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:140:7-49
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:140:7-49
 activity#net.openid.appauth.RedirectUriReceiverActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:145:5-154:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:145:5-154:16
 REJECTED from [net.openid:appauth:0.7.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\appauth-0.7.1.aar\c9080c8ee1cc8e787f94c87274af8e4d\AndroidManifest.xml:32:9-43:20
 	tools:node
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:147:9-29
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:147:9-29
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:146:9-70
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:146:9-70
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:path:oauthredirect+data:scheme:delivere.E
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:148:7-153:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:148:7-153:23
 activity#host.exp.exponent.oauth.OAuthResultActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:156:5-158:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:156:5-158:16
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:157:7-48
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:157:7-48
 activity#abi32_0_0.expo.modules.appauth.AppAuthBrowserActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:160:5-162:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:160:5-162:16
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:161:7-75
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:161:7-75
 activity#expo.modules.payments.stripe.RedirectUriReceiver
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:165:5-176:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:165:5-176:16
 	android:launchMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:167:9-40
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:167:9-40
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:166:9-32
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:166:9-32
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:169:9-79
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:169:9-79
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:168:9-72
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:168:9-72
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:expo.modules.payments.stripe.a86f5995-0c67-4202-a1e9-89f13f8f7c31
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:170:9-175:25
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:170:9-175:25
 activity#abi34_0_0.expo.modules.payments.stripe.RedirectUriReceiver
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:178:2-189:13
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:178:2-189:13
 	android:launchMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:180:3-34
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:180:3-34
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:179:3-26
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:179:3-26
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:182:3-73
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:182:3-73
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:181:3-76
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:181:3-76
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:abi34_0_0.expo.modules.payments.stripe
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:183:3-188:19
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:183:3-188:19
 activity#abi33_0_0.expo.modules.payments.stripe.RedirectUriReceiver
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:190:2-201:13
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:190:2-201:13
 	android:launchMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:192:3-34
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:192:3-34
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:191:3-26
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:191:3-26
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:194:3-73
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:194:3-73
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:193:3-76
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:193:3-76
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:abi33_0_0.expo.modules.payments.stripe
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:195:3-200:19
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:195:3-200:19
 activity#abi32_0_0.expo.modules.payments.stripe.RedirectUriReceiver
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:202:2-213:13
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:202:2-213:13
 	android:launchMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:204:3-34
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:204:3-34
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:203:3-26
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:203:3-26
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:206:3-73
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:206:3-73
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:205:3-76
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:205:3-76
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:abi32_0_0.expo.modules.payments.stripe
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:207:3-212:19
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:207:3-212:19
 activity#abi31_0_0.expo.modules.payments.stripe.RedirectUriReceiver
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:214:5-225:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:214:5-225:16
 	android:launchMode
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:216:9-40
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:216:9-40
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:215:9-32
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:215:9-32
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:218:9-79
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:218:9-79
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:217:9-82
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:217:9-82
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:abi31_0_0.expo.modules.payments.stripe
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:219:9-224:25
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:219:9-224:25
 activity#host.exp.exponent.chrometabs.ChromeTabsManagerActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:229:5-231:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:229:5-231:16
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:230:7-59
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:230:7-59
 activity#host.exp.exponent.experience.ErrorActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:233:5-237:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:233:5-237:16
 	android:screenOrientation
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:236:7-43
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:236:7-43
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:235:7-49
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:235:7-49
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:234:7-47
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:234:7-47
 activity#host.exp.exponent.experience.InfoActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:239:5-243:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:239:5-243:16
 	android:screenOrientation
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:241:7-43
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:241:7-43
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:242:7-50
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:242:7-50
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:240:7-46
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:240:7-46
 activity#com.facebook.FacebookActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:245:5-250:39
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:245:5-250:39
 MERGED from [com.facebook.android:facebook-common:5.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\facebook-common-5.0.1.aar\e0037aac8503885a0f7c5a89a0d0b83a\AndroidManifest.xml:29:9-32:66
 MERGED from [com.facebook.android:facebook-common:5.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\facebook-common-5.0.1.aar\e0037aac8503885a0f7c5a89a0d0b83a\AndroidManifest.xml:29:9-32:66
 	android:label
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:248:7-39
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:248:7-39
 	android:configChanges
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:247:7-90
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:247:7-90
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:249:7-66
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:249:7-66
 		REJECTED from [com.facebook.android:facebook-common:5.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\facebook-common-5.0.1.aar\e0037aac8503885a0f7c5a89a0d0b83a\AndroidManifest.xml:32:13-63
 	tools:replace
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:250:7-36
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:250:7-36
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:246:7-51
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:246:7-51
 activity#com.facebook.ads.InterstitialAdActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:252:5-256:69
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:252:5-256:69
 	android:label
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:255:7-39
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:255:7-39
 	android:configChanges
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:254:7-90
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:254:7-90
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:256:7-66
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:256:7-66
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:253:7-61
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:253:7-61
 service#host.exp.exponent.ExponentIntentService
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:258:5-260:34
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:258:5-260:34
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:260:7-31
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:260:7-31
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:259:7-44
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:259:7-44
 receiver#host.exp.exponent.referrer.InstallReferrerReceiver
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:263:5-269:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:263:5-269:16
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:265:7-30
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:265:7-30
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:264:7-72
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:264:7-72
 intent-filter#action:name:com.android.vending.INSTALL_REFERRER
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:266:7-268:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:266:7-268:23
 action#com.android.vending.INSTALL_REFERRER
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:267:9-71
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:267:9-71
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:267:17-68
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:267:17-68
 receiver#com.google.android.gms.analytics.AnalyticsReceiver
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:279:5-284:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:279:5-284:16
 MERGED from [com.google.android.gms:play-services-analytics:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-16.0.8.aar\a6dddfcac60d55d4e1f9af6277fd40d6\AndroidManifest.xml:30:9-34:20
 MERGED from [com.google.android.gms:play-services-analytics:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-16.0.8.aar\a6dddfcac60d55d4e1f9af6277fd40d6\AndroidManifest.xml:30:9-34:20
 	android:enabled
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:280:15-37
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:280:15-37
 	android:exported
 		ADDED from [com.google.android.gms:play-services-analytics:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-16.0.8.aar\a6dddfcac60d55d4e1f9af6277fd40d6\AndroidManifest.xml:33:13-37
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:279:15-80
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:279:15-80
 intent-filter#action:name:com.google.android.gms.analytics.ANALYTICS_DISPATCH
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:281:7-283:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:281:7-283:23
 action#com.google.android.gms.analytics.ANALYTICS_DISPATCH
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:282:9-86
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:282:9-86
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:282:17-83
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:282:17-83
 service#com.google.android.gms.analytics.AnalyticsService
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:286:5-288:40
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:286:5-288:40
 MERGED from [com.google.android.gms:play-services-analytics:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-16.0.8.aar\a6dddfcac60d55d4e1f9af6277fd40d6\AndroidManifest.xml:36:9-39:40
 MERGED from [com.google.android.gms:play-services-analytics:16.0.8] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-analytics-16.0.8.aar\a6dddfcac60d55d4e1f9af6277fd40d6\AndroidManifest.xml:36:9-39:40
 	android:enabled
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:287:14-36
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:287:14-36
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:288:14-38
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:288:14-38
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:286:14-78
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:286:14-78
 receiver#com.google.android.gms.gcm.GcmReceiver
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:291:5-301:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:291:5-301:16
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:293:7-30
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:293:7-30
 	android:permission
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:294:7-67
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:294:7-67
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:292:7-60
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:292:7-60
 intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+action:name:com.google.android.c2dm.intent.REGISTRATION+category:name:delivere.E
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:295:7-300:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:295:7-300:23
 action#com.google.android.c2dm.intent.RECEIVE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:296:9-72
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:296:9-72
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:296:17-70
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:296:17-70
 action#com.google.android.c2dm.intent.REGISTRATION
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:297:9-77
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:297:9-77
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:297:17-75
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:297:17-75
 category#delivere.E
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:299:9-46
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:299:9-46
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:299:19-44
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:299:19-44
 service#host.exp.exponent.gcm.ExponentGcmListenerService
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:303:5-309:15
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:303:5-309:15
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:305:7-31
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:305:7-31
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:304:7-53
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:304:7-53
 intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:306:7-308:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:306:7-308:23
 service#host.exp.exponent.gcm.ExponentInstanceIDListenerService
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:310:5-316:15
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:310:5-316:15
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:312:7-31
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:312:7-31
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:311:7-60
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:311:7-60
 intent-filter#action:name:com.google.android.gms.iid.InstanceID
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:313:7-315:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:313:7-315:23
 action#com.google.android.gms.iid.InstanceID
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:314:9-71
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:314:9-71
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:314:17-69
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:314:17-69
 service#host.exp.exponent.gcm.GcmRegistrationIntentService
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:317:5-320:15
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:317:5-320:15
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:319:7-31
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:319:7-31
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:318:7-55
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:318:7-55
 service#host.exp.exponent.fcm.ExpoFcmMessagingService
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:323:5-328:15
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:323:5-328:15
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:324:7-50
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:324:7-50
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:325:7-327:23
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:325:7-327:23
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:326:9-69
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:326:9-69
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:326:17-67
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:326:17-67
 meta-data#com.google.firebase.messaging.default_notification_icon
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:329:5-331:62
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:329:5-331:62
 	android:resource
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:331:7-59
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:331:7-59
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:330:7-77
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:330:7-77
 meta-data#com.google.firebase.messaging.default_notification_color
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:332:5-334:47
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:332:5-334:47
 	android:resource
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:334:7-44
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:334:7-44
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:333:7-78
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:333:7-78
 service#host.exp.exponent.fcm.FcmRegistrationIntentService
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:335:5-338:15
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:335:5-338:15
 	android:exported
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:337:7-31
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:337:7-31
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:336:7-55
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:336:7-55
 activity#com.theartofdev.edmodo.cropper.CropImageActivity
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:341:5-344:16
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:341:5-344:16
 	android:theme
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:343:7-50
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:343:7-50
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:342:7-70
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:342:7-70
 meta-data#io.fabric.ApiKey
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:349:5-351:65
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:349:5-351:65
 	android:value
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:351:7-63
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:351:7-63
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:350:7-38
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:350:7-38
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:356:5-358:64
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:356:5-358:64
 	android:value
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:358:7-62
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:358:7-62
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:357:7-52
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:357:7-52
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:364:5-83
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:364:5-83
 	android:value
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:364:62-81
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:364:62-81
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:364:16-61
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:364:16-61
 meta-data#standaloneStripeScheme
-ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:366:5-109
+ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:366:5-109
 	android:value
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:366:54-106
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:366:54-106
 	android:name
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml:366:16-53
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml:366:16-53
 uses-sdk
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:7:5-9:41
-MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:7:5-9:41
-MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\3d2ab337270cdfa14244091c14ef9ea7\AndroidManifest.xml:7:5-9:41
-MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\3d2ab337270cdfa14244091c14ef9ea7\AndroidManifest.xml:7:5-9:41
-MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\41fa63b18c074c41ccfc9c4dd4dee431\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-react-native-adapter] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-react-native-adapter] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-app-loader-provider] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-app-loader-provider] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-constants] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-constants] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
-MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
-MERGED from [:expo-font] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-font] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-keep-awake] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-keep-awake] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-linear-gradient] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-linear-gradient] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-permissions] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-permissions] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-sqlite] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-sqlite] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-web-browser] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-web-browser] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-barcode-scanner-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-barcode-scanner-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-camera-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-camera-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-constants-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-constants-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-face-detector-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-face-detector-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-file-system-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-file-system-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-font-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-font-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-permissions-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-permissions-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-task-manager-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-task-manager-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-core] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-core] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-image-loader-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-image-loader-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-sensors-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-sensors-interface] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:7:5-9:41
+MERGED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\c72f92aa4d95d5dfd04c0a73e5a7dcf5\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\c72f92aa4d95d5dfd04c0a73e5a7dcf5\AndroidManifest.xml:7:5-9:41
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\ab21b7742f8c1701a5e2d2467e31d2f3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\react-native-34.0.0.aar\ab21b7742f8c1701a5e2d2467e31d2f3\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-react-native-adapter] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-react-native-adapter] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-app-loader-provider] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-app-loader-provider] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:expo-font] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-font] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-keep-awake] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-keep-awake] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-linear-gradient] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-linear-gradient] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-permissions] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-permissions] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-sqlite] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-sqlite] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-web-browser] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-web-browser] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-constants-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-constants-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-face-detector-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-face-detector-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-file-system-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-file-system-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-font-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-font-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-permissions-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-permissions-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-task-manager-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-task-manager-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-core] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-core] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-image-loader-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-image-loader-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-sensors-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-sensors-interface] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\leakcanary-android-no-op-1.4-beta1.aar\1f4e8883734f35f3b631b81871d217bb\AndroidManifest.xml:20:5-22:41
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\leakcanary-android-no-op-1.4-beta1.aar\1f4e8883734f35f3b631b81871d217bb\AndroidManifest.xml:20:5-22:41
 MERGED from [com.android.support:multidex:1.0.3] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\4ff6daf053d567bc2a0aff07c2d45ba8\AndroidManifest.xml:20:5-43
@@ -1251,188 +1256,198 @@ MERGED from [io.fabric.sdk.android:fabric:1.3.10] C:\Users\Jerry\.gradle\caches\
 MERGED from [io.fabric.sdk.android:fabric:1.3.10] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\fabric-1.3.10.aar\2646405adba5981e72f7723c6376d56c\AndroidManifest.xml:23:5-43
 MERGED from [com.crashlytics.sdk.android:beta:1.1.4] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\beta-1.1.4.aar\bb3e239e0720094ca61782edbd951c16\AndroidManifest.xml:7:5-43
 MERGED from [com.crashlytics.sdk.android:beta:1.1.4] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\beta-1.1.4.aar\bb3e239e0720094ca61782edbd951c16\AndroidManifest.xml:7:5-43
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.google.android.gms:play-services-ads:15.0.1] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\play-services-ads-15.0.1.aar\6ad753acd4a049fa16af69ddc5cfe746\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Jerry\Documents\GitHub\delivere\delivere\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\android\app\src\main\AndroidManifest.xml
 supports-screens
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:12:5-18:24
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:12:5-18:24
 	android:largeScreens
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:14:9-36
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:14:9-36
 	android:smallScreens
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:16:9-36
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:16:9-36
 	android:normalScreens
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:15:9-37
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:15:9-37
 	android:xlargeScreens
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:17:9-37
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:17:9-37
 	android:anyDensity
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:13:9-34
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:13:9-34
 uses-permission#host.exp.exponent.permission.C2D_MESSAGE
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:25:5-80
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:25:5-80
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:25:22-77
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:25:22-77
 uses-feature#android.hardware.camera
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:43:5-45:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:43:5-45:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:45:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:45:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:44:9-47
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:44:9-47
 uses-feature#android.hardware.camera.autofocus
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:46:5-48:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:46:5-48:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:48:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:48:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:47:9-57
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:47:9-57
 uses-feature#android.hardware.location
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:49:5-51:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:49:5-51:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:51:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:51:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:50:9-49
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:50:9-49
 uses-feature#android.hardware.location.gps
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:52:5-54:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:52:5-54:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:54:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:54:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:53:9-53
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:53:9-53
 uses-feature#android.hardware.location.network
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:55:5-57:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:55:5-57:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:57:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:57:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:56:9-57
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:56:9-57
 uses-feature#android.hardware.wifi
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:58:5-60:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:58:5-60:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:60:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:60:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:59:9-45
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:59:9-45
 uses-feature#android.hardware.microphone
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:61:5-63:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:61:5-63:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:63:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:63:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:62:9-51
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:62:9-51
 uses-feature#android.hardware.telephony
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:64:5-66:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:64:5-66:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:66:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:66:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:65:9-50
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:65:9-50
 uses-feature#android.hardware.bluetooth
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:67:5-69:36
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:67:5-69:36
 	android:required
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:69:9-33
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:69:9-33
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:68:9-50
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:68:9-50
 receiver#host.exp.exponent.notifications.ScheduledNotificationReceiver
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:75:9-77:40
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:75:9-77:40
 	android:exported
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:77:13-37
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:77:13-37
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:76:13-89
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:76:13-89
 provider#android.support.v4.content.FileProvider
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:80:9-88:20
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:80:9-88:20
 	android:grantUriPermissions
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:84:13-47
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:84:13-47
 	android:authorities
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:82:13-60
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:82:13-60
 	android:exported
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:83:13-37
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:83:13-37
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:81:13-67
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:81:13-67
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:85:13-87:58
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:85:13-87:58
 	android:resource
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:87:17-55
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:87:17-55
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:86:17-67
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:86:17-67
 provider#versioned.host.exp.exponent.modules.api.components.webview.RNCWebViewFileProvider
-ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:89:9-97:20
+ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:89:9-97:20
 	android:grantUriPermissions
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:93:13-47
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:93:13-47
 	android:authorities
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:91:13-64
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:91:13-64
 	android:exported
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:92:13-37
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:92:13-37
 	android:name
-		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\7b136cdd1d7be6ebd7481f046103e509\AndroidManifest.xml:90:13-109
+		ADDED from [host.exp.exponent:expoview:34.0.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\expoview-34.0.0.aar\54f749d2a18741bdbdc6cb1808dc538b\AndroidManifest.xml:90:13-109
 activity#com.gettipsi.stripe.OpenBrowserActivity
-ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-16:75
+ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-16:75
 	android:launchMode
-		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-44
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-44
 	android:exported
-		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
 	android:theme
-		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-72
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-72
 	android:name
-		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-67
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-67
 activity#com.gettipsi.stripe.RedirectUriReceiver
-ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-30:20
+ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-30:20
 	android:launchMode
-		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-44
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-44
 	android:exported
-		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-36
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-36
 	android:theme
-		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-83
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-83
 	android:name
-		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-67
+		ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-67
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:example
-ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-29:29
+ADDED from [:tipsi-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\tipsi-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-29:29
+provider#com.reactnativecommunity.webview.RNCWebViewFileProvider
+ADDED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-64
+	android:exported
+		ADDED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:react-native-webview] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-83
 uses-permission#android.permission.STORAGE
-ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-66
+ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-66
 	android:name
-		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:22-63
+		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:22-63
 provider#expo.modules.filesystem.FileSystemFileProvider
-ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-27:20
+ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-27:20
 	android:grantUriPermissions
-		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-47
+		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-47
 	android:authorities
-		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-74
+		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-74
 	android:exported
-		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-37
+		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-37
 	tools:replace
-		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-48
+		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-48
 	android:name
-		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-74
+		ADDED from [:expo-file-system] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-74
 provider#expo.modules.imagepicker.ImagePickerFileProvider
-ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:9-22:20
+ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:9-22:20
 	android:grantUriPermissions
-		ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-47
+		ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-47
 	android:authorities
-		ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-75
+		ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-75
 	android:exported
-		ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-37
+		ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-37
 	android:name
-		ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-76
+		ADDED from [:expo-image-picker] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-76
 uses-permission#android.permission.FOREGROUND_SERVICE
-ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-77
+ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-77
 	android:name
-		ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-74
+		ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-74
 service#expo.modules.location.services.LocationTaskService
-ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-18:40
+ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-18:40
 	android:exported
-		ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+		ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
 	android:name
-		ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-78
+		ADDED from [:expo-location] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-78
 activity#expo.modules.payments.stripe.OpenBrowserActivity
-ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-16:75
+ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-16:75
 	android:launchMode
-		ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-44
+		ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-44
 	android:exported
-		ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+		ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
 	android:theme
-		ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-72
+		ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-72
 	android:name
-		ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\delivere\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-76
+		ADDED from [:expo-payments-stripe] C:\Users\Jerry\Documents\GitHub\deliver-E\delivere\node_modules\expo-payments-stripe\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-76
 activity#com.stripe.android.view.AddSourceActivity
 ADDED from [com.stripe:stripe-android:8.1.0] C:\Users\Jerry\.gradle\caches\transforms-1\files-1.1\stripe-android-8.1.0.aar\43915a69497f9b10846f5194704a479b\AndroidManifest.xml:12:9-16:20
 	android:windowSoftInputMode

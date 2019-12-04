@@ -69,13 +69,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
@@ -83,6 +76,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotation_processor_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/apk_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
@@ -324,8 +324,8 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.plexus:plexus-interpolation:1.11@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-base-1.10.0" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.android:audience-network-sdk-5.1.1" level="project" />
-    <orderEntry type="module" module-name="expo-file-system" />
     <orderEntry type="module" module-name="expo-location" />
+    <orderEntry type="module" module-name="expo-file-system" />
     <orderEntry type="module" module-name="expo-keep-awake" />
     <orderEntry type="module" module-name="unimodules-core" />
     <orderEntry type="module" module-name="expo-web-browser" />
@@ -333,9 +333,9 @@
     <orderEntry type="module" module-name="expo-app-loader-provider" />
     <orderEntry type="module" module-name="expo-linear-gradient" />
     <orderEntry type="module" module-name="unimodules-camera-interface" />
-    <orderEntry type="module" module-name="unimodules-image-loader-interface" />
     <orderEntry type="module" module-name="unimodules-constants-interface" />
     <orderEntry type="module" module-name="expo-sqlite" />
+    <orderEntry type="module" module-name="unimodules-image-loader-interface" />
     <orderEntry type="module" module-name="unimodules-sensors-interface" />
     <orderEntry type="module" module-name="unimodules-permissions-interface" />
     <orderEntry type="module" module-name="expo-payments-stripe" />
@@ -345,8 +345,8 @@
     <orderEntry type="module" module-name="expo-permissions" />
     <orderEntry type="module" module-name="tipsi-stripe" />
     <orderEntry type="module" module-name="unimodules-barcode-scanner-interface" />
-    <orderEntry type="module" module-name="expo-font" />
     <orderEntry type="module" module-name="expo-constants" />
+    <orderEntry type="module" module-name="expo-font" />
     <orderEntry type="module" module-name="unimodules-file-system-interface" />
     <orderEntry type="module" module-name="unimodules-react-native-adapter" />
   </component>
