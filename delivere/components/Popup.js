@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, StyleSheet, Dimensions, View } from "react-native";
 const { width, height } = Dimensions.get("window");
 
-export default class LocationPopup extends React.Component {
+export default class Popup extends React.Component {
   constructor(props){
     super(props);
   }

@@ -7,7 +7,6 @@ import {
   Dimensions,
   TouchableOpacity,
   StatusBar,
-  Modal,
   TextInput
 } from "react-native";
 import { Block, Icon } from "galio-framework";
@@ -256,18 +255,19 @@ export default class Home extends React.Component {
           </TouchableOpacity>
         </Block>
         <Popup
-        visible = {this.state.locationVisible}
-        addAddress={this.addAddress}
-        style ="full">
-            <TouchableOpacity onPress={this.locationPopup}>
-              <Icon
-                style={{ position: "absolute", left: width*0.05, marginTop: height*0.06}}
-                name="close"
-                family="AntDesign"
-                size={30}
-                color="#466199"
-              />
-            </TouchableOpacity>
+          visible = {this.state.locationVisible}
+          // addAddress={this.addAddress}
+          style ="full"
+        >
+          <TouchableOpacity onPress={this.locationPopup}>
+            <Icon
+              style={{ position: "absolute", left: width*0.05, marginTop: height*0.06}}
+              name="close"
+              family="AntDesign"
+              size={30}
+              color="#466199"
+            />
+          </TouchableOpacity>
           <Block center style={{paddingTop: height*0.06, marginBottom: height*0.02}}>
             <Text style={{fontSize: 20, color:"#466199"}}>Edit Address</Text>
           </Block>

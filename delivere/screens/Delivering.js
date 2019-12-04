@@ -11,7 +11,7 @@ import {
   PanResponder
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import { Button, Block, Icon } from "galio-framework";
+import { Block, Icon } from "galio-framework";
 import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
 import firebase from "../components/firebase";

@@ -15,7 +15,6 @@ import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
 const { width, height } = Dimensions.get("screen");
-import { UserInterfaceIdiom } from "expo-constants";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();

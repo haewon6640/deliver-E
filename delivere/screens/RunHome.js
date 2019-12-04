@@ -1,11 +1,8 @@
 import React from "react";
 import {
-  ScrollView,
-  View,
   StyleSheet,
   Text,
   Dimensions,
-  Image,
   TouchableOpacity,
   ImageBackground
 } from "react-native";

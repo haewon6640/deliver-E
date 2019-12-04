@@ -5,13 +5,10 @@ import {
   StyleSheet,
   Text,
   Dimensions,
-  Image,
   TouchableOpacity,
-  Animated,
   FlatList
 } from "react-native";
-import SlidingUpPanel from "rn-sliding-up-panel";
-import { Button, Block, Icon, Checkbox } from "galio-framework";
+import { Checkbox } from "galio-framework";
 import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
 import firebase from "../components/firebase";
@@ -76,9 +73,7 @@ export default class AfterArrival extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{ height: 0.7 * height }}>
-          <ScrollView
-          // contentContainerStylecontentContainerStyle={{flexGrow: 1, justifyContent: 'space-between'}}
-          >
+          <ScrollView>
             <FlatList
               data={DATA}
               renderItem={({ item }) => (
