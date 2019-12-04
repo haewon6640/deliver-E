@@ -56,8 +56,8 @@ export default class Delivering extends React.Component {
     var order = navigation.getParam("order");
     const itemList = order["items"].map((item, j) => {
       return (
-        <Text style={styles.text}>
-          {item.name + " " + item.type + " $ " + item.price}
+        <Text key={j} style={styles.text}>
+          {item.count + " " + item.name + " " + item.type + ": $" + item.price}
         </Text>
       );
     });

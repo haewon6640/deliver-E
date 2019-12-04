@@ -41,17 +41,37 @@ export default class AfterArrival extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    const totalCount = order["items"].reduce((total,item) => {
+      return total + item.count
+    }, 0);
 
     const DATA = [
       { text1: "Pickup By", text2: "3:22PM", text3: "", key: "1" },
       { text1: "Customer", text2: eater.name, text3: "", key: "2" },
       {
         text1: "Order Details",
-        text2: "2 Items",
+        text2: totalCount + " items",
         text3: "$ " + order.subtotal,
         key: "3"
       }
     ];
+
+    const itemList = order["items"].map((item, j) => {
+      return (
+        <Checkbox
+          style={{
+            height: 70,
+            alignItems: "center",
+            borderBottomWidth: 1,
+            borderBottomColor: "#c9bfbf"
+          }}
+          key={j}
+          color="#466199"
+          labelStyle={styles.text}
+          label={item.count + " " + item.name + " " + item.type + ": $" + item.price}
+        />
+       );
+    });
 
     return (
       <View style={styles.container}>
@@ -77,23 +97,7 @@ export default class AfterArrival extends React.Component {
               )}
             />
             <Text style={[styles.category, { marginTop: 30 }]}>Checklist</Text>
-            <Checkbox
-              style={{
-                height: 70,
-                alignItems: "center",
-                borderBottomWidth: 1,
-                borderBottomColor: "#c9bfbf"
-              }}
-              color="#466199"
-              labelStyle={styles.text}
-              label="1 Buffalo Bill Taco"
-            />
-            <Checkbox
-              style={{ height: 70, alignItems: "center" }}
-              color="#466199"
-              labelStyle={styles.text}
-              label="1 Tombstone Chicken Taco"
-            />
+            {itemList}
           </ScrollView>
         </View>
         <TouchableOpacity

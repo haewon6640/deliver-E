@@ -70,7 +70,7 @@ export default class PickingUp extends React.Component {
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
-          {item.name + " " + item.type + " $ " + item.price}
+          {item.count + " " + item.name + " " + item.type + ": $" + item.price}
         </Text>
       );
     });
@@ -255,7 +255,7 @@ export default class PickingUp extends React.Component {
                   <Text style={styles.category}>Order</Text>
                   {/* <Text style={styles.text}>2 Items:</Text> */}
                   {itemList}
-                  <Text style={styles.text}>{"$" + order.subtotal}</Text>
+                  <Text style={styles.text}>{"Subtotal: $" + order.subtotal}</Text>
                 </View>
               </View>
             </ScrollView>
