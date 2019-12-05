@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/../node_modules/expo-sqlite/android" />
             <option value="$PROJECT_DIR$/../node_modules/expo-web-browser/android" />
             <option value="$PROJECT_DIR$/../node_modules/expo/node_modules/expo-location/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-webview/android" />
             <option value="$PROJECT_DIR$/../node_modules/tipsi-stripe/android" />
             <option value="$PROJECT_DIR$/../node_modules/unimodules-barcode-scanner-interface/android" />
             <option value="$PROJECT_DIR$/../node_modules/unimodules-camera-interface/android" />
