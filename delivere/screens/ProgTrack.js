@@ -15,6 +15,7 @@ import normalize from "react-native-normalize";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();
+var listen;
 
 export default class ProgTrack extends React.Component {
   constructor(props) {
@@ -27,9 +28,9 @@ export default class ProgTrack extends React.Component {
     };
   }
 
-  render() {
+  componentDidMount(){
     var orderId = this.props.navigation.getParam("orderId");
-    dbh
+    listen = dbh
       .collection("Order")
       .doc(orderId)
       .onSnapshot(
@@ -58,7 +59,13 @@ export default class ProgTrack extends React.Component {
           }
         }.bind(this)
       );
+  }
 
+  componentWillUnmount(){
+    listen();
+  }
+
+  render() {
     return (
       <View style={styles.container}>
         <Image

@@ -8,7 +8,8 @@ import {
   Image,
   TouchableOpacity,
   Animated,
-  PanResponder
+  PanResponder,
+  Button
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Block, Icon } from "galio-framework";
@@ -54,6 +55,7 @@ export default class Delivering extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    const id = this.props.navigation.getParam("id");
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
@@ -216,6 +218,9 @@ export default class Delivering extends React.Component {
           <Text style={{ color: "white", fontSize: 25 }}>After delivery</Text>
           {/* </Block> */}
         </TouchableOpacity>
+        <Button onPress={() => {
+          this.props.navigation.navigate("MyOrders",{navIndex: 2, id: id, ident: 1});
+          }} title="See list"/>
       </View>
     );
   }

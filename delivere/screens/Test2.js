@@ -6,14 +6,18 @@ import {
 } from "react-native";
 
 export default class Test1 extends React.Component{
+
   render(){
-    const index = this.props.navigation.getParam("index");
+    const id = this.props.navigation.getParam("id");
     return(
       <View style={{justifyContent: "center", alignItems: "center"}}>
         <Text>Goodbye</Text>
-        <Button onPress={() => this.props.navigation.navigate("OrderList", {
-          navPage: 1, index: index
-        })} title="See list"/>
+        <Button onPress={() => {
+          this.props.navigation.navigate("MyOrders", {
+          navIndex: 1, id: id, ident: 2
+          });
+          }}
+          title="See list"/>
       </View>
     );
   }

@@ -7,12 +7,14 @@ import {
 
 export default class Test1 extends React.Component{
   render(){
-    const index = this.props.navigation.getParam("index");
+    const id = this.props.navigation.getParam("id");
     return(
       <View style={{justifyContent: "center", alignItems: "center"}}>
         <Text>Hello</Text>
-        <Button onPress={() => this.props.navigation.navigate("Test2", {index: index})} title="Next"/>
-        <Button onPress={() => this.props.navigation.navigate("OrderList")} title="See list"/>
+        <Button onPress={() => this.props.navigation.navigate("Test2", {id: id})} title="Next"/>
+        <Button onPress={() => {
+          this.props.navigation.navigate("MyOrders",{navIndex: 0, id: id, ident: 1});
+          }} title="See list"/>
       </View>
     );
   }

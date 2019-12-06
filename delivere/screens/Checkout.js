@@ -25,9 +25,9 @@ export default class Checkout extends React.Component {
     errorMessage: null
   };
 
-  componentWillMount() {
-    this._getLocationAsync();
-  }
+  // componentWillMount() {
+  //   this._getLocationAsync();
+  // }
 
   // _getLocationAsync = async () => {
   //   let { status } = await Permissions.askAsync(Permissions.LOCATION);

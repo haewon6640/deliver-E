@@ -14,24 +14,24 @@ import "@firebase/firestore";
 const dbh = firebase.firestore();
 
 export default class RunHome extends React.Component {
-  querylatestOrder = async () => {
-    var order = {};
+  queryOrders = async () => {
+    var orders = [];
     var success = "";
     await dbh
       .collection("Order")
-      .orderBy("date", "desc")
-      .limit(1)
+      // .orderBy("date", "desc")
+      // .limit(1)
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(documentSnapshot => {
           var data = documentSnapshot.data();
-          order = data;
+          orders.push(data);
           success = "success";
         });
       })
       .catch(error => alert(error.toString()));
     if (success != "") {
-      this.props.navigation.navigate("AcceptOrders", { order: order });
+      this.props.navigation.navigate("PendingOrders", { orders: orders });
     }
   };
   render() {
@@ -43,7 +43,7 @@ export default class RunHome extends React.Component {
         <Button
           style={styles.button}
           onPress={() => {
-            this.querylatestOrder();
+            this.queryOrders();
           }}
         >
           <Text style={styles.text}>Start Delivering</Text>

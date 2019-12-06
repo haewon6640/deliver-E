@@ -8,7 +8,8 @@ import {
   Image,
   TouchableOpacity,
   Animated,
-  PanResponder
+  PanResponder,
+  Button
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Block, Icon } from "galio-framework";
@@ -54,12 +55,13 @@ export default class PickingUp extends React.Component {
     });
   }
 
-  afterArriving = (eater, restaurant, order) => {
+  afterArriving = (eater, restaurant, order, id) => {
     this.updateOrder(order);
     this.props.navigation.navigate("AfterArrival", {
       eater: eater,
       restaurant: restaurant,
-      order: order
+      order: order,
+      id: id
     });
   };
   render() {
@@ -67,6 +69,7 @@ export default class PickingUp extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    const id = this.props.navigation.getParam("id");
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
@@ -262,7 +265,7 @@ export default class PickingUp extends React.Component {
           </View>
         </SlidingUpPanel>
         <TouchableOpacity
-          onPress={() => this.afterArriving(eater, restaurant, order)}
+          onPress={() => this.afterArriving(eater, restaurant, order, id)}
           style={styles.button}
         >
           {/* <Block row> */}
@@ -270,6 +273,9 @@ export default class PickingUp extends React.Component {
           <Text style={{ color: "white", fontSize: 25 }}>After arrival</Text>
           {/* </Block> */}
         </TouchableOpacity>
+        <Button onPress={() => {
+          this.props.navigation.navigate("MyOrders",{navIndex: 0, id: id, ident: 1});
+          }} title="See list"/>
       </View>
     );
   }

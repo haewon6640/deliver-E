@@ -6,7 +6,8 @@ import {
   Text,
   Dimensions,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  Button
 } from "react-native";
 import { Checkbox } from "galio-framework";
 import normalize from "react-native-normalize";
@@ -24,12 +25,13 @@ export default class AfterArrival extends React.Component {
     });
   }
 
-  afterPickUp = (eater, restaurant, order) => {
+  afterPickUp = (eater, restaurant, order, id) => {
     this.updateOrder(order);
     this.props.navigation.navigate("Delivering", {
       eater: eater,
       restaurant: restaurant,
-      order: order
+      order: order,
+      id: id
     });
   };
 
@@ -38,6 +40,7 @@ export default class AfterArrival extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    const id = this.props.navigation.getParam("id");
     const totalCount = order["items"].reduce((total,item) => {
       return total + item.count
     }, 0);
@@ -96,7 +99,7 @@ export default class AfterArrival extends React.Component {
           </ScrollView>
         </View>
         <TouchableOpacity
-          onPress={() => this.afterPickUp(eater, restaurant, order)}
+          onPress={() => this.afterPickUp(eater, restaurant, order, id)}
           style={styles.button}
         >
           {/* <Block row> */}
@@ -104,6 +107,9 @@ export default class AfterArrival extends React.Component {
           <Text style={{ color: "white", fontSize: 25 }}>After pickup</Text>
           {/* </Block> */}
         </TouchableOpacity>
+        <Button onPress={() => {
+          this.props.navigation.navigate("MyOrders",{navIndex: 1, id: id, ident: 1});
+          }} title="See list"/>
       </View>
     );
   }

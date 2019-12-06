@@ -10,6 +10,25 @@ const { width, height } = Dimensions.get("window");
      width: 300,
      flexWrap: 'wrap'
    },
+   button: {
+    backgroundColor: "#5E72E4",
+    borderRadius: 80,
+    height: normalize(60),
+    width: width * 0.6,
+    marginTop: normalize(20),
+    marginBottom: normalize(20)
+  },
+  whiteText: {
+    fontSize: 20,
+    color: "white"
+  },
+   title: {
+    alignSelf: "center",
+    paddingBottom: 15,
+    fontSize: 30,
+    color: "#1f396e",
+    marginBottom: 20
+  },
    text: {
     fontSize: 20,
     color: "#466199",
@@ -22,15 +41,6 @@ const { width, height } = Dimensions.get("window");
     fontSize: 25,
     color: "#1f396e"
   },
-  button: {
-    position: "absolute",
-    bottom: 0,
-    height: normalize(80),
-    backgroundColor: "#5E72E4",
-    width: width,
-    alignItems: "center",
-    paddingTop: 20
-  },
   listItem: {
     width: width,
     borderBottomWidth: 1,
@@ -42,8 +52,6 @@ const { width, height } = Dimensions.get("window");
     width: 0.8 * width,
     backgroundColor: "white",
     borderWidth: 1,
-    justifyContent: "center",
-    alignItems: "center"
   },
   smallPopupCont: {
     flex: 1,
