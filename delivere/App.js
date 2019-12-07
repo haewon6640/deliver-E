@@ -23,8 +23,6 @@ import PickingUp from "./screens/PickingUp";
 import AfterArrival from "./screens/AfterArrival";
 import Delivering from "./screens/Delivering";
 import AcceptPopup from "./components/AcceptPopup";
-import Test1 from "./screens/Test1";
-import Test2 from "./screens/Test2";
 import { GalioProvider } from "galio-framework";
 import { argonTheme } from "./constants";
 import { createAppContainer, createBottomTabNavigator } from "react-navigation";
@@ -53,8 +51,6 @@ const MainStack = createStackNavigator(
     AfterArrival: AfterArrival,
     Delivering: Delivering,
     AddSubscription: AddSubscription,
-    Test1: Test1,
-    Test2: Test2
   },
   {
     initialRouteName: "RunHome",

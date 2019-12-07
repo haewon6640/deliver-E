@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Block, Icon } from "galio-framework";
+import { style } from "../constants/Styles";
 import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
 import firebase from "../components/firebase";
@@ -218,9 +219,22 @@ export default class Delivering extends React.Component {
           <Text style={{ color: "white", fontSize: 25 }}>After delivery</Text>
           {/* </Block> */}
         </TouchableOpacity>
-        <Button onPress={() => {
+        <TouchableOpacity
+          style = {{position: "absolute", right: 15, top: 4,}}
+          onPress={() => {
           this.props.navigation.navigate("MyOrders",{navIndex: 2, id: id, ident: 1});
-          }} title="See list"/>
+          }} >
+            <Block middle style =
+            {{ shadowColor: 'black',
+              shadowOffset: { width: 0, height: 2 },
+              shadowRadius: 4,
+              shadowOpacity: 0.1,
+              elevation: 2,
+              borderRadius: 10, height: 85, aspectRatio: 0.8, backgroundColor: "white"}}>
+              <Icon name="text-document" family="Entypo" size={50} color="#5E72E4" />
+              <Text style={[style.text,{paddingLeft:0, fontSize: 14}]}>Orders</Text>
+            </Block>
+        </TouchableOpacity>
       </View>
     );
   }

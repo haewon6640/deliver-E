@@ -36,19 +36,47 @@ export default class PendingOrders extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {orders: this.props.navigation.getParam("orders"), acceptedOrders: [], ids: []};
+    this.state = {orders: this.props.navigation.getParam("orders"), acceptedOrders: [], ids: [], acceptCount: 0};
     this.editList = this.editList.bind(this);
+    this.checkToAccept = this.checkToAccept.bind(this);
   }
 
   setIds = (Ids) => {
     this.setState({ids: Ids})
   }
 
+  checkToAccept = (order, key) => {
+    this.setState({acceptCount: ++this.state.acceptCount})
+    if (this.state.acceptCount > 4){
+      alert("Limit of 4 orders at a time");
+      return;
+    }
+    dbh.collection("Order").doc(order.oid).get()
+      .then(doc => {
+        if (doc.data().isAccepted){
+          alert("Order taken by another runner");
+          let array = [...this.state.orders];
+          array.splice(key, 1)
+          this.setState({orders: array});
+          navCheck = false;
+        }
+        else
+          this.props.navigation.navigate("AcceptPopup", {onGoBack: this.editList, order: order, key: key})
+      })
+      .catch(err =>{
+        alert(err.toString());
+      })
+  }
+
   editList = (order, key) => {
     this.state.acceptedOrders.push(order);
+    var orderRef = dbh.collection("Order").doc(order.oid);
+    // orderRef.update({
+    //   isAccepted: true
+    // })
     let array = [...this.state.orders];
     array.splice(key, 1)
-    this.setState({orders: array});
+    this.setState({orders: array});    
   }
 
   render() {
@@ -58,17 +86,21 @@ export default class PendingOrders extends React.Component {
         <ScrollView>
           <Text style={style.title}>Pending Orders</Text>
           {this.state.orders.map((order, i) => {
-            return (
-              <TouchableOpacity
-                key = {i}
-                style={style.listItem}
-                onPress={() => nav.navigate("AcceptPopup", {onGoBack: this.editList, order: order, key: i})}
-              >
-                <Text style={style.category}>{order.rName}</Text>
-                {/* <Text style={style.text}>{order.location}</Text> */}
-              </TouchableOpacity>
-            );
-          })}
+            if (!order.isAccepted)
+              return (
+                <TouchableOpacity
+                  key = {i}
+                  style={style.listItem}
+                  onPress={() => {
+                    this.checkToAccept(order, i);
+                    }}
+                >
+                  <Text style={style.category}>{order.rName}</Text>
+                  {/* <Text style={style.text}>{order.location}</Text> */}
+                </TouchableOpacity>
+              );
+           })
+          }
         </ScrollView>
         <Block
           style={{ position: "absolute", bottom: 20, left: "20%", right: "20%" }}
