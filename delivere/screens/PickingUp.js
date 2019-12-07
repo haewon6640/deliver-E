@@ -8,7 +8,8 @@ import {
   Image,
   TouchableOpacity,
   Animated,
-  PanResponder
+  PanResponder,
+  Platform
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Button, Block, Icon } from "galio-framework";
@@ -16,7 +17,10 @@ const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
-
+//import { SSL_OP_MSIE_SSLV2_RSA_PADDING } from "constants";
+import * as SMS from 'expo-sms';
+import * as Permissions from 'expo-permissions'
+import { Linking } from 'expo';
 const dbh = firebase.firestore();
 
 export default class PickingUp extends React.Component {
@@ -62,6 +66,26 @@ export default class PickingUp extends React.Component {
       order: order
     });
   };
+
+  sendSMS = async() => {
+    let result = await Linking.openURL('sms:4088934051')
+  }
+  phoneCall = async() => {
+    let result = await Linking.openURL('tel:4088934051')
+  }
+
+  sendEmail = async() => {
+    let result = await Linking.openURL('mailto: jto@emory.edu')
+  }
+
+  openMap = () => {
+    if (Platform.OS = 'ios'){
+      let result = Linking.openURL('http://maps.apple.com/maps?daddr=33.792378, -84.323190')
+    } else{
+      let result = Linking.openURL('http://maps.google.com/maps?daddr=33.792378, -84.323190')
+  }
+}
+
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
@@ -123,7 +147,7 @@ export default class PickingUp extends React.Component {
                   >
                     {restaurant["location"]}
                   </Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => this.openMap()}>
                     <Block
                       style={{
                         width: normalize(180),
@@ -166,7 +190,7 @@ export default class PickingUp extends React.Component {
                       paddingTop: 20
                     }}
                   >
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.phoneCall()}>
                       <Block
                         style={{
                           width: 0.27 * width,
@@ -191,7 +215,10 @@ export default class PickingUp extends React.Component {
                         </Text>
                       </Block>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ marginLeft: normalize(12) }}>
+
+                    <TouchableOpacity 
+                    onPress={() => this.sendSMS()}
+                    style={{ marginLeft: normalize(12) }}>
                       <Block
                         style={{
                           width: 0.27 * width,
@@ -220,7 +247,10 @@ export default class PickingUp extends React.Component {
                         </Text>
                       </Block>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ marginLeft: normalize(12) }}>
+                    
+                    <TouchableOpacity 
+                    onPress={() => this.sendEmail()}
+                    style={{ marginLeft: normalize(12) }}>
                       <Block
                         style={{
                           width: 0.27 * width,

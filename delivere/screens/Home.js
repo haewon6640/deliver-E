@@ -150,7 +150,8 @@ export default class Home extends React.Component {
                     uid: doc.data().uid,
                     email: doc.data().email,
                     name: doc.data().name,
-                    phoneNumber: doc.data().phoneNumber
+                    phoneNumber: doc.data().phoneNumber,
+                    profileImage: doc.data().profileImage
                   };
                   this.props.navigation.navigate("Profile", {
                     user: curUser

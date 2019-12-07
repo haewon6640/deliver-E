@@ -16,6 +16,7 @@ import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import { Linking } from 'expo';
 
 const dbh = firebase.firestore();
 
@@ -48,7 +49,7 @@ export default class Delivering extends React.Component {
   _onRelease() {
     this.setState({ dragPanel: true });
   }
-
+ 
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");

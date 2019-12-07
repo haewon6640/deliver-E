@@ -76,6 +76,7 @@ class Register extends React.Component {
       });
     return authenticated;
   }
+
   // emailVerification;
   async signUpUser(email, password, name, phoneNumber) {
     // if (email)
@@ -84,6 +85,7 @@ class Register extends React.Component {
       firebase.auth().onAuthStateChanged(
         function(user) {
           if (user) {
+            user.sendEmailVerification();
             const curUser = {
               uid: user.uid,
               email: user.email,
@@ -102,6 +104,9 @@ class Register extends React.Component {
       );
     }
   }
+
+ 
+  
 
   render() {
     return (
