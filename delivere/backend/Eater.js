@@ -7,7 +7,15 @@ class Eater {
     return new Promise(function(resolve, reject) {
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-          resolve(user.email);
+          dbh
+            .collection("Eater")
+            .doc(user.email)
+            .get()
+            .then(function(doc) {
+              if (doc.exists) {
+                resolve(doc.data());
+              }
+            });
         } else {
           reject(Error("It broke"));
         }
@@ -16,11 +24,10 @@ class Eater {
   }
 
   async getCurrentEater() {
-    var currUser = "";
-    await this.callEater().then(email => {
-      currUser = email;
+    return await this.callEater().then(user => {
+      alert(JSON.stringify(user));
+      return user;
     });
-    return currUser;
   }
 
   getEaterfromEmail = async email => {
