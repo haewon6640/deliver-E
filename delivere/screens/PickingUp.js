@@ -74,7 +74,13 @@ export default class PickingUp extends React.Component {
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
-          {item.count + " " + item.name + " " + item.type + ": $" + item.price}
+          {item.count +
+            " " +
+            item.name +
+            " " +
+            item.type +
+            ": $" +
+            item.price.toFixed(2)}
         </Text>
       );
     });
@@ -259,7 +265,9 @@ export default class PickingUp extends React.Component {
                   <Text style={styles.category}>Order</Text>
                   {/* <Text style={styles.text}>2 Items:</Text> */}
                   {itemList}
-                  <Text style={styles.text}>{"Subtotal: $" + order.subtotal}</Text>
+                  <Text style={styles.text}>
+                    {"Total Price: $" + order.subtotal.toFixed(2)}
+                  </Text>
                 </View>
               </View>
             </ScrollView>
@@ -274,22 +282,41 @@ export default class PickingUp extends React.Component {
           <Text style={{ color: "white", fontSize: 25 }}>After arrival</Text>
           {/* </Block> */}
         </TouchableOpacity>
-        
+
         <TouchableOpacity
-          style = {{position: "absolute", right: 15, top: 4,}}
+          style={{ position: "absolute", right: 15, top: 4 }}
           onPress={() => {
-          this.props.navigation.navigate("MyOrders",{navIndex: 0, id: id, ident: 1});
-          }} >
-            <Block middle style =
-            {{ shadowColor: 'black',
+            this.props.navigation.navigate("MyOrders", {
+              navIndex: 0,
+              id: id,
+              ident: 1
+            });
+          }}
+        >
+          <Block
+            middle
+            style={{
+              shadowColor: "black",
               shadowOffset: { width: 0, height: 2 },
               shadowRadius: 4,
               shadowOpacity: 0.1,
               elevation: 2,
-              borderRadius: 10, height: 85, aspectRatio: 0.8, backgroundColor: "white"}}>
-              <Icon name="text-document" family="Entypo" size={50} color="#5E72E4" />
-              <Text style={[style.text,{paddingLeft:0, fontSize: 14}]}>Orders</Text>
-            </Block>
+              borderRadius: 10,
+              height: 85,
+              aspectRatio: 0.8,
+              backgroundColor: "white"
+            }}
+          >
+            <Icon
+              name="text-document"
+              family="Entypo"
+              size={50}
+              color="#5E72E4"
+            />
+            <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
+              Orders
+            </Text>
+          </Block>
         </TouchableOpacity>
       </View>
     );
