@@ -15,6 +15,7 @@ import normalize from "react-native-normalize";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();
+var listen;
 
 export default class ProgTrack extends React.Component {
   constructor(props) {
@@ -27,21 +28,14 @@ export default class ProgTrack extends React.Component {
     };
   }
 
-  render() {
+  componentDidMount() {
     var orderId = this.props.navigation.getParam("orderId");
-    dbh
+    listen = dbh
       .collection("Order")
       .doc(orderId)
       .onSnapshot(
         function(doc) {
           prog = doc.data().progress;
-          if (prog == 0.75) {
-            this.setState({
-              progress: prog,
-              message: "Heading to you",
-              time: "4 min"
-            });
-          }
           if (prog == 0.25) {
             this.setState({
               progress: prog,
@@ -56,9 +50,22 @@ export default class ProgTrack extends React.Component {
               time: "5-10 min"
             });
           }
+          if (prog == 0.75) {
+            this.setState({
+              progress: prog,
+              message: "Heading to you",
+              time: "4 min"
+            });
+          }
         }.bind(this)
       );
+  }
 
+  componentWillUnmount() {
+    listen();
+  }
+
+  render() {
     return (
       <View style={styles.container}>
         <Image
@@ -69,6 +76,13 @@ export default class ProgTrack extends React.Component {
           progress={this.state.progress}
           message={this.state.message}
           time={this.state.time}
+        />
+        <Button
+          onPress={() =>
+            this.props.navigation.navigate("Rating", {
+              orderId: this.props.navigation.getParam("orderId")
+            })
+          }
         />
       </View>
     );

@@ -4,18 +4,16 @@ const dbh = firebase.firestore();
 
 class Restaurant {
   queryRestaurant = async rName => {
-    var resta = {};
-    await dbh
+    return await dbh
       .collection("Restaurant")
       .doc(rName)
       .get()
       .then(function(doc) {
         if (doc.exists) {
-          resta = doc.data();
+          return doc.data();
         }
       })
       .catch(error => alert(error.toString()));
-    return resta;
   };
 }
 

@@ -8,11 +8,13 @@ import {
   Image,
   TouchableOpacity,
   Animated,
-  PanResponder
+  PanResponder,
+  Button
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import { Button, Block, Icon } from "galio-framework";
+import { Block, Icon } from "galio-framework";
 const { width, height } = Dimensions.get("window");
+import { style } from "../constants/Styles";
 import normalize from "react-native-normalize";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
@@ -54,12 +56,13 @@ export default class PickingUp extends React.Component {
     });
   }
 
-  afterArriving = (eater, restaurant, order) => {
+  afterArriving = (eater, restaurant, order, id) => {
     this.updateOrder(order);
     this.props.navigation.navigate("AfterArrival", {
       eater: eater,
       restaurant: restaurant,
-      order: order
+      order: order,
+      id: id
     });
   };
   render() {
@@ -67,10 +70,17 @@ export default class PickingUp extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    const id = this.props.navigation.getParam("id");
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
-          {item.name + " " + item.type + " $ " + item.price}
+          {item.count +
+            " " +
+            item.name +
+            " " +
+            item.type +
+            ": $" +
+            item.price.toFixed(2)}
         </Text>
       );
     });
@@ -255,20 +265,58 @@ export default class PickingUp extends React.Component {
                   <Text style={styles.category}>Order</Text>
                   {/* <Text style={styles.text}>2 Items:</Text> */}
                   {itemList}
-                  <Text style={styles.text}>{"$" + order.subtotal}</Text>
+                  <Text style={styles.text}>
+                    {"Total Price: $" + order.subtotal.toFixed(2)}
+                  </Text>
                 </View>
               </View>
             </ScrollView>
           </View>
         </SlidingUpPanel>
         <TouchableOpacity
-          onPress={() => this.afterArriving(eater, restaurant, order)}
+          onPress={() => this.afterArriving(eater, restaurant, order, id)}
           style={styles.button}
         >
           {/* <Block row> */}
           {/* <Icon name="right" family="AntDesign" size={20} color="white" /> */}
           <Text style={{ color: "white", fontSize: 25 }}>After arrival</Text>
           {/* </Block> */}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ position: "absolute", right: 15, top: 4 }}
+          onPress={() => {
+            this.props.navigation.navigate("MyOrders", {
+              navIndex: 0,
+              id: id,
+              ident: 1
+            });
+          }}
+        >
+          <Block
+            middle
+            style={{
+              shadowColor: "black",
+              shadowOffset: { width: 0, height: 2 },
+              shadowRadius: 4,
+              shadowOpacity: 0.1,
+              elevation: 2,
+              borderRadius: 10,
+              height: 85,
+              aspectRatio: 0.8,
+              backgroundColor: "white"
+            }}
+          >
+            <Icon
+              name="text-document"
+              family="Entypo"
+              size={50}
+              color="#5E72E4"
+            />
+            <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
+              Orders
+            </Text>
+          </Block>
         </TouchableOpacity>
       </View>
     );

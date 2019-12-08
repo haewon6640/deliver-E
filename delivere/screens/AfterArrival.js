@@ -5,13 +5,12 @@ import {
   StyleSheet,
   Text,
   Dimensions,
-  Image,
   TouchableOpacity,
-  Animated,
-  FlatList
+  FlatList,
+  Button
 } from "react-native";
-import SlidingUpPanel from "rn-sliding-up-panel";
-import { Button, Block, Icon, Checkbox } from "galio-framework";
+import { Checkbox, Block, Icon } from "galio-framework";
+import { style } from "../constants/Styles";
 import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
 import firebase from "../components/firebase";
@@ -27,12 +26,13 @@ export default class AfterArrival extends React.Component {
     });
   }
 
-  afterPickUp = (eater, restaurant, order) => {
+  afterPickUp = (eater, restaurant, order, id) => {
     this.updateOrder(order);
     this.props.navigation.navigate("Delivering", {
       eater: eater,
       restaurant: restaurant,
-      order: order
+      order: order,
+      id: id
     });
   };
 
@@ -41,24 +41,51 @@ export default class AfterArrival extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    const id = this.props.navigation.getParam("id");
+    const totalCount = order["items"].reduce((total, item) => {
+      return total + item.count;
+    }, 0);
 
     const DATA = [
       { text1: "Pickup By", text2: "3:22PM", text3: "", key: "1" },
       { text1: "Customer", text2: eater.name, text3: "", key: "2" },
       {
         text1: "Order Details",
-        text2: "2 Items",
-        text3: "$ " + order.subtotal,
+        text2: totalCount + " items",
+        text3: "$ " + order.subtotal.toFixed(2),
         key: "3"
       }
     ];
 
+    const itemList = order["items"].map((item, j) => {
+      return (
+        <Checkbox
+          style={{
+            height: 70,
+            alignItems: "center",
+            borderBottomWidth: 1,
+            borderBottomColor: "#c9bfbf"
+          }}
+          key={j}
+          color="#466199"
+          labelStyle={styles.text}
+          label={
+            item.count +
+            " " +
+            item.name +
+            " " +
+            item.type +
+            ": $" +
+            item.price.toFixed(2)
+          }
+        />
+      );
+    });
+
     return (
       <View style={styles.container}>
         <View style={{ height: 0.7 * height }}>
-          <ScrollView
-          // contentContainerStylecontentContainerStyle={{flexGrow: 1, justifyContent: 'space-between'}}
-          >
+          <ScrollView>
             <FlatList
               data={DATA}
               renderItem={({ item }) => (
@@ -77,33 +104,52 @@ export default class AfterArrival extends React.Component {
               )}
             />
             <Text style={[styles.category, { marginTop: 30 }]}>Checklist</Text>
-            <Checkbox
-              style={{
-                height: 70,
-                alignItems: "center",
-                borderBottomWidth: 1,
-                borderBottomColor: "#c9bfbf"
-              }}
-              color="#466199"
-              labelStyle={styles.text}
-              label="1 Buffalo Bill Taco"
-            />
-            <Checkbox
-              style={{ height: 70, alignItems: "center" }}
-              color="#466199"
-              labelStyle={styles.text}
-              label="1 Tombstone Chicken Taco"
-            />
+            {itemList}
           </ScrollView>
         </View>
         <TouchableOpacity
-          onPress={() => this.afterPickUp(eater, restaurant, order)}
+          onPress={() => this.afterPickUp(eater, restaurant, order, id)}
           style={styles.button}
         >
           {/* <Block row> */}
           {/* <Icon name="right" family="AntDesign" size={20} color="white" /> */}
           <Text style={{ color: "white", fontSize: 25 }}>After pickup</Text>
           {/* </Block> */}
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{ position: "absolute", right: 15, top: 4 }}
+          onPress={() => {
+            this.props.navigation.navigate("MyOrders", {
+              navIndex: 1,
+              id: id,
+              ident: 1
+            });
+          }}
+        >
+          <Block
+            middle
+            style={{
+              shadowColor: "black",
+              shadowOffset: { width: 0, height: 2 },
+              shadowRadius: 4,
+              shadowOpacity: 0.1,
+              elevation: 2,
+              borderRadius: 10,
+              height: 85,
+              aspectRatio: 0.8,
+              backgroundColor: "white"
+            }}
+          >
+            <Icon
+              name="text-document"
+              family="Entypo"
+              size={50}
+              color="#5E72E4"
+            />
+            <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
+              Orders
+            </Text>
+          </Block>
         </TouchableOpacity>
       </View>
     );
