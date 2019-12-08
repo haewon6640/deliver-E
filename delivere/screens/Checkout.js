@@ -15,6 +15,7 @@ import normalize from "react-native-normalize";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
+import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();
@@ -73,7 +74,7 @@ export default class Checkout extends React.Component {
           <ScrollView>
             <Block style={styles.container}>
               <Text style={styles.name}>Checkout</Text>
-              <Text style={styles.category}>Delivery Details</Text>
+              <Text style={[styles.category, {marginBottom: 10}]}>Delivery Details</Text>
               {/* <Image source={require("../assets/map.png")} style={{
             alignSelf: 'center',
             flex: 1,
@@ -182,7 +183,7 @@ export default class Checkout extends React.Component {
                 }
                 color="#5E72E4"
                 shadowless
-                style={{ alignSelf: "center", marginTop: 20 }}
+                style={{ alignSelf: "center", marginTop: 20, marginBottom: 10 }}
               >
                 Place Order
               </Button>
@@ -196,7 +197,6 @@ export default class Checkout extends React.Component {
               height: 0.5 * height,
               width: 0.8 * width,
               backgroundColor: "white",
-              borderWidth: 1
             }}
           >
             <Block row>
