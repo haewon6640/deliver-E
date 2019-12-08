@@ -28,7 +28,7 @@ export default class ProgTrack extends React.Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     var orderId = this.props.navigation.getParam("orderId");
     listen = dbh
       .collection("Order")
@@ -36,13 +36,6 @@ export default class ProgTrack extends React.Component {
       .onSnapshot(
         function(doc) {
           prog = doc.data().progress;
-          if (prog == 0.75) {
-            this.setState({
-              progress: prog,
-              message: "Heading to you",
-              time: "4 min"
-            });
-          }
           if (prog == 0.25) {
             this.setState({
               progress: prog,
@@ -57,11 +50,18 @@ export default class ProgTrack extends React.Component {
               time: "5-10 min"
             });
           }
+          if (prog == 0.75) {
+            this.setState({
+              progress: prog,
+              message: "Heading to you",
+              time: "4 min"
+            });
+          }
         }.bind(this)
       );
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     listen();
   }
 
@@ -76,6 +76,13 @@ export default class ProgTrack extends React.Component {
           progress={this.state.progress}
           message={this.state.message}
           time={this.state.time}
+        />
+        <Button
+          onPress={() =>
+            this.props.navigation.navigate("Rating", {
+              orderId: this.props.navigation.getParam("orderId")
+            })
+          }
         />
       </View>
     );

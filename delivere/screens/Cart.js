@@ -33,8 +33,8 @@ export default class Cart extends React.Component {
     };
   }
   concatString = str => {
-    if (str.length > 21) {
-      str = str.substring(0, 19) + "...";
+    if (str.length > 20) {
+      str = str.substring(0, 17) + "...";
     }
     return str;
   };
@@ -173,7 +173,9 @@ export default class Cart extends React.Component {
                     deliveryFee: this.state.deliveryFee,
                     progress: 0.25,
                     tip: this.state.tip,
-                    instructions: this.state.instructions
+                    instructions: this.state.instructions,
+                    isAccepted: false,
+                    runnerEmail: ""
                   }
                 })
               }

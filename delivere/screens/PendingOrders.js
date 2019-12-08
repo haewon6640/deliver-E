@@ -19,6 +19,8 @@ import Restaurant from "../backend/Restaurant";
 import Eater from "../backend/Eater";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import Order from "../backend/Order";
+import Runner from "../backend/Runner";
 const dbh = firebase.firestore();
 let orderList;
 
@@ -59,7 +61,11 @@ export default class PendingOrders extends React.Component {
     this.setState({ acceptVisible: !this.state.acceptVisible });
   };
 
-  checkToAccept = (order, key) => {
+  resetOrderState = async () => {
+    newOrders = await new Order().queryUnpickedOrders();
+    this.setState({ orders: newOrders });
+  };
+  checkToAccept = async (order, key) => {
     this.setState({ acceptCount: ++this.state.acceptCount });
     if (this.state.acceptCount > 4) {
       alert("Limit of 4 orders at a time");
@@ -69,34 +75,34 @@ export default class PendingOrders extends React.Component {
       .collection("Order")
       .doc(order.oid)
       .get()
-      .then(doc => {
-        if (doc.data().isAccepted) {
-          alert("Order taken by another runner");
-          let array = [...this.state.orders];
-          array.splice(key, 1);
-          this.setState({ orders: array });
-          navCheck = false;
-        } else {
-          this.acceptPopup();
-          this.setState({ order: order });
-          this.setState({ key: key });
-        }
-        // this.props.navigation.navigate("AcceptPopup", { order: order, key: key})
-      })
+      .then(
+        function(doc) {
+          if (doc.data().isAccepted) {
+            this.resetOrderState();
+            navCheck = false;
+            alert("Order taken by another runner");
+          } else {
+            this.acceptPopup();
+            this.setState({ order: order });
+            this.setState({ key: key });
+          }
+          // this.props.navigation.navigate("AcceptPopup", { order: order, key: key})
+        }.bind(this)
+      )
       .catch(err => {
         alert(err.toString());
       });
   };
 
-  editList = (order, key) => {
+  editList = async (order, key) => {
     this.state.acceptedOrders.push(order);
     var orderRef = dbh.collection("Order").doc(order.oid);
-    // orderRef.update({
-    //   isAccepted: true
-    // })
-    let array = [...this.state.orders];
-    array.splice(key, 1);
-    this.setState({ orders: array });
+    const runEmail = await new Runner().getCurrentRunnerEmail();
+    orderRef.update({
+      isAccepted: true,
+      runnerEmail: runEmail
+    });
+    this.resetOrderState();
   };
 
   render() {
