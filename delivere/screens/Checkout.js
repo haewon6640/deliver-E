@@ -19,6 +19,7 @@ import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 import Eater from "../backend/Eater";
+import GooglePlacesAutocomplete from "react-native-google-places-autocomplete";
 const dbh = firebase.firestore();
 const { width, height } = Dimensions.get("window");
 let map;
@@ -27,7 +28,8 @@ export default class Checkout extends React.Component {
   state = {
     showInstructions: false,
     location: null,
-    errorMessage: null
+    errorMessage: null,
+    locationVisible: false
   };
 
   componentWillMount() {
@@ -44,11 +46,11 @@ export default class Checkout extends React.Component {
     let loc = await Location.getCurrentPositionAsync({});
     this.setState({ location: loc });
   };
+
   async addOrder(order) {
     const x = new Eater();
     const eater = await x.getCurrentEater();
     order["date"] = new Date();
-    alert(JSON.stringify(eater));
     order["eaterEmail"] = eater.email;
     order["eaterLocation"] = eater.currentAddress;
     dbh
@@ -71,6 +73,70 @@ export default class Checkout extends React.Component {
       );
   }
 
+  addAddress = address => {
+    firebase.auth().onAuthStateChanged(
+      function(user) {
+        if (user) {
+          db.collection("Eater")
+            .doc(user.email)
+            .update({
+              currentAddress: address
+            });
+          alert("Location Updated!");
+        } else {
+          alert("You are not signed in.");
+          // No user is signed in.
+          return;
+        }
+      }.bind(this)
+    );
+  };
+  renderGooglePlaceAutocomplete = () => {
+    return (
+      <GooglePlacesAutocomplete
+        placeholder="Enter Location"
+        minLength={2}
+        autoFocus={false}
+        returnKeyType={"search"}
+        listViewDisplayed="auto"
+        fetchDetails={true}
+        renderDescription={row => row.description || row.vicinity}
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          alert(JSON.stringify(details.geometry));
+          this.addAddress(details.geometry.location);
+        }}
+        getDefaultValue={() => ""}
+        query={{
+          // available options: https://developers.google.com/places/web-service/autocomplete
+          key: "AIzaSyC_WFbvnxPmeRXf9ZypoddKN5jZ9ZT6B6M",
+          language: "en", // language of the results
+          types: "address" // default: 'geocode'
+        }}
+        nearbyPlacesAPI="None"
+        styles={{
+          textInputContainer: {
+            backgroundColor: "rgba(0,0,0,0)",
+            borderTopWidth: 0,
+            borderBottomWidth: 0,
+            height: 60
+          },
+          textInput: {
+            marginLeft: 0,
+            marginRight: 0,
+            height: 45,
+            color: "#5d5d5d",
+            fontSize: normalize(16)
+          },
+          predefinedPlacesDescription: {
+            color: "#1faadb"
+          }
+        }}
+        currentLocation={true}
+        currentLocationLabel="Current Location"
+      ></GooglePlacesAutocomplete>
+    );
+  };
   render() {
     const { navigation } = this.props;
     var totalPrice = navigation.getParam("totalPrice");
@@ -104,30 +170,30 @@ export default class Checkout extends React.Component {
               <Text style={[styles.category, { marginBottom: 10 }]}>
                 Delivery Details
               </Text>
-              {/* <Image source={require("../assets/map.png")} style={{
-            alignSelf: 'center',
-            flex: 1,
-            aspectRatio: 1.2, 
-            resizeMode: 'contain'}}
-          /> */}
               {map}
-              <Block row>
-                <Text
-                  style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}
-                >
-                  Location
-                </Text>
-                <Text style={{ position: "absolute", right: 50, fontSize: 17 }}>
-                  White Hall
-                </Text>
-                <Icon
-                  style={{ position: "absolute", right: 30 }}
-                  name="right"
-                  family="AntDesign"
-                  size={20}
-                  color="#5E72E4"
-                />
-              </Block>
+              <TouchableOpacity
+                onPress={() => this.setState({ locationVisible: true })}
+              >
+                <Block row>
+                  <Text
+                    style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}
+                  >
+                    Location
+                  </Text>
+                  <Text
+                    style={{ position: "absolute", right: 50, fontSize: 17 }}
+                  >
+                    White Hall
+                  </Text>
+                  <Icon
+                    style={{ position: "absolute", right: 30 }}
+                    name="right"
+                    family="AntDesign"
+                    size={20}
+                    color="#5E72E4"
+                  />
+                </Block>
+              </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => this.setState({ showInstructions: true })}
               >
@@ -259,6 +325,44 @@ export default class Checkout extends React.Component {
               {instructions}
             </Text>
           </Block>
+        </Popup>
+
+        <Popup
+          visible={this.state.locationVisible}
+          // addAddress={this.addAddress}
+          style="full"
+        >
+          <TouchableOpacity onPress={this.locationPopup}>
+            <Icon
+              style={{
+                position: "absolute",
+                left: width * 0.05,
+                marginTop: height * 0.06
+              }}
+              name="close"
+              family="AntDesign"
+              size={30}
+              color="#466199"
+            />
+          </TouchableOpacity>
+          <Block
+            center
+            style={{ paddingTop: height * 0.06, marginBottom: height * 0.02 }}
+          >
+            <Text style={{ fontSize: 20, color: "#466199" }}>Edit Address</Text>
+          </Block>
+          <Block style={{ backgroundColor: "#ECECEC", height: 10 }} />
+          <Block row style={{ alignItems: "center" }}>
+            <Icon
+              style={{ marginHorizontal: width * 0.05 }}
+              name="search1"
+              family="AntDesign"
+              size={30}
+              color="#466199"
+            />
+            {this.renderGooglePlaceAutocomplete()}
+          </Block>
+          <Block style={{ backgroundColor: "#ECECEC", height: 10 }} />
         </Popup>
       </View>
     );

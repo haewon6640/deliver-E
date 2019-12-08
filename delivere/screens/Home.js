@@ -303,22 +303,6 @@ export default class Home extends React.Component {
             />
           </Block>
           <Block style={{ backgroundColor: "#ECECEC", height: 10 }} />
-          <Block row style={{ marginTop: 20, alignItems: "center" }}>
-            <Icon
-              style={{ marginHorizontal: width * 0.05 }}
-              name="map-pin"
-              family="Feather"
-              size={30}
-              color="#5E72E4"
-            />
-            <Block>
-              <Text style={{ fontSize: normalize(16), color: "#5E72E4" }}>
-                {"Current Location\n" +
-                  "White Hall 208\n" +
-                  "301 Dowman Dr, Atlanta, GA 30307"}
-              </Text>
-            </Block>
-          </Block>
         </Popup>
       </View>
     );

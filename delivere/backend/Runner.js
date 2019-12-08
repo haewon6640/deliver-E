@@ -2,13 +2,13 @@ import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();
 
-class Eater {
-  callEater() {
+class Runner {
+  callRunner() {
     return new Promise(function(resolve, reject) {
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           dbh
-            .collection("Eater")
+            .collection("Runner")
             .doc(user.email)
             .get()
             .then(function(doc) {
@@ -23,30 +23,30 @@ class Eater {
     });
   }
 
-  async getCurrentEater() {
-    return await this.callEater().then(user => {
+  async getCurrentRunner() {
+    return await this.callRunner().then(user => {
       return user;
     });
   }
-  async getCurrentEaterEmail() {
-    return await this.callEater().then(user => {
-      return user.eail;
+  async getCurrentRunnerEmail() {
+    return await this.callRunner().then(user => {
+      return user.email;
     });
   }
 
-  getEaterfromEmail = async email => {
-    var eater = {};
+  getRunnerfromEmail = async email => {
+    var runner = {};
     await dbh
-      .collection("Eater")
+      .collection("Runner")
       .doc(email)
       .get()
       .then(function(doc) {
         if (doc.exists) {
-          eater = doc.data();
+          runner = doc.data();
         }
       })
       .catch(error => alert(error.toString()));
-    return eater;
+    return runner;
   };
 }
-export default Eater;
+export default Runner;
