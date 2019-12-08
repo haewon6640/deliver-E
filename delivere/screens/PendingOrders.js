@@ -98,6 +98,7 @@ export default class PendingOrders extends React.Component {
     this.state.acceptedOrders.push(order);
     var orderRef = dbh.collection("Order").doc(order.oid);
     const runEmail = await new Runner().getCurrentRunnerEmail();
+    console.log("Hi");
     orderRef.update({
       isAccepted: true,
       runnerEmail: runEmail
@@ -125,7 +126,7 @@ export default class PendingOrders extends React.Component {
                   }}
                 >
                   <Text style={style.category}>{order.rName}</Text>
-                  {/* <Text style={style.text}>{order.location}</Text> */}
+                  <Text style={style.text}>{order.oid}</Text>
                 </TouchableOpacity>
               );
           })}

@@ -64,7 +64,7 @@ const MainStack = createStackNavigator(
     Rating: Rating
   },
   {
-    initialRouteName: "RunHome",
+    // initialRouteName: "Intro",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,

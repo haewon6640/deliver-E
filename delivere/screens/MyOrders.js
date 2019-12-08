@@ -34,12 +34,6 @@ export default class MyOrders extends React.Component {
     ]
   };
 
-  componentDidMount() {}
-
-  componentWillUnmount() {
-    this.focusListener.remove();
-  }
-
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
@@ -108,7 +102,7 @@ export default class MyOrders extends React.Component {
           onPress={() => this.queryPickupInfo(order.oid)}
         >
           <Text style={style.category}>{order.rName}</Text>
-          {/* <Text style={styles.text}>{order.location}</Text> */}
+          <Text style={style.text}>{order.oid}</Text>
         </TouchableOpacity>
       );
     });
