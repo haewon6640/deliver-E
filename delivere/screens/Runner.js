@@ -56,7 +56,7 @@ class Runner extends React.Component {
             };
             dbh
               .collection("Runner")
-              .doc(email)
+              .doc(user.email)
               .set(curUser);
             this.props.navigation.navigate("RunHome");
           } else {

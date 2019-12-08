@@ -36,9 +36,7 @@ export default class MyOrders extends React.Component {
 
   componentDidMount() {}
 
-  componentWillUnmount() {
-    this.focusListener.remove();
-  }
+  componentWillUnmount() {}
 
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;

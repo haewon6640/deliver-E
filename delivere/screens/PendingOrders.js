@@ -40,13 +40,20 @@ export default class PendingOrders extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      orders: this.props.navigation.getParam("orders"),
+      valid: false,
+      orders: [
+        {
+          oid: "",
+          rName: ""
+        }
+      ],
       acceptedOrders: [],
       ids: [],
       acceptCount: 0,
       order: {},
       key: null,
-      acceptVisible: false
+      acceptVisible: false,
+      runEmail: ""
     };
     this.editList = this.editList.bind(this);
     this.checkToAccept = this.checkToAccept.bind(this);
@@ -82,9 +89,8 @@ export default class PendingOrders extends React.Component {
             navCheck = false;
             alert("Order taken by another runner");
           } else {
+            this.setState({ order: order, key: key });
             this.acceptPopup();
-            this.setState({ order: order });
-            this.setState({ key: key });
           }
           // this.props.navigation.navigate("AcceptPopup", { order: order, key: key})
         }.bind(this)
@@ -97,6 +103,7 @@ export default class PendingOrders extends React.Component {
   editList = async (order, key) => {
     this.state.acceptedOrders.push(order);
     var orderRef = dbh.collection("Order").doc(order.oid);
+
     const runEmail = await new Runner().getCurrentRunnerEmail();
     orderRef.update({
       isAccepted: true,
@@ -110,6 +117,9 @@ export default class PendingOrders extends React.Component {
     // const totalCount = this.state.order["items"].reduce((total, item) => {
     //   return total + item.count;
     // }, 0);
+    if (!this.state.valid) {
+      this.resetOrderState();
+    }
     return (
       <View style={{ flex: 1 }}>
         <ScrollView>
