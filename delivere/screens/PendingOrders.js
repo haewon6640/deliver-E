@@ -60,6 +60,10 @@ export default class PendingOrders extends React.Component {
     this.acceptPopup = this.acceptPopup.bind(this);
   }
 
+  componentDidMount() {}
+
+  componentWillUnmount() {}
+ 
   setIds = Ids => {
     this.setState({ ids: Ids });
   };
@@ -70,7 +74,7 @@ export default class PendingOrders extends React.Component {
 
   resetOrderState = async () => {
     newOrders = await new Order().queryUnpickedOrders();
-    this.setState({ orders: newOrders });
+    this.setState({ orders: newOrders, valid: true });
   };
   checkToAccept = async (order, key) => {
     this.setState({ acceptCount: ++this.state.acceptCount });
