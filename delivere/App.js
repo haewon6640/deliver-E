@@ -50,10 +50,10 @@ const MainStack = createStackNavigator(
     PickingUp: PickingUp,
     AfterArrival: AfterArrival,
     Delivering: Delivering,
-    AddSubscription: AddSubscription,
+    AddSubscription: AddSubscription
   },
   {
-    initialRouteName: "RunHome",
+    initialRouteName: "Home",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,
@@ -73,7 +73,7 @@ const RootStack = createStackNavigator(
   {
     mode: "modal",
     headerMode: "none",
-    transparentCard: true,
+    transparentCard: true
   }
 );
 
@@ -81,7 +81,7 @@ const RootStack = createStackNavigator(
 //   {
 //     Home: {
 //       screen: RootStack,
-//       navigationOptions: 
+//       navigationOptions:
 //     }
 
 //     Profile: Profile
