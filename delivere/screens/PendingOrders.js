@@ -37,8 +37,15 @@ let orderList;
 export default class PendingOrders extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {orders: this.props.navigation.getParam("orders"), acceptedOrders: [], ids: [], acceptCount: 0,
-      order: {}, key: null, acceptVisible: false};
+    this.state = {
+      orders: this.props.navigation.getParam("orders"),
+      acceptedOrders: [],
+      ids: [],
+      acceptCount: 0,
+      order: {},
+      key: null,
+      acceptVisible: false
+    };
     this.editList = this.editList.bind(this);
     this.checkToAccept = this.checkToAccept.bind(this);
     this.acceptPopup = this.acceptPopup.bind(this);
@@ -69,13 +76,12 @@ export default class PendingOrders extends React.Component {
           array.splice(key, 1);
           this.setState({ orders: array });
           navCheck = false;
-        }
-        else{
+        } else {
           this.acceptPopup();
-          this.setState({order: order});
-          this.setState({key: key});
+          this.setState({ order: order });
+          this.setState({ key: key });
         }
-          // this.props.navigation.navigate("AcceptPopup", { order: order, key: key})
+        // this.props.navigation.navigate("AcceptPopup", { order: order, key: key})
       })
       .catch(err => {
         alert(err.toString());
@@ -95,9 +101,7 @@ export default class PendingOrders extends React.Component {
 
   render() {
     const nav = this.props.navigation;
-    const totalCount = order["items"].reduce((total,item) => {
-      return total + item.count
-    }, 0);
+    const totalCount = this.state.order["items"];
     return (
       <View style={{ flex: 1 }}>
         <ScrollView>
@@ -140,15 +144,16 @@ export default class PendingOrders extends React.Component {
               <Text style={style.whiteText}>View Accepted Orders</Text>
             </Block>
           </TouchableOpacity>
-          <Popup
-            visible = {this.state.acceptVisible}
-            style = "small"
-          >
-            <AcceptPopup order={this.state.order} id={this.state.key} 
-              acceptPopup={this.acceptPopup} editList={this.editList}/>
+          <Popup visible={this.state.acceptVisible} style="small">
+            <AcceptPopup
+              order={this.state.order}
+              id={this.state.key}
+              acceptPopup={this.acceptPopup}
+              editList={this.editList}
+            />
           </Popup>
-        </Block>    
-      </View>  
+        </Block>
+      </View>
     );
   }
 }
