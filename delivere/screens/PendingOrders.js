@@ -101,9 +101,9 @@ export default class PendingOrders extends React.Component {
 
   render() {
     const nav = this.props.navigation;
-    const totalCount = this.state.order["items"].reduce((total, item) => {
-      return total + item.count;
-    }, 0);
+    // const totalCount = this.state.order["items"].reduce((total, item) => {
+    //   return total + item.count;
+    // }, 0);
     return (
       <View style={{ flex: 1 }}>
         <ScrollView>

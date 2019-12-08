@@ -62,7 +62,7 @@ const MainStack = createStackNavigator(
     AcceptPopup: AcceptPopup
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Intro",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,
