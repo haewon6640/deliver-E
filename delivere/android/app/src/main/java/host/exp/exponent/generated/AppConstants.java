@@ -14,7 +14,7 @@ public class AppConstants {
   public static final String VERSION_NAME = "1.2.0";
   public static String INITIAL_URL = "exp://exp.host/@jto151/deliver-e";
   public static final String SHELL_APP_SCHEME = "exp40138edc1d3d433db097df16fe5c8641";
-  public static final String RELEASE_CHANNEL = "default";
+  public static final String RELEASE_CHANNEL = "test";
   public static boolean SHOW_LOADING_VIEW_IN_SHELL_APP = true;
   public static boolean ARE_REMOTE_UPDATES_ENABLED = true;
   public static final List<Constants.EmbeddedResponse> EMBEDDED_RESPONSES;
@@ -23,9 +23,12 @@ public class AppConstants {
   static {
     List<Constants.EmbeddedResponse> embeddedResponses = new ArrayList<>();
 
-    // ADD EMBEDDED RESPONSES HERE
-    // START EMBEDDED RESPONSES
-    // END EMBEDDED RESPONSES
+    
+        // ADD EMBEDDED RESPONSES HERE
+        // START EMBEDDED RESPONSES
+        embeddedResponses.add(new Constants.EmbeddedResponse("https://exp.host/@jto151/deliver-e", "assets://shell-app-manifest.json", "application/json"));
+        embeddedResponses.add(new Constants.EmbeddedResponse("https://d1wp6m56sqw74a.cloudfront.net/%40jto151%2Fdeliver-e%2F1.2.0%2F346cb6033b1b94a340f92ff6fe3420be-34.0.0-android.js", "assets://shell-app.bundle", "application/javascript"));
+        // END EMBEDDED RESPONSES
     EMBEDDED_RESPONSES = embeddedResponses;
   }
 
