@@ -18,6 +18,7 @@ import * as Permissions from "expo-permissions";
 import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import Eater from "../backend/Eater";
 const dbh = firebase.firestore();
 const { width, height } = Dimensions.get("window");
 let map;
@@ -43,11 +44,37 @@ export default class Checkout extends React.Component {
     let loc = await Location.getCurrentPositionAsync({});
     this.setState({ location: loc });
   };
+  async addOrder(order) {
+    const x = new Eater();
+    const eater = await x.getCurrentEater();
+    order["date"] = new Date();
+    alert(JSON.stringify(eater));
+    order["eaterEmail"] = eater.email;
+    order["eaterLocation"] = eater.currentAddress;
+    dbh
+      .collection("Order")
+      .add(order)
+      .then(
+        function(docRef) {
+          docRef.update({
+            oid: docRef.id
+          });
+          this.props.navigation.navigate("ProgTrack", {
+            orderId: docRef.id
+          });
+        }.bind(this)
+      )
+      .catch(
+        function(error) {
+          alert(error.toString());
+        }.bind(this)
+      );
+  }
 
   render() {
     const { navigation } = this.props;
     var totalPrice = navigation.getParam("totalPrice");
-    var orderId = navigation.getParam("orderId");
+    var order = navigation.getParam("order");
     if (this.state.location != null) {
       map = (
         <MapView
@@ -74,7 +101,9 @@ export default class Checkout extends React.Component {
           <ScrollView>
             <Block style={styles.container}>
               <Text style={styles.name}>Checkout</Text>
-              <Text style={[styles.category, {marginBottom: 10}]}>Delivery Details</Text>
+              <Text style={[styles.category, { marginBottom: 10 }]}>
+                Delivery Details
+              </Text>
               {/* <Image source={require("../assets/map.png")} style={{
             alignSelf: 'center',
             flex: 1,
@@ -176,11 +205,7 @@ export default class Checkout extends React.Component {
               </TouchableOpacity>
 
               <Button
-                onPress={() =>
-                  this.props.navigation.navigate("ProgTrack", {
-                    orderId: orderId
-                  })
-                }
+                onPress={() => this.addOrder(order)}
                 color="#5E72E4"
                 shadowless
                 style={{ alignSelf: "center", marginTop: 20, marginBottom: 10 }}
@@ -196,7 +221,7 @@ export default class Checkout extends React.Component {
             style={{
               height: 0.5 * height,
               width: 0.8 * width,
-              backgroundColor: "white",
+              backgroundColor: "white"
             }}
           >
             <Block row>

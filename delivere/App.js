@@ -34,7 +34,7 @@ import normalize from "react-native-normalize";
 import firebase from "./components/firebase";
 import "@firebase/firestore";
 const db = firebase.firestore();
-const {height, width } = Dimensions.get("window");
+const { height, width } = Dimensions.get("window");
 
 const MainStack = createStackNavigator(
   {
@@ -59,7 +59,7 @@ const MainStack = createStackNavigator(
     AfterArrival: AfterArrival,
     Delivering: Delivering,
     AddSubscription: AddSubscription,
-    AcceptPopup: AcceptPopup,
+    AcceptPopup: AcceptPopup
   },
   {
     initialRouteName: "RunHome",
@@ -70,21 +70,25 @@ const MainStack = createStackNavigator(
         borderBottomWidth: 0
       },
       headerTintColor: "#5E72E4"
-    },
+    }
   }
 );
 
-MainStack.navigationOptions = ({navigation}) => {
+MainStack.navigationOptions = ({ navigation }) => {
   let { routeName } = navigation.state.routes[navigation.state.index];
   let navigationOptions = {};
 
-  if (routeName != 'Home' && routeName != 'RunHome' && 
-  routeName != 'Profile' && routeName != 'RunProfile') {
+  if (
+    routeName != "Home" &&
+    routeName != "RunHome" &&
+    routeName != "Profile" &&
+    routeName != "RunProfile"
+  ) {
     navigationOptions.tabBarVisible = false;
   }
 
   return navigationOptions;
-}
+};
 
 const RootStack = createBottomTabNavigator(
   {
@@ -98,27 +102,34 @@ const RootStack = createBottomTabNavigator(
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
         let iconName, familyName;
-        if (routeName === 'Home') {
+        if (routeName === "Home") {
           iconName = "home";
           familyName = "FontAwesome5";
-        } else if (routeName === 'Orders') {
+        } else if (routeName === "Orders") {
           iconName = "receipt";
           familyName = "FontAwesome5";
-        } else if (routeName === 'Profile') {
+        } else if (routeName === "Profile") {
           iconName = "user";
           familyName = "AntDesign";
-        } 
+        }
 
-        return <Icon name={iconName} family={familyName} size={normalize(35)} color={tintColor}/>;
-      },
+        return (
+          <Icon
+            name={iconName}
+            family={familyName}
+            size={normalize(35)}
+            color={tintColor}
+          />
+        );
+      }
     }),
     tabBarOptions: {
-      style: {height: 60, padding: 5},
+      style: { height: 60, padding: 5 },
       activeTintColor: "#5E72E4",
-      inactiveTintColor: 'gray',
-    },
+      inactiveTintColor: "gray"
+    }
   }
-)
+);
 
 // const HomeStack = createStackNavigator(
 //   {

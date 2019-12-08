@@ -32,50 +32,12 @@ export default class Cart extends React.Component {
       instructions: ""
     };
   }
-
-  async addOrder() {
-    const dbh = firebase.firestore();
-    var eater = new Eater();
-    var eaterEmail = await eater.getCurrentEater();
-    var total = (
-      this.state.subtotal +
-      this.state.tax +
-      this.state.deliveryFee +
-      this.state.tip
-    ).toFixed(2);
-
-    dbh
-      .collection("Order")
-      .add({
-        rName: this.state.rName,
-        items: this.state.items,
-        subtotal: this.state.subtotal,
-        tax: this.state.tax,
-        deliveryFee: this.state.deliveryFee,
-        eaterEmail: eaterEmail,
-        date: new Date(),
-        progress: 0.25,
-        tip: this.state.tip,
-        instructions: this.state.instructions
-      })
-      .then(
-        function(docRef) {
-          docRef.update({
-            oid: docRef.id
-          });
-          this.props.navigation.navigate("Checkout", {
-            instructions: this.state.instructions,
-            totalPrice: total,
-            orderId: docRef.id
-          });
-        }.bind(this)
-      )
-      .catch(
-        function(error) {
-          alert(error.toString());
-        }.bind(this)
-      );
-  }
+  concatString = str => {
+    if (str.length > 21) {
+      str = str.substring(0, 19) + "...";
+    }
+    return str;
+  };
 
   render() {
     const { navigation } = this.props;
@@ -84,21 +46,23 @@ export default class Cart extends React.Component {
     this.state.rName = rName;
     this.state.items = items;
     // this.setState((items = items));
-    const List = items.map(function(element, i) {
-      return (
-        <Block key={i}>
-          <Block row>
-            <Text style={styles.text}>{element.count}</Text>
-            <Text style={styles.text}>
-              {element.type + ": " + element.name}
-            </Text>
-            <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              {"$" + element.price.toFixed(2)}
-            </Text>
+    const List = items.map(
+      function(element, i) {
+        return (
+          <Block key={i}>
+            <Block row>
+              <Text style={styles.text}>{element.count}</Text>
+              <Text style={styles.text}>
+                {this.concatString(element.type + ": " + element.name)}
+              </Text>
+              <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
+                {"$" + element.price.toFixed(2)}
+              </Text>
+            </Block>
           </Block>
-        </Block>
-      );
-    });
+        );
+      }.bind(this)
+    );
     items.forEach(element => {
       this.state.subtotal = this.state.subtotal + element.price;
     });
@@ -176,7 +140,7 @@ export default class Cart extends React.Component {
             </Block>
             <Block row>
               <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
-                Order Instructions
+                Delivery Instructions
               </Text>
             </Block>
             <TextInput
@@ -190,17 +154,36 @@ export default class Cart extends React.Component {
                 borderColor: "gray",
                 borderWidth: 1
               }}
-              placeholder="Optional Instructions"
+              placeholder="Provide any extra information that is needed/helpful for the runner's delivery process."
               onSubmitEditing={event => {
                 this.state.subtotal = 0;
                 this.setState({ instructions: event.nativeEvent.text });
               }}
             />
             <Button
-              onPress={() => this.addOrder()}
+              onPress={() =>
+                this.props.navigation.navigate("Checkout", {
+                  instructions: this.state.instructions,
+                  totalPrice: total,
+                  order: {
+                    rName: this.state.rName,
+                    items: this.state.items,
+                    subtotal: this.state.subtotal,
+                    tax: this.state.tax,
+                    deliveryFee: this.state.deliveryFee,
+                    progress: 0.25,
+                    tip: this.state.tip,
+                    instructions: this.state.instructions
+                  }
+                })
+              }
               color="#5E72E4"
               shadowless
-              style={{ alignSelf: "center", marginTop: normalize(30), marginBottom: normalize(10) }}
+              style={{
+                alignSelf: "center",
+                marginTop: normalize(30),
+                marginBottom: normalize(10)
+              }}
             >
               Checkout
             </Button>

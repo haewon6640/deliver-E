@@ -16,6 +16,8 @@ import normalize from "react-native-normalize";
 import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+
 const db = firebase.firestore();
 
 class Header extends React.Component {
@@ -64,7 +66,6 @@ export default class Home extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
-      tabBarVisible: true,
       headerTitle: (
         <Header
           {...params}
@@ -122,6 +123,7 @@ export default class Home extends React.Component {
             .update({
               currentAddress: address
             });
+          alert("Location Updated!");
         } else {
           alert("You are not signed in.");
           // No user is signed in.
@@ -178,40 +180,6 @@ export default class Home extends React.Component {
     );
     // this.props.navigation.navigate("Menu");
   };
-
-  // queryProfileInfo = () => {
-  //   firebase.auth().onAuthStateChanged(
-  //     function(user) {
-  //       if (user) {
-  //         db.collection("Eater")
-  //           .doc(user.email)
-  //           .get()
-  //           .then(
-  //             function(doc) {
-  //               if (doc.exists) {
-  //                 const curUser = {
-  //                   uid: doc.data().uid,
-  //                   email: doc.data().email,
-  //                   name: doc.data().name,
-  //                   phoneNumber: doc.data().phoneNumber
-  //                 };
-  //                 this.props.navigation.navigate("Profile", {
-  //                   user: curUser
-  //                 });
-  //               } else {
-  //                 alert("There was an issue fetching data from the server.");
-  //               }
-  //             }.bind(this)
-  //           );
-  //       } else {
-  //         alert("You are not signed in.");
-  //         // No user is signed in.
-  //         return;
-  //       }
-  //     }.bind(this)
-  //   );
-  // };
-
   render() {
     return (
       <View style={styles.container}>
@@ -252,53 +220,104 @@ export default class Home extends React.Component {
           </TouchableOpacity>
           <Icon name="search1" family="AntDesign" size={35} color="#5E72E4" />
           <Icon name="profile" family="AntDesign" size={35} color="#5E72E4" />
-          <TouchableOpacity onPress={() => this.queryProfileInfo()}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("SetEaterLocation")}
+          >
             <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
         </Block> */}
         <Popup
-          visible = {this.state.locationVisible}
+          visible={this.state.locationVisible}
           // addAddress={this.addAddress}
-          style ="full"
+          style="full"
         >
           <TouchableOpacity onPress={this.locationPopup}>
             <Icon
-              style={{ position: "absolute", left: width*0.05, marginTop: height*0.06}}
+              style={{
+                position: "absolute",
+                left: width * 0.05,
+                marginTop: height * 0.06
+              }}
               name="close"
               family="AntDesign"
               size={30}
               color="#466199"
             />
           </TouchableOpacity>
-          <Block center style={{paddingTop: height*0.06, marginBottom: height*0.02}}>
-            <Text style={{fontSize: 20, color:"#466199"}}>Edit Address</Text>
+          <Block
+            center
+            style={{ paddingTop: height * 0.06, marginBottom: height * 0.02 }}
+          >
+            <Text style={{ fontSize: 20, color: "#466199" }}>Edit Address</Text>
           </Block>
-          <Block style={{backgroundColor: '#ECECEC', height: 10}} />
-          <Block row style={{alignItems: "center"}}>
+          <Block style={{ backgroundColor: "#ECECEC", height: 10 }} />
+          <Block row style={{ alignItems: "center" }}>
             <Icon
-              style={{marginHorizontal: width*0.05}}
-             name="search1" family="AntDesign" size={30} color="#466199" />
-            <TextInput style={{ flex: 1,
-              fontSize: normalize(16), color: "#466199",
-              height: 65}}
-              placeholder="Enter your address"
-              onSubmitEditing={event =>{
-                this.addAddress(event.nativeEvent.text);
+              style={{ marginHorizontal: width * 0.05 }}
+              name="search1"
+              family="AntDesign"
+              size={30}
+              color="#466199"
+            />
+            <GooglePlacesAutocomplete
+              placeholder="Enter Location"
+              minLength={2}
+              autoFocus={false}
+              returnKeyType={"search"}
+              listViewDisplayed="auto"
+              fetchDetails={true}
+              renderDescription={row => row.description || row.vicinity}
+              onPress={(data, details = null) => {
+                // 'details' is provided when fetchDetails = true
+                alert(JSON.stringify(details.geometry));
+                this.addAddress(details.geometry.location);
+              }}
+              getDefaultValue={() => ""}
+              query={{
+                // available options: https://developers.google.com/places/web-service/autocomplete
+                key: "AIzaSyC_WFbvnxPmeRXf9ZypoddKN5jZ9ZT6B6M",
+                language: "en", // language of the results
+                types: "address" // default: 'geocode'
+              }}
+              nearbyPlacesAPI="None"
+              styles={{
+                textInputContainer: {
+                  backgroundColor: "rgba(0,0,0,0)",
+                  borderTopWidth: 0,
+                  borderBottomWidth: 0,
+                  height: 60
+                },
+                textInput: {
+                  marginLeft: 0,
+                  marginRight: 0,
+                  height: 45,
+                  color: "#5d5d5d",
+                  fontSize: normalize(16)
+                },
+                predefinedPlacesDescription: {
+                  color: "#1faadb"
                 }
-              }
-            />  
+              }}
+              currentLocation={true}
+              currentLocationLabel="Current Location"
+            />
           </Block>
-          <Block style={{backgroundColor: '#ECECEC', height: 10}} />
-          <Block row style={{marginTop: 20, alignItems: "center"}}>
+          <Block style={{ backgroundColor: "#ECECEC", height: 10 }} />
+          <Block row style={{ marginTop: 20, alignItems: "center" }}>
             <Icon
-              style={{marginHorizontal: width*0.05}}
-             name="map-pin" family="Feather" size={30} color="#5E72E4" />
+              style={{ marginHorizontal: width * 0.05 }}
+              name="map-pin"
+              family="Feather"
+              size={30}
+              color="#5E72E4"
+            />
             <Block>
-              <Text style={{fontSize: normalize(16), color: "#5E72E4"}}>{"Current Location\n"+
-              "White Hall 208\n"+
-              "301 Dowman Dr, Atlanta, GA 30307"}
+              <Text style={{ fontSize: normalize(16), color: "#5E72E4" }}>
+                {"Current Location\n" +
+                  "White Hall 208\n" +
+                  "301 Dowman Dr, Atlanta, GA 30307"}
               </Text>
-            </Block> 
+            </Block>
           </Block>
         </Popup>
       </View>
