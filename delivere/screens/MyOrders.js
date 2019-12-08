@@ -34,6 +34,10 @@ export default class MyOrders extends React.Component {
     ]
   };
 
+  componentDidMount() {}
+
+  componentWillUnmount() {}
+
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
