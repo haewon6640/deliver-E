@@ -53,7 +53,7 @@ const MainStack = createStackNavigator(
     AddSubscription: AddSubscription
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "RunHome",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,

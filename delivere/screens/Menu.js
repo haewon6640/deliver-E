@@ -65,7 +65,7 @@ export default class Menu extends React.Component {
   addList = (name, price, type, count, instruction) => {
     this.state.chosenItems.push({
       name: name,
-      price: price,
+      price: count * price,
       type: type,
       count: count,
       instruction: instruction

@@ -93,7 +93,7 @@ export default class Cart extends React.Component {
               {element.type + ": " + element.name}
             </Text>
             <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-              {"$" + element.price}
+              {"$" + element.price.toFixed(2)}
             </Text>
           </Block>
         </Block>
@@ -133,7 +133,7 @@ export default class Cart extends React.Component {
                 Subtotal
               </Text>
               <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-                {"$" + this.state.subtotal}
+                {"$" + this.state.subtotal.toFixed(2)}
               </Text>
             </Block>
             <Block row>
@@ -141,7 +141,7 @@ export default class Cart extends React.Component {
                 Tax
               </Text>
               <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
-                {"$" + this.state.tax}
+                {"$" + this.state.tax.toFixed(2)}
               </Text>
             </Block>
             <Block row>
@@ -191,9 +191,10 @@ export default class Cart extends React.Component {
                 borderWidth: 1
               }}
               placeholder="(Optional) Instructions"
-              onSubmitEditing={event =>
-                this.setState({ instructions: event.nativeEvent.text })
-              }
+              onSubmitEditing={event => {
+                this.state.subtotal = 0;
+                this.setState({ instructions: event.nativeEvent.text });
+              }}
             />
             <Button
               onPress={() => this.addOrder()}

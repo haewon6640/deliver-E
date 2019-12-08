@@ -42,8 +42,8 @@ export default class AfterArrival extends React.Component {
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
     const id = this.props.navigation.getParam("id");
-    const totalCount = order["items"].reduce((total,item) => {
-      return total + item.count
+    const totalCount = order["items"].reduce((total, item) => {
+      return total + item.count;
     }, 0);
 
     const DATA = [
@@ -52,7 +52,7 @@ export default class AfterArrival extends React.Component {
       {
         text1: "Order Details",
         text2: totalCount + " items",
-        text3: "$ " + order.subtotal,
+        text3: "$ " + order.subtotal.toFixed(2),
         key: "3"
       }
     ];
@@ -69,9 +69,17 @@ export default class AfterArrival extends React.Component {
           key={j}
           color="#466199"
           labelStyle={styles.text}
-          label={item.count + " " + item.name + " " + item.type + ": $" + item.price}
+          label={
+            item.count +
+            " " +
+            item.name +
+            " " +
+            item.type +
+            ": $" +
+            item.price.toFixed(2)
+          }
         />
-       );
+      );
     });
 
     return (
@@ -109,20 +117,39 @@ export default class AfterArrival extends React.Component {
           {/* </Block> */}
         </TouchableOpacity>
         <TouchableOpacity
-          style = {{position: "absolute", right: 15, top: 4,}}
+          style={{ position: "absolute", right: 15, top: 4 }}
           onPress={() => {
-          this.props.navigation.navigate("MyOrders",{navIndex: 1, id: id, ident: 1});
-          }} >
-            <Block middle style =
-            {{ shadowColor: 'black',
+            this.props.navigation.navigate("MyOrders", {
+              navIndex: 1,
+              id: id,
+              ident: 1
+            });
+          }}
+        >
+          <Block
+            middle
+            style={{
+              shadowColor: "black",
               shadowOffset: { width: 0, height: 2 },
               shadowRadius: 4,
               shadowOpacity: 0.1,
               elevation: 2,
-              borderRadius: 10, height: 85, aspectRatio: 0.8, backgroundColor: "white"}}>
-              <Icon name="text-document" family="Entypo" size={50} color="#5E72E4" />
-              <Text style={[style.text,{paddingLeft:0, fontSize: 14}]}>Orders</Text>
-            </Block>
+              borderRadius: 10,
+              height: 85,
+              aspectRatio: 0.8,
+              backgroundColor: "white"
+            }}
+          >
+            <Icon
+              name="text-document"
+              family="Entypo"
+              size={50}
+              color="#5E72E4"
+            />
+            <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
+              Orders
+            </Text>
+          </Block>
         </TouchableOpacity>
       </View>
     );
