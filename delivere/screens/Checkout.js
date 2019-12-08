@@ -18,9 +18,9 @@ import * as Permissions from "expo-permissions";
 import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+const dbh = firebase.firestore();
 import Eater from "../backend/Eater";
 import GooglePlacesAutocomplete from "react-native-google-places-autocomplete";
-const dbh = firebase.firestore();
 const { width, height } = Dimensions.get("window");
 let map;
 

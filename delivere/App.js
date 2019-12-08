@@ -24,6 +24,7 @@ import AfterArrival from "./screens/AfterArrival";
 import Delivering from "./screens/Delivering";
 import AcceptPopup from "./components/AcceptPopup";
 import PastOrders from "./screens/PastOrders";
+import Rating from "./screens/Rating";
 import { GalioProvider } from "galio-framework";
 import { argonTheme } from "./constants";
 import { createAppContainer, createBottomTabNavigator } from "react-navigation";
@@ -59,10 +60,11 @@ const MainStack = createStackNavigator(
     AfterArrival: AfterArrival,
     Delivering: Delivering,
     AddSubscription: AddSubscription,
-    AcceptPopup: AcceptPopup
+    AcceptPopup: AcceptPopup,
+    Rating: Rating
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Rating",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,
