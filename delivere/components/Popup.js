@@ -1,6 +1,9 @@
 import React from "react";
-import { Modal, StyleSheet, Dimensions, View } from "react-native";
-const { width, height } = Dimensions.get("window");
+import { StyleSheet, Dimensions, View, 
+Modal
+} from "react-native";
+import Modal2 from "react-native-modal";
+const { width, height } = Dimensions.get("screen");
 
 export default class Popup extends React.Component {
   constructor(props){
@@ -9,17 +12,27 @@ export default class Popup extends React.Component {
 
   render(){
     style = (this.props.style == "full") ? styles.full : styles.small;
-
-    return(
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={this.props.visible}>
-        <View style={style}>
-          {this.props.children}
-        </View>    
-      </Modal>
-    );
+    if (this.props.style == "full")
+      return(
+        <Modal
+          animationType="slide"
+          visible={this.props.visible}>
+          <View style={style}>
+            {this.props.children}
+          </View>    
+        </Modal>
+      );
+    else
+      return(
+        <Modal2
+          isVisible={this.props.visible}
+          backdropTransitionOutTiming={0}
+          backdropOpacity={0.3}
+          style={style}
+        >
+          {this.props.children}   
+        </Modal2>
+      );
   }
 
 }
@@ -31,7 +44,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   small:{
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   }

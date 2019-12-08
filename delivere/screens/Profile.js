@@ -14,8 +14,8 @@ import { Block, Icon } from "galio-framework";
 import { ImagePicker, Permissions } from 'expo';
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
-
 import firebase from "../components/firebase";
+// let user;
 
 signOut = () => {
   firebase
@@ -36,11 +36,46 @@ signOut = () => {
     );
 };
 
+queryProfileInfo = () => {
+  firebase.auth().onAuthStateChanged(
+    function(user) {
+      if (user) {
+        db.collection("Eater")
+          .doc(user.email)
+          .get()
+          .then(
+            function(doc) {
+              if (doc.exists) {
+                const curUser = {
+                  uid: doc.data().uid,
+                  email: doc.data().email,
+                  name: doc.data().name,
+                  phoneNumber: doc.data().phoneNumber
+                };
+                return curUser;
+              } else {
+                alert("There was an issue fetching data from the server.");
+              }
+            }.bind(this)
+          );
+      } else {
+        alert("You are not signed in.");
+        // No user is signed in.
+        return;
+      }
+    }.bind(this)
+  );
+};
 
 export default class Profile extends React.Component {
   state = {
     image: null
   };
+
+  // componentDidMount(){
+  //   user = queryProfileInfo();
+  //   console.log(user);
+  // }
 
   selectPicture = async () => {
     await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -62,7 +97,7 @@ export default class Profile extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const user = navigation.getParam("user");
+    let user = queryProfileInfo();
     if (user.email.length > 8) {
       user.email = user.email.substring(0, 6) + "...";
     }

@@ -64,6 +64,7 @@ export default class Home extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
+      tabBarVisible: true,
       headerTitle: (
         <Header
           {...params}
@@ -178,38 +179,39 @@ export default class Home extends React.Component {
     // this.props.navigation.navigate("Menu");
   };
 
-  queryProfileInfo = () => {
-    firebase.auth().onAuthStateChanged(
-      function(user) {
-        if (user) {
-          db.collection("Eater")
-            .doc(user.email)
-            .get()
-            .then(
-              function(doc) {
-                if (doc.exists) {
-                  const curUser = {
-                    uid: doc.data().uid,
-                    email: doc.data().email,
-                    name: doc.data().name,
-                    phoneNumber: doc.data().phoneNumber
-                  };
-                  this.props.navigation.navigate("Profile", {
-                    user: curUser
-                  });
-                } else {
-                  alert("There was an issue fetching data from the server.");
-                }
-              }.bind(this)
-            );
-        } else {
-          alert("You are not signed in.");
-          // No user is signed in.
-          return;
-        }
-      }.bind(this)
-    );
-  };
+  // queryProfileInfo = () => {
+  //   firebase.auth().onAuthStateChanged(
+  //     function(user) {
+  //       if (user) {
+  //         db.collection("Eater")
+  //           .doc(user.email)
+  //           .get()
+  //           .then(
+  //             function(doc) {
+  //               if (doc.exists) {
+  //                 const curUser = {
+  //                   uid: doc.data().uid,
+  //                   email: doc.data().email,
+  //                   name: doc.data().name,
+  //                   phoneNumber: doc.data().phoneNumber
+  //                 };
+  //                 this.props.navigation.navigate("Profile", {
+  //                   user: curUser
+  //                 });
+  //               } else {
+  //                 alert("There was an issue fetching data from the server.");
+  //               }
+  //             }.bind(this)
+  //           );
+  //       } else {
+  //         alert("You are not signed in.");
+  //         // No user is signed in.
+  //         return;
+  //       }
+  //     }.bind(this)
+  //   );
+  // };
+
   render() {
     return (
       <View style={styles.container}>
@@ -244,7 +246,7 @@ export default class Home extends React.Component {
           </View>
         </ScrollView>
         {/* {this.state.showViewCart ? vCart : null} */}
-        <Block row space="around" style={styles.footer}>
+        {/* <Block row space="around" style={styles.footer}>
           <TouchableOpacity onPress={() => this.console()}>
             <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
@@ -253,7 +255,7 @@ export default class Home extends React.Component {
           <TouchableOpacity onPress={() => this.queryProfileInfo()}>
             <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
-        </Block>
+        </Block> */}
         <Popup
           visible = {this.state.locationVisible}
           // addAddress={this.addAddress}

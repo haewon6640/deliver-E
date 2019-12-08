@@ -23,10 +23,18 @@ import PickingUp from "./screens/PickingUp";
 import AfterArrival from "./screens/AfterArrival";
 import Delivering from "./screens/Delivering";
 import AcceptPopup from "./components/AcceptPopup";
+import PastOrders from "./screens/PastOrders";
 import { GalioProvider } from "galio-framework";
 import { argonTheme } from "./constants";
 import { createAppContainer, createBottomTabNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import { Text, Dimensions } from "react-native";
+import { Icon } from "galio-framework";
+import normalize from "react-native-normalize";
+import firebase from "./components/firebase";
+import "@firebase/firestore";
+const db = firebase.firestore();
+const {height, width } = Dimensions.get("window");
 
 const MainStack = createStackNavigator(
   {
@@ -51,9 +59,10 @@ const MainStack = createStackNavigator(
     AfterArrival: AfterArrival,
     Delivering: Delivering,
     AddSubscription: AddSubscription,
+    AcceptPopup: AcceptPopup,
   },
   {
-    initialRouteName: "RunHome",
+    initialRouteName: "Intro",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,
@@ -61,35 +70,67 @@ const MainStack = createStackNavigator(
         borderBottomWidth: 0
       },
       headerTintColor: "#5E72E4"
-    }
+    },
   }
 );
 
-const RootStack = createStackNavigator(
+MainStack.navigationOptions = ({navigation}) => {
+  let { routeName } = navigation.state.routes[navigation.state.index];
+  let navigationOptions = {};
+
+  if (routeName != 'Home' && routeName != 'RunHome' && 
+  routeName != 'Profile' && routeName != 'RunProfile') {
+    navigationOptions.tabBarVisible = false;
+  }
+
+  return navigationOptions;
+}
+
+const RootStack = createBottomTabNavigator(
   {
-    Main: MainStack,
-    AcceptPopup: AcceptPopup
+    Home: MainStack,
+    Orders: PastOrders,
+    Profile: Profile
   },
   {
-    mode: "modal",
-    headerMode: "none",
-    transparentCard: true,
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarVisible: true,
+      tabBarIcon: ({ tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName, familyName;
+        if (routeName === 'Home') {
+          iconName = "home";
+          familyName = "FontAwesome5";
+        } else if (routeName === 'Orders') {
+          iconName = "receipt";
+          familyName = "FontAwesome5";
+        } else if (routeName === 'Profile') {
+          iconName = "user";
+          familyName = "AntDesign";
+        } 
+
+        return <Icon name={iconName} family={familyName} size={normalize(35)} color={tintColor}/>;
+      },
+    }),
+    tabBarOptions: {
+      style: {height: 60, padding: 5},
+      activeTintColor: "#5E72E4",
+      inactiveTintColor: 'gray',
+    },
   }
-);
+)
 
-// const BottomTabs = createBottomTabNavigator(
+// const HomeStack = createStackNavigator(
 //   {
-//     Home: {
-//       screen: RootStack,
-//       navigationOptions: 
-//     }
-
-//     Profile: Profile
+//     Main: MainStack,
+//     AcceptPopup: AcceptPopup
 //   },
 //   {
-
+//     mode: "modal",
+//     headerMode: "none",
+//     transparentCard: true,
 //   }
-// )
+// );
 
 const AppContainer = createAppContainer(RootStack);
 

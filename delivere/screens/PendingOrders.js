@@ -13,6 +13,8 @@ import {
 import { Button, Block, Icon } from "galio-framework";
 import { style } from "../constants/Styles"
 const { width, height } = Dimensions.get("window");
+import Popup from "../components/Popup";
+import AcceptPopup from "../components/AcceptPopup";
 import Restaurant from "../backend/Restaurant";
 import Eater from "../backend/Eater";
 import firebase from "../components/firebase";
@@ -36,14 +38,20 @@ export default class PendingOrders extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {orders: this.props.navigation.getParam("orders"), acceptedOrders: [], ids: [], acceptCount: 0};
+    this.state = {orders: this.props.navigation.getParam("orders"), acceptedOrders: [], ids: [], acceptCount: 0,
+      order: {}, key: null, acceptVisible: false};
     this.editList = this.editList.bind(this);
     this.checkToAccept = this.checkToAccept.bind(this);
+    this.acceptPopup = this.acceptPopup.bind(this);
   }
 
   setIds = (Ids) => {
     this.setState({ids: Ids})
   }
+
+  acceptPopup = () => {
+    this.setState({ acceptVisible: !this.state.acceptVisible });
+  };
 
   checkToAccept = (order, key) => {
     this.setState({acceptCount: ++this.state.acceptCount})
@@ -60,8 +68,12 @@ export default class PendingOrders extends React.Component {
           this.setState({orders: array});
           navCheck = false;
         }
-        else
-          this.props.navigation.navigate("AcceptPopup", {onGoBack: this.editList, order: order, key: key})
+        else{
+          this.acceptPopup();
+          this.setState({order: order});
+          this.setState({key: key});
+        }
+          // this.props.navigation.navigate("AcceptPopup", { order: order, key: key})
       })
       .catch(err =>{
         alert(err.toString());
@@ -112,6 +124,13 @@ export default class PendingOrders extends React.Component {
               <Text style={style.whiteText}>View Accepted Orders</Text>
             </Block>
           </TouchableOpacity>
+          <Popup
+            visible = {this.state.acceptVisible}
+            style = "small"
+          >
+            <AcceptPopup order={this.state.order} id={this.state.key} 
+              acceptPopup={this.acceptPopup} editList={this.editList}/>
+          </Popup>
         </Block>    
       </View>  
     );

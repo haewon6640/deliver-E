@@ -10,9 +10,9 @@ import {
 } from "react-native";
 import { Button, Block, Icon } from "galio-framework";
 import normalize from "react-native-normalize";
-// import MapView from "react-native-maps";
-// import * as Location from "expo-location";
-// import * as Permissions from "expo-permissions";
+import MapView from "react-native-maps";
+import * as Location from "expo-location";
+import * as Permissions from "expo-permissions";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();
@@ -25,43 +25,43 @@ export default class Checkout extends React.Component {
     errorMessage: null
   };
 
-  // componentWillMount() {
-  //   this._getLocationAsync();
-  // }
+  componentWillMount() {
+    this._getLocationAsync();
+  }
 
-  // _getLocationAsync = async () => {
-  //   let { status } = await Permissions.askAsync(Permissions.LOCATION);
-  //   if (status !== "granted") {
-  //     this.setState({
-  //       errorMessage: "Permission to access location was denied"
-  //     });
-  //   }
-  //   let loc = await Location.getCurrentPositionAsync({});
-  //   this.setState({ location: loc });
-  // };
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== "granted") {
+      this.setState({
+        errorMessage: "Permission to access location was denied"
+      });
+    }
+    let loc = await Location.getCurrentPositionAsync({});
+    this.setState({ location: loc });
+  };
 
   render() {
     const { navigation } = this.props;
     var totalPrice = navigation.getParam("totalPrice");
     var orderId = navigation.getParam("orderId");
-    // if (this.state.location != null) {
-    //   map = (
-    //     <MapView
-    //       style={{
-    //         height: height * 0.25,
-    //         width: 0.8 * width,
-    //         marginBottom: 5,
-    //         alignSelf: "center"
-    //       }}
-    //       initialRegion={{
-    //         latitude: this.state.location.coords.latitude,
-    //         longitude: this.state.location.coords.longitude,
-    //         latitudeDelta: 0.002,
-    //         longitudeDelta: 0.002
-    //       }}
-    //     />
-    //   );
-    // }
+    if (this.state.location != null) {
+      map = (
+        <MapView
+          style={{
+            height: height * 0.25,
+            width: 0.8 * width,
+            marginBottom: 5,
+            alignSelf: "center"
+          }}
+          initialRegion={{
+            latitude: this.state.location.coords.latitude,
+            longitude: this.state.location.coords.longitude,
+            latitudeDelta: 0.002,
+            longitudeDelta: 0.002
+          }}
+        />
+      );
+    }
     return (
       <ScrollView>
         <Block style={styles.container}>
@@ -73,7 +73,7 @@ export default class Checkout extends React.Component {
             aspectRatio: 1.2, 
             resizeMode: 'contain'}}
           /> */}
-          {/* {map} */}
+          {map}
           <Block row>
             <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
               Location

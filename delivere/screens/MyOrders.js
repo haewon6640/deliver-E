@@ -45,7 +45,8 @@ export default class MyOrders extends React.Component {
   static navigationOptions = ({navigation}) => {
     const { params } = navigation.state;
     return{
-      headerLeft:(<HeaderBackButton {...params} onPress={() => {
+      headerLeft:(<HeaderBackButton tintColor="#5E72E4" backTitleVisible={true}
+        {...params} onPress={() => {
         navigation.state.params.onGoBack(navigation.getParam("idsArr"));
         navigation.goBack();
         }
