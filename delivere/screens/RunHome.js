@@ -34,6 +34,7 @@ export default class RunHome extends React.Component {
       this.props.navigation.navigate("PendingOrders", { orders: orders });
     }
   };
+  
   render() {
     return (
       <ImageBackground
@@ -48,7 +49,7 @@ export default class RunHome extends React.Component {
         >
           <Text style={styles.text}>Start Delivering</Text>
         </Button>
-        <Block style={styles.footer}>
+        {/* <Block style={styles.footer}>
           <Block row space="around">
             <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
             <Icon
@@ -75,7 +76,7 @@ export default class RunHome extends React.Component {
               <Text style={{ color: "#5E72E4" }}>Account</Text>
             </TouchableOpacity>
           </Block>
-        </Block>
+        </Block> */}
         {/* <Block row space="around">
           <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
           <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
@@ -116,6 +117,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   button: {
+    position: "absolute",
+    top: 0.40*height,
+    left: "50%",
+    marginLeft: normalize(-150),
+    marginTop: normalize(-40),
     height: normalize(80),
     width: normalize(300)
   },

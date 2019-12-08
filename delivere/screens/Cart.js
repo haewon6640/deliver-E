@@ -190,7 +190,7 @@ export default class Cart extends React.Component {
                 borderColor: "gray",
                 borderWidth: 1
               }}
-              placeholder="(Optional) Instructions"
+              placeholder="Optional Instructions"
               onSubmitEditing={event => {
                 this.state.subtotal = 0;
                 this.setState({ instructions: event.nativeEvent.text });
@@ -200,7 +200,7 @@ export default class Cart extends React.Component {
               onPress={() => this.addOrder()}
               color="#5E72E4"
               shadowless
-              style={{ alignSelf: "center", marginTop: normalize(80) }}
+              style={{ alignSelf: "center", marginTop: normalize(30), marginBottom: normalize(10) }}
             >
               Checkout
             </Button>

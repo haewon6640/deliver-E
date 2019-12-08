@@ -51,12 +51,18 @@ const { width, height } = Dimensions.get("window");
     height: 0.4 * height,
     width: 0.8 * width,
     backgroundColor: "white",
-    borderWidth: 1,
   },
   smallPopupCont: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  shadow:{
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    shadowOpacity: 0.1,
+    elevation: 2,
   }
  })
   

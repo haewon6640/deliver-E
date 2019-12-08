@@ -13,19 +13,23 @@ import normalize from "react-native-normalize";
 import { style } from "../constants/Styles";
 const { width, height } = Dimensions.get("window");
 
-export default class ModalScreen extends React.Component {
+export default class AcceptPopup extends React.Component {
   // state = {acceptedOrders: []}
 
   render() {
-    const { goBack } = this.props.navigation;
-    const order = this.props.navigation.getParam("order");
-    const key = this.props.navigation.getParam("key");
+    // const { goBack } = this.props.navigation;
+    // const order = this.props.navigation.getParam("order");
+    // const key = this.props.navigation.getParam("key");
+    const order = this.props.order;
+    const id = this.props.id;
 
     return (
-      <View style={style.smallPopupCont}>
-        <View style={style.smallPopup}>
+      // <View style={style.smallPopupCont}>
+        <View
+        style={style.smallPopup}
+        >
           <Block row>
-            <TouchableOpacity onPress={() => goBack()}>
+            <TouchableOpacity onPress={() => this.acceptPopup()}>
               <Icon
                 style={{
                   marginLeft: width * 0.02,
@@ -42,8 +46,10 @@ export default class ModalScreen extends React.Component {
           <Block middle style={{flex: 1,}}>
             <TouchableOpacity
               onPress={() => {
-                this.props.navigation.state.params.onGoBack(order, key);
-                goBack();
+                this.props.editList(order,id);
+                this.props.acceptPopup();
+                // this.props.navigation.state.params.onGoBack(order, key);
+                // goBack();
               }}
               style={{
                 height: 100,
@@ -60,7 +66,7 @@ export default class ModalScreen extends React.Component {
             </TouchableOpacity>
           </Block>
         </View>
-      </View>
+      // </View>
     );
   }
 }

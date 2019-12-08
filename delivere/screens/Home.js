@@ -66,6 +66,7 @@ export default class Home extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
+      tabBarVisible: true,
       headerTitle: (
         <Header
           {...params}
@@ -180,7 +181,6 @@ export default class Home extends React.Component {
     );
     // this.props.navigation.navigate("Menu");
   };
-
   render() {
     return (
       <View style={styles.container}>
@@ -215,7 +215,7 @@ export default class Home extends React.Component {
           </View>
         </ScrollView>
         {/* {this.state.showViewCart ? vCart : null} */}
-        <Block row space="around" style={styles.footer}>
+        {/* <Block row space="around" style={styles.footer}>
           <TouchableOpacity onPress={() => this.console()}>
             <Icon name="home" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
@@ -226,9 +226,12 @@ export default class Home extends React.Component {
           >
             <Icon name="user" family="AntDesign" size={35} color="#5E72E4" />
           </TouchableOpacity>
-        </Block>
-
-        <Popup visible={this.state.locationVisible} style="full">
+        </Block> */}
+        <Popup
+          visible={this.state.locationVisible}
+          // addAddress={this.addAddress}
+          style="full"
+        >
           <TouchableOpacity onPress={this.locationPopup}>
             <Icon
               style={{

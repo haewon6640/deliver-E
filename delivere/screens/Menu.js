@@ -185,16 +185,15 @@ export default class Menu extends React.Component {
           <Block style={{ height: 100 }} />
         </ScrollView>
         <Popup visible={this.state.foodVisible} style="small">
-          <TouchableWithoutFeedback
+          {/* <TouchableWithoutFeedback
             onPress={Keyboard.dismiss}
             accessible={false}
-          >
+          > */}
             <Block
               style={{
                 height: 0.7 * height,
                 width: 0.8 * width,
                 backgroundColor: "white",
-                borderWidth: 1
               }}
             >
               <Block row>
@@ -222,9 +221,11 @@ export default class Menu extends React.Component {
                   width: 0.7 * width,
                   padding: width * 0.05,
                   borderColor: "gray",
-                  borderWidth: 1
+                  borderWidth: 1,
+                  fontSize: 17
                 }}
                 placeholder="Special instructions"
+                placeholderTextColor = "gray"
                 onSubmitEditing={event =>
                   this.setState({ instruction: event.nativeEvent.text })
                 }
@@ -256,7 +257,7 @@ export default class Menu extends React.Component {
                 {addCart}
               </Block>
             </Block>
-          </TouchableWithoutFeedback>
+          {/* </TouchableWithoutFeedback> */}
         </Popup>
         {this.state.cartVisible ? viewCart : null}
       </View>
