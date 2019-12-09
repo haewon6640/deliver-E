@@ -1,16 +1,16 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from "react-native";
 import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
-  
- const style = StyleSheet.create({
-   container: {                       
-     marginTop: 150,
-     backgroundColor: '#ededed',
-     height: 700,
-     width: 300,
-     flexWrap: 'wrap'
-   },
-   button: {
+
+const style = StyleSheet.create({
+  container: {
+    marginTop: 150,
+    backgroundColor: "#ededed",
+    height: 700,
+    width: 300,
+    flexWrap: "wrap"
+  },
+  button: {
     backgroundColor: "#5E72E4",
     borderRadius: 80,
     height: normalize(60),
@@ -22,14 +22,14 @@ const { width, height } = Dimensions.get("window");
     fontSize: 20,
     color: "white"
   },
-   title: {
+  title: {
     alignSelf: "center",
     paddingBottom: 15,
     fontSize: 30,
     color: "#1f396e",
     marginBottom: 20
   },
-   text: {
+  text: {
     fontSize: 20,
     color: "#466199",
     paddingLeft: 15
@@ -48,26 +48,26 @@ const { width, height } = Dimensions.get("window");
     paddingBottom: 20
   },
   smallPopup: {
-    height: 0.4 * height,
+    height: 0.35 * height,
     width: 0.8 * width,
-    backgroundColor: "white",
+    backgroundColor: "white"
   },
   smallPopupCont: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
-  shadow:{
-    shadowColor: 'black',
+  shadow: {
+    shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     shadowOpacity: 0.1,
-    elevation: 2,
+    elevation: 2
   }
- })
-  
-//  const buttons = StyleSheet.create({  
-//    primary: {                         
+});
+
+//  const buttons = StyleSheet.create({
+//    primary: {
 //      flex: 1,
 //      height: 70,
 //      backgroundColor: 'red',
@@ -77,5 +77,5 @@ const { width, height } = Dimensions.get("window");
 //      marginRight: 20
 //    }
 //  })
-  
- export { style }  
+
+export { style };

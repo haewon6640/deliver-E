@@ -29,6 +29,7 @@ export default class Cart extends React.Component {
       deliveryFee: 0,
       curUserEmail: "",
       tip: 0,
+      building: "",
       instructions: ""
     };
   }
@@ -59,6 +60,14 @@ export default class Cart extends React.Component {
                 {"$" + element.price.toFixed(2)}
               </Text>
             </Block>
+            <Text
+              style={[
+                styles.text,
+                { marginLeft: 37, color: "gray", width: 0.5 * width }
+              ]}
+            >
+              {element.instruction}
+            </Text>
           </Block>
         );
       }.bind(this)
@@ -138,8 +147,29 @@ export default class Cart extends React.Component {
                 {"$" + total}
               </Text>
             </Block>
+            <Block style={{ marginBottom: 20 }}>
+              <Text style={{ marginLeft: 30, marginBottom: 5, fontSize: 17 }}>
+                Specific Location
+              </Text>
+              <TextInput
+                blurOnSubmit={true}
+                multiline={true}
+                style={{
+                  alignSelf: "center",
+                  height: 0.07 * height,
+                  width: 0.7 * width,
+                  padding: width * 0.05,
+                  borderColor: "gray",
+                  borderWidth: 1
+                }}
+                placeholder="MANDATORY: Please input your building and room number."
+                onSubmitEditing={event => {
+                  this.setState({ building: event.nativeEvent.text });
+                }}
+              />
+            </Block>
             <Block row>
-              <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
+              <Text style={{ marginLeft: 30, marginBottom: 5, fontSize: 17 }}>
                 Delivery Instructions
               </Text>
             </Block>
@@ -148,7 +178,7 @@ export default class Cart extends React.Component {
               multiline={true}
               style={{
                 alignSelf: "center",
-                height: 0.3 * height,
+                height: 0.2 * height,
                 width: 0.7 * width,
                 padding: width * 0.05,
                 borderColor: "gray",
@@ -156,7 +186,7 @@ export default class Cart extends React.Component {
               }}
               placeholder="Provide any extra information that is needed/helpful for the runner's delivery process."
               onSubmitEditing={event => {
-                this.state.subtotal = 0;
+                // this.state.subtotal = 0;
                 this.setState({ instructions: event.nativeEvent.text });
               }}
             />
@@ -164,6 +194,7 @@ export default class Cart extends React.Component {
               onPress={() =>
                 this.props.navigation.navigate("Checkout", {
                   instructions: this.state.instructions,
+                  building: this.state.building,
                   totalPrice: total,
                   order: {
                     rName: this.state.rName,
@@ -174,6 +205,7 @@ export default class Cart extends React.Component {
                     progress: 0.25,
                     tip: this.state.tip,
                     instructions: this.state.instructions,
+                    building: this.state.building,
                     isAccepted: false,
                     runnerEmail: ""
                   }

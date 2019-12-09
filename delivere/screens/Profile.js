@@ -17,54 +17,31 @@ const { height } = Dimensions.get("window");
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import firebase from "../components/firebase";
+import Eater from "../backend/Eater";
 // let user;
 
 import "@firebase/firestore";
+import normalize from "react-native-normalize";
 const db = firebase.firestore();
 const default_image =
-"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-
+  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+let type;
+let Email;
 
 export default class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.checkUserType = this.checkUserType.bind(this);
+  }
+
   state = {
     image:
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     valid: false,
     email: "",
     phone: "",
     name: ""
   };
-
-  // queryProfileInfo = () => {
-  //   firebase.auth().onAuthStateChanged(
-  //     function(user) {
-  //       if (user) {
-  //         db.collection("Eater")
-  //           .doc(user.email)
-  //           .get()
-  //           .then(
-  //             function(doc) {
-  //               if (doc.exists) {
-  //                 const curUser = {
-  //                   uid: doc.data().uid,
-  //                   email: doc.data().email,
-  //                   name: doc.data().name,
-  //                   phoneNumber: doc.data().phoneNumber
-  //                 };
-  //                 return curUser;
-  //               } else {
-  //                 alert("There was an issue fetching data from the server.");
-  //               }
-  //             }.bind(this)
-  //           );
-  //       } else {
-  //         alert("You are not signed in.");
-  //         // No user is signed in.
-  //         return;
-  //       }
-  //     }.bind(this)
-  //   );
-  // };
 
   signOut = () => {
     firebase
@@ -85,6 +62,64 @@ export default class Profile extends React.Component {
       );
   };
 
+  // checkUserType = async email => {
+  //   await db
+  //     .collection("Eater")
+  //     .doc(email)
+  //     .get()
+  //     .then(function(doc) {
+  //       if (typeof doc.data() === "undefined") {
+  //         type = "Runner";
+  //       } else {
+  //         type = "Eater";
+  //       }
+  //     });
+  // };
+
+  // queryCurrent = async () => {
+  //   firebase.auth().onAuthStateChanged(function(user) {
+  //     if (user) {
+  //       Email = user.email;
+  //     } else {
+  //       alert("You are not signed in.");
+  //       // No user is signed in.
+  //     }
+  //   });
+  // };
+
+  queryProfileInfo = async => {
+    firebase.auth().onAuthStateChanged(
+      function(user) {
+        if (user) {
+          var userRef = db
+            .collection("Eater")
+            .doc(user.email)
+            .get();
+
+          userRef.then(
+            function(doc) {
+              if (doc.exists) {
+                this.setState({
+                  uid: doc.data().uid,
+                  email: doc.data().email,
+                  name: doc.data().name,
+                  phone: doc.data().phoneNumber
+                });
+              } else {
+                queryProfileInfo("Runner");
+                alert("There was an issue fetching data from the server.");
+              }
+            }.bind(this)
+          );
+        } else {
+          alert("You are not signed in.");
+          // No user is signed in.
+          return;
+        }
+      }.bind(this)
+    );
+  };
+
   selectPicture = async email => {
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
       aspect: 1,
@@ -94,46 +129,6 @@ export default class Profile extends React.Component {
       this.uploadImage(uri, email);
       this.setState({ image: uri }); //if image cancelled, won't set new image
     }
-  }
-
-  queryProfileInfo = () => {
-    firebase.auth().onAuthStateChanged(
-      function(user) {
-        if (user) {
-          db.collection("Eater")
-            .doc(user.email)
-            .get()
-            .then(
-              function(doc) {
-                if (doc.exists) {
-                  var uEmail = doc.data().email;
-                  var uName = doc.data().name;
-                  if (uEmail.length > 8) {
-                    uEmail = uEmail.substring(0, 6) + "...";
-                  }
-                  if (uName.length > 8) {
-                    uName = uName.substring(0, 6) + "...";
-                  }
-                  this.setState({
-                    user: user,
-                    valid: true,
-                    email: uEmail,
-                    name: uName,
-                    phone: doc.data().phoneNumber,
-                    profileImage: doc.data().profileImage
-                  });
-                } else {
-                  alert("There was an issue fetching data from the server.");
-                }
-              }.bind(this)
-            );
-        } else {
-          alert("You are not signed in.");
-          // No user is signed in.
-          return;
-        }
-      }.bind(this)
-    );
   };
 
   takePicture = async email => {
@@ -145,10 +140,10 @@ export default class Profile extends React.Component {
       this.setState({ image: uri });
     }
   };
-
   uploadImage = async (uri, email) => {
     const response = await fetch(uri);
     const blob = await response.blob();
+    console.log(email);
 
     const imageRef = firebase
       .storage()
@@ -158,8 +153,7 @@ export default class Profile extends React.Component {
       imageRef
         .getDownloadURL()
         .then(function(downloadURL) {
-          dbh
-            .collection("Eater")
+          db.collection("Eater")
             .doc(email)
             .update({ profileImage: downloadURL })
             .catch(error => alert(JSON.stringify(error)));
@@ -180,69 +174,70 @@ export default class Profile extends React.Component {
     const { navigation } = this.props;
     if (!this.state.valid) {
       this.queryProfileInfo();
-
     }
 
-    if (this.state.image == default_image) {
-      if (this.state.profileImage != undefined) {
-        image = this.state.profileImage;
-      } else {
-        image = default_image;
-      }
-    } else {
-      image = this.state.image;
-    }
+    var uEmail = this.state.email;
+    var uName = this.state.name;
+    // if (uEmail.length > 8) {
+    //   uEmail = uEmail.substring(0, 6) + "...";
+    // }
+    // if (uName.length > 8) {
+    //   uName = uName.substring(0, 6) + "...";
+    // }
 
     return (
       <ScrollView>
         <View style={styles.container}>
-          <View style={styles.row}>
+          <View
+            style={[
+              styles.row,
+              { alignItems: "center", marginTop: normalize(50) }
+            ]}
+          >
             <Image
-              source={{ uri: image }}
-              style={
-                styles.profileImage
-              }
+              source={{ uri: this.state.image }}
+              style={styles.profileImage}
             />
-            <View style={{flexDirection: 'row'}}>
-            <Button
-              title="Gallery"
-              onPress={() => this.selectPicture(this.state.email)}
-            ></Button>
-            <Button
-              title="Camera"
-              onPress={() => this.takePicture(this.state.email)}
-            ></Button>
+            <View style={{ flexDirection: "row" }}>
+              <Button
+                title="Gallery"
+                onPress={() => this.selectPicture(this.state.email)}
+              ></Button>
+              <Button
+                title="Camera"
+                onPress={() => this.takePicture(this.state.email)}
+              ></Button>
             </View>
           </View>
 
-        <Block style={styles.container}>
-          <Block style={styles.subCont}>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Name</Text>
-              <Text style={styles.right}>{this.state.name}</Text>
-            </Block>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Phone Number</Text>
-              <Text style={styles.right}>{this.state.phone}</Text>
-            </Block>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Email</Text>
-              <Text style={styles.right}>{this.state.email}</Text>
-            </Block>
-          </Block>
-          <Block style={styles.subCont}>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Change password</Text>
-            </Block>
-            <TouchableOpacity onPress={() => this.signOut()}>
-              <Block style={styles.subCont}>
-                <Block row style={styles.entry}>
-                  <Text style={styles.text}>Sign Out</Text>
-                </Block>
+          <Block style={styles.container}>
+            <Block style={styles.subCont}>
+              <Block row style={styles.entry}>
+                <Text style={styles.text}>Name</Text>
+                <Text style={styles.right}>{uName}</Text>
               </Block>
-            </TouchableOpacity>
+              <Block row style={styles.entry}>
+                <Text style={styles.text}>Phone</Text>
+                <Text style={styles.right}>{this.state.phone}</Text>
+              </Block>
+              <Block row style={styles.entry}>
+                <Text style={styles.text}>Email</Text>
+                <Text style={styles.right}>{uEmail}</Text>
+              </Block>
+            </Block>
+            <Block style={styles.subCont}>
+              {/* <Block row style={styles.entry}>
+                <Text style={styles.text}>Change password</Text>
+              </Block> */}
+              <TouchableOpacity onPress={() => this.signOut()}>
+                <Block style={styles.subCont}>
+                  <Block row style={styles.entry}>
+                    <Text style={styles.text}>Sign Out</Text>
+                  </Block>
+                </Block>
+              </TouchableOpacity>
+            </Block>
           </Block>
-        </Block>
         </View>
       </ScrollView>
     );
@@ -252,7 +247,7 @@ export default class Profile extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#F8F9FE",
-    height: height
+    flex: 1
   },
   subCont: {
     marginTop: 30
@@ -267,7 +262,7 @@ const styles = StyleSheet.create({
   },
   right: {
     position: "absolute",
-    left: 200,
+    left: 150,
     fontSize: 17,
     color: "#1f396e"
   },
@@ -282,7 +277,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     borderWidth: 2,
     borderColor: "transparent"
-  },
+  }
 
   // button: {
   //   padding: 10,
@@ -291,5 +286,4 @@ const styles = StyleSheet.create({
   //   textAlign: "center",
   //   maxWidth: 150
   // },
-
 });

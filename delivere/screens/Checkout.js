@@ -20,16 +20,25 @@ import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();
 import Eater from "../backend/Eater";
-import GooglePlacesAutocomplete from "react-native-google-places-autocomplete";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 const { width, height } = Dimensions.get("window");
 let map;
 
 export default class Checkout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.locationPopup = this.locationPopup.bind(this);
+  }
+
   state = {
     showInstructions: false,
     location: null,
     errorMessage: null,
     locationVisible: false
+  };
+
+  locationPopup = () => {
+    this.setState({ locationVisible: !this.state.locationVisible });
   };
 
   componentWillMount() {
@@ -51,6 +60,7 @@ export default class Checkout extends React.Component {
     const x = new Eater();
     const eater = await x.getCurrentEater();
     order["date"] = new Date();
+    order["cName"] = eater.name;
     order["eaterEmail"] = eater.email;
     order["eaterLocation"] = eater.currentAddress;
     dbh
@@ -160,6 +170,8 @@ export default class Checkout extends React.Component {
       );
     }
     var instructions = navigation.getParam("instructions");
+    var building = navigation.getParam("building");
+    console.log(building);
 
     return (
       <View style={{ flex: 1, width: width }}>
@@ -183,7 +195,7 @@ export default class Checkout extends React.Component {
                   <Text
                     style={{ position: "absolute", right: 50, fontSize: 17 }}
                   >
-                    White Hall
+                    {building}
                   </Text>
                   <Icon
                     style={{ position: "absolute", right: 30 }}

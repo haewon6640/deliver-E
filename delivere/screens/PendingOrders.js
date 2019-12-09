@@ -42,10 +42,10 @@ export default class PendingOrders extends React.Component {
     this.state = {
       valid: false,
       orders: [
-        {
-          oid: "",
-          rName: ""
-        }
+        // {
+        //   oid: "",
+        //   rName: ""
+        // }
       ],
       acceptedOrders: [],
       ids: [],
@@ -63,7 +63,7 @@ export default class PendingOrders extends React.Component {
   componentDidMount() {}
 
   componentWillUnmount() {}
- 
+
   setIds = Ids => {
     this.setState({ ids: Ids });
   };
@@ -109,19 +109,21 @@ export default class PendingOrders extends React.Component {
     var orderRef = dbh.collection("Order").doc(order.oid);
 
     const runEmail = await new Runner().getCurrentRunnerEmail();
-    console.log("Hi");
     orderRef.update({
       isAccepted: true,
       runnerEmail: runEmail
     });
+
+    const runnerName = await new Runner().getCurrentRunner();
+    orderRef.update({
+      runName: runnerName.name
+    });
+
     this.resetOrderState();
   };
 
   render() {
     const nav = this.props.navigation;
-    // const totalCount = this.state.order["items"].reduce((total, item) => {
-    //   return total + item.count;
-    // }, 0);
     if (!this.state.valid) {
       this.resetOrderState();
     }
@@ -130,6 +132,12 @@ export default class PendingOrders extends React.Component {
         <ScrollView>
           <Text style={style.title}>Pending Orders</Text>
           {this.state.orders.map((order, i) => {
+            const count = order["items"].reduce((total, item) => {
+              return total + item.count;
+            }, 0);
+            var Items = "items";
+            if (count == 1) Items = "item";
+            const countString = count + " " + Items;
             if (!order.isAccepted)
               return (
                 <TouchableOpacity
@@ -140,10 +148,14 @@ export default class PendingOrders extends React.Component {
                   }}
                 >
                   <Text style={style.category}>{order.rName}</Text>
-                  <Text style={style.text}>{order.oid}</Text>
+                  <Text style={style.text}>{countString}</Text>
+                  <Text style={style.text}>
+                    ${(order.subtotal + order.tax).toFixed(2)}
+                  </Text>
                 </TouchableOpacity>
               );
           })}
+          <Block style={{ height: 100 }} />
         </ScrollView>
         <Block
           style={{

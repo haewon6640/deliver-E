@@ -26,12 +26,12 @@ class Header extends React.Component {
       <View>
         <Block style={styles.header}>
           <StatusBar />
-          <Text style={styles.text}>Delivering to</Text>
+          {/* <Text style={styles.text}>Delivering to</Text> */}
           <TouchableOpacity onPress={this.props.locationPopup}>
             <Block row middle width={width}>
-              <Text style={styles.location}>White Hall</Text>
+              <Text style={styles.location}>Edit Address</Text>
               <Icon
-                style={{ marginTop: 7 }}
+                style={{ marginTop: 27 }}
                 name="down"
                 family="AntDesign"
                 size={30}
@@ -321,7 +321,8 @@ const styles = StyleSheet.create({
   },
   location: {
     fontSize: normalize(25),
-    color: "#5E72E4"
+    color: "#5E72E4",
+    marginTop: 20
   },
   header: {
     height: normalize(115),

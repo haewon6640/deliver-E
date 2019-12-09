@@ -1,6 +1,7 @@
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 import Runner from "./Runner";
+import Eater from "./Eater";
 const dbh = firebase.firestore();
 
 export default class Order {
@@ -32,11 +33,28 @@ export default class Order {
         return orders;
       });
   };
+
   queryMyOrders = async () => {
     email = await new Runner().getCurrentRunnerEmail();
     return await dbh
       .collection("Order")
       .where("runnerEmail", "==", email)
+      .orderBy("date", "desc")
+      .get()
+      .then(function(querySnapshot) {
+        orders = [];
+        querySnapshot.forEach(function(doc) {
+          orders.push(doc.data());
+        });
+        return orders;
+      });
+  };
+
+  queryMyOrdersE = async () => {
+    email = await new Eater().getCurrentEaterEmail();
+    return await dbh
+      .collection("Order")
+      .where("eaterEmail", "==", email)
       .orderBy("date", "desc")
       .get()
       .then(function(querySnapshot) {

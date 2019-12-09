@@ -26,11 +26,11 @@ export default class MyOrders extends React.Component {
     valid: false,
     ids: this.props.navigation.getParam("ids"),
     orders: [
-      {
-        oid: "",
-        rName: "",
-        progress: 0
-      }
+      // {
+      //   oid: "",
+      //   rName: "",
+      //   progress: 0
+      // }
     ]
   };
 
@@ -99,14 +99,26 @@ export default class MyOrders extends React.Component {
     const navI = nav.getParam("navIndex");
     const id = nav.getParam("id");
     let orderList = state.orders.map(order => {
+      const count = order["items"].reduce((total, item) => {
+        return total + item.count;
+      }, 0);
+      var Items = "items";
+      if (count == 1) Items = "item";
+      const countString = count + " " + Items;
       return (
         <TouchableOpacity
           key={order.oid}
           style={style.listItem}
           onPress={() => this.queryPickupInfo(order.oid)}
         >
+          <Text style={[style.category, { paddingBottom: 4 }]}>
+            {order.cName}
+          </Text>
           <Text style={style.category}>{order.rName}</Text>
-          <Text style={style.text}>{order.oid}</Text>
+          <Text style={style.text}>{countString}</Text>
+          <Text style={style.text}>
+            ${(order.subtotal + order.tax).toFixed(2)}
+          </Text>
         </TouchableOpacity>
       );
     });
@@ -115,6 +127,7 @@ export default class MyOrders extends React.Component {
       <ScrollView>
         <Text style={style.title}>My Orders</Text>
         {orderList}
+        <Block style={{ height: 100 }} />
       </ScrollView>
     );
   }

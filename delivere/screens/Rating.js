@@ -101,6 +101,7 @@ class Rating extends React.Component {
             Rate your experience:
           </Text>
           <StarRating
+            fullStarColor="#5E72E4"
             disabled={false}
             maxStars={5}
             rating={this.state.starCount}
@@ -179,7 +180,7 @@ class Rating extends React.Component {
                 <Button
                   color="primary"
                   style={styles.createButton}
-                  onPress={() => finishOrder(oid)}
+                  onPress={() => this.finishOrder(oid)}
                 >
                   <Text
                     style={{

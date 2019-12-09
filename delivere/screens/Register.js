@@ -77,7 +77,7 @@ class Register extends React.Component {
   }
 
   // emailVerification;
-  async signUpUser(email, password, name, phoneNumber) {
+  async signUpUserE(email, password, name, phoneNumber) {
     // if (email)
     const response = await this.attemptAuthentication(email, password);
     if (response == "Success") {
@@ -103,9 +103,6 @@ class Register extends React.Component {
       );
     }
   }
-
- 
-  
 
   render() {
     return (
@@ -212,7 +209,7 @@ class Register extends React.Component {
                           color="primary"
                           style={styles.createButton}
                           onPress={() =>
-                            this.signUpUser(
+                            this.signUpUserE(
                               this.state.email,
                               this.state.password,
                               this.state.name,

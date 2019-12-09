@@ -19,9 +19,10 @@ import { style } from "../constants/Styles";
 import normalize from "react-native-normalize";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
-import * as SMS from 'expo-sms';
-import * as Permissions from 'expo-permissions';
-import { Linking } from 'expo';
+import * as SMS from "expo-sms";
+import * as Permissions from "expo-permissions";
+import { Linking } from "expo";
+import { RNSlidingButton, SlideDirection } from "rn-sliding-button";
 
 const dbh = firebase.firestore();
 
@@ -70,24 +71,28 @@ export default class PickingUp extends React.Component {
     });
   };
 
-  sendSMS = async() => {
-    let result = await Linking.openURL('sms:4088934051')
-  }
-  phoneCall = async() => {
-    let result = await Linking.openURL('tel:4088934051')
-  }
+  sendSMS = async () => {
+    let result = await Linking.openURL("sms:4088934051");
+  };
+  phoneCall = async () => {
+    let result = await Linking.openURL("tel:4088934051");
+  };
 
-  sendEmail = async() => {
-    let result = await Linking.openURL('mailto: jto@emory.edu')
-  }
+  sendEmail = async () => {
+    let result = await Linking.openURL("mailto: jto@emory.edu");
+  };
 
   openMap = () => {
-    if (Platform.OS = 'ios'){
-      let result = Linking.openURL('http://maps.apple.com/maps?daddr=33.792378, -84.323190')
-    } else{
-      let result = Linking.openURL('http://maps.google.com/maps?daddr=33.792378, -84.323190')
-  }
-}
+    if ((Platform.OS = "ios")) {
+      let result = Linking.openURL(
+        "http://maps.apple.com/maps?daddr=33.792378, -84.323190"
+      );
+    } else {
+      let result = Linking.openURL(
+        "http://maps.google.com/maps?daddr=33.792378, -84.323190"
+      );
+    }
+  };
 
   render() {
     const { navigation } = this.props;
@@ -226,9 +231,10 @@ export default class PickingUp extends React.Component {
                       </Block>
                     </TouchableOpacity>
 
-                    <TouchableOpacity 
-                    onPress={() => this.sendSMS()}
-                    style={{ marginLeft: normalize(12) }}>
+                    <TouchableOpacity
+                      onPress={() => this.sendSMS()}
+                      style={{ marginLeft: normalize(12) }}
+                    >
                       <Block
                         style={{
                           width: 0.27 * width,
@@ -257,10 +263,11 @@ export default class PickingUp extends React.Component {
                         </Text>
                       </Block>
                     </TouchableOpacity>
-                    
-                    <TouchableOpacity 
-                    onPress={() => this.sendEmail()}
-                    style={{ marginLeft: normalize(12) }}>
+
+                    <TouchableOpacity
+                      onPress={() => this.sendEmail()}
+                      style={{ marginLeft: normalize(12) }}
+                    >
                       <Block
                         style={{
                           width: 0.27 * width,
@@ -295,8 +302,9 @@ export default class PickingUp extends React.Component {
                   <Text style={styles.category}>Order</Text>
                   {/* <Text style={styles.text}>2 Items:</Text> */}
                   {itemList}
+                  <Text style={styles.text}>{"Tax : $" + order.tax}</Text>
                   <Text style={styles.text}>
-                    {"Total Price: $" + order.subtotal.toFixed(2)}
+                    {"Total Price: $" + (order.subtotal + order.tax).toFixed(2)}
                   </Text>
                 </View>
               </View>
@@ -305,6 +313,7 @@ export default class PickingUp extends React.Component {
         </SlidingUpPanel>
         <TouchableOpacity
           onPress={() => this.afterArriving(eater, restaurant, order, id)}
+          // slideDirection={SlideDirection.RIGHT}
           style={styles.button}
         >
           {/* <Block row> */}

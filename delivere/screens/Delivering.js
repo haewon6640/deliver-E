@@ -11,6 +11,7 @@ import {
   PanResponder,
   Button
 } from "react-native";
+import { RNSlidingButton, SlideDirection } from "rn-sliding-button";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Block, Icon } from "galio-framework";
 import { style } from "../constants/Styles";
@@ -18,7 +19,7 @@ import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
 import firebase from "../components/firebase";
 import "@firebase/firestore";
-import { Linking } from 'expo';
+import { Linking } from "expo";
 
 const dbh = firebase.firestore();
 
@@ -51,12 +52,13 @@ export default class Delivering extends React.Component {
   _onRelease() {
     this.setState({ dragPanel: true });
   }
- 
+
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    var instruct = order.instructions;
     const id = this.props.navigation.getParam("id");
     const itemList = order["items"].map((item, j) => {
       return (
@@ -199,7 +201,7 @@ export default class Delivering extends React.Component {
                   }}
                 >
                   <Text style={styles.category}>Upon Arrival</Text>
-                  <Text style={styles.text}>Go to Room 208</Text>
+                  <Text style={styles.text}>{instruct}</Text>
                   <Block
                     row
                     style={{
@@ -218,13 +220,19 @@ export default class Delivering extends React.Component {
           </View>
         </SlidingUpPanel>
         <TouchableOpacity
-          // onPress={()=>this.props.navigation.navigate('')}
+          // onSlidingSuccess={() =>
+          onPress={() => this.props.navigation.navigate("MyOrders")}
           style={styles.button}
+          // height={normalize(80)}
+          // slideDirection={SlideDirection.RIGHT}
         >
+          {/* <View> */}
           {/* <Block row> */}
           {/* <Icon name="right" family="AntDesign" size={20} color="white" /> */}
           <Text style={{ color: "white", fontSize: 25 }}>After delivery</Text>
           {/* </Block> */}
+          {/* </View> */}
+          {/* </RNSlidingButton> */}
         </TouchableOpacity>
         <TouchableOpacity
           style={{ position: "absolute", right: 15, top: 4 }}

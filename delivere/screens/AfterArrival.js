@@ -76,7 +76,9 @@ export default class AfterArrival extends React.Component {
             " " +
             item.type +
             ": $" +
-            item.price.toFixed(2)
+            item.price.toFixed(2) +
+            "\n" +
+            item.instruction
           }
         />
       );

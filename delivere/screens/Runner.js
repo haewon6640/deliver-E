@@ -24,6 +24,7 @@ class Runner extends React.Component {
     super(props);
 
     this.state = {
+      valid: false,
       email: "",
       password: "",
       name: "",
@@ -42,28 +43,31 @@ class Runner extends React.Component {
     return authenticated;
   }
 
-  async signUpUser(email, password, name, phoneNumber) {
-    const response = await this.attemptAuthentication(email, password);
-    if (response == "Success") {
-      firebase.auth().onAuthStateChanged(
-        function(user) {
-          if (user) {
-            const curUser = {
-              uid: user.uid,
-              email: user.email,
-              name: name,
-              phoneNumber: phoneNumber
-            };
-            dbh
-              .collection("Runner")
-              .doc(user.email)
-              .set(curUser);
-            this.props.navigation.navigate("RunHome");
-          } else {
-            // No user is signed in.
-          }
-        }.bind(this)
-      );
+  async signUpUserR(email, password, name, phoneNumber) {
+    if (!this.state.valid) {
+      const response = await this.attemptAuthentication(email, password);
+      if (response == "Success") {
+        firebase.auth().onAuthStateChanged(
+          function(user) {
+            if (user) {
+              const curUser = {
+                uid: user.uid,
+                email: user.email,
+                name: name,
+                phoneNumber: phoneNumber
+              };
+              dbh
+                .collection("Runner")
+                .doc(user.email)
+                .set(curUser);
+              this.props.navigation.navigate("RunHome");
+              this.setState({ valid: true });
+            } else {
+              // No user is signed in.
+            }
+          }.bind(this)
+        );
+      }
     }
   }
 
@@ -178,7 +182,7 @@ class Runner extends React.Component {
                           color="primary"
                           style={styles.createButton}
                           onPress={() =>
-                            this.signUpUser(
+                            this.signUpUserR(
                               this.state.email,
                               this.state.password,
                               this.state.name,
