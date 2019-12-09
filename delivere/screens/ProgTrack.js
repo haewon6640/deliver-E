@@ -57,6 +57,13 @@ export default class ProgTrack extends React.Component {
               time: "4 min"
             });
           }
+          if (prog == 1) {
+            this.props.navigation.navigate("Rating", {
+              // progress: prog,
+              // message: "Heading to you",
+              // time: "4 min"
+            });
+          }
         }.bind(this)
       );
   }
@@ -77,13 +84,13 @@ export default class ProgTrack extends React.Component {
           message={this.state.message}
           time={this.state.time}
         />
-        <Button
+        {/* <Button
           onPress={() =>
             this.props.navigation.navigate("Rating", {
               orderId: this.props.navigation.getParam("orderId")
             })
           }
-        />
+        /> */}
       </View>
     );
   }

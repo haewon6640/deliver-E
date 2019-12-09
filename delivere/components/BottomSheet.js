@@ -274,14 +274,14 @@ class BottomSheet extends React.Component {
                 <Text style={styles.text}>1 Item:</Text>
                 <Text style={styles.text}>1x Taco Combo</Text>
                 <View style={{ marginBottom: 20 }}>
-                  <Text
+                  {/* <Text
                     style={[
                       styles.text,
                       { color: "grey", position: "absolute", right: 20 }
                     ]}
                   >
                     View Receipt
-                  </Text>
+                  </Text> */}
                 </View>
               </View>
               <View style={{ paddingBottom: 20, marginBottom: 30 }}>

@@ -53,6 +53,23 @@ export default class Delivering extends React.Component {
     this.setState({ dragPanel: true });
   }
 
+  updateOrder(order) {
+    var orderRef = dbh.collection("Order").doc(order.oid);
+    orderRef.update({
+      progress: 1
+    });
+  }
+
+  afterDelivery = order => {
+    this.updateOrder(order);
+    this.props.navigation.navigate("MyOrders", {
+      // eater: eater,
+      // restaurant: restaurant,
+      // order: order,
+      // id: id
+    });
+  };
+
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
@@ -221,7 +238,7 @@ export default class Delivering extends React.Component {
         </SlidingUpPanel>
         <TouchableOpacity
           // onSlidingSuccess={() =>
-          onPress={() => this.props.navigation.navigate("MyOrders")}
+          onPress={() => this.afterDelivery(order)}
           style={styles.button}
           // height={normalize(80)}
           // slideDirection={SlideDirection.RIGHT}
