@@ -21,6 +21,7 @@ import "@firebase/firestore";
 const dbh = firebase.firestore();
 import Eater from "../backend/Eater";
 import GooglePlacesAutocomplete from "react-native-google-places-autocomplete";
+import Stripe from "tipsi-stripe";
 const { width, height } = Dimensions.get("window");
 let map;
 
@@ -29,7 +30,9 @@ export default class Checkout extends React.Component {
     showInstructions: false,
     location: null,
     errorMessage: null,
-    locationVisible: false
+    locationVisible: false,
+    cardFetched: false,
+    cardInfo: "None"
   };
 
   componentWillMount() {
@@ -47,12 +50,23 @@ export default class Checkout extends React.Component {
     this.setState({ location: loc });
   };
 
-  async addOrder(order) {
-    const x = new Eater();
-    const eater = await x.getCurrentEater();
+  async addOrder(order, totalPrice, instructions) {
+    const eater = await new Eater().getCurrentEater();
+    if (
+      typeof eater.stripeCustomerId === "undefined" ||
+      eater.stripeCustomerId == ""
+    ) {
+      alert("You must add a payment method before you can proceed");
+      this.props.navigation.navigate("AddSubscription", {
+        order: order,
+        totalPrice: totalPrice,
+        instructions: instructions
+      });
+    }
     order["date"] = new Date();
     order["eaterEmail"] = eater.email;
     order["eaterLocation"] = eater.currentAddress;
+    order["completed"] = false;
     dbh
       .collection("Order")
       .add(order)
@@ -91,6 +105,7 @@ export default class Checkout extends React.Component {
       }.bind(this)
     );
   };
+
   renderGooglePlaceAutocomplete = () => {
     return (
       <GooglePlacesAutocomplete
@@ -137,10 +152,27 @@ export default class Checkout extends React.Component {
       ></GooglePlacesAutocomplete>
     );
   };
+
+  queryBasicCardInfo = async () => {
+    const eater = await new Eater().getCurrentEater();
+    if (typeof eater.CardInfo === "undefined") {
+      this.setState({
+        cardFetched: true
+      });
+    }
+    this.setState({
+      cardInfo: eater.CardInfo.brand + "  ...  " + eater.CardInfo.last4,
+      cardFetched: true
+    });
+  };
+
   render() {
     const { navigation } = this.props;
     var totalPrice = navigation.getParam("totalPrice");
     var order = navigation.getParam("order");
+    if (!this.state.cardFetched) {
+      this.queryBasicCardInfo();
+    }
     if (this.state.location != null) {
       map = (
         <MapView
@@ -160,7 +192,6 @@ export default class Checkout extends React.Component {
       );
     }
     var instructions = navigation.getParam("instructions");
-
     return (
       <View style={{ flex: 1, width: width }}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -253,7 +284,11 @@ export default class Checkout extends React.Component {
               </Block>
               <TouchableOpacity
                 onPress={() =>
-                  this.props.navigation.navigate("AddSubscription")
+                  this.props.navigation.navigate("AddSubscription", {
+                    totalPrice: totalPrice,
+                    order: order,
+                    instructions: instructions
+                  })
                 }
               >
                 <Block row>
@@ -265,13 +300,13 @@ export default class Checkout extends React.Component {
                   <Text
                     style={{ position: "absolute", right: 33, fontSize: 17 }}
                   >
-                    Visa ... 1234
+                    {this.state.cardInfo}
                   </Text>
                 </Block>
               </TouchableOpacity>
 
               <Button
-                onPress={() => this.addOrder(order)}
+                onPress={() => this.addOrder(order, totalPrice, instructions)}
                 color="#5E72E4"
                 shadowless
                 style={{ alignSelf: "center", marginTop: 20, marginBottom: 10 }}

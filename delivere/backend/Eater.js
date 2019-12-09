@@ -30,7 +30,7 @@ class Eater {
   }
   async getCurrentEaterEmail() {
     return await this.callEater().then(user => {
-      return user.eail;
+      return user.email;
     });
   }
 

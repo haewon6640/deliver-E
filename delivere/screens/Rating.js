@@ -22,6 +22,9 @@ import "@firebase/firestore";
 const dbh = firebase.firestore();
 import { Button, Icon, Input } from "../components";
 import { argonTheme } from "../constants";
+import Eater from "../backend/Eater";
+import { doPayment } from "../backend/api";
+import Runner from "../backend/Runner";
 const { width, height } = Dimensions.get("screen");
 
 class Rating extends React.Component {
@@ -87,13 +90,38 @@ class Rating extends React.Component {
       isModalVisible: !this.state.isModalVisible
     });
   };
+
+  processPayment = async (amount, stripeId) => {
+    amount = amount * 100;
+    doPayment(amount, stripeId).then(
+      function(response) {
+        this.props.navigation.navigate("Home");
+      }.bind(this)
+    );
+  };
+
   finishOrder = async oid => {
     var order = await new Order().queryOrder(oid);
-    dbh.collection("Order").update({ tip: tip });
+    var eater = await new Eater().getCurrentEater();
+
+    dbh
+      .collection("Order")
+      .doc(oid)
+      .update({
+        tip: this.state.tip,
+        rating: this.state.starCount
+      });
+
+    var price =
+      parseFloat(order.subtotal) +
+      parseFloat(this.state.tip) +
+      parseFloat(order.deliveryFee + ".00");
+    this.processPayment(parseFloat(price.toFixed(2)), eater.stripeCustomerId);
   };
 
   render() {
     const oid = this.props.navigation.getParam("orderId");
+
     return (
       <ScrollView>
         <Block middle style={{ marginTop: 200 }}>
@@ -179,7 +207,7 @@ class Rating extends React.Component {
                 <Button
                   color="primary"
                   style={styles.createButton}
-                  onPress={() => finishOrder(oid)}
+                  onPress={() => this.finishOrder(oid)}
                 >
                   <Text
                     style={{

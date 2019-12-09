@@ -6,7 +6,7 @@ import {
   View,
   Dimensions,
   Animated,
-  ProgressViewIOS
+  ProgressBarAndroid
 } from "react-native";
 import { Block, Icon } from "galio-framework";
 import SlidingUpPanel from "rn-sliding-up-panel";
@@ -67,7 +67,15 @@ class BottomSheet extends React.Component {
     this.state = {
       status: 0.25,
       message: "Heading to store",
-      time: "10-15 min"
+      time: "10-15 min",
+      progress: 0.25,
+      message: "Heading to store",
+      runner: "Currently Unpicked",
+      runnerSub: "",
+      itemCount: 0,
+      items: null,
+      location: "",
+      orderSet: false
     };
     // this.changeStatus = this.changeStatus.bind(this);
     // this.manualChange = this.manualChange.bind(this);
@@ -150,8 +158,24 @@ class BottomSheet extends React.Component {
     clearTimeout(t3);
   }
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.progress != nextProps.progress;
+    return (
+      this.props.progress != nextProps.progress ||
+      this.props.itemCount != nextProps.itemCount
+    );
   }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({
+  //     progress: nextProps.progress,
+  //     message: nextProps.message,
+  //     time: nextProps.time,
+  //     runner: nextProps.runner,
+  //     runnerSub: nextProps.runnerSub,
+  //     itemCount: nextProps.itemCount,
+  //     items: nextProps.items,
+  //     location: nextProps.location,
+  //     orderSet: nextProps.orderSet
+  //   });
+  // }
   render() {
     return (
       <SlidingUpPanel
@@ -180,10 +204,12 @@ class BottomSheet extends React.Component {
               <Text style={[styles.textHeader, { fontSize: 20 }]}>
                 {this.props.time}
               </Text>
-              <ProgressViewIOS
+              <ProgressBarAndroid
                 style={styles.progBar}
                 progress={this.props.progress}
-                progressTintColor={"#5E72E4"}
+                styleAttr="Horizontal"
+                indeterminate={false}
+                color={"#5E72E4"}
               />
               <Block row space="around" style={{ marginTop: 5 }}>
                 <TouchableOpacity onPress={() => this.manualChange(1)}>
@@ -231,8 +257,8 @@ class BottomSheet extends React.Component {
               >
                 <Block row>
                   <View>
-                    <Text style={styles.category}>Sally</Text>
-                    <Text style={styles.text}>Your Runner</Text>
+                    <Text style={styles.category}>{this.props.runner}</Text>
+                    <Text style={styles.text}>{this.props.runnerSub}</Text>
                   </View>
                   <Block
                     style={{
@@ -271,9 +297,11 @@ class BottomSheet extends React.Component {
                 }}
               >
                 <Text style={styles.category}>Order Details</Text>
-                <Text style={styles.text}>1 Item:</Text>
-                <Text style={styles.text}>1x Taco Combo</Text>
-                <View style={{ marginBottom: 20 }}>
+                <Text style={styles.text}>
+                  {this.props.itemCount + " Items"}
+                </Text>
+                <Text style={styles.text}>{this.props.items}</Text>
+                {/* <View style={{ marginBottom: 20 }}>
                   <Text
                     style={[
                       styles.text,
@@ -282,11 +310,11 @@ class BottomSheet extends React.Component {
                   >
                     View Receipt
                   </Text>
-                </View>
+                </View> */}
               </View>
               <View style={{ paddingBottom: 20, marginBottom: 30 }}>
                 <Text style={styles.category}>Address</Text>
-                <Text style={styles.text}>White Hall 208</Text>
+                <Text style={styles.text}>{this.props.location}</Text>
               </View>
             </View>
           </ScrollView>

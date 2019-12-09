@@ -17,7 +17,7 @@ import Popup from "../components/Popup";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-
+console.disableYellowBox = true;
 const db = firebase.firestore();
 
 class Header extends React.Component {

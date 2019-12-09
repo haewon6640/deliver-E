@@ -51,6 +51,13 @@ export default class Delivering extends React.Component {
     this.setState({ dragPanel: true });
   }
 
+  finishDelivery = oid => {
+    dbh
+      .collection("Order")
+      .doc(oid)
+      .update({ completed: true });
+    this.props.navigation.navigate("Home");
+  };
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
@@ -217,7 +224,7 @@ export default class Delivering extends React.Component {
           </View>
         </SlidingUpPanel>
         <TouchableOpacity
-          // onPress={()=>this.props.navigation.navigate('')}
+          onPress={() => this.finishDelivery(id)}
           style={styles.button}
         >
           {/* <Block row> */}

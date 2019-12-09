@@ -11,10 +11,23 @@ const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import Runner from "../backend/Runner";
 const dbh = firebase.firestore();
 
 export default class RunHome extends React.Component {
+  checkStripeAcct = runner => {
+    return typeof runner.sellerStripeId === "undefined";
+  };
   queryOrders = async () => {
+    const runner = await new Runner().getCurrentRunner();
+    if (this.checkStripeAcct(runner)) {
+      alert(
+        "You must create a stripe account before you can pick up an order."
+      );
+      this.props.navigation.navigate("RunPayInfo");
+      return;
+    }
+    const hasAcct = this.checkStripeAcct(runner);
     var orders = [];
     var success = "";
     await dbh

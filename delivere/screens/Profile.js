@@ -26,31 +26,66 @@ export default class Profile extends React.Component {
     valid: false,
     email: "",
     phone: "",
-    name: ""
+    name: "",
+    type: "",
+    rating: "",
+    ratingSub: "",
+    ratingStyle: StyleSheet.create({
+      entry: {
+        height: 60,
+        paddingLeft: 30,
+        alignItems: "center",
+        backgroundColor: "#fff",
+        borderWidth: 1,
+        borderColor: "#F8F9FE"
+      }
+    }).entry
   };
 
-  queryProfileInfo = () => {
+  queryRunnerRating = email => {
+    db.collection("Runner")
+      .doc(email)
+      .get()
+      .then(function(doc) {
+        this.setState({
+          rating: doc.data().rating,
+          ratingSub: "My Rating (0-5)"
+        });
+      }.bind(this));
+  };
+
+  queryProfileType = async email => {
+    await db
+      .collection("Eater")
+      .doc(email)
+      .get()
+      .then(
+        function(doc) {
+          if (typeof doc.data() === "undefined") {
+            this.queryRunnerRating(email);
+            this.setState({
+              type: "Runner"
+            });
+          } else {
+            this.setState({
+              type: "Eater",
+              ratingStyle: StyleSheet.create({
+                entry: {
+                  height: 0
+                }
+              }).entry
+            });
+          }
+        }.bind(this)
+      );
+  };
+  queryCurrent = async () => {
     firebase.auth().onAuthStateChanged(
       function(user) {
         if (user) {
-          db.collection("Eater")
-            .doc(user.email)
-            .get()
-            .then(
-              function(doc) {
-                if (doc.exists) {
-                  const curUser = {
-                    uid: doc.data().uid,
-                    email: doc.data().email,
-                    name: doc.data().name,
-                    phoneNumber: doc.data().phoneNumber
-                  };
-                  return curUser;
-                } else {
-                  alert("There was an issue fetching data from the server.");
-                }
-              }.bind(this)
-            );
+          this.setState({
+            email: user.email
+          });
         } else {
           alert("You are not signed in.");
           // No user is signed in.
@@ -58,6 +93,25 @@ export default class Profile extends React.Component {
         }
       }.bind(this)
     );
+  };
+
+  queryProfileInfo = async (email, type) => {
+    db.collection(type)
+      .doc(email)
+      .get()
+      .then(
+        function(doc) {
+          if (doc.exists) {
+            this.setState({
+              email: doc.data().email,
+              phone: doc.data().phoneNumber,
+              name: doc.data().name
+            });
+          } else {
+            alert("There was an issue fetching data from the server.");
+          }
+        }.bind(this)
+      );
   };
 
   signOut = () => {
@@ -97,48 +151,14 @@ export default class Profile extends React.Component {
     if (!cancelled) this.setState({ image: uri });
   };
 
-  queryProfileInfo = () => {
-    firebase.auth().onAuthStateChanged(
-      function(user) {
-        if (user) {
-          db.collection("Eater")
-            .doc(user.email)
-            .get()
-            .then(
-              function(doc) {
-                if (doc.exists) {
-                  var uEmail = doc.data().email;
-                  var uName = doc.data().name;
-                  if (uEmail.length > 8) {
-                    uEmail = uEmail.substring(0, 6) + "...";
-                  }
-                  if (uName.length > 8) {
-                    uName = uName.substring(0, 6) + "...";
-                  }
-                  this.setState({
-                    valid: true,
-                    email: uEmail,
-                    name: uName,
-                    phone: doc.data().phoneNumber
-                  });
-                } else {
-                  alert("There was an issue fetching data from the server.");
-                }
-              }.bind(this)
-            );
-        } else {
-          alert("You are not signed in.");
-          // No user is signed in.
-          return;
-        }
-      }.bind(this)
-    );
-  };
-
   render() {
-    const { navigation } = this.props;
-    if (!this.state.valid) {
-      this.queryProfileInfo();
+    if (this.state.email == "") {
+      this.queryCurrent();
+    } else if (this.state.type == "") {
+      this.queryProfileType(this.state.email);
+    }
+    if (this.state.email != "" && this.state.type != "" && !this.state.valid) {
+      this.queryProfileInfo(this.state.email, this.state.type);
     }
 
     return (
@@ -163,6 +183,10 @@ export default class Profile extends React.Component {
               <Text style={styles.text}>Email</Text>
               <Text style={styles.right}>{this.state.email}</Text>
             </Block>
+          </Block>
+          <Block row style={this.state.ratingStyle}>
+            <Text style={styles.text}>{this.state.ratingSub}</Text>
+            <Text style={styles.right}>{this.state.rating}</Text>
           </Block>
           <Block style={styles.subCont}>
             <Block row style={styles.entry}>

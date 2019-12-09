@@ -9,22 +9,25 @@ export const createCustomer = (tokenId, email) => {
     "Content-Type": "application/json"
   };
   return axios
-    .post("https://salty-wildwood-68776.herokuapp.com/api/", body, {
-      headers
-    })
+    .post(
+      "https://salty-wildwood-68776.herokuapp.com/api/createCustomer",
+      body,
+      {
+        headers
+      }
+    )
     .then(({ data }) => {
       return data;
     })
     .catch(error => {
-      return Promise.reject("Error in making payment", error);
+      return Promise.reject("Error in Adding Card", error);
     });
 };
 
-export const doPayment = (amount, tokenId, email) => {
+export const doPayment = (amount, tokenId) => {
   const body = {
     amount: amount,
-    tokenId: tokenId,
-    uid: email
+    tokenId: tokenId
   };
   const headers = {
     "Content-Type": "application/json"

@@ -89,7 +89,7 @@ export default class RunPayInfo extends React.Component {
           }
         });
       });
-      this.props.navigation.goBack();
+      this.props.navigation.navigate("RunHome");
     }
   };
   render() {

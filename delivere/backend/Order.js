@@ -21,8 +21,9 @@ export default class Order {
   queryUnpickedOrders = async () => {
     return await dbh
       .collection("Order")
-      .where("isAccepted", "==", false)
       .orderBy("date", "desc")
+      .where("isAccepted", "==", false)
+      .where("completed", "==", false)
       .get()
       .then(function(querySnapshot) {
         orders = [];
@@ -36,8 +37,9 @@ export default class Order {
     email = await new Runner().getCurrentRunnerEmail();
     return await dbh
       .collection("Order")
-      .where("runnerEmail", "==", email)
       .orderBy("date", "desc")
+      .where("runnerEmail", "==", email)
+      .where("completed", "==", false)
       .get()
       .then(function(querySnapshot) {
         orders = [];
