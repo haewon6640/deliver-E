@@ -18,6 +18,7 @@ import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import { Linking } from 'expo';
 
 const dbh = firebase.firestore();
 

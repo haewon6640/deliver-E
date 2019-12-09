@@ -15,50 +15,56 @@ import { ImagePicker, Permissions } from "expo";
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
 import firebase from "../components/firebase";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 // let user;
 
 import "@firebase/firestore";
 const db = firebase.firestore();
+const default_image =
+"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+
 
 export default class Profile extends React.Component {
   state = {
-    image: null,
+    image:
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     valid: false,
     email: "",
     phone: "",
     name: ""
   };
 
-  queryProfileInfo = () => {
-    firebase.auth().onAuthStateChanged(
-      function(user) {
-        if (user) {
-          db.collection("Eater")
-            .doc(user.email)
-            .get()
-            .then(
-              function(doc) {
-                if (doc.exists) {
-                  const curUser = {
-                    uid: doc.data().uid,
-                    email: doc.data().email,
-                    name: doc.data().name,
-                    phoneNumber: doc.data().phoneNumber
-                  };
-                  return curUser;
-                } else {
-                  alert("There was an issue fetching data from the server.");
-                }
-              }.bind(this)
-            );
-        } else {
-          alert("You are not signed in.");
-          // No user is signed in.
-          return;
-        }
-      }.bind(this)
-    );
-  };
+  // queryProfileInfo = () => {
+  //   firebase.auth().onAuthStateChanged(
+  //     function(user) {
+  //       if (user) {
+  //         db.collection("Eater")
+  //           .doc(user.email)
+  //           .get()
+  //           .then(
+  //             function(doc) {
+  //               if (doc.exists) {
+  //                 const curUser = {
+  //                   uid: doc.data().uid,
+  //                   email: doc.data().email,
+  //                   name: doc.data().name,
+  //                   phoneNumber: doc.data().phoneNumber
+  //                 };
+  //                 return curUser;
+  //               } else {
+  //                 alert("There was an issue fetching data from the server.");
+  //               }
+  //             }.bind(this)
+  //           );
+  //       } else {
+  //         alert("You are not signed in.");
+  //         // No user is signed in.
+  //         return;
+  //       }
+  //     }.bind(this)
+  //   );
+  // };
 
   signOut = () => {
     firebase
@@ -84,21 +90,26 @@ export default class Profile extends React.Component {
   //   console.log(user);
   // }
 
-  selectPicture = async () => {
-    await Permissions.askAsync(Permissions.CAMERA_ROLL);
+  selectPicture = async email => {
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
       aspect: 1,
       allowsEditing: true
     });
-    if (!cancelled) this.setState({ image: uri }); //if image cancelled, won't set new image
-  };
-
+    if (!cancelled) {
+      this.uploadImage(uri, email);
+      this.setState({ image: uri }); //if image cancelled, won't set new image
+    }
+  }
+  
   takePicture = async () => {
     await Permissions.askAsync(Permissions.CAMERA);
     const { cancelled, uri } = await ImagePicker.launchCameraAsync({
       alowsEditing: false
     });
-    if (!cancelled) this.setState({ image: uri });
+    if (!cancelled) {
+      this.uploadImage(uri, email);
+      this.setState({ image: uri });
+    }
   };
 
   queryProfileInfo = () => {
@@ -123,7 +134,8 @@ export default class Profile extends React.Component {
                     valid: true,
                     email: uEmail,
                     name: uName,
-                    phone: doc.data().phoneNumber
+                    phoneNumber: doc.data().phoneNumber,
+                    profileImage: doc.data().profileImage
                   });
                 } else {
                   alert("There was an issue fetching data from the server.");
