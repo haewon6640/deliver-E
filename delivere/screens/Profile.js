@@ -14,6 +14,8 @@ import { Block, Icon } from "galio-framework";
 import { ImagePicker, Permissions } from "expo";
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 import firebase from "../components/firebase";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
@@ -100,17 +102,6 @@ export default class Profile extends React.Component {
       this.setState({ image: uri }); //if image cancelled, won't set new image
     }
   }
-  
-  takePicture = async () => {
-    await Permissions.askAsync(Permissions.CAMERA);
-    const { cancelled, uri } = await ImagePicker.launchCameraAsync({
-      alowsEditing: false
-    });
-    if (!cancelled) {
-      this.uploadImage(uri, email);
-      this.setState({ image: uri });
-    }
-  };
 
   queryProfileInfo = () => {
     firebase.auth().onAuthStateChanged(
@@ -151,49 +142,114 @@ export default class Profile extends React.Component {
     );
   };
 
+  takePicture = async email => {
+    const { cancelled, uri } = await ImagePicker.launchCameraAsync({
+      alowsEditing: false
+    });
+    if (!cancelled) {
+      this.uploadImage(uri, email);
+      this.setState({ image: uri });
+    }
+  };
+
+  uploadImage = async (uri, email) => {
+    const response = await fetch(uri);
+    const blob = await response.blob();
+
+    const imageRef = firebase
+      .storage()
+      .ref("Eater")
+      .child(email);
+    await imageRef.put(blob).then(function() {
+      imageRef
+        .getDownloadURL()
+        .then(function(downloadURL) {
+          dbh
+            .collection("Eater")
+            .doc(email)
+            .update({ profileImage: downloadURL })
+            .catch(error => alert(JSON.stringify(error)));
+        })
+        .catch(error => {
+          alert("There was error uploading your profile image.");
+          return "";
+        });
+    });
+  };
+
+  async componentDidMount() {
+    await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    await Permissions.askAsync(Permissions.CAMERA);
+  }
+
   render() {
     const { navigation } = this.props;
     if (!this.state.valid) {
       this.queryProfileInfo();
     }
 
+    if (this.state.image == default_image) {
+      if (user.profileImage != undefined) {
+        image = user.profileImage;
+      } else {
+        image = default_image;
+      }
+    } else {
+      image = this.state.image;
+    }
+
     return (
-      <View style={styles.container}>
-        <Image style={styles.image} source={{ uri: this.state.image }} />
-        <View style={styles.row}>
-          <Button title="Gallery" onPress={this.selectPicture} />
-          <Button title="Camera" onPress={this.takePicture}></Button>
-        </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.row}>
+            <Image
+              source={{ uri: image }}
+              style={
+                styles.profileImage
+              }
+            />
+            <View style={{flexDirection: 'row'}}>
+            <Button
+              title="Gallery"
+              onPress={() => this.selectPicture(user.email)}
+            ></Button>
+            <Button
+              title="Camera"
+              onPress={() => this.takePicture(user.email)}
+            ></Button>
+            </View>
+          </View>
 
         <Block style={styles.container}>
           <Block style={styles.subCont}>
             <Block row style={styles.entry}>
               <Text style={styles.text}>Name</Text>
-              <Text style={styles.right}>{this.state.name}</Text>
+              <Text style={styles.right}>{eName}</Text>
             </Block>
             <Block row style={styles.entry}>
               <Text style={styles.text}>Phone Number</Text>
-              <Text style={styles.right}>{this.state.phone}</Text>
+              <Text style={styles.right}>{user.phoneNumber}</Text>
             </Block>
             <Block row style={styles.entry}>
               <Text style={styles.text}>Email</Text>
-              <Text style={styles.right}>{this.state.email}</Text>
+              <Text style={styles.right}>{eEmail}</Text>
             </Block>
           </Block>
           <Block style={styles.subCont}>
             <Block row style={styles.entry}>
               <Text style={styles.text}>Change password</Text>
             </Block>
-          </Block>
-          <TouchableOpacity onPress={() => signOut()}>
-            <Block style={styles.subCont}>
-              <Block row style={styles.entry}>
-                <Text style={styles.text}>Sign Out</Text>
+            <TouchableOpacity onPress={() => this.signOut()}>
+              <Block style={styles.subCont}>
+                <Block row style={styles.entry}>
+                  <Text style={styles.text}>Sign Out</Text>
+                </Block>
               </Block>
-            </Block>
-          </TouchableOpacity>
+            </TouchableOpacity>
+          </Block>
         </Block>
-      </View>
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -224,11 +280,21 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#1f396e"
   },
-  button: {
-    padding: 10,
-    borderWidth: 1,
-    borderColor: "#333",
-    textAlign: "center",
-    maxWidth: 150
-  }
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2,
+    overflow: "hidden",
+    borderWidth: 2,
+    borderColor: "transparent"
+  },
+
+  // button: {
+  //   padding: 10,
+  //   borderWidth: 1,
+  //   borderColor: "#333",
+  //   textAlign: "center",
+  //   maxWidth: 150
+  // },
+
 });

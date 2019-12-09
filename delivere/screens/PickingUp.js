@@ -20,7 +20,7 @@ import normalize from "react-native-normalize";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 import * as SMS from 'expo-sms';
-import * as Permissions from 'expo-permissions'
+import * as Permissions from 'expo-permissions';
 import { Linking } from 'expo';
 
 const dbh = firebase.firestore();
@@ -225,6 +225,7 @@ export default class PickingUp extends React.Component {
                         </Text>
                       </Block>
                     </TouchableOpacity>
+
                     <TouchableOpacity 
                     onPress={() => this.sendSMS()}
                     style={{ marginLeft: normalize(12) }}>
@@ -256,6 +257,7 @@ export default class PickingUp extends React.Component {
                         </Text>
                       </Block>
                     </TouchableOpacity>
+                    
                     <TouchableOpacity 
                     onPress={() => this.sendEmail()}
                     style={{ marginLeft: normalize(12) }}>

@@ -51,7 +51,7 @@ export default class Delivering extends React.Component {
   _onRelease() {
     this.setState({ dragPanel: true });
   }
-
+ 
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
