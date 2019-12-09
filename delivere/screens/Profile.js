@@ -11,14 +11,12 @@ import {
   Image
 } from "react-native";
 import { Block, Icon } from "galio-framework";
-import { ImagePicker, Permissions } from "expo";
+// import { ImagePicker, Permissions } from "expo";
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import firebase from "../components/firebase";
-import * as ImagePicker from "expo-image-picker";
-import * as Permissions from "expo-permissions";
 // let user;
 
 import "@firebase/firestore";
@@ -87,11 +85,6 @@ export default class Profile extends React.Component {
       );
   };
 
-  // componentDidMount(){
-  //   user = queryProfileInfo();
-  //   console.log(user);
-  // }
-
   selectPicture = async email => {
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
       aspect: 1,
@@ -122,10 +115,11 @@ export default class Profile extends React.Component {
                     uName = uName.substring(0, 6) + "...";
                   }
                   this.setState({
+                    user: user,
                     valid: true,
                     email: uEmail,
                     name: uName,
-                    phoneNumber: doc.data().phoneNumber,
+                    phone: doc.data().phoneNumber,
                     profileImage: doc.data().profileImage
                   });
                 } else {
@@ -186,11 +180,12 @@ export default class Profile extends React.Component {
     const { navigation } = this.props;
     if (!this.state.valid) {
       this.queryProfileInfo();
+
     }
 
     if (this.state.image == default_image) {
-      if (user.profileImage != undefined) {
-        image = user.profileImage;
+      if (this.state.profileImage != undefined) {
+        image = this.state.profileImage;
       } else {
         image = default_image;
       }
@@ -211,11 +206,11 @@ export default class Profile extends React.Component {
             <View style={{flexDirection: 'row'}}>
             <Button
               title="Gallery"
-              onPress={() => this.selectPicture(user.email)}
+              onPress={() => this.selectPicture(this.state.email)}
             ></Button>
             <Button
               title="Camera"
-              onPress={() => this.takePicture(user.email)}
+              onPress={() => this.takePicture(this.state.email)}
             ></Button>
             </View>
           </View>
@@ -224,15 +219,15 @@ export default class Profile extends React.Component {
           <Block style={styles.subCont}>
             <Block row style={styles.entry}>
               <Text style={styles.text}>Name</Text>
-              <Text style={styles.right}>{eName}</Text>
+              <Text style={styles.right}>{this.state.name}</Text>
             </Block>
             <Block row style={styles.entry}>
               <Text style={styles.text}>Phone Number</Text>
-              <Text style={styles.right}>{user.phoneNumber}</Text>
+              <Text style={styles.right}>{this.state.phone}</Text>
             </Block>
             <Block row style={styles.entry}>
               <Text style={styles.text}>Email</Text>
-              <Text style={styles.right}>{eEmail}</Text>
+              <Text style={styles.right}>{this.state.email}</Text>
             </Block>
           </Block>
           <Block style={styles.subCont}>
