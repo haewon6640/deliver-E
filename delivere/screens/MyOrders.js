@@ -115,6 +115,7 @@ export default class MyOrders extends React.Component {
             {order.cName}
           </Text>
           <Text style={style.category}>{order.rName}</Text>
+          <Text style={style.text}>{order.building}</Text>
           <Text style={style.text}>{countString}</Text>
           <Text style={style.text}>
             ${(order.subtotal + order.tax).toFixed(2)}
