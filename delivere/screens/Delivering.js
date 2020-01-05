@@ -75,18 +75,18 @@ export default class Delivering extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    var total = navigation.getParam("total");
+    total = "$" + total;
     var instruct = order.instructions;
     const id = this.props.navigation.getParam("id");
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
-          {item.count +
-            " " +
-            item.name +
-            " " +
-            item.type +
-            ": $" +
-            item.price.toFixed(2)}
+          {item.count + " " + item.name + " " + item.type
+          //  +
+          // ": $" +
+          // item.price.toFixed(2)
+          }
         </Text>
       );
     });
@@ -231,6 +231,7 @@ export default class Delivering extends React.Component {
                 <View>
                   <Text style={styles.category}>Order</Text>
                   {itemList}
+                  <Text style={styles.text}>{total}</Text>
                 </View>
               </View>
             </ScrollView>

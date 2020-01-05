@@ -67,7 +67,8 @@ export default class PickingUp extends React.Component {
       eater: eater,
       restaurant: restaurant,
       order: order,
-      id: id
+      id: id,
+      total: (order.subtotal + order.tax).toFixed(2)
     });
   };
 
@@ -100,16 +101,16 @@ export default class PickingUp extends React.Component {
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
     const id = this.props.navigation.getParam("id");
+    var orderRef = dbh.collection("Order").doc(id);
+    orderRef.update({ rerender: true });
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
-          {item.count +
-            " " +
-            item.name +
-            " " +
-            item.type +
-            ": $" +
-            item.price.toFixed(2)}
+          {item.count + " " + item.name + " " + item.type
+          // +
+          // ": $" +
+          // item.price.toFixed(2)
+          }
         </Text>
       );
     });

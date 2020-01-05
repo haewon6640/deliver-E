@@ -26,13 +26,14 @@ export default class AfterArrival extends React.Component {
     });
   }
 
-  afterPickUp = (eater, restaurant, order, id) => {
+  afterPickUp = (eater, restaurant, order, id, total) => {
     this.updateOrder(order);
     this.props.navigation.navigate("Delivering", {
       eater: eater,
       restaurant: restaurant,
       order: order,
-      id: id
+      id: id,
+      total: total
     });
   };
 
@@ -41,18 +42,19 @@ export default class AfterArrival extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    var total = navigation.getParam("total");
     const id = this.props.navigation.getParam("id");
     const totalCount = order["items"].reduce((total, item) => {
       return total + item.count;
     }, 0);
 
     const DATA = [
-      { text1: "Pickup By", text2: "3:22PM", text3: "", key: "1" },
+      { text1: "Pickup By", text2: "9:22PM", text3: "", key: "1" },
       { text1: "Customer", text2: eater.name, text3: "", key: "2" },
       {
         text1: "Order Details",
         text2: totalCount + " items",
-        text3: "$ " + order.subtotal.toFixed(2),
+        text3: "$ " + total,
         key: "3"
       }
     ];
@@ -62,13 +64,12 @@ export default class AfterArrival extends React.Component {
         <Checkbox
           style={{
             height: 70,
-            alignItems: "center",
             borderBottomWidth: 1,
             borderBottomColor: "#c9bfbf"
           }}
           key={j}
           color="#466199"
-          labelStyle={styles.text}
+          labelStyle={[styles.text, { paddingTop: 15 }]}
           label={
             item.count +
             " " +
@@ -107,10 +108,11 @@ export default class AfterArrival extends React.Component {
             />
             <Text style={[styles.category, { marginTop: 30 }]}>Checklist</Text>
             {itemList}
+            {/* <Text style={styles.text}>{total}</Text> */}
           </ScrollView>
         </View>
         <TouchableOpacity
-          onPress={() => this.afterPickUp(eater, restaurant, order, id)}
+          onPress={() => this.afterPickUp(eater, restaurant, order, id, total)}
           style={styles.button}
         >
           {/* <Block row> */}

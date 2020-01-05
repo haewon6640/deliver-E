@@ -45,7 +45,6 @@ const MainStack = createStackNavigator(
     Register: Register,
     Runner: Runner,
     Home: Home,
-    Profile: Profile,
     Menu: Menu,
     Cart: Cart,
     Checkout: Checkout,
@@ -64,7 +63,7 @@ const MainStack = createStackNavigator(
     Rating: Rating
   },
   {
-    // initialRouteName: "Intro",
+    initialRouteName: "Intro",
     defaultNavigationOptions: {
       headerStyle: {
         elevation: 0,

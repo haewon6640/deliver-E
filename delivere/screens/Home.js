@@ -32,8 +32,8 @@ class Header extends React.Component {
               <Text style={styles.location}>Edit Address</Text>
               <Icon
                 style={{ marginTop: 27 }}
-                name="down"
-                family="AntDesign"
+                name="chevron-down"
+                family="Feather"
                 size={30}
                 color="#5E72E4"
               />
@@ -269,7 +269,7 @@ export default class Home extends React.Component {
               renderDescription={row => row.description || row.vicinity}
               onPress={(data, details = null) => {
                 // 'details' is provided when fetchDetails = true
-                alert(JSON.stringify(details.geometry));
+                // alert(JSON.stringify(details.geometry));
                 this.addAddress(details.geometry.location);
               }}
               getDefaultValue={() => ""}

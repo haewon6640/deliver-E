@@ -82,9 +82,9 @@ export default class AcceptPopup extends React.Component {
               color="#5E72E4"
             />
           </TouchableOpacity>
-          <View style={{ flex: 1 }} />
+          {/* <View style={{ flex: 1 }} /> */}
         </Block>
-        <Block middle style={{ flex: 1 }}>
+        <Block middle style={{ marginTop: 45 }}>
           {/* <AnimatedCircularProgress
             size={80}
             width={10}

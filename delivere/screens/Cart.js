@@ -53,7 +53,7 @@ export default class Cart extends React.Component {
           <Block key={i}>
             <Block row>
               <Text style={styles.text}>{element.count}</Text>
-              <Text style={styles.text}>
+              <Text style={[styles.text, { position: "absolute", left: 27 }]}>
                 {this.concatString(element.type + ": " + element.name)}
               </Text>
               <Text style={{ position: "absolute", right: 33, fontSize: 17 }}>
@@ -63,7 +63,12 @@ export default class Cart extends React.Component {
             <Text
               style={[
                 styles.text,
-                { marginLeft: 37, color: "gray", width: 0.5 * width }
+                {
+                  marginLeft: 39,
+                  marginBottom: 10,
+                  color: "gray",
+                  width: 0.5 * width
+                }
               ]}
             >
               {element.instruction}
@@ -72,6 +77,7 @@ export default class Cart extends React.Component {
         );
       }.bind(this)
     );
+    this.state.subtotal = 0;
     items.forEach(element => {
       this.state.subtotal = this.state.subtotal + element.price;
     });
@@ -90,18 +96,23 @@ export default class Cart extends React.Component {
             <Text style={styles.name}>{rName}</Text>
             <Text style={styles.category}>Items</Text>
             {List}
-            <Text
+            {/* <Text
               style={{
                 paddingLeft: 25,
-                marginTop: 50,
+                marginTop: 40,
                 paddingBottom: 20,
                 fontSize: 20,
                 color: "#1f396e"
               }}
             >
               Total
-            </Text>
-            <Block row>
+            </Text> */}
+            <Block
+              rows
+              style={{
+                marginTop: 15
+              }}
+            >
               <Text style={{ marginLeft: 30, marginBottom: 20, fontSize: 17 }}>
                 Subtotal
               </Text>
@@ -129,9 +140,10 @@ export default class Cart extends React.Component {
               <Text
                 style={{
                   marginLeft: 30,
-                  marginBottom: 20,
+                  marginBottom: 25,
                   fontSize: 17,
-                  fontWeight: "bold"
+                  fontWeight: "bold",
+                  color: "#1f396e"
                 }}
               >
                 Total
@@ -141,14 +153,22 @@ export default class Cart extends React.Component {
                   position: "absolute",
                   right: 33,
                   fontSize: 17,
-                  fontWeight: "bold"
+                  fontWeight: "bold",
+                  color: "#1f396e"
                 }}
               >
                 {"$" + total}
               </Text>
             </Block>
             <Block style={{ marginBottom: 20 }}>
-              <Text style={{ marginLeft: 30, marginBottom: 5, fontSize: 17 }}>
+              <Text
+                style={{
+                  color: "#1f396e",
+                  marginLeft: 30,
+                  marginBottom: 5,
+                  fontSize: 20
+                }}
+              >
                 Specific Location
               </Text>
               <TextInput
@@ -169,7 +189,14 @@ export default class Cart extends React.Component {
               />
             </Block>
             <Block row>
-              <Text style={{ marginLeft: 30, marginBottom: 5, fontSize: 17 }}>
+              <Text
+                style={{
+                  color: "#1f396e",
+                  marginLeft: 30,
+                  marginBottom: 5,
+                  fontSize: 20
+                }}
+              >
                 Delivery Instructions
               </Text>
             </Block>
@@ -178,9 +205,10 @@ export default class Cart extends React.Component {
               multiline={true}
               style={{
                 alignSelf: "center",
-                height: 0.2 * height,
+                height: 0.19 * height,
                 width: 0.7 * width,
                 padding: width * 0.05,
+                paddingTop: width * 0.04,
                 borderColor: "gray",
                 borderWidth: 1
               }}
@@ -201,6 +229,7 @@ export default class Cart extends React.Component {
                     items: this.state.items,
                     subtotal: this.state.subtotal,
                     tax: this.state.tax,
+                    total: total,
                     deliveryFee: this.state.deliveryFee,
                     progress: 0.25,
                     tip: this.state.tip,
@@ -215,8 +244,8 @@ export default class Cart extends React.Component {
               shadowless
               style={{
                 alignSelf: "center",
-                marginTop: normalize(30),
-                marginBottom: normalize(10)
+                marginTop: normalize(20),
+                marginBottom: normalize(15)
               }}
             >
               Checkout

@@ -108,15 +108,17 @@ export default class PendingOrders extends React.Component {
     this.state.acceptedOrders.push(order);
     var orderRef = dbh.collection("Order").doc(order.oid);
 
-    const runEmail = await new Runner().getCurrentRunnerEmail();
+    // const runEmail = await new Runner().getCurrentRunnerEmail();
+    // orderRef.update({
+    //   isAccepted: true,
+    //   runnerEmail: runEmail
+    // });
+
+    const runner = await new Runner().getCurrentRunner();
     orderRef.update({
       isAccepted: true,
-      runnerEmail: runEmail
-    });
-
-    const runnerName = await new Runner().getCurrentRunner();
-    orderRef.update({
-      runName: runnerName.name
+      runName: runner.name,
+      runnerEmail: runner.email
     });
 
     this.resetOrderState();
@@ -147,6 +149,7 @@ export default class PendingOrders extends React.Component {
                     this.checkToAccept(order, i);
                   }}
                 >
+                  {/* <Text style={style.category}>{order.oid}</Text> */}
                   <Text style={style.category}>{order.rName}</Text>
                   <Text style={style.text}>{order.building}</Text>
                   <Text style={style.text}>{countString}</Text>

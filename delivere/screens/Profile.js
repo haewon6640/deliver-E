@@ -56,7 +56,6 @@ export default class Profile extends React.Component {
       .catch(
         function(error) {
           // An error happened.
-          alert(error.code);
           alert(error.message);
         }.bind(this)
       );

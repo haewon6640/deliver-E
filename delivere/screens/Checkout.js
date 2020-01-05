@@ -56,7 +56,7 @@ export default class Checkout extends React.Component {
     this.setState({ location: loc });
   };
 
-  async addOrder(order) {
+  async addOrder(order, location) {
     const x = new Eater();
     const eater = await x.getCurrentEater();
     order["date"] = new Date();
@@ -72,7 +72,8 @@ export default class Checkout extends React.Component {
             oid: docRef.id
           });
           this.props.navigation.navigate("ProgTrack", {
-            orderId: docRef.id
+            orderId: docRef.id,
+            location: location
           });
         }.bind(this)
       )
@@ -283,7 +284,7 @@ export default class Checkout extends React.Component {
               </TouchableOpacity>
 
               <Button
-                onPress={() => this.addOrder(order)}
+                onPress={() => this.addOrder(order, building)}
                 color="#5E72E4"
                 shadowless
                 style={{ alignSelf: "center", marginTop: 20, marginBottom: 10 }}

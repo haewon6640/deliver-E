@@ -180,7 +180,7 @@ class Rating extends React.Component {
                 <Button
                   color="primary"
                   style={styles.createButton}
-                  onPress={() => this.finishOrder(oid)}
+                  onPress={() => this.props.navigation.navigate("Home")}
                 >
                   <Text
                     style={{
