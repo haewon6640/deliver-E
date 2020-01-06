@@ -67,8 +67,7 @@ export default class PickingUp extends React.Component {
       eater: eater,
       restaurant: restaurant,
       order: order,
-      id: id,
-      total: (order.subtotal + order.tax).toFixed(2)
+      id: id
     });
   };
 
@@ -80,17 +79,17 @@ export default class PickingUp extends React.Component {
   };
 
   sendEmail = async () => {
-    let result = await Linking.openURL("mailto: jto@emory.edu");
+    let result = await Linking.openURL("mailto: glee@emory.edu");
   };
 
   openMap = () => {
     if ((Platform.OS = "ios")) {
       let result = Linking.openURL(
-        "http://maps.apple.com/maps?daddr=33.792378, -84.323190"
+        "http://maps.apple.com/maps?daddr=33.791025,, -84.325908"
       );
     } else {
       let result = Linking.openURL(
-        "http://maps.google.com/maps?daddr=33.792378, -84.323190"
+        "http://maps.google.com/maps?daddr=33.791025,, -84.325908"
       );
     }
   };
@@ -101,16 +100,16 @@ export default class PickingUp extends React.Component {
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
     const id = this.props.navigation.getParam("id");
-    var orderRef = dbh.collection("Order").doc(id);
-    orderRef.update({ rerender: true });
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
-          {item.count + " " + item.name + " " + item.type
-          // +
-          // ": $" +
-          // item.price.toFixed(2)
-          }
+          {item.count +
+            " " +
+            item.name +
+            " " +
+            item.type +
+            ": $" +
+            item.price.toFixed(2)}
         </Text>
       );
     });
@@ -303,9 +302,9 @@ export default class PickingUp extends React.Component {
                   <Text style={styles.category}>Order</Text>
                   {/* <Text style={styles.text}>2 Items:</Text> */}
                   {itemList}
-                  <Text style={styles.text}>{"Tax : $" + order.tax}</Text>
+                  <Text style={styles.text}>{"Tax: $" + order.tax}</Text>
                   <Text style={styles.text}>
-                    {"Total Price: $" + (order.subtotal + order.tax).toFixed(2)}
+                    {"Total: $" + (order.subtotal + order.tax).toFixed(2)}
                   </Text>
                 </View>
               </View>

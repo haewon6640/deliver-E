@@ -79,8 +79,10 @@ export default class Cart extends React.Component {
     );
     this.state.subtotal = 0;
     items.forEach(element => {
-      this.state.subtotal = this.state.subtotal + element.price;
+      this.state.subtotal =
+        this.state.subtotal + parseFloat(element.price.toFixed(2));
     });
+    this.state.subtotal = parseFloat(this.state.subtotal.toFixed(2));
     this.state.tax = parseFloat((this.state.subtotal * 0.04).toFixed(2));
     this.state.deliveryFee = 3.0;
     total = (

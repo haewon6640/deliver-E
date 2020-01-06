@@ -172,7 +172,6 @@ export default class Checkout extends React.Component {
     }
     var instructions = navigation.getParam("instructions");
     var building = navigation.getParam("building");
-    console.log(building);
 
     return (
       <View style={{ flex: 1, width: width }}>

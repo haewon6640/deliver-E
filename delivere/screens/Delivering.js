@@ -75,7 +75,7 @@ export default class Delivering extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
-    var total = navigation.getParam("total");
+    var total = (order.subtotal + order.tax).toFixed(2);
     total = "$" + total;
     var instruct = order.instructions;
     const id = this.props.navigation.getParam("id");

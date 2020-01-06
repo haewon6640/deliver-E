@@ -243,8 +243,8 @@ class BottomSheet extends React.Component {
                 style={{
                   borderBottomWidth: 1,
                   borderBottomColor: "#c9bfbf",
-                  paddingBottom: normalize(20),
-                  marginBottom: normalize(30)
+                  paddingBottom: normalize(15),
+                  marginBottom: normalize(10)
                 }}
               >
                 <Block row>
@@ -285,7 +285,7 @@ class BottomSheet extends React.Component {
                   borderBottomWidth: 1,
                   borderBottomColor: "#c9bfbf",
                   paddingBottom: normalize(20),
-                  marginBottom: normalize(20)
+                  marginBottom: normalize(15)
                 }}
               >
                 <Text style={styles.category}>Order Details</Text>

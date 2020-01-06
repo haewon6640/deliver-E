@@ -32,8 +32,7 @@ export default class AfterArrival extends React.Component {
       eater: eater,
       restaurant: restaurant,
       order: order,
-      id: id,
-      total: total
+      id: id
     });
   };
 
@@ -42,24 +41,38 @@ export default class AfterArrival extends React.Component {
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
-    var total = navigation.getParam("total");
+    var total = (order.subtotal + order.tax).toFixed(2);
     const id = this.props.navigation.getParam("id");
     const totalCount = order["items"].reduce((total, item) => {
       return total + item.count;
     }, 0);
 
+    let itm = "items";
+    if (totalCount == 1) itm = "item";
+
     const DATA = [
-      { text1: "Pickup By", text2: "9:22PM", text3: "", key: "1" },
+      { text1: "Pickup By", text2: "8:34PM", text3: "", key: "1" },
       { text1: "Customer", text2: eater.name, text3: "", key: "2" },
       {
         text1: "Order Details",
-        text2: totalCount + " items",
-        text3: "$ " + total,
+        text2: totalCount + " " + itm,
+        text3:
+          " Subtotal: $" +
+          order.subtotal.toFixed(2) +
+          "\n" +
+          " Tax: $" +
+          order.tax +
+          "\n" +
+          " Total: $ " +
+          total,
         key: "3"
       }
     ];
 
     const itemList = order["items"].map((item, j) => {
+      let instrc = "";
+      if (item.instruction) instrc = "\n  " + item.instruction;
+
       return (
         <Checkbox
           style={{
@@ -69,7 +82,7 @@ export default class AfterArrival extends React.Component {
           }}
           key={j}
           color="#466199"
-          labelStyle={[styles.text, { paddingTop: 15 }]}
+          labelStyle={styles.text}
           label={
             item.count +
             " " +
@@ -78,8 +91,7 @@ export default class AfterArrival extends React.Component {
             item.type +
             ": $" +
             item.price.toFixed(2) +
-            "\n" +
-            item.instruction
+            instrc
           }
         />
       );
