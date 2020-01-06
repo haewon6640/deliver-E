@@ -1,1 +1,0 @@
-![](delivDemo.gif)
