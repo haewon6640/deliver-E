@@ -8,14 +8,21 @@ import {
   Image,
   TouchableOpacity,
   Animated,
-  PanResponder
+  PanResponder,
+  Button,
+  Platform
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import { Button, Block, Icon } from "galio-framework";
+import { Block, Icon } from "galio-framework";
 const { width, height } = Dimensions.get("window");
+import { style } from "../constants/Styles";
 import normalize from "react-native-normalize";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import * as SMS from "expo-sms";
+import * as Permissions from "expo-permissions";
+import { Linking } from "expo";
+import { RNSlidingButton, SlideDirection } from "rn-sliding-button";
 
 const dbh = firebase.firestore();
 
@@ -54,23 +61,55 @@ export default class PickingUp extends React.Component {
     });
   }
 
-  afterArriving = (eater, restaurant, order) => {
+  afterArriving = (eater, restaurant, order, id) => {
     this.updateOrder(order);
     this.props.navigation.navigate("AfterArrival", {
       eater: eater,
       restaurant: restaurant,
-      order: order
+      order: order,
+      id: id
     });
   };
+
+  sendSMS = async () => {
+    let result = await Linking.openURL("sms:4088934051");
+  };
+  phoneCall = async () => {
+    let result = await Linking.openURL("tel:4088934051");
+  };
+
+  sendEmail = async () => {
+    let result = await Linking.openURL("mailto: glee@emory.edu");
+  };
+
+  openMap = () => {
+    if ((Platform.OS = "ios")) {
+      let result = Linking.openURL(
+        "http://maps.apple.com/maps?daddr=33.791025,, -84.325908"
+      );
+    } else {
+      let result = Linking.openURL(
+        "http://maps.google.com/maps?daddr=33.791025,, -84.325908"
+      );
+    }
+  };
+
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    const id = this.props.navigation.getParam("id");
     const itemList = order["items"].map((item, j) => {
       return (
         <Text key={j} style={styles.text}>
-          {item.name + " " + item.type + " $ " + item.price}
+          {item.count +
+            " " +
+            item.name +
+            " " +
+            item.type +
+            ": $" +
+            item.price.toFixed(2)}
         </Text>
       );
     });
@@ -123,7 +162,7 @@ export default class PickingUp extends React.Component {
                   >
                     {restaurant["location"]}
                   </Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => this.openMap()}>
                     <Block
                       style={{
                         width: normalize(180),
@@ -166,7 +205,7 @@ export default class PickingUp extends React.Component {
                       paddingTop: 20
                     }}
                   >
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.phoneCall()}>
                       <Block
                         style={{
                           width: 0.27 * width,
@@ -191,7 +230,11 @@ export default class PickingUp extends React.Component {
                         </Text>
                       </Block>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ marginLeft: normalize(12) }}>
+
+                    <TouchableOpacity
+                      onPress={() => this.sendSMS()}
+                      style={{ marginLeft: normalize(12) }}
+                    >
                       <Block
                         style={{
                           width: 0.27 * width,
@@ -220,7 +263,11 @@ export default class PickingUp extends React.Component {
                         </Text>
                       </Block>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ marginLeft: normalize(12) }}>
+
+                    <TouchableOpacity
+                      onPress={() => this.sendEmail()}
+                      style={{ marginLeft: normalize(12) }}
+                    >
                       <Block
                         style={{
                           width: 0.27 * width,
@@ -255,20 +302,60 @@ export default class PickingUp extends React.Component {
                   <Text style={styles.category}>Order</Text>
                   {/* <Text style={styles.text}>2 Items:</Text> */}
                   {itemList}
-                  <Text style={styles.text}>{"$" + order.subtotal}</Text>
+                  <Text style={styles.text}>{"Tax: $" + order.tax}</Text>
+                  <Text style={styles.text}>
+                    {"Total: $" + (order.subtotal + order.tax).toFixed(2)}
+                  </Text>
                 </View>
               </View>
             </ScrollView>
           </View>
         </SlidingUpPanel>
         <TouchableOpacity
-          onPress={() => this.afterArriving(eater, restaurant, order)}
+          onPress={() => this.afterArriving(eater, restaurant, order, id)}
+          // slideDirection={SlideDirection.RIGHT}
           style={styles.button}
         >
           {/* <Block row> */}
           {/* <Icon name="right" family="AntDesign" size={20} color="white" /> */}
           <Text style={{ color: "white", fontSize: 25 }}>After arrival</Text>
           {/* </Block> */}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ position: "absolute", right: 15, top: 4 }}
+          onPress={() => {
+            this.props.navigation.navigate("MyOrders", {
+              navIndex: 0,
+              id: id,
+              ident: 1
+            });
+          }}
+        >
+          <Block
+            middle
+            style={{
+              shadowColor: "black",
+              shadowOffset: { width: 0, height: 2 },
+              shadowRadius: 4,
+              shadowOpacity: 0.1,
+              elevation: 2,
+              borderRadius: 10,
+              height: 85,
+              aspectRatio: 0.8,
+              backgroundColor: "white"
+            }}
+          >
+            <Icon
+              name="text-document"
+              family="Entypo"
+              size={50}
+              color="#5E72E4"
+            />
+            <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
+              Orders
+            </Text>
+          </Block>
         </TouchableOpacity>
       </View>
     );

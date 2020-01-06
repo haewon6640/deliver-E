@@ -67,7 +67,15 @@ class BottomSheet extends React.Component {
     this.state = {
       status: 0.25,
       message: "Heading to store",
-      time: "10-15 min"
+      time: "10-15 min",
+      progress: 0.25,
+      message: "Heading to store",
+      runner: "Currently Unpicked",
+      runnerSub: "",
+      itemCount: 0,
+      items: null,
+      location: "",
+      orderSet: false
     };
     // this.changeStatus = this.changeStatus.bind(this);
     // this.manualChange = this.manualChange.bind(this);
@@ -83,28 +91,28 @@ class BottomSheet extends React.Component {
     });
   }
 
-  manualChange = n => {
-    if (n == 0.25)
-      this.setState({
-        status: 0.25,
-        message: "Heading to store",
-        time: "10-15 min"
-      });
-    else if (n == 0.5)
-      this.setState({
-        status: 0.5,
-        message: "Ordering food",
-        time: "5-10 min"
-      });
-    else if (n == 0.75)
-      this.setState({ status: 0.75, message: "Heading to you", time: "4 min" });
-    else
-      this.setState({
-        status: 1,
-        message: "Runner is nearby",
-        time: "Arriving Now"
-      });
-  };
+  // manualChange = n => {
+  //   if (n == 0.25)
+  //     this.setState({
+  //       status: 0.25,
+  //       message: "Heading to store",
+  //       time: "10-15 min"
+  //     });
+  //   else if (n == 0.5)
+  //     this.setState({
+  //       status: 0.5,
+  //       message: "Ordering food",
+  //       time: "5-10 min"
+  //     });
+  //   else if (n == 0.75)
+  //     this.setState({ status: 0.75, message: "Heading to you", time: "4 min" });
+  //   else
+  //     this.setState({
+  //       status: 1,
+  //       message: "Runner is nearby",
+  //       time: "Arriving Now"
+  //     });
+  // };
 
   // changeStatus = () => {
   //   t1 = setTimeout(() => {
@@ -145,14 +153,21 @@ class BottomSheet extends React.Component {
   }
   componentWillUnmount() {
     // this.manualChange(this.props.progress);
-    clearTimeout(t1);
-    clearTimeout(t2);
-    clearTimeout(t3);
+    // clearTimeout(t1);
+    // clearTimeout(t2);
+    // clearTimeout(t3);
   }
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.progress != nextProps.progress;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return (
+  //     this.props.progress != nextProps.progress ||
+  //     this.props.itemCount != nextProps.itemCount ||
+  //     this.props.runner != nextProps.runner ||
+  //     this.props.runner != nextProps.runnersub
+  //   );
+  // }
+
   render() {
+    var total = "$" + this.props.total;
     return (
       <SlidingUpPanel
         allowDragging={this.state.dragPanel}
@@ -184,6 +199,9 @@ class BottomSheet extends React.Component {
                 style={styles.progBar}
                 progress={this.props.progress}
                 progressTintColor={"#5E72E4"}
+                // styleAttr="Horizontal"
+                // indeterminate={false}
+                // color={"#5E72E4"}
               />
               <Block row space="around" style={{ marginTop: 5 }}>
                 <TouchableOpacity onPress={() => this.manualChange(1)}>
@@ -225,14 +243,14 @@ class BottomSheet extends React.Component {
                 style={{
                   borderBottomWidth: 1,
                   borderBottomColor: "#c9bfbf",
-                  paddingBottom: normalize(20),
-                  marginBottom: normalize(30)
+                  paddingBottom: normalize(15),
+                  marginBottom: normalize(10)
                 }}
               >
                 <Block row>
                   <View>
-                    <Text style={styles.category}>Sally</Text>
-                    <Text style={styles.text}>Your Runner</Text>
+                    <Text style={styles.category}>{this.props.runner}</Text>
+                    <Text style={styles.text}>{this.props.runnerSub}</Text>
                   </View>
                   <Block
                     style={{
@@ -267,13 +285,16 @@ class BottomSheet extends React.Component {
                   borderBottomWidth: 1,
                   borderBottomColor: "#c9bfbf",
                   paddingBottom: normalize(20),
-                  marginBottom: normalize(20)
+                  marginBottom: normalize(15)
                 }}
               >
                 <Text style={styles.category}>Order Details</Text>
-                <Text style={styles.text}>1 Item:</Text>
-                <Text style={styles.text}>1x Taco Combo</Text>
-                <View style={{ marginBottom: 20 }}>
+                <Text style={styles.text}>
+                  {this.props.itemCount + " Items"}
+                </Text>
+                <Text style={styles.text}>{this.props.items}</Text>
+                <Text style={styles.text}>{total}</Text>
+                {/* <View style={{ marginBottom: 20 }}>
                   <Text
                     style={[
                       styles.text,
@@ -282,11 +303,11 @@ class BottomSheet extends React.Component {
                   >
                     View Receipt
                   </Text>
-                </View>
+                </View> */}
               </View>
               <View style={{ paddingBottom: 20, marginBottom: 30 }}>
-                <Text style={styles.category}>Address</Text>
-                <Text style={styles.text}>White Hall 208</Text>
+                <Text style={styles.category}>Location</Text>
+                <Text style={styles.text}>{this.props.location}</Text>
               </View>
             </View>
           </ScrollView>

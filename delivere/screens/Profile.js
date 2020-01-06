@@ -11,119 +11,242 @@ import {
   Image
 } from "react-native";
 import { Block, Icon } from "galio-framework";
-import { ImagePicker, Permissions } from 'expo';
+// import { ImagePicker, Permissions } from "expo";
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
-
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 import firebase from "../components/firebase";
+import Eater from "../backend/Eater";
+// let user;
 
-signOut = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(
-      function () {
-        // Sign-out successful.
-        this.props.navigation.navigate("Intro");
-      }.bind(this)
-    )
-    .catch(
-      function (error) {
-        // An error happened.
-        alert(error.code);
-        alert(error.message);
-      }.bind(this)
-    );
-};
-
+import "@firebase/firestore";
+import normalize from "react-native-normalize";
+const db = firebase.firestore();
+const default_image =
+  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+let type;
+let Email;
 
 export default class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.checkUserType = this.checkUserType.bind(this);
+  }
+
   state = {
-    image: null
+    image:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+    valid: false,
+    email: "",
+    phone: "",
+    name: ""
   };
 
-  selectPicture = async () => {
-    await Permissions.askAsync(Permissions.CAMERA_ROLL);
+  signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(
+        function() {
+          // Sign-out successful.
+          this.props.navigation.navigate("Intro");
+        }.bind(this)
+      )
+      .catch(
+        function(error) {
+          // An error happened.
+          alert(error.message);
+        }.bind(this)
+      );
+  };
+
+  // checkUserType = async email => {
+  //   await db
+  //     .collection("Eater")
+  //     .doc(email)
+  //     .get()
+  //     .then(function(doc) {
+  //       if (typeof doc.data() === "undefined") {
+  //         type = "Runner";
+  //       } else {
+  //         type = "Eater";
+  //       }
+  //     });
+  // };
+
+  // queryCurrent = async () => {
+  //   firebase.auth().onAuthStateChanged(function(user) {
+  //     if (user) {
+  //       Email = user.email;
+  //     } else {
+  //       alert("You are not signed in.");
+  //       // No user is signed in.
+  //     }
+  //   });
+  // };
+
+  queryProfileInfo = async => {
+    firebase.auth().onAuthStateChanged(
+      function(user) {
+        if (user) {
+          var userRef = db
+            .collection("Eater")
+            .doc(user.email)
+            .get();
+
+          userRef.then(
+            function(doc) {
+              if (doc.exists) {
+                this.setState({
+                  uid: doc.data().uid,
+                  email: doc.data().email,
+                  name: doc.data().name,
+                  phone: doc.data().phoneNumber
+                });
+              } else {
+                queryProfileInfo("Runner");
+                alert("There was an issue fetching data from the server.");
+              }
+            }.bind(this)
+          );
+        } else {
+          alert("You are not signed in.");
+          // No user is signed in.
+          return;
+        }
+      }.bind(this)
+    );
+  };
+
+  selectPicture = async email => {
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
       aspect: 1,
-      allowsEditing: true,
+      allowsEditing: true
     });
-    if (!cancelled) this.setState({ image: uri }) //if image cancelled, won't set new image
+    if (!cancelled) {
+      this.uploadImage(uri, email);
+      this.setState({ image: uri }); //if image cancelled, won't set new image
+    }
   };
 
-  takePicture = async () => {
-    await Permissions.askAsync(Permissions.CAMERA);
+  takePicture = async email => {
     const { cancelled, uri } = await ImagePicker.launchCameraAsync({
-      alowsEditing: false,
+      alowsEditing: false
     });
-    if (!cancelled) this.setState({ image: uri });
+    if (!cancelled) {
+      this.uploadImage(uri, email);
+      this.setState({ image: uri });
+    }
+  };
+  uploadImage = async (uri, email) => {
+    const response = await fetch(uri);
+    const blob = await response.blob();
+    console.log(email);
+
+    const imageRef = firebase
+      .storage()
+      .ref("Eater")
+      .child(email);
+    await imageRef.put(blob).then(function() {
+      imageRef
+        .getDownloadURL()
+        .then(function(downloadURL) {
+          db.collection("Eater")
+            .doc(email)
+            .update({ profileImage: downloadURL })
+            .catch(error => alert(JSON.stringify(error)));
+        })
+        .catch(error => {
+          alert("There was error uploading your profile image.");
+          return "";
+        });
+    });
   };
 
+  async componentDidMount() {
+    await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    await Permissions.askAsync(Permissions.CAMERA);
+  }
 
   render() {
     const { navigation } = this.props;
-    const user = navigation.getParam("user");
-    if (user.email.length > 8) {
-      user.email = user.email.substring(0, 6) + "...";
+    if (!this.state.valid) {
+      this.queryProfileInfo();
     }
-    if (user.name.length > 8) {
-      user.name = user.name.substring(0, 6) + "...";
-    }
-    let { image } = this.state;
 
-  
+    var uEmail = this.state.email;
+    var uName = this.state.name;
+    // if (uEmail.length > 8) {
+    //   uEmail = uEmail.substring(0, 6) + "...";
+    // }
+    // if (uName.length > 8) {
+    //   uName = uName.substring(0, 6) + "...";
+    // }
 
     return (
-      <View style={styles.container}>
-        <Image style={styles.image} source={{ uri: this.state.image }} />
-        <View style={styles.row}>
-          <Button 
-            title ="Gallery"
-            onPress={this.selectPicture}
-          />
-          <Button title="Camera" onPress={this.takePicture}></Button>
-        </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <View
+            style={[
+              styles.row,
+              { alignItems: "center", marginTop: normalize(50) }
+            ]}
+          >
+            <Image
+              source={{ uri: this.state.image }}
+              style={styles.profileImage}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Button
+                title="Gallery"
+                onPress={() => this.selectPicture(this.state.email)}
+              ></Button>
+              <Button
+                title="Camera"
+                onPress={() => this.takePicture(this.state.email)}
+              ></Button>
+            </View>
+          </View>
 
-        <Block style={styles.container}>
-          <Block style={styles.subCont}>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Name</Text>
-              <Text style={styles.right}>{user.name}</Text>
-            </Block>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Phone Number</Text>
-              <Text style={styles.right}>{user.phoneNumber}</Text>
-            </Block>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Email</Text>
-              <Text style={styles.right}>{user.email}</Text>
-            </Block>
-          </Block>
-          <Block style={styles.subCont}>
-            <Block row style={styles.entry}>
-              <Text style={styles.text}>Change password</Text>
-            </Block>
-          </Block>
-          <TouchableOpacity onPress={() => signOut()}>
+          <Block style={styles.container}>
             <Block style={styles.subCont}>
               <Block row style={styles.entry}>
-                <Text style={styles.text}>Sign Out</Text>
+                <Text style={styles.text}>Name</Text>
+                <Text style={styles.right}>{uName}</Text>
+              </Block>
+              <Block row style={styles.entry}>
+                <Text style={styles.text}>Phone</Text>
+                <Text style={styles.right}>{this.state.phone}</Text>
+              </Block>
+              <Block row style={styles.entry}>
+                <Text style={styles.text}>Email</Text>
+                <Text style={styles.right}>{uEmail}</Text>
               </Block>
             </Block>
-          </TouchableOpacity>
-        </Block>
-      </View>
-
+            <Block style={styles.subCont}>
+              {/* <Block row style={styles.entry}>
+                <Text style={styles.text}>Change password</Text>
+              </Block> */}
+              <TouchableOpacity onPress={() => this.signOut()}>
+                <Block style={styles.subCont}>
+                  <Block row style={styles.entry}>
+                    <Text style={styles.text}>Sign Out</Text>
+                  </Block>
+                </Block>
+              </TouchableOpacity>
+            </Block>
+          </Block>
+        </View>
+      </ScrollView>
     );
   }
 }
 
-
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#F8F9FE",
-    height: height
+    flex: 1
   },
   subCont: {
     marginTop: 30
@@ -138,7 +261,7 @@ const styles = StyleSheet.create({
   },
   right: {
     position: "absolute",
-    left: 200,
+    left: 150,
     fontSize: 17,
     color: "#1f396e"
   },
@@ -146,12 +269,20 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#1f396e"
   },
-  button: { 
-    padding: 10, 
-    borderWidth: 1, 
-    borderColor: "#333", 
-    textAlign: "center", 
-    maxWidth: 150 
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2,
+    overflow: "hidden",
+    borderWidth: 2,
+    borderColor: "transparent"
   }
 
+  // button: {
+  //   padding: 10,
+  //   borderWidth: 1,
+  //   borderColor: "#333",
+  //   textAlign: "center",
+  //   maxWidth: 150
+  // },
 });

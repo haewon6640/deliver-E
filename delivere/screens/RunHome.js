@@ -1,11 +1,8 @@
 import React from "react";
 import {
-  ScrollView,
-  View,
   StyleSheet,
   Text,
   Dimensions,
-  Image,
   TouchableOpacity,
   ImageBackground
 } from "react-native";
@@ -17,26 +14,27 @@ import "@firebase/firestore";
 const dbh = firebase.firestore();
 
 export default class RunHome extends React.Component {
-  querylatestOrder = async () => {
-    var order = {};
+  queryOrders = async () => {
+    var orders = [];
     var success = "";
     await dbh
       .collection("Order")
-      .orderBy("date", "desc")
-      .limit(1)
+      // .orderBy("date", "desc")
+      // .limit(1)
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(documentSnapshot => {
           var data = documentSnapshot.data();
-          order = data;
+          orders.push(data);
           success = "success";
         });
       })
       .catch(error => alert(error.toString()));
     if (success != "") {
-      this.props.navigation.navigate("AcceptOrders", { order: order });
+      this.props.navigation.navigate("PendingOrders", { orders: orders });
     }
   };
+  
   render() {
     return (
       <ImageBackground
@@ -46,12 +44,12 @@ export default class RunHome extends React.Component {
         <Button
           style={styles.button}
           onPress={() => {
-            this.querylatestOrder();
+            this.queryOrders();
           }}
         >
           <Text style={styles.text}>Start Delivering</Text>
         </Button>
-        <Block style={styles.footer}>
+        {/* <Block style={styles.footer}>
           <Block row space="around">
             <Icon name="compass" family="Feather" size={35} color="#5E72E4" />
             <Icon
@@ -78,7 +76,7 @@ export default class RunHome extends React.Component {
               <Text style={{ color: "#5E72E4" }}>Account</Text>
             </TouchableOpacity>
           </Block>
-        </Block>
+        </Block> */}
         {/* <Block row space="around">
           <Text style={{ color: "#5E72E4", marginLeft: 15 }}>Run</Text>
           <Text style={{ color: "#5E72E4", marginLeft: 20 }}>Ratings</Text>
@@ -119,6 +117,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   button: {
+    position: "absolute",
+    top: 0.40*height,
+    left: "50%",
+    marginLeft: normalize(-150),
+    marginTop: normalize(-40),
     height: normalize(80),
     width: normalize(300)
   },

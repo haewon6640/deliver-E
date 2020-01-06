@@ -15,7 +15,6 @@ import { Block } from "galio-framework";
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
 const { width, height } = Dimensions.get("screen");
-import { UserInterfaceIdiom } from "expo-constants";
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();
@@ -76,14 +75,16 @@ class Register extends React.Component {
       });
     return authenticated;
   }
+
   // emailVerification;
-  async signUpUser(email, password, name, phoneNumber) {
+  async signUpUserE(email, password, name, phoneNumber) {
     // if (email)
     const response = await this.attemptAuthentication(email, password);
     if (response == "Success") {
       firebase.auth().onAuthStateChanged(
         function(user) {
           if (user) {
+            user.sendEmailVerification();
             const curUser = {
               uid: user.uid,
               email: user.email,
@@ -208,7 +209,7 @@ class Register extends React.Component {
                           color="primary"
                           style={styles.createButton}
                           onPress={() =>
-                            this.signUpUser(
+                            this.signUpUserE(
                               this.state.email,
                               this.state.password,
                               this.state.name,

@@ -8,14 +8,18 @@ import {
   Image,
   TouchableOpacity,
   Animated,
-  PanResponder
+  PanResponder,
+  Button
 } from "react-native";
+import { RNSlidingButton, SlideDirection } from "rn-sliding-button";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import { Button, Block, Icon } from "galio-framework";
+import { Block, Icon } from "galio-framework";
+import { style } from "../constants/Styles";
 import normalize from "react-native-normalize";
 const { width, height } = Dimensions.get("window");
 import firebase from "../components/firebase";
 import "@firebase/firestore";
+import { Linking } from "expo";
 
 const dbh = firebase.firestore();
 
@@ -49,15 +53,40 @@ export default class Delivering extends React.Component {
     this.setState({ dragPanel: true });
   }
 
+  updateOrder(order) {
+    var orderRef = dbh.collection("Order").doc(order.oid);
+    orderRef.update({
+      progress: 1
+    });
+  }
+
+  afterDelivery = order => {
+    this.updateOrder(order);
+    this.props.navigation.navigate("MyOrders", {
+      // eater: eater,
+      // restaurant: restaurant,
+      // order: order,
+      // id: id
+    });
+  };
+
   render() {
     const { navigation } = this.props;
     var restaurant = navigation.getParam("restaurant");
     var eater = navigation.getParam("eater");
     var order = navigation.getParam("order");
+    var total = (order.subtotal + order.tax).toFixed(2);
+    total = "$" + total;
+    var instruct = order.instructions;
+    const id = this.props.navigation.getParam("id");
     const itemList = order["items"].map((item, j) => {
       return (
-        <Text style={styles.text}>
-          {item.name + " " + item.type + " $ " + item.price}
+        <Text key={j} style={styles.text}>
+          {item.count + " " + item.name + " " + item.type
+          //  +
+          // ": $" +
+          // item.price.toFixed(2)
+          }
         </Text>
       );
     });
@@ -189,7 +218,7 @@ export default class Delivering extends React.Component {
                   }}
                 >
                   <Text style={styles.category}>Upon Arrival</Text>
-                  <Text style={styles.text}>Go to Room 208</Text>
+                  <Text style={styles.text}>{instruct}</Text>
                   <Block
                     row
                     style={{
@@ -202,19 +231,61 @@ export default class Delivering extends React.Component {
                 <View>
                   <Text style={styles.category}>Order</Text>
                   {itemList}
+                  <Text style={styles.text}>{total}</Text>
                 </View>
               </View>
             </ScrollView>
           </View>
         </SlidingUpPanel>
         <TouchableOpacity
-          // onPress={()=>this.props.navigation.navigate('')}
+          // onSlidingSuccess={() =>
+          onPress={() => this.afterDelivery(order)}
           style={styles.button}
+          // height={normalize(80)}
+          // slideDirection={SlideDirection.RIGHT}
         >
+          {/* <View> */}
           {/* <Block row> */}
           {/* <Icon name="right" family="AntDesign" size={20} color="white" /> */}
           <Text style={{ color: "white", fontSize: 25 }}>After delivery</Text>
           {/* </Block> */}
+          {/* </View> */}
+          {/* </RNSlidingButton> */}
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{ position: "absolute", right: 15, top: 4 }}
+          onPress={() => {
+            this.props.navigation.navigate("MyOrders", {
+              navIndex: 2,
+              id: id,
+              ident: 1
+            });
+          }}
+        >
+          <Block
+            middle
+            style={{
+              shadowColor: "black",
+              shadowOffset: { width: 0, height: 2 },
+              shadowRadius: 4,
+              shadowOpacity: 0.1,
+              elevation: 2,
+              borderRadius: 10,
+              height: 85,
+              aspectRatio: 0.8,
+              backgroundColor: "white"
+            }}
+          >
+            <Icon
+              name="text-document"
+              family="Entypo"
+              size={50}
+              color="#5E72E4"
+            />
+            <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
+              Orders
+            </Text>
+          </Block>
         </TouchableOpacity>
       </View>
     );

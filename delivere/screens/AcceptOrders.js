@@ -1,34 +1,34 @@
 import React from "react";
 import {
-  ScrollView,
   View,
   StyleSheet,
   Text,
   Dimensions,
   Image,
   TouchableOpacity,
-  ImageBackground,
-  Animated,
-  Modal,
-  Easing
 } from "react-native";
-import { Button, Block, Icon } from "galio-framework";
+import { Block } from "galio-framework";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 const { width, height } = Dimensions.get("window");
 import normalize from "react-native-normalize";
 import Restaurant from "../backend/Restaurant";
 import Eater from "../backend/Eater";
-let time;
 import firebase from "../components/firebase";
 import "@firebase/firestore";
 const dbh = firebase.firestore();
 
+
 export default class AcceptOrders extends React.Component {
+  time;
+  
   constructor(props) {
     super(props);
     this.state = { fill: 0, seconds: 120 };
+    this.startTime = this.startTime.bind(this);
+    this.resetTime = this.resetTime.bind(this);
   }
-  componentDidMount() {
+
+  startTime = () => {
     time = setInterval(() => {
       if (this.state.seconds > 0)
         this.setState({
@@ -37,15 +37,33 @@ export default class AcceptOrders extends React.Component {
         });
     }, 1000);
   }
+
+  resetTime = () => {
+    clearTimeout(time);
+    this.setState({
+      fill: 0,
+      seconds: 120
+    });
+  }
+
+  componentDidMount() {
+    this.focusListener = this.props.navigation.addListener("didFocus", this.startTime);
+    this.blurListener = this.props.navigation.addListener("didBlur", this.resetTime);
+  }
+
   componentWillUnmount() {
     clearTimeout(time);
+    this.focusListener.remove();
+    this.blurListener.remove();
   }
+
   updateOrder(order) {
     var orderRef = dbh.collection("Order").doc(order.oid);
     orderRef.update({
       progress: 0.25
     });
   }
+
   async queryPickupInfo(order) {
     var rName = order["rName"];
     this.updateOrder(order);
@@ -57,10 +75,15 @@ export default class AcceptOrders extends React.Component {
       order: order
     });
   }
+  
   render() {
     const { navigation } = this.props;
     var order = navigation.getParam("order");
     var earning = order["deliveryFee"];
+    const totalCount = order["items"].reduce((total,item) => {
+      return total + item.count
+    }, 0);
+
     return (
       <View style={{ flex: 1 }}>
         <Image
@@ -91,7 +114,7 @@ export default class AcceptOrders extends React.Component {
               <Text style={styles.text}>Deliver by 3:27 PM</Text>
               <Text style={styles.category}>{order.rName}</Text>
               <Block row>
-                <Text style={styles.text}>2 items •</Text>
+                <Text style={styles.text}>{totalCount} items •</Text>
                 <Text style={styles.text}>0.5 miles</Text>
               </Block>
             </View>
@@ -120,7 +143,9 @@ export default class AcceptOrders extends React.Component {
                 <Text style={styles.text}> Earnings</Text>
               </Block>
               <TouchableOpacity
-                onPress={() => this.queryPickupInfo(order)}
+                onPress={() => {
+                  this.queryPickupInfo(order);
+                }}
                 style={{
                   height: 100,
                   position: "absolute",

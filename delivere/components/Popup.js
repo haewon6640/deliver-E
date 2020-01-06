@@ -1,38 +1,43 @@
 import React from "react";
-import { Modal, StyleSheet, Dimensions, View } from "react-native";
-const { width, height } = Dimensions.get("window");
+import { StyleSheet, Dimensions, View, Modal } from "react-native";
+import Modal2 from "react-native-modal";
+const { width, height } = Dimensions.get("screen");
 
-export default class LocationPopup extends React.Component {
-  constructor(props){
+export default class Popup extends React.Component {
+  constructor(props) {
     super(props);
   }
 
-  render(){
-    style = (this.props.style == "full") ? styles.full : styles.small;
-
-    return(
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={this.props.visible}>
-        <View style={style}>
+  render() {
+    style = this.props.style == "full" ? styles.full : styles.small;
+    if (this.props.style == "full")
+      return (
+        <Modal animationType="slide" visible={this.props.visible}>
+          <View style={style}>{this.props.children}</View>
+        </Modal>
+      );
+    else
+      return (
+        <Modal2
+          isVisible={this.props.visible}
+          backdropTransitionOutTiming={0}
+          backdropOpacity={0.3}
+          style={style}
+        >
           {this.props.children}
-        </View>    
-      </Modal>
-    );
+        </Modal2>
+      );
   }
-
 }
 
 const styles = StyleSheet.create({
-  full:{
+  full: {
     height: height,
     width: width,
     backgroundColor: "white"
   },
-  small:{
-    flex: 1,
+  small: {
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   }
 });
