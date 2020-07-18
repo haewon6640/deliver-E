@@ -26,7 +26,7 @@
     "expo-sms": "^7.0.0",
     "firebase": "^7.2.2",
     "galio-framework": "^0.6.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mem": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
