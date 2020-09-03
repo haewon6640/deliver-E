@@ -15,49 +15,50 @@ import { style } from "../constants/Styles";
 const { width, height } = Dimensions.get("window");
 
 export default class AcceptPopup extends React.Component {
-  // time;
+  time;
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { fill: 0, seconds: 120 };
-  //   this.startTime = this.startTime.bind(this);
-  //   this.resetTime = this.resetTime.bind(this);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = { fill: 0, seconds: 120 };
+    this.startTime = this.startTime.bind(this);
+    this.resetTime = this.resetTime.bind(this);
+  }
 
-  // startTime = () => {
-  //   time = setInterval(() => {
-  //     if (this.state.seconds > 0)
-  //       this.setState({
-  //         fill: this.state.fill + 100 / 120,
-  //         seconds: this.state.seconds - 1
-  //       });
-  //   }, 1000);
-  // };
+  startTime = () => {
+    time = setInterval(() => {
+      if (this.state.seconds > 0)
+        this.setState({
+          fill: this.state.fill + 100 / 120,
+          seconds: this.state.seconds - 1
+        });
+    }, 1000);
+  };
 
-  // resetTime = () => {
-  //   clearTimeout(time);
-  //   this.setState({
-  //     fill: 0,
-  //     seconds: 120
-  //   });
-  // };
+  resetTime = () => {
+    clearTimeout(time);
+    this.setState({
+      fill: 0,
+      seconds: 120
+    });
+  };
 
-  // componentDidMount() {
-  //   this.focusListener = this.props.navigation.addListener(
-  //     "didFocus",
-  //     this.startTime
-  //   );
-  //   this.blurListener = this.props.navigation.addListener(
-  //     "didBlur",
-  //     this.resetTime
-  //   );
-  // }
+  componentDidMount() {
+    // this.focusListener = this.props.navigation.addListener(
+    //   "didFocus",
+    this.startTime();
+    // );
+    // this.blurListener = this.props.navigation.addListener(
+    //   "didBlur",
+    // this.resetTime
+    // );
+  }
 
-  // componentWillUnmount() {
-  //   clearTimeout(time);
-  //   this.focusListener.remove();
-  //   this.blurListener.remove();
-  // }
+  componentWillUnmount() {
+    this.resetTime();
+    // clearTimeout(time);
+    // this.focusListener.remove();
+    // this.blurListener.remove();
+  }
 
   render() {
     // const { goBack } = this.props.navigation;
@@ -84,16 +85,24 @@ export default class AcceptPopup extends React.Component {
           </TouchableOpacity>
           {/* <View style={{ flex: 1 }} /> */}
         </Block>
-        <Block middle style={{ marginTop: 45 }}>
-          {/* <AnimatedCircularProgress
+        <Block
+          middle
+          style={
+            {
+              // marginTop: 45
+            }
+          }
+        >
+          <AnimatedCircularProgress
             size={80}
             width={10}
             fill={this.state.fill}
             tintColor="#c9bfbf"
             backgroundColor="#5E72E4"
+            style={{ marginBottom: 15 }}
           >
             {() => <Text>{this.state.seconds}</Text>}
-          </AnimatedCircularProgress> */}
+          </AnimatedCircularProgress>
           <TouchableOpacity
             onPress={() => {
               this.props.editList(order, id);

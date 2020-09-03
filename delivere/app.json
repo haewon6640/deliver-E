@@ -3,7 +3,6 @@
     "name": "Deliver-E",
     "slug": "deliver-e",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
     "platforms": [
       "ios",
       "android"

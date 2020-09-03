@@ -42,7 +42,7 @@ class RunSign extends React.Component {
       .catch(
         function(error) {
           // alert(error.code);
-          alert(error.message);
+          // alert(error.message);
           // ...
         }.bind(this)
       );

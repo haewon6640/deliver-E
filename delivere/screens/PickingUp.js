@@ -85,11 +85,11 @@ export default class PickingUp extends React.Component {
   openMap = () => {
     if ((Platform.OS = "ios")) {
       let result = Linking.openURL(
-        "http://maps.apple.com/maps?daddr=33.791025,, -84.325908"
+        "http://maps.apple.com/maps?daddr=33.791025, -84.325908"
       );
     } else {
       let result = Linking.openURL(
-        "http://maps.google.com/maps?daddr=33.791025,, -84.325908"
+        "http://maps.google.com/maps?daddr=33.791025, -84.325908"
       );
     }
   };
@@ -354,6 +354,37 @@ export default class PickingUp extends React.Component {
             />
             <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
               Orders
+            </Text>
+          </Block>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ position: "absolute", left: 15, top: 4 }}
+          onPress={() => {
+            this.props.navigation.navigate("RunHome", {
+              navIndex: 0,
+              id: id,
+              ident: 1
+            });
+          }}
+        >
+          <Block
+            middle
+            style={{
+              shadowColor: "black",
+              shadowOffset: { width: 0, height: 2 },
+              shadowRadius: 4,
+              shadowOpacity: 0.1,
+              elevation: 2,
+              borderRadius: 10,
+              height: 85,
+              aspectRatio: 0.8,
+              backgroundColor: "white"
+            }}
+          >
+            <Icon name="home" family="Entypo" size={50} color="#5E72E4" />
+            <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
+              Home
             </Text>
           </Block>
         </TouchableOpacity>

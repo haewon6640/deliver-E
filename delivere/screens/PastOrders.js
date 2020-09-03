@@ -144,7 +144,13 @@ export default class PastOrders extends React.Component {
                 fontWeight: "bold"
               }}
             >
-              ${order.subtotal + order.tax + order.deliveryFee + order.tip}
+              $
+              {(
+                order.subtotal +
+                order.tax +
+                order.deliveryFee +
+                order.tip
+              ).toFixed(2)}
             </Text>
           </Block>
         </View>

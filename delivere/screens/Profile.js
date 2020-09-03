@@ -18,6 +18,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import firebase from "../components/firebase";
 import Eater from "../backend/Eater";
+import Runner from "../backend/Runner";
 // let user;
 
 import "@firebase/firestore";
@@ -51,12 +52,13 @@ export default class Profile extends React.Component {
         function() {
           // Sign-out successful.
           this.props.navigation.navigate("Intro");
+          alert("Successfully signed out");
         }.bind(this)
       )
       .catch(
         function(error) {
           // An error happened.
-          alert(error.message);
+          // alert(error.message);
         }.bind(this)
       );
   };
@@ -91,7 +93,7 @@ export default class Profile extends React.Component {
       function(user) {
         if (user) {
           var userRef = db
-            .collection("Eater")
+            .collection("Runner")
             .doc(user.email)
             .get();
 
@@ -111,7 +113,7 @@ export default class Profile extends React.Component {
             }.bind(this)
           );
         } else {
-          alert("You are not signed in.");
+          // alert("You are not signed in.");
           // No user is signed in.
           return;
         }
@@ -146,13 +148,13 @@ export default class Profile extends React.Component {
 
     const imageRef = firebase
       .storage()
-      .ref("Eater")
+      .ref("Runner")
       .child(email);
     await imageRef.put(blob).then(function() {
       imageRef
         .getDownloadURL()
         .then(function(downloadURL) {
-          db.collection("Eater")
+          db.collection("Runner")
             .doc(email)
             .update({ profileImage: downloadURL })
             .catch(error => alert(JSON.stringify(error)));

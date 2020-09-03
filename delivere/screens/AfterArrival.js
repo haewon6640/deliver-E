@@ -51,7 +51,7 @@ export default class AfterArrival extends React.Component {
     if (totalCount == 1) itm = "item";
 
     const DATA = [
-      { text1: "Pickup By", text2: "8:34PM", text3: "", key: "1" },
+      { text1: "Pickup By", text2: "2:23PM", text3: "", key: "1" },
       { text1: "Customer", text2: eater.name, text3: "", key: "2" },
       {
         text1: "Order Details",
@@ -63,7 +63,7 @@ export default class AfterArrival extends React.Component {
           " Tax: $" +
           order.tax +
           "\n" +
-          " Total: $ " +
+          " Total: $" +
           total,
         key: "3"
       }
@@ -164,6 +164,36 @@ export default class AfterArrival extends React.Component {
             />
             <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
               Orders
+            </Text>
+          </Block>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{ position: "absolute", right: 100, top: 4 }}
+          onPress={() => {
+            this.props.navigation.navigate("RunHome", {
+              navIndex: 0,
+              id: id,
+              ident: 1
+            });
+          }}
+        >
+          <Block
+            middle
+            style={{
+              shadowColor: "black",
+              shadowOffset: { width: 0, height: 2 },
+              shadowRadius: 4,
+              shadowOpacity: 0.1,
+              elevation: 2,
+              borderRadius: 10,
+              height: 85,
+              aspectRatio: 0.8,
+              backgroundColor: "white"
+            }}
+          >
+            <Icon name="home" family="Entypo" size={50} color="#5E72E4" />
+            <Text style={[style.text, { paddingLeft: 0, fontSize: 14 }]}>
+              Home
             </Text>
           </Block>
         </TouchableOpacity>
